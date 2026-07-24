@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 // Sets the theme before paint to avoid a flash of the wrong theme.
-const themeInit = `(function(){try{var t=localStorage.getItem('eture-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+const themeInit = `(function(){try{var t=localStorage.getItem('eture-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
 
 export default function RootLayout({
   children,

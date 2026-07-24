@@ -1,10 +1,8 @@
 // Non-destructive university normalization (framework cap. 16).
-// Raw values in the data are messy: abbreviations (FPU, OSU), case variants
-// (Bryant / BRYANT / Bryant University) and combined transfers ("OSU, UNCG").
-// canonicalizeUniversity() splits combined entries and maps each part to a
-// canonical display name. The ALIASES map is easy to extend as the audit grows.
+// Handles abbreviations (FPU, OSU), case/typo variants and combined transfers
+// ("OSU, UNCG"), while preserving full canonical names that legitimately contain
+// commas ("University of California, Berkeley") and stripping trailing "(ABBR)".
 
-// Tokens that are NOT universities (divisions / associations / placeholders).
 const DROP = new Set([
   "SIN CONFIRMAR",
   "NAIA",
@@ -22,7 +20,7 @@ const DROP = new Set([
   "TBD",
 ]);
 
-// key (UPPER, no dots) -> canonical display name
+// key (UPPER, no dots, no trailing parenthetical, ' apostrophes) -> canonical name
 const ALIASES: Record<string, string> = {
   FPU: "Franklin Pierce University",
   "FRANKLIN PIERCE": "Franklin Pierce University",
@@ -33,17 +31,17 @@ const ALIASES: Record<string, string> = {
   NJIT: "New Jersey Institute of Technology",
   PC: "Providence College",
   PROVIDENCE: "Providence College",
+  "PROVIDENCE UNIVERSITY": "Providence College",
   SHU: "Sacred Heart University",
   "SACRED HEART": "Sacred Heart University",
   "ST LEO": "Saint Leo University",
   "SAINT LEO": "Saint Leo University",
-  "STLEO": "Saint Leo University",
-  "ST. LEO": "Saint Leo University",
   WVU: "West Virginia University",
   "WEST VIRGINIA": "West Virginia University",
   UCWV: "University of Charleston (WV)",
   "UC WV": "University of Charleston (WV)",
   "UC CHARLESTON": "University of Charleston (WV)",
+  "UNIVERSITY OF CHARLESTON WEST VIRGINIA": "University of Charleston (WV)",
   UCA: "University of Central Arkansas",
   "CENTRAL ARKANSAS": "University of Central Arkansas",
   CBU: "California Baptist University",
@@ -60,13 +58,16 @@ const ALIASES: Record<string, string> = {
   UCF: "University of Central Florida",
   FIU: "Florida International University",
   FGCU: "Florida Gulf Coast University",
+  "FLORIDA GULF COAST": "Florida Gulf Coast University",
   "FLORIDA TECH": "Florida Institute of Technology",
   UCLA: "UCLA",
   "NC STATE": "North Carolina State University",
   "NC STATE UNIVERSITY": "North Carolina State University",
   "MISSOURI ST": "Missouri State University",
   "MISSOURI STATE": "Missouri State University",
+  MSU: "Missouri State University",
   UMKC: "University of Missouri–Kansas City",
+  "UNIVERSITY OF MISSOURI KANSAS CITY": "University of Missouri–Kansas City",
   UMBC: "University of Maryland, Baltimore County",
   UNCG: "University of North Carolina Greensboro",
   UNC: "University of North Carolina at Chapel Hill",
@@ -76,14 +77,16 @@ const ALIASES: Record<string, string> = {
   "RHODE ISLAND": "University of Rhode Island",
   USF: "University of San Francisco",
   UVM: "University of Vermont",
+  VERMONT: "University of Vermont",
   "VERMONT UNIVERSITY": "University of Vermont",
   UVU: "Utah Valley University",
   "UTAH VALLEY": "Utah Valley University",
   UIC: "University of Illinois Chicago",
   "LOYOLA CHICAGO": "Loyola University Chicago",
   "LOYOLA MARYMOUNT": "Loyola Marymount University",
+  "UNIVERSIDAD LOYOLA MARYMOUNT": "Loyola Marymount University",
   LMU: "Loyola Marymount University",
-  "SDSU": "San Diego State University",
+  SDSU: "San Diego State University",
   "SAN DIEGO STATE": "San Diego State University",
   TU: "University of Tulsa",
   TULSA: "University of Tulsa",
@@ -98,6 +101,7 @@ const ALIASES: Record<string, string> = {
   "CENTRAL CONNECTICUT": "Central Connecticut State University",
   "SOUTHERN CT STATE UNIVERSITY": "Southern Connecticut State University",
   LIPSCOMB: "Lipscomb University",
+  LISPSCOMB: "Lipscomb University",
   LONGWOOD: "Longwood University",
   "FRANCIS MARION": "Francis Marion University",
   "MISSISIPI COLLEGE": "Mississippi College",
@@ -113,7 +117,6 @@ const ALIASES: Record<string, string> = {
   KENTUCKY: "University of Kentucky",
   LOUSVILLE: "University of Louisville",
   LOUISVILLE: "University of Louisville",
-  "ST. THOMAS": "University of St. Thomas",
   "ST THOMAS": "University of St. Thomas",
   "SAINT JOHNS": "Saint John's University",
   "AIR FORCE": "United States Air Force Academy",
@@ -126,16 +129,12 @@ const ALIASES: Record<string, string> = {
   "CAL ST": "California State University",
   "CAL BERKLEY": "University of California, Berkeley",
   "CAL BERKELEY": "University of California, Berkeley",
-  // --- refinements (real variants found in the data) ---
-  MSU: "Missouri State University",
-  "MISSISSIPPI ST": "Mississippi State University",
   JMU: "James Madison University",
   NSU: "Nova Southeastern University",
   BU: "Boston University",
   GSU: "Georgia State University",
   UNF: "University of North Florida",
   "NORTH FLORIDA": "University of North Florida",
-  UMASS: "University of Massachusetts",
   "GEORGE MASON": "George Mason University",
   MEMPHIS: "University of Memphis",
   MILLIGAN: "Milligan University",
@@ -156,24 +155,66 @@ const ALIASES: Record<string, string> = {
   FREED: "Freed-Hardeman University",
   SIENNA: "Siena College",
   SIENA: "Siena College",
-  "FLORIDA GULF COAST": "Florida Gulf Coast University",
   DOMINICAN: "Dominican University",
   SALEM: "Salem University",
-  "SALEM UNIVERSITY": "Salem University",
   ICC: "Illinois Central College",
   PITT: "University of Pittsburgh",
+  PITTSBURGH: "University of Pittsburgh",
+  "PITTSBURGH UNIVERSITY": "University of Pittsburgh",
   UWV: "University of Charleston (WV)",
   UP: "University of Portland",
   EIU: "Eastern Illinois University",
   STETSON: "Stetson University",
   LYNN: "Lynn University",
+  // Showcase-specific variants
+  ADELPHI: "Adelphi University",
+  "COASTAL CAROLINA": "Coastal Carolina University",
+  NORTHWESTERN: "Northwestern University",
+  TEMPLE: "Temple University",
+  QUINNIPIAC: "Quinnipiac University",
+  FARIFIELD: "Fairfield University",
+  FAIRFIELD: "Fairfield University",
+  LIMENSTONE: "Limestone University",
+  LIMESTONE: "Limestone University",
+  "EASTERN FLORIDA": "Eastern Florida State College",
+  "DAVIS AND ELKINS": "Davis & Elkins College",
+  "DE PAUL UNIVERSITY": "DePaul University",
+  "WILLIAM PENN": "William Penn University",
+  "ADAMS STATE": "Adams State University",
+  "BOWLING GREEN UNIVERSITY": "Bowling Green State University",
+  "ROGER STATE UNIVERSITY": "Rogers State University",
+  "CONCORDIA UNIVERSITY OF IRVINE": "Concordia University Irvine",
+  "SAINT MICHAELS": "Saint Michael's College",
+  "SAINT MICHAEL'S": "Saint Michael's College",
+  "ST MICHAELS": "Saint Michael's College",
+  "ST MICHAEL'S": "Saint Michael's College",
+  "SAINT MICHAELS COLLEGE": "Saint Michael's College",
+  "SAINT MICHAEL'S COLLEGE": "Saint Michael's College",
+  "CALIFORNIA STATE FULLERTON": "California State University, Fullerton",
+  "CAL STATE FULLERTON": "California State University, Fullerton",
+  "CAL STATE BAKERSFIELD ROADRUNNERS": "California State University, Bakersfield",
+  "UC RIVERSIDE": "University of California, Riverside",
+  "ST MARY'S": "St. Mary's University (TX)",
+  "ST MARYS": "St. Mary's University (TX)",
 };
 
+function fixApos(s: string): string {
+  return s.replace(/[´`’]/g, "'");
+}
+function stripParenthetical(s: string): string {
+  return s.replace(/\s*\([^)]*\)\s*$/, "").trim();
+}
+
+function keyOf(seg: string): string {
+  return stripParenthetical(fixApos(seg))
+    .toUpperCase()
+    .replace(/\./g, "")
+    .replace(/\s+/g, " ")
+    .replace(/^[^A-Z0-9']+|[^A-Z0-9']+$/g, "")
+    .trim();
+}
+
 function titleize(s: string): string {
-  // If it already has lowercase letters, assume it's a proper name; keep as-is.
-  if (/[a-z]/.test(s)) return s;
-  // Short single-word ALL-CAPS token → keep as an abbreviation (e.g. MSU, GSU).
-  if (!s.includes(" ") && s.replace(/[^A-Z0-9]/g, "").length <= 4) return s.trim();
   return s
     .toLowerCase()
     .split(" ")
@@ -181,32 +222,49 @@ function titleize(s: string): string {
     .join(" ");
 }
 
-function cleanKey(p: string): string {
-  return p
-    .toUpperCase()
-    .replace(/\./g, "")
+function displayOf(seg: string): string {
+  let d = stripParenthetical(fixApos(seg))
+    .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "")
     .replace(/\s+/g, " ")
-    .replace(/^[^A-Z0-9]+|[^A-Z0-9]+$/g, "")
     .trim();
+  if (/[a-z]/.test(d)) return d; // already a proper name
+  if (!d.includes(" ") && d.replace(/[^A-Za-z0-9]/g, "").length <= 4) return d; // abbreviation
+  return titleize(d);
+}
+
+function splitCombined(raw: string): string[] {
+  const segs = fixApos(raw).split(/\s*\/\s*|\s+-\s+/);
+  const out: string[] = [];
+  for (const seg of segs) {
+    if (seg.includes(",")) {
+      const parts = seg.split(",").map((s) => s.trim()).filter(Boolean);
+      // Only split on comma when every part is an all-caps abbreviation (e.g.
+      // "OSU, UNCG") — never for full names like "University of California, Berkeley".
+      const allCaps = parts.length > 1 && parts.every((p) => !/[a-z]/.test(p));
+      if (allCaps) out.push(...parts);
+      else out.push(seg);
+    } else out.push(seg);
+  }
+  return out.map((s) => s.trim()).filter(Boolean);
 }
 
 export function canonicalizeUniversity(raw: string | null | undefined): string[] {
   if (!raw) return [];
-  const parts = raw
-    .split(/[,/]|\s-\s/)
-    .map((s) => s.trim())
-    .filter(Boolean);
   const out: string[] = [];
-  for (const p of parts) {
-    const key = cleanKey(p);
-    if (!key || DROP.has(key)) continue;
-    const mapped = ALIASES[key];
-    out.push(mapped ?? titleize(p.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "").trim()));
+  for (const seg of splitCombined(raw)) {
+    const k = keyOf(seg);
+    if (!k || DROP.has(k)) continue;
+    out.push(ALIASES[k] ?? displayOf(seg));
   }
-  return out;
+  return [...new Set(out)];
 }
 
-// Canonical key for de-duplicating counts.
+// Single canonical name (first match) — handy when a value is one institution.
+export function canonicalOne(raw: string | null | undefined): string {
+  const c = canonicalizeUniversity(raw);
+  return c[0] ?? (raw ?? "").trim();
+}
+
 export function uniKey(name: string): string {
   return name.trim().toLowerCase();
 }
