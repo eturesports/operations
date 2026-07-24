@@ -15,38 +15,40 @@
 :root,
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ink-950: 12 10 9;
-  --ink-900: 20 16 16;
-  --ink-800: 27 22 19;
-  --ink-700: 36 28 25;
-  --ink-600: 58 46 41;
-  --fg: 244 241 238;
-  --muted: 168 158 150;
+  --ink-950: 14 14 16;
+  --ink-900: 22 22 25;
+  --ink-800: 28 28 32;
+  --ink-700: 38 38 43;
+  --ink-600: 60 60 66;
+  --fg: 245 245 247;
+  --muted: 160 160 168;
   /* Liquid Glass */
-  --glass-bg: 20 16 14;
-  --glass-alpha: 0.42;
+  --glass-bg: 30 30 34;
+  --glass-alpha: 0.5;
   --glass-border: 255 255 255;
-  --glass-border-alpha: 0.14;
-  --page-grad-1: rgba(196, 43, 43, 0.16);
-  --page-grad-2: rgba(201, 162, 39, 0.07);
+  --glass-border-alpha: 0.1;
+  --glass-hi: 0.08;
+  --page-grad-1: rgba(196, 43, 43, 0.1);
+  --page-grad-2: rgba(120, 130, 150, 0.06);
   --font-display: "NeuePower", "Poppins", sans-serif;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --ink-950: 240 237 232; /* page background (paper) */
+  --ink-950: 244 244 246; /* page background — neutral off-white */
   --ink-900: 255 255 255;
-  --ink-800: 250 248 245;
-  --ink-700: 238 233 227;
-  --ink-600: 214 206 198;
-  --fg: 26 20 18;
-  --muted: 96 86 80;
+  --ink-800: 250 250 252;
+  --ink-700: 242 242 245;
+  --ink-600: 224 224 228; /* hairline borders */
+  --fg: 24 24 27;
+  --muted: 113 113 122;
   --glass-bg: 255 255 255;
-  --glass-alpha: 0.6;
+  --glass-alpha: 0.7;
   --glass-border: 0 0 0;
-  --glass-border-alpha: 0.08;
-  --page-grad-1: rgba(196, 43, 43, 0.1);
-  --page-grad-2: rgba(201, 162, 39, 0.1);
+  --glass-border-alpha: 0.06;
+  --glass-hi: 0.6;
+  --page-grad-1: rgba(196, 43, 43, 0.05);
+  --page-grad-2: rgba(120, 130, 150, 0.05);
 }
 
 html,
@@ -57,15 +59,17 @@ body {
 
 body {
   min-height: 100vh;
+  /* Very faint, calm wash — minimalist */
   background-image: radial-gradient(
-      1100px 560px at 82% -12%,
+      1200px 620px at 92% -18%,
       var(--page-grad-1),
-      transparent 60%
+      transparent 62%
     ),
-    radial-gradient(820px 480px at -12% 112%, var(--page-grad-2), transparent 60%);
+    radial-gradient(900px 520px at -12% 116%, var(--page-grad-2), transparent 62%);
   background-attachment: fixed;
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Discreet scrollbars */
@@ -91,14 +95,16 @@ body {
 }
 
 @layer components {
-  /* Liquid Glass surface */
+  /* Minimalist Liquid Glass surface (Apple-style): translucent, hairline border,
+     soft layered shadow, neutral (low-saturation) blur. */
   .glass {
     background: rgb(var(--glass-bg) / var(--glass-alpha));
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(135%);
+    backdrop-filter: blur(24px) saturate(135%);
     border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28),
-      inset 0 1px 0 rgb(255 255 255 / 0.14);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04),
+      0 12px 32px -14px rgb(0 0 0 / 0.2),
+      inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
   }
   .card {
     @apply glass rounded-2xl;
@@ -109,42 +115,41 @@ body {
   }
   .btn-primary {
     @apply btn text-white;
-    background: linear-gradient(180deg, #c42b2b, #9b1a1a);
-    box-shadow: 0 2px 16px rgba(196, 43, 43, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    background: #c42b2b;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), inset 0 1px 0 rgb(255 255 255 / 0.16);
   }
   .btn-primary:hover {
-    background: linear-gradient(180deg, #e0433f, #b31e1e);
+    background: #b31e1e;
   }
   .btn-ghost {
     @apply btn text-fg;
-    background: rgb(var(--glass-bg) / 0.28);
-    border: 1px solid rgb(var(--glass-border) / 0.16);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    background: rgb(var(--glass-bg) / 0.5);
+    border: 1px solid rgb(var(--glass-border) / 0.1);
+    -webkit-backdrop-filter: blur(16px) saturate(135%);
+    backdrop-filter: blur(16px) saturate(135%);
   }
   .btn-ghost:hover {
-    background: rgb(var(--glass-bg) / 0.5);
+    background: rgb(var(--glass-bg) / 0.72);
   }
   .btn-danger {
     @apply btn text-brand;
-    border: 1px solid rgb(196 43 43 / 0.4);
+    border: 1px solid rgb(196 43 43 / 0.35);
   }
   .btn-danger:hover {
-    background: rgb(196 43 43 / 0.12);
+    background: rgb(196 43 43 / 0.1);
   }
 
   .input {
-    @apply w-full rounded-xl px-3 py-2.5 text-sm text-fg outline-none transition-colors;
-    background: rgb(var(--ink-950) / 0.55);
-    border: 1px solid rgb(var(--glass-border) / 0.16);
+    @apply w-full rounded-xl px-3 py-2.5 text-sm text-fg outline-none transition-all;
+    background: rgb(var(--glass-bg) / 0.55);
+    border: 1px solid rgb(var(--glass-border) / 0.12);
   }
   .input::placeholder {
     color: rgb(var(--muted) / 0.7);
   }
   .input:focus {
-    border-color: #c42b2b;
-    box-shadow: 0 0 0 3px rgba(196, 43, 43, 0.18);
+    border-color: rgb(196 43 43 / 0.5);
+    box-shadow: 0 0 0 3px rgb(196 43 43 / 0.12);
   }
 
   .label {
