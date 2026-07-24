@@ -1,0 +1,57 @@
+// Validación/normalización mínima del payload de jugador (sin dependencias externas).
+
+export type PlayerInput = {
+  sportId: string;
+  name: string;
+  university?: string | null;
+  season?: string | null;
+  division?: string | null;
+  program?: string | null;
+  scholarship?: number | null;
+  notes?: string | null;
+  legacyNumber?: number | null;
+  active?: boolean;
+};
+
+function str(v: unknown): string | null {
+  if (v == null) return null;
+  const s = String(v).trim();
+  return s === "" ? null : s;
+}
+
+function intOrNull(v: unknown): number | null {
+  if (v == null || v === "") return null;
+  // Acepta "120000", "$120.000", "120,000"
+  const cleaned = String(v).replace(/[^0-9-]/g, "");
+  if (cleaned === "") return null;
+  const n = parseInt(cleaned, 10);
+  return Number.isNaN(n) ? null : n;
+}
+
+export function parsePlayerInput(
+  body: Record<string, unknown>,
+  { partial = false }: { partial?: boolean } = {}
+): { data?: Partial<PlayerInput>; error?: string } {
+  const data: Partial<PlayerInput> = {};
+
+  if (!partial || "sportId" in body) {
+    const sportId = str(body.sportId);
+    if (!sportId) return { error: "Falta el deporte (sportId)." };
+    data.sportId = sportId;
+  }
+  if (!partial || "name" in body) {
+    const name = str(body.name);
+    if (!name) return { error: "El nombre es obligatorio." };
+    data.name = name;
+  }
+  if ("university" in body) data.university = str(body.university);
+  if ("season" in body) data.season = str(body.season);
+  if ("division" in body) data.division = str(body.division);
+  if ("program" in body) data.program = str(body.program);
+  if ("scholarship" in body) data.scholarship = intOrNull(body.scholarship);
+  if ("legacyNumber" in body) data.legacyNumber = intOrNull(body.legacyNumber);
+  if ("notes" in body) data.notes = str(body.notes);
+  if ("active" in body) data.active = Boolean(body.active);
+
+  return { data };
+}

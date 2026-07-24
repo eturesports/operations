@@ -1,0 +1,115 @@
+// ETURE Sports Database — Prisma schema
+// Base de datos: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─────────────────────────────────────────────
+//  Auth.js (NextAuth) — modelos estándar
+// ─────────────────────────────────────────────
+
+enum Role {
+  ADMIN // gestiona usuarios y permisos, y todo lo demás
+  EDITOR // puede crear/editar/borrar jugadores
+  VIEWER // solo lectura
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(VIEWER)
+  active        Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts       Account[]
+  sessions       Session[]
+  createdPlayers Player[]  @relation("PlayerCreatedBy")
+  updatedPlayers Player[]  @relation("PlayerUpdatedBy")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─────────────────────────────────────────────
+//  Dominio: deportes y jugadores
+// ─────────────────────────────────────────────
+
+model Sport {
+  id        String   @id @default(cuid())
+  code      String   @unique // MSOC, WSOC…
+  name      String // Fútbol masculino, Fútbol femenino…
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  players Player[]
+}
+
+model Player {
+  id           String   @id @default(cuid())
+  sportId      String
+  sport        Sport    @relation(fields: [sportId], references: [id], onDelete: Restrict)
+  name         String
+  university   String?
+  season       String? // temporada, ej. "24/25"
+  division     String? // Division I/II/III, JUCO, NAIA III, MLS NEXT PRO…
+  program      String? // "Becas EEUU", "Gap Year / Eture FC"…
+  scholarship  Int? // beca total en USD
+  notes        String?  @db.Text
+  legacyNumber Int? // número original (#) en el Excel
+  active       Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdById String?
+  createdBy   User?    @relation("PlayerCreatedBy", fields: [createdById], references: [id])
+  updatedById String?
+  updatedBy   User?    @relation("PlayerUpdatedBy", fields: [updatedById], references: [id])
+
+  @@index([sportId])
+  @@index([season])
+  @@index([division])
+  @@index([program])
+}

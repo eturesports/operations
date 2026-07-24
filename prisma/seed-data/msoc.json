@@ -1,0 +1,7042 @@
+[
+ {
+  "name": "BELLIDO",
+  "university": "TYLER",
+  "season": "16/17",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 15000,
+  "legacyNumber": 1,
+  "notes": null
+ },
+ {
+  "name": "VICENTE TICO",
+  "university": "NAIA",
+  "season": "16/17",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 2,
+  "notes": null
+ },
+ {
+  "name": "VICTOR PUJADES",
+  "university": "NJIT",
+  "season": "16/17",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 3,
+  "notes": null
+ },
+ {
+  "name": "MIGUEL ANTON",
+  "university": "CHARLOTTE",
+  "season": "17/18",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 4,
+  "notes": null
+ },
+ {
+  "name": "ABASO",
+  "university": "UCA",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 5,
+  "notes": null
+ },
+ {
+  "name": "ADRIAN CRESPO",
+  "university": "OSU",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 6,
+  "notes": null
+ },
+ {
+  "name": "ALEJANDRO MAILLET",
+  "university": "KANSAS CITY K",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 7,
+  "notes": null
+ },
+ {
+  "name": "Arrio Rusnak",
+  "university": "NJIT",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 8,
+  "notes": null
+ },
+ {
+  "name": "CARLOS MOLINER",
+  "university": "OSU",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 9,
+  "notes": null
+ },
+ {
+  "name": "ESCUIN",
+  "university": "CAL BAPTIST",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 10,
+  "notes": null
+ },
+ {
+  "name": "HECTOR VALLES",
+  "university": "MACU",
+  "season": "18/19",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 11,
+  "notes": null
+ },
+ {
+  "name": "JAVIER ANTON",
+  "university": "NJIT",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 12,
+  "notes": null
+ },
+ {
+  "name": "JAVIER GONZALEZ",
+  "university": "UC CHARLESTON",
+  "season": "18/19",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 45000,
+  "legacyNumber": 13,
+  "notes": null
+ },
+ {
+  "name": "JORDI RAMON",
+  "university": "LYNN - UC WV",
+  "season": "18/19",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 14,
+  "notes": null
+ },
+ {
+  "name": "JORGE MONFERRER",
+  "university": "KANSAS CITY K",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 15,
+  "notes": null
+ },
+ {
+  "name": "Kevin Lee",
+  "university": "San Francisco",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 16,
+  "notes": null
+ },
+ {
+  "name": "LURBE",
+  "university": "NEO, EIU",
+  "season": "18/19",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 17,
+  "notes": null
+ },
+ {
+  "name": "MARC TIRADO",
+  "university": "TYLER",
+  "season": "18/19",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 18,
+  "notes": null
+ },
+ {
+  "name": "NACHO SARASOL",
+  "university": "MILLIGAN, BSGU",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 19,
+  "notes": null
+ },
+ {
+  "name": "PEDRA",
+  "university": "OSU, UNCG",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 20,
+  "notes": null
+ },
+ {
+  "name": "PEPE GARCIA",
+  "university": "NC STATE",
+  "season": "18/19",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 21,
+  "notes": null
+ },
+ {
+  "name": "ROBERTO FDZ",
+  "university": "MILLIGAN, BSGU",
+  "season": "18/19",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 22,
+  "notes": null
+ },
+ {
+  "name": "UNANUA",
+  "university": "CAL ST, UC WV",
+  "season": "18/19",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 23,
+  "notes": null
+ },
+ {
+  "name": "ALEJANDRO SALT",
+  "university": "OREGON ST",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 24,
+  "notes": null
+ },
+ {
+  "name": "ALEX CUENCUA",
+  "university": "BU",
+  "season": "19/20",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 25,
+  "notes": null
+ },
+ {
+  "name": "ALEX FRANCES",
+  "university": "MILLIGAN, NEO",
+  "season": "19/20",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 26,
+  "notes": null
+ },
+ {
+  "name": "Alex Popa",
+  "university": "Purdue University",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 27,
+  "notes": null
+ },
+ {
+  "name": "ALVARO GOMEZ",
+  "university": "CLEMSON",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 28,
+  "notes": null
+ },
+ {
+  "name": "ANOTNIO SANTOS",
+  "university": "FPU",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 29,
+  "notes": null
+ },
+ {
+  "name": "Cameron Zamudio",
+  "university": "Presbyterian",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 30,
+  "notes": null
+ },
+ {
+  "name": "CARLOS FERRANDO",
+  "university": "FPU",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 31,
+  "notes": null
+ },
+ {
+  "name": "CARRA",
+  "university": "FPU",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 32,
+  "notes": null
+ },
+ {
+  "name": "CESAR SANCHO",
+  "university": "PRESBYTERIAN",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 33,
+  "notes": null
+ },
+ {
+  "name": "CRISTOBAL",
+  "university": "FPU",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 34,
+  "notes": null
+ },
+ {
+  "name": "EDUARDO IRANZO",
+  "university": "UCWV",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 35,
+  "notes": null
+ },
+ {
+  "name": "EDUARDO RODRIGUEZ",
+  "university": "CAMPBELL",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 36,
+  "notes": null
+ },
+ {
+  "name": "ENRIC MIQUEL",
+  "university": "LAWRENCE TECH",
+  "season": "19/20",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 37,
+  "notes": null
+ },
+ {
+  "name": "Ethan Hackenberg",
+  "university": "Coastal Carolina",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 38,
+  "notes": null
+ },
+ {
+  "name": "Evan Cota",
+  "university": "Franklin Pierce",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 39,
+  "notes": null
+ },
+ {
+  "name": "GUILLEM BADENES",
+  "university": "SANTA CLARA",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 40,
+  "notes": null
+ },
+ {
+  "name": "HALVOR",
+  "university": "JERV",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 41,
+  "notes": null
+ },
+ {
+  "name": "IÑAKI MORENO",
+  "university": "MILLIGAN, BSGU",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 42,
+  "notes": null
+ },
+ {
+  "name": "JESUS C",
+  "university": "UCWV",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 1000000,
+  "legacyNumber": 43,
+  "notes": null
+ },
+ {
+  "name": "JJ",
+  "university": "NJIT",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 44,
+  "notes": null
+ },
+ {
+  "name": "JOSEP SILVESTRE",
+  "university": "FPU",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 45,
+  "notes": null
+ },
+ {
+  "name": "Logan Bonn",
+  "university": "Binghampton",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 46,
+  "notes": null
+ },
+ {
+  "name": "Lucas Contestabile",
+  "university": "Wiscon Green Bay",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 47,
+  "notes": null
+ },
+ {
+  "name": "LUTE",
+  "university": "STETSON, UP",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 48,
+  "notes": null
+ },
+ {
+  "name": "Matt Nielson",
+  "university": "Pacific University",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 49,
+  "notes": null
+ },
+ {
+  "name": "MOHA SEYE",
+  "university": "CLEMSON",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 50,
+  "notes": null
+ },
+ {
+  "name": "NEMESIO",
+  "university": "FPU",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 51,
+  "notes": null
+ },
+ {
+  "name": "PABLO PEDREGOSA",
+  "university": "NC STATE",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 52,
+  "notes": null
+ },
+ {
+  "name": "RODRIGO ROBLES",
+  "university": "WVU",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 53,
+  "notes": null
+ },
+ {
+  "name": "SAMUEL SAIZ",
+  "university": "OREGON ST",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 54,
+  "notes": null
+ },
+ {
+  "name": "SAMUEL VILLALTA",
+  "university": "PACIFIC",
+  "season": "19/20",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 55,
+  "notes": null
+ },
+ {
+  "name": "SERGIO DEL CASTILLO",
+  "university": "GANNON",
+  "season": "19/20",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 56,
+  "notes": null
+ },
+ {
+  "name": "AARON ACEVEDO",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 57,
+  "notes": null
+ },
+ {
+  "name": "AITOR FALAGAN",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 58,
+  "notes": null
+ },
+ {
+  "name": "Alexander Karaja",
+  "university": "FDU",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 59,
+  "notes": null
+ },
+ {
+  "name": "BRYANT J",
+  "university": "WINTRHOP",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 60,
+  "notes": null
+ },
+ {
+  "name": "CARLOS MARCO",
+  "university": "WVU",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 61,
+  "notes": null
+ },
+ {
+  "name": "Colton Madeira",
+  "university": "Providence",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 62,
+  "notes": null
+ },
+ {
+  "name": "DANI GARCIA",
+  "university": "FLORIDA TECH",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 63,
+  "notes": null
+ },
+ {
+  "name": "EDU IRANZO",
+  "university": "UCWV",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 70000,
+  "legacyNumber": 64,
+  "notes": null
+ },
+ {
+  "name": "Elijah Slefei",
+  "university": "Salem University",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 65,
+  "notes": null
+ },
+ {
+  "name": "FELIPE GALVOS",
+  "university": "FLORIDA TECH",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 66,
+  "notes": null
+ },
+ {
+  "name": "FERNANDO ALONSO",
+  "university": "ST LEO",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 45000,
+  "legacyNumber": 67,
+  "notes": null
+ },
+ {
+  "name": "GERARD LOPEZ",
+  "university": "PC",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 68,
+  "notes": null
+ },
+ {
+  "name": "Grant Yeagley",
+  "university": "Indiana",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 69,
+  "notes": null
+ },
+ {
+  "name": "HUGO BACHARACH",
+  "university": "FDU",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 70,
+  "notes": null
+ },
+ {
+  "name": "Isaac Briner",
+  "university": "UNC Greensbhoro",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 71,
+  "notes": null
+ },
+ {
+  "name": "Jack Robertson",
+  "university": "Coastal Carolina",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 72,
+  "notes": null
+ },
+ {
+  "name": "Jack Sinpoli",
+  "university": "UMASS Lowell",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 73,
+  "notes": null
+ },
+ {
+  "name": "Jackson Grant",
+  "university": "Tulsa",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 74,
+  "notes": null
+ },
+ {
+  "name": "JAUME RUBIO",
+  "university": "PC",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 16000,
+  "legacyNumber": 75,
+  "notes": null
+ },
+ {
+  "name": "JAVI GARCIA",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 76,
+  "notes": null
+ },
+ {
+  "name": "JAVIER JOSE IBAÑEZ",
+  "university": "LYNN",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 77,
+  "notes": null
+ },
+ {
+  "name": "JAVIER RENTERO",
+  "university": "PROVIDENCE",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 250000,
+  "legacyNumber": 78,
+  "notes": null
+ },
+ {
+  "name": "JAVIER SANCHEZ",
+  "university": "UCWV",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 79,
+  "notes": null
+ },
+ {
+  "name": "JESUS DE VICNTE",
+  "university": "IOWA WESTERN",
+  "season": "20/21",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 80,
+  "notes": null
+ },
+ {
+  "name": "JONAS",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 81,
+  "notes": null
+ },
+ {
+  "name": "JOSE LADO",
+  "university": "PC",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 82,
+  "notes": null
+ },
+ {
+  "name": "JUAN CARLOS CULERBAS",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 83,
+  "notes": null
+ },
+ {
+  "name": "Lorenzo Nunez",
+  "university": "West Virginia",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 84,
+  "notes": null
+ },
+ {
+  "name": "LUCAS MASTRO",
+  "university": "ST LEO",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 85,
+  "notes": null
+ },
+ {
+  "name": "MANUEL VILLENA",
+  "university": "CAL ST",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 86,
+  "notes": null
+ },
+ {
+  "name": "MARC LOPEZ",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 87,
+  "notes": null
+ },
+ {
+  "name": "MIGUEL CANDELA",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 88,
+  "notes": null
+ },
+ {
+  "name": "MIGUEL PASTO",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 89,
+  "notes": null
+ },
+ {
+  "name": "MIQUEL PASTOR",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 90,
+  "notes": null
+ },
+ {
+  "name": "NACHO GALLEGO",
+  "university": "PC",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 91,
+  "notes": null
+ },
+ {
+  "name": "NACHO SALAS",
+  "university": "MSU",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 92,
+  "notes": null
+ },
+ {
+  "name": "Nick Bruntz",
+  "university": "College of Charleston",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 93,
+  "notes": null
+ },
+ {
+  "name": "Nicolas Karaja",
+  "university": "Franklin Pierce",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 94,
+  "notes": null
+ },
+ {
+  "name": "ODEI ARRIETA",
+  "university": "NOVA",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 95,
+  "notes": null
+ },
+ {
+  "name": "PABLO SANCHEZ",
+  "university": "SALEM UNIVERSITY",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 45000,
+  "legacyNumber": 96,
+  "notes": null
+ },
+ {
+  "name": "PALACIN",
+  "university": "NC STATE",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 97,
+  "notes": null
+ },
+ {
+  "name": "PEDRO JUAN VICENTE",
+  "university": "FPU",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 98,
+  "notes": null
+ },
+ {
+  "name": "Peekay Stoffle",
+  "university": "Barry University",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 99,
+  "notes": null
+ },
+ {
+  "name": "Petro Klisch",
+  "university": "Elon University",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 100,
+  "notes": null
+ },
+ {
+  "name": "POPA",
+  "university": "NJIT",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 101,
+  "notes": null
+ },
+ {
+  "name": "RENTERO ALBERTO",
+  "university": "NOVA",
+  "season": "20/21",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 10000,
+  "legacyNumber": 102,
+  "notes": null
+ },
+ {
+  "name": "SALVA COTAINA",
+  "university": "OCU",
+  "season": "20/21",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 150000,
+  "legacyNumber": 103,
+  "notes": null
+ },
+ {
+  "name": "SERGIO ORS",
+  "university": "UWV",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 104,
+  "notes": null
+ },
+ {
+  "name": "Tanner Johnson",
+  "university": "Pacific",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 105,
+  "notes": null
+ },
+ {
+  "name": "VICTOR CASTEL",
+  "university": "MILLIGAN",
+  "season": "20/21",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 106,
+  "notes": null
+ },
+ {
+  "name": "VORO RIBERA",
+  "university": "PC",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 107,
+  "notes": null
+ },
+ {
+  "name": "Zach Brabham",
+  "university": "Central Arkansas",
+  "season": "20/21",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 108,
+  "notes": null
+ },
+ {
+  "name": "Aidan Cann",
+  "university": "Sacred Heart University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 109,
+  "notes": null
+ },
+ {
+  "name": "ALBERTO HERRANZ",
+  "university": "FDU",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 110,
+  "notes": null
+ },
+ {
+  "name": "ALEX COLOM",
+  "university": "OKLAHOMA CHRISTIAN",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 111,
+  "notes": null
+ },
+ {
+  "name": "ALEX LOPEZ",
+  "university": "TULSA",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 70000,
+  "legacyNumber": 112,
+  "notes": null
+ },
+ {
+  "name": "Anthony Gallo",
+  "university": "NJIT",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 113,
+  "notes": null
+ },
+ {
+  "name": "Anthony Martinez",
+  "university": "Memphis",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 114,
+  "notes": null
+ },
+ {
+  "name": "Anthony Navarra",
+  "university": "SIUE",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 115,
+  "notes": null
+ },
+ {
+  "name": "Barrett Saul",
+  "university": "West Virginia",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 116,
+  "notes": null
+ },
+ {
+  "name": "Carlos Levy",
+  "university": "Elon University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 117,
+  "notes": null
+ },
+ {
+  "name": "Ciaden Chapel",
+  "university": "Sacred Heart University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 118,
+  "notes": null
+ },
+ {
+  "name": "Constanstine Daskalikis",
+  "university": "Molloy",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 119,
+  "notes": null
+ },
+ {
+  "name": "Cullen Freeman",
+  "university": "Metro State",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 120,
+  "notes": null
+ },
+ {
+  "name": "Drew Berry",
+  "university": "Bradley University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 121,
+  "notes": null
+ },
+ {
+  "name": "ERIC PRIMO",
+  "university": "MEMPHIS UNIVERSITY",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 70000,
+  "legacyNumber": 122,
+  "notes": null
+ },
+ {
+  "name": "Erik Holmen",
+  "university": "St. Leo",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 123,
+  "notes": null
+ },
+ {
+  "name": "Esteban Rudloff",
+  "university": "Evansville",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 124,
+  "notes": null
+ },
+ {
+  "name": "ETIENNE MURRUGARREN",
+  "university": "SACRED HEART",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 125,
+  "notes": null
+ },
+ {
+  "name": "Felipe Gnecco",
+  "university": "Junior College",
+  "season": "21/22",
+  "division": "JUCO",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 126,
+  "notes": null
+ },
+ {
+  "name": "FERRAN MACIAN",
+  "university": "NEWBERRY",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 127,
+  "notes": null
+ },
+ {
+  "name": "Gavin Moore",
+  "university": "Gannon University",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 128,
+  "notes": null
+ },
+ {
+  "name": "GERARD HERNANDO",
+  "university": "CAL STATE",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 129,
+  "notes": null
+ },
+ {
+  "name": "Giovanni Polizzi",
+  "university": "Memphis",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 130,
+  "notes": null
+ },
+ {
+  "name": "GUILLEM FRANCÉS",
+  "university": "UMASS LOWELL",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 131,
+  "notes": null
+ },
+ {
+  "name": "Harrison Hew",
+  "university": "Farleigh Dickinson",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 132,
+  "notes": null
+ },
+ {
+  "name": "Isaac Hommer",
+  "university": "Portland Univertisty",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 133,
+  "notes": null
+ },
+ {
+  "name": "Isaiah Esley",
+  "university": "Clemson University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 134,
+  "notes": null
+ },
+ {
+  "name": "IVAN CALLADO",
+  "university": "IOWA WESTERN",
+  "season": "21/22",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 135,
+  "notes": null
+ },
+ {
+  "name": "Jackson Gould",
+  "university": "Stony Brook",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 136,
+  "notes": null
+ },
+ {
+  "name": "Jacob Lepore",
+  "university": "MLS NEXT",
+  "season": "21/22",
+  "division": "MLS NEXT PRO",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 137,
+  "notes": null
+ },
+ {
+  "name": "JAN FORSTERLING",
+  "university": "SAINT THOMAS AQUINAS",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 138,
+  "notes": null
+ },
+ {
+  "name": "JAVIER MARTIN",
+  "university": "OSU",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 70000,
+  "legacyNumber": 139,
+  "notes": null
+ },
+ {
+  "name": "John Hallgren",
+  "university": "St. Peters",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 140,
+  "notes": null
+ },
+ {
+  "name": "Jordan Regis",
+  "university": "Georgia Southern",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 141,
+  "notes": null
+ },
+ {
+  "name": "JORGE ASPAS",
+  "university": "GONZAGA UNIVERSITY",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 150000,
+  "legacyNumber": 142,
+  "notes": null
+ },
+ {
+  "name": "Joshua Spence",
+  "university": "Air Force",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 143,
+  "notes": null
+ },
+ {
+  "name": "JUAN ANTONIO",
+  "university": "WINTHROP",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 144,
+  "notes": null
+ },
+ {
+  "name": "JUAN ANTONIO",
+  "university": "FDU",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 145,
+  "notes": null
+ },
+ {
+  "name": "Kian Jones",
+  "university": "San Francisco",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 146,
+  "notes": null
+ },
+ {
+  "name": "Lucas Costa",
+  "university": "St. Leo",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 147,
+  "notes": null
+ },
+ {
+  "name": "LUIS GARCIA",
+  "university": "PROVIDENCE",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 210000,
+  "legacyNumber": 148,
+  "notes": null
+ },
+ {
+  "name": "MANUEL TOLEDANO",
+  "university": "CREIGHTON UNIVERSITY",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 67000,
+  "legacyNumber": 149,
+  "notes": null
+ },
+ {
+  "name": "MARC TORRADO",
+  "university": "CHARLESTON WV",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 150,
+  "notes": null
+ },
+ {
+  "name": "MARCO VALERO",
+  "university": "FRANKLIN PIERCE",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 151,
+  "notes": null
+ },
+ {
+  "name": "MARCOS VASALLO",
+  "university": "CBU",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 152,
+  "notes": null
+ },
+ {
+  "name": "NARCIS BOU",
+  "university": "MONTEVALLO",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 153,
+  "notes": null
+ },
+ {
+  "name": "Nicholas Rocha",
+  "university": "FDU",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 154,
+  "notes": null
+ },
+ {
+  "name": "NICO BOHIGUES",
+  "university": "LENOIR RHYNE",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 155,
+  "notes": null
+ },
+ {
+  "name": "Oscar Alenda",
+  "university": "Southern Methodist",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 156,
+  "notes": null
+ },
+ {
+  "name": "Owen Siewert",
+  "university": "Xavier University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 157,
+  "notes": null
+ },
+ {
+  "name": "Pablo Andrade",
+  "university": "Creighton University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 158,
+  "notes": null
+ },
+ {
+  "name": "PEPE MELLADO",
+  "university": "BRADLEY UNIVERSITY",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 159,
+  "notes": null
+ },
+ {
+  "name": "Reed Silvester",
+  "university": "Barry University",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 160,
+  "notes": null
+ },
+ {
+  "name": "RICARDO SENEN",
+  "university": "IONA COLLEGE",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 161,
+  "notes": null
+ },
+ {
+  "name": "Riley Liston",
+  "university": "Albany University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 162,
+  "notes": null
+ },
+ {
+  "name": "ROBERTO FERNANDEZ",
+  "university": "BOWLING GREEN ST",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 45000,
+  "legacyNumber": 163,
+  "notes": null
+ },
+ {
+  "name": "RODRIGO ROBLES",
+  "university": "JMU",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 150000,
+  "legacyNumber": 164,
+  "notes": null
+ },
+ {
+  "name": "Santiago Pastor",
+  "university": "Tulsa",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 165,
+  "notes": null
+ },
+ {
+  "name": "Sean Krause",
+  "university": "AIC",
+  "season": "21/22",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 166,
+  "notes": null
+ },
+ {
+  "name": "Shirzaad Ghadially",
+  "university": "Wisconsin Madison",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 167,
+  "notes": null
+ },
+ {
+  "name": "Tyler Reavis",
+  "university": "Fairfield University",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 168,
+  "notes": null
+ },
+ {
+  "name": "Victor Thompson",
+  "university": "Robert Morris",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 169,
+  "notes": null
+ },
+ {
+  "name": "Zachary Renz",
+  "university": "SIUE",
+  "season": "21/22",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 170,
+  "notes": null
+ },
+ {
+  "name": "Abhi Pushban",
+  "university": "Bryant",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 171,
+  "notes": null
+ },
+ {
+  "name": "Adan Maldonado",
+  "university": "St. Leo",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 172,
+  "notes": null
+ },
+ {
+  "name": "ADOLFO",
+  "university": "CBU",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 173,
+  "notes": null
+ },
+ {
+  "name": "Aidan Grubbs",
+  "university": "Air Force Academy",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 174,
+  "notes": null
+ },
+ {
+  "name": "AIMAR",
+  "university": "Otero",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 175,
+  "notes": null
+ },
+ {
+  "name": "Akram Abbas",
+  "university": "Tampa University",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 176,
+  "notes": null
+ },
+ {
+  "name": "ALBERTO CRUZ",
+  "university": "MEMPHIS",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 171000,
+  "legacyNumber": 177,
+  "notes": null
+ },
+ {
+  "name": "ALBERTO SANCHEZ",
+  "university": "Niagara",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 220000,
+  "legacyNumber": 178,
+  "notes": null
+ },
+ {
+  "name": "Alejandro Vento",
+  "university": "FDU",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 179,
+  "notes": null
+ },
+ {
+  "name": "Alex Matin",
+  "university": "Upstate",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 180,
+  "notes": null
+ },
+ {
+  "name": "Alexar Quinn",
+  "university": "Howard University",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 181,
+  "notes": null
+ },
+ {
+  "name": "ALVARO RUEDA",
+  "university": "Marian",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 182,
+  "notes": null
+ },
+ {
+  "name": "Amadis Canizales",
+  "university": "Indiana",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 183,
+  "notes": null
+ },
+ {
+  "name": "Austin Ochande",
+  "university": "Air Force Academy",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 184,
+  "notes": null
+ },
+ {
+  "name": "Benjamin Bern",
+  "university": "Molloy",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 185,
+  "notes": null
+ },
+ {
+  "name": "CACHA",
+  "university": "Gannon",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 186,
+  "notes": null
+ },
+ {
+  "name": "Cade Whitmare",
+  "university": "Bucknell",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 187,
+  "notes": null
+ },
+ {
+  "name": "CARLES DIEZ",
+  "university": "SLCC JUCO",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 188,
+  "notes": null
+ },
+ {
+  "name": "CARLES ZOMEÑO",
+  "university": "SALT LAKE CC",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 189,
+  "notes": null
+ },
+ {
+  "name": "CARLOS ENRIQUE",
+  "university": "ICC - JUCO",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 190,
+  "notes": null
+ },
+ {
+  "name": "CARLOS MUSOLES",
+  "university": "Siena Heights",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 191,
+  "notes": null
+ },
+ {
+  "name": "Christian Marcucci",
+  "university": "Arkansas",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 192,
+  "notes": null
+ },
+ {
+  "name": "Collin Ogrady",
+  "university": "Bryant",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 193,
+  "notes": null
+ },
+ {
+  "name": "Cullen Freeman",
+  "university": "Bryant University",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 194,
+  "notes": null
+ },
+ {
+  "name": "DANI SAGUAR",
+  "university": "William Penn",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 195,
+  "notes": null
+ },
+ {
+  "name": "DAVID MAQUEDA",
+  "university": "Bellevue",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 196,
+  "notes": null
+ },
+ {
+  "name": "DIEGO CASERO",
+  "university": "Oklahoma Christian",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 197,
+  "notes": null
+ },
+ {
+  "name": "DIEGO DOMENECH",
+  "university": "GONZAGA UNIVERSITY",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 280000,
+  "legacyNumber": 198,
+  "notes": null
+ },
+ {
+  "name": "DIEGO REGUEIRA",
+  "university": "Southeastern CC",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 199,
+  "notes": null
+ },
+ {
+  "name": "Diego Ruiz",
+  "university": "Tulsa",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 200,
+  "notes": null
+ },
+ {
+  "name": "Erick Hernandez",
+  "university": "Temple University",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 201,
+  "notes": null
+ },
+ {
+  "name": "Ethan Marks",
+  "university": "Winthrop",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 202,
+  "notes": null
+ },
+ {
+  "name": "Ethan O'Connor",
+  "university": "Stonehill",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 203,
+  "notes": null
+ },
+ {
+  "name": "FAUS",
+  "university": "Iowa Western",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 204,
+  "notes": null
+ },
+ {
+  "name": "Felipe Mateus",
+  "university": "St. Leo",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 205,
+  "notes": null
+ },
+ {
+  "name": "FRAN CORTIJO",
+  "university": "OREGON ST",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 206,
+  "notes": null
+ },
+ {
+  "name": "FRANCO SALA",
+  "university": "Florida tech University",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 66000,
+  "legacyNumber": 207,
+  "notes": null
+ },
+ {
+  "name": "GERARD LIAO",
+  "university": "UNIVERSITY OF THE CUMBERLANDS",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 208,
+  "notes": null
+ },
+ {
+  "name": "GONZALO GIL",
+  "university": "BRADLEY",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 114000,
+  "legacyNumber": 209,
+  "notes": null
+ },
+ {
+  "name": "HECTOR MUÑOZ",
+  "university": "IOWA WESTERN",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 17000,
+  "legacyNumber": 210,
+  "notes": null
+ },
+ {
+  "name": "HUGO BENAVENTE",
+  "university": "HEARTLAND JUCO",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 211,
+  "notes": null
+ },
+ {
+  "name": "IAGO",
+  "university": "SNHU",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 212,
+  "notes": null
+ },
+ {
+  "name": "Ishaan Akhtar",
+  "university": "Farleigh Dickinson",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 213,
+  "notes": null
+ },
+ {
+  "name": "ISMAIL",
+  "university": "USC Greensboro",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 32000,
+  "legacyNumber": 214,
+  "notes": null
+ },
+ {
+  "name": "IU PENTITNAT",
+  "university": "Coastal Carolina",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 35000,
+  "legacyNumber": 215,
+  "notes": null
+ },
+ {
+  "name": "JAIME BARBERO",
+  "university": "FDU",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 216,
+  "notes": null
+ },
+ {
+  "name": "JAIME OLIVA",
+  "university": "Eastern New Mexico",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 217,
+  "notes": null
+ },
+ {
+  "name": "JAVIER MARURI",
+  "university": "FREED",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 218,
+  "notes": null
+ },
+ {
+  "name": "JAVIER RAMIREZ",
+  "university": "Gardner-Webb",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 219,
+  "notes": null
+ },
+ {
+  "name": "JAVIER TORRES",
+  "university": "FPU",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 220,
+  "notes": null
+ },
+ {
+  "name": "JESUS MIRALLES \"XOLO\"",
+  "university": "Otero",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 221,
+  "notes": null
+ },
+ {
+  "name": "JESUS PEREZ",
+  "university": "ICC",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 36000,
+  "legacyNumber": 222,
+  "notes": null
+ },
+ {
+  "name": "JORGE PEREZ",
+  "university": "MARSH HILL",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 223,
+  "notes": null
+ },
+ {
+  "name": "JOSE CARLOS",
+  "university": "LONGWOOD",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 104000,
+  "legacyNumber": 224,
+  "notes": null
+ },
+ {
+  "name": "JOSE MARIANO",
+  "university": "SNHU",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 225,
+  "notes": null
+ },
+ {
+  "name": "JUAN MARTIN",
+  "university": "FDU",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 114000,
+  "legacyNumber": 226,
+  "notes": null
+ },
+ {
+  "name": "Kai Carroll",
+  "university": "Rhode Island",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 227,
+  "notes": null
+ },
+ {
+  "name": "Kellen Adams",
+  "university": "Barry University",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 228,
+  "notes": null
+ },
+ {
+  "name": "Kyle Penders",
+  "university": "Evansville",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 229,
+  "notes": null
+ },
+ {
+  "name": "Landon Freeman",
+  "university": "Bryant",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 230,
+  "notes": null
+ },
+ {
+  "name": "Liam Ireland",
+  "university": "St Thomas",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 231,
+  "notes": null
+ },
+ {
+  "name": "LKam Foberg",
+  "university": "Lynn University",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 232,
+  "notes": null
+ },
+ {
+  "name": "Lucas Costa",
+  "university": "St. Leo",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 233,
+  "notes": null
+ },
+ {
+  "name": "LUIS CASTILLO",
+  "university": "OREGON STATE",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 234,
+  "notes": null
+ },
+ {
+  "name": "MARC ESCUDEROS",
+  "university": "IOWA WESTERN-FDU",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 235,
+  "notes": null
+ },
+ {
+  "name": "MARCO MARTINEZ",
+  "university": "PACIFIC",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 110000,
+  "legacyNumber": 236,
+  "notes": null
+ },
+ {
+  "name": "MARIO VAZQUEZ",
+  "university": "Providence",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 3200000,
+  "legacyNumber": 237,
+  "notes": null
+ },
+ {
+  "name": "Matt Murashige",
+  "university": "Carleton",
+  "season": "22/23",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 238,
+  "notes": null
+ },
+ {
+  "name": "Matthew Marty",
+  "university": "Notre Dam College",
+  "season": "22/23",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 239,
+  "notes": null
+ },
+ {
+  "name": "MAURO FIGUEROA",
+  "university": "MSU",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 35000,
+  "legacyNumber": 240,
+  "notes": null
+ },
+ {
+  "name": "Mickey Daniel",
+  "university": "Auserg College",
+  "season": "22/23",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 241,
+  "notes": null
+ },
+ {
+  "name": "MUHAMMAD BILAL",
+  "university": "Marsh Hill",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 88000,
+  "legacyNumber": 242,
+  "notes": null
+ },
+ {
+  "name": "NACHO DEPOR",
+  "university": "OREGON ST",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 243,
+  "notes": null
+ },
+ {
+  "name": "NACHO DIAZ",
+  "university": "EVANSVILLE",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 300000,
+  "legacyNumber": 244,
+  "notes": null
+ },
+ {
+  "name": "Nathan Morgan",
+  "university": "UC San Diego",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 245,
+  "notes": null
+ },
+ {
+  "name": "Nico Rahman",
+  "university": "Central Arkansas",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 246,
+  "notes": null
+ },
+ {
+  "name": "OSCAR PEREZ",
+  "university": "UMASS LOWELL",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 148000,
+  "legacyNumber": 247,
+  "notes": null
+ },
+ {
+  "name": "OSCAR TRILLES",
+  "university": "Easter Nazarene",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 248,
+  "notes": null
+ },
+ {
+  "name": "OTON",
+  "university": "RIO GRANDE",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 249,
+  "notes": null
+ },
+ {
+  "name": "PABLO ABLANEDO",
+  "university": "FPU",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 250,
+  "notes": null
+ },
+ {
+  "name": "PABLO BAS",
+  "university": "Shaw",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 46000,
+  "legacyNumber": 251,
+  "notes": null
+ },
+ {
+  "name": "PABLO HERRERA",
+  "university": "Adephi",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 252,
+  "notes": null
+ },
+ {
+  "name": "Panyiottis Kamberidis",
+  "university": "Sant. Michaels",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 253,
+  "notes": null
+ },
+ {
+  "name": "PAU FERRER",
+  "university": "GANNON",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 254,
+  "notes": null
+ },
+ {
+  "name": "PAU NELO",
+  "university": "EMMANUEL COLLEGE",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 255,
+  "notes": null
+ },
+ {
+  "name": "Paul Fecteau",
+  "university": "Oregon State University",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 256,
+  "notes": null
+ },
+ {
+  "name": "PEDRO DEL PUERTO",
+  "university": "Anderson",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 257,
+  "notes": null
+ },
+ {
+  "name": "RAUL OLIU",
+  "university": "Heartland",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 36000,
+  "legacyNumber": 258,
+  "notes": null
+ },
+ {
+  "name": "SANTI DOMINGUEZ",
+  "university": "MISSISIPI COLLEGE",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 259,
+  "notes": null
+ },
+ {
+  "name": "SANTI MULET",
+  "university": "Otero College JUCO",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 260,
+  "notes": null
+ },
+ {
+  "name": "Sean Flynn",
+  "university": "Air Force Academy",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 261,
+  "notes": null
+ },
+ {
+  "name": "Sebastian Rangel",
+  "university": "Seattle Pacific",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 262,
+  "notes": null
+ },
+ {
+  "name": "SEGUNDO NAVARRO",
+  "university": "GEORGIA SOUTHERN",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 88000,
+  "legacyNumber": 263,
+  "notes": null
+ },
+ {
+  "name": "SERGIO ASPAS",
+  "university": "ICC",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 264,
+  "notes": null
+ },
+ {
+  "name": "SERGIO MARTINEZ",
+  "university": "NJIT",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 265,
+  "notes": null
+ },
+ {
+  "name": "Thomas Kamberidis",
+  "university": "Emmanuel College",
+  "season": "22/23",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 266,
+  "notes": null
+ },
+ {
+  "name": "Tiago Lima",
+  "university": "Stonehill",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 267,
+  "notes": null
+ },
+ {
+  "name": "TOMÁS BASTÓN",
+  "university": "Lincoln Trail College",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 38000,
+  "legacyNumber": 268,
+  "notes": null
+ },
+ {
+  "name": "Tristen Banquil",
+  "university": "Dominican University",
+  "season": "22/23",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 269,
+  "notes": null
+ },
+ {
+  "name": "Tyler Purtle",
+  "university": "Incarnate Word",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 270,
+  "notes": null
+ },
+ {
+  "name": "VICTOR GADEA",
+  "university": "GONZAGA UNIVERSITY",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 280000,
+  "legacyNumber": 271,
+  "notes": null
+ },
+ {
+  "name": "VICTORIO VENARIA",
+  "university": "IOWA WESTERN",
+  "season": "22/23",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 272,
+  "notes": null
+ },
+ {
+  "name": "Will Ficek",
+  "university": "Grand Canyon University",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 273,
+  "notes": null
+ },
+ {
+  "name": "YOUNES",
+  "university": "FPU",
+  "season": "22/23",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 274,
+  "notes": null
+ },
+ {
+  "name": "Yuto Shiraishi",
+  "university": "Binghampton University",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 275,
+  "notes": null
+ },
+ {
+  "name": "ÁLVARO HEREDIA",
+  "university": "Xavier",
+  "season": "22/23",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 276,
+  "notes": null
+ },
+ {
+  "name": "ÁLVARO MOROS",
+  "university": "Bellevue",
+  "season": "22/23",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 277,
+  "notes": null
+ },
+ {
+  "name": "Adan McGlynn",
+  "university": "North Florida",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 278,
+  "notes": null
+ },
+ {
+  "name": "AITOR DE LAS HERAS",
+  "university": "Eastern Nazarene College",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 279,
+  "notes": null
+ },
+ {
+  "name": "Alan Olmos",
+  "university": "Rivier",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 280,
+  "notes": null
+ },
+ {
+  "name": "ALBERTO SOLAETA",
+  "university": "NOVA",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 281,
+  "notes": null
+ },
+ {
+  "name": "ALEJA PEREZ",
+  "university": "SIENNA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 220000,
+  "legacyNumber": 282,
+  "notes": null
+ },
+ {
+  "name": "ALEJANDRO MOLTÓ",
+  "university": "COLUMBIA COLLEGE",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 283,
+  "notes": null
+ },
+ {
+  "name": "ALEJANDRO MOROSO",
+  "university": "BUTLER",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 284,
+  "notes": null
+ },
+ {
+  "name": "Alejandro Vigil",
+  "university": "Cal State Fullerton",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 285,
+  "notes": null
+ },
+ {
+  "name": "Alen Kapetanovik",
+  "university": "George Mason",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 286,
+  "notes": null
+ },
+ {
+  "name": "ALEX ALEO",
+  "university": "COLLEGE OF ST ROSE",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 287,
+  "notes": null
+ },
+ {
+  "name": "ALEX BENITEZ",
+  "university": "PBA",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 70000,
+  "legacyNumber": 288,
+  "notes": null
+ },
+ {
+  "name": "ALEX GARCIA",
+  "university": "DOMINICAN UNIVERSITY",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 289,
+  "notes": null
+ },
+ {
+  "name": "ALEXIS SANTAMARIA",
+  "university": "LINDSEY WILSON",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 290,
+  "notes": null
+ },
+ {
+  "name": "ALONSO FERNANDEZ",
+  "university": "UCA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 291,
+  "notes": null
+ },
+ {
+  "name": "ALVARO GARCÍA PASCUAL",
+  "university": "MARSHALL",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 292,
+  "notes": null
+ },
+ {
+  "name": "ANGEL BALLESTEROS",
+  "university": "MARSH HILL",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 293,
+  "notes": null
+ },
+ {
+  "name": "ANGEL INGROSSO",
+  "university": "ST LEO",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 216000,
+  "legacyNumber": 294,
+  "notes": null
+ },
+ {
+  "name": "ARIK DUNCAN",
+  "university": "CAL BERKLEY",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 295,
+  "notes": null
+ },
+ {
+  "name": "ARON EMIL",
+  "university": "EVANSVILLE",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 296,
+  "notes": null
+ },
+ {
+  "name": "Brandon Chacon",
+  "university": "Dominican University",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 297,
+  "notes": null
+ },
+ {
+  "name": "Bryce Strumeier",
+  "university": "St. Bonaventure",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 298,
+  "notes": null
+ },
+ {
+  "name": "Carlo Ramirez",
+  "university": "Franklin Pierce",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 299,
+  "notes": null
+ },
+ {
+  "name": "CARLOS IGLESIAS",
+  "university": "EVANSVILLE",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 300,
+  "notes": null
+ },
+ {
+  "name": "Chance Therrien",
+  "university": "St. Thomas",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 301,
+  "notes": null
+ },
+ {
+  "name": "DAVID HERNANDEZ",
+  "university": "EVANSVILLLE",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 302,
+  "notes": null
+ },
+ {
+  "name": "DENIS",
+  "university": "MISSISIPI COLLEGE",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 192000,
+  "legacyNumber": 303,
+  "notes": null
+ },
+ {
+  "name": "Diego Aplicano",
+  "university": "St. Micheals",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 304,
+  "notes": null
+ },
+ {
+  "name": "DIEGO FERNANDEZ",
+  "university": "MARSH HILL",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 305,
+  "notes": null
+ },
+ {
+  "name": "DIEGO LORENTE",
+  "university": "NORWICH",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 306,
+  "notes": null
+ },
+ {
+  "name": "DIEGO REGUEIRA",
+  "university": "NAIA,D2",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 307,
+  "notes": null
+ },
+ {
+  "name": "EDUARDO RODRIGUEZ",
+  "university": "RHODE ISLAND",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 65000,
+  "legacyNumber": 308,
+  "notes": null
+ },
+ {
+  "name": "Elijah Weston-Capulong",
+  "university": "Colby",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 309,
+  "notes": null
+ },
+ {
+  "name": "ENEKO CASAS",
+  "university": "BLUE MOUNTAIN COLLEGE",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 310,
+  "notes": null
+ },
+ {
+  "name": "Ethan Frazier",
+  "university": "Southern Illinois (SIUE)",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 311,
+  "notes": null
+ },
+ {
+  "name": "Ethan Minister",
+  "university": "Emerson",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 312,
+  "notes": null
+ },
+ {
+  "name": "Flyn Brown",
+  "university": "Southern Illnios (SIUE)",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 313,
+  "notes": null
+ },
+ {
+  "name": "GALO BENEDEK",
+  "university": "HESSTON COLLEGE",
+  "season": "23/24",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 314,
+  "notes": null
+ },
+ {
+  "name": "GERARD LÓPEZ",
+  "university": "NIAGARA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 315,
+  "notes": null
+ },
+ {
+  "name": "GONZALO CASTELS",
+  "university": "NSU",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 316,
+  "notes": null
+ },
+ {
+  "name": "GUILLERMO MUÑOZ",
+  "university": "UMKC",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 317,
+  "notes": null
+ },
+ {
+  "name": "Hagan Ward",
+  "university": "Trinity University",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 318,
+  "notes": null
+ },
+ {
+  "name": "HUGO BENAVENTE",
+  "university": "MARIAN UNIVERSITY",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 72000,
+  "legacyNumber": 319,
+  "notes": null
+ },
+ {
+  "name": "HUGO LEMOS",
+  "university": "UNLV",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 224000,
+  "legacyNumber": 320,
+  "notes": null
+ },
+ {
+  "name": "IAGO RODRIGUEZ",
+  "university": "LONGWOOD",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 126000,
+  "legacyNumber": 321,
+  "notes": null
+ },
+ {
+  "name": "IVAN MACIAS",
+  "university": "UNION COLLEGE",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 322,
+  "notes": null
+ },
+ {
+  "name": "Jaden Dubon",
+  "university": "George Washington",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 323,
+  "notes": null
+ },
+ {
+  "name": "Jahiem Campbell",
+  "university": "IONA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 324,
+  "notes": null
+ },
+ {
+  "name": "James Forrest-Hay",
+  "university": "Stonehill",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 325,
+  "notes": null
+ },
+ {
+  "name": "JAVI LOSA",
+  "university": "GSU",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 326,
+  "notes": null
+ },
+ {
+  "name": "JAVI SOLER",
+  "university": "BRYANT",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 67000,
+  "legacyNumber": 327,
+  "notes": null
+ },
+ {
+  "name": "JAVI TORRES",
+  "university": "FPU",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 328,
+  "notes": null
+ },
+ {
+  "name": "JAVIER HARO",
+  "university": "ST LEO",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 76000,
+  "legacyNumber": 329,
+  "notes": null
+ },
+ {
+  "name": "JAVIER RAMIREZ",
+  "university": "UCA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 66000,
+  "legacyNumber": 330,
+  "notes": null
+ },
+ {
+  "name": "JESUS MACAYA",
+  "university": "UNIVERSITY OF THE CUMBERLANDS",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 331,
+  "notes": null
+ },
+ {
+  "name": "Johannes Gikas",
+  "university": "Central Connecticut",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 332,
+  "notes": null
+ },
+ {
+  "name": "John Devereaux",
+  "university": "Franklin Pierce",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 333,
+  "notes": null
+ },
+ {
+  "name": "JONAH STEKLY",
+  "university": "BRYANT",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 334,
+  "notes": null
+ },
+ {
+  "name": "JOSE CLEMENTE",
+  "university": "ST ROSE",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 35000,
+  "legacyNumber": 335,
+  "notes": null
+ },
+ {
+  "name": "JUAN CARLOS",
+  "university": "LIPSCOMB",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 220000,
+  "legacyNumber": 336,
+  "notes": null
+ },
+ {
+  "name": "Kai Carroll",
+  "university": "Rhode Island",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 337,
+  "notes": null
+ },
+ {
+  "name": "Kevin Santana",
+  "university": "IONA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 338,
+  "notes": null
+ },
+ {
+  "name": "Leimar Dinell",
+  "university": "St. Thomas",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 339,
+  "notes": null
+ },
+ {
+  "name": "Lou Forster",
+  "university": "Rhode Island",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 340,
+  "notes": null
+ },
+ {
+  "name": "Lucca Carvalho",
+  "university": "Rollins",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 341,
+  "notes": null
+ },
+ {
+  "name": "Luke Hunter",
+  "university": "West Point",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 342,
+  "notes": null
+ },
+ {
+  "name": "MANUEL MORALES",
+  "university": "MANHATANVILLE",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 343,
+  "notes": null
+ },
+ {
+  "name": "MARC ABAD",
+  "university": "UCA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 800000,
+  "legacyNumber": 344,
+  "notes": null
+ },
+ {
+  "name": "MARC PITARCH",
+  "university": "BRYANT",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 195000,
+  "legacyNumber": 345,
+  "notes": null
+ },
+ {
+  "name": "MARIO FERNANDEZ",
+  "university": "CUMBERLANDS",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 346,
+  "notes": null
+ },
+ {
+  "name": "MARIO IBEAS",
+  "university": "FDU",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 347,
+  "notes": null
+ },
+ {
+  "name": "MARIO NAVARRO",
+  "university": "SIENNA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 210000,
+  "legacyNumber": 348,
+  "notes": null
+ },
+ {
+  "name": "MATEU FARRÉ",
+  "university": "SUFFOLK D3",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 349,
+  "notes": null
+ },
+ {
+  "name": "Matt Donascimento",
+  "university": "St. Leo",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 350,
+  "notes": null
+ },
+ {
+  "name": "MAURO FIGUEROA",
+  "university": "MISSOURI ST",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 351,
+  "notes": null
+ },
+ {
+  "name": "MAXI BINDER AUSTRIA",
+  "university": "St Cloud State University",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 352,
+  "notes": null
+ },
+ {
+  "name": "MAXIM SHEENKOV",
+  "university": "UCA",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 100000,
+  "legacyNumber": 353,
+  "notes": null
+ },
+ {
+  "name": "Michael Oelberger",
+  "university": "Butler",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 354,
+  "notes": null
+ },
+ {
+  "name": "MIGUEL ARILLA",
+  "university": "CREIGHTON",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 201000,
+  "legacyNumber": 355,
+  "notes": null
+ },
+ {
+  "name": "MIGUEL GARCIA",
+  "university": "BRYANT",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 356,
+  "notes": null
+ },
+ {
+  "name": "MIKEL INIESTA",
+  "university": "HARFORD CC",
+  "season": "23/24",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 10000,
+  "legacyNumber": 357,
+  "notes": null
+ },
+ {
+  "name": "MIKEL PENIN",
+  "university": "SAINT MICHAELS",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 358,
+  "notes": null
+ },
+ {
+  "name": "Milan Diao",
+  "university": "Davis & Elkins",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 359,
+  "notes": null
+ },
+ {
+  "name": "Mitch Ringman",
+  "university": "Vermont",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 360,
+  "notes": null
+ },
+ {
+  "name": "NACHO DIAZ",
+  "university": "EVANSVILLE",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 361,
+  "notes": null
+ },
+ {
+  "name": "NACHO GALLEGO",
+  "university": "Mercyhurst",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 94000,
+  "legacyNumber": 362,
+  "notes": null
+ },
+ {
+  "name": "Nicholas Chaparro",
+  "university": "Franklin Pierce",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 363,
+  "notes": null
+ },
+ {
+  "name": "Oliver Becker",
+  "university": "Air Force",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 364,
+  "notes": null
+ },
+ {
+  "name": "Parker Bowman",
+  "university": "Central Connecticut",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 365,
+  "notes": null
+ },
+ {
+  "name": "Paul Fecteau",
+  "university": "Oregon State University",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 366,
+  "notes": null
+ },
+ {
+  "name": "PEDRO ROSES",
+  "university": "Lawrence Tech University (LTU)",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 367,
+  "notes": null
+ },
+ {
+  "name": "PITTU",
+  "university": "JMU",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 150000,
+  "legacyNumber": 368,
+  "notes": null
+ },
+ {
+  "name": "Rafael Matta",
+  "university": "Sacred Heart University",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 369,
+  "notes": null
+ },
+ {
+  "name": "Rento",
+  "university": "Mohawk CC",
+  "season": "23/24",
+  "division": "JUCO",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 370,
+  "notes": null
+ },
+ {
+  "name": "Rian Barrett",
+  "university": "Longwood",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 371,
+  "notes": null
+ },
+ {
+  "name": "RICARDO LOPEZ",
+  "university": "Union College",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 72000,
+  "legacyNumber": 372,
+  "notes": null
+ },
+ {
+  "name": "Ryan Firestone",
+  "university": "U San Francisco",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 373,
+  "notes": null
+ },
+ {
+  "name": "SAM BOTWRIGHT",
+  "university": "EMMANUEL COLLEGE",
+  "season": "23/24",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 374,
+  "notes": null
+ },
+ {
+  "name": "SANTI BLASCO",
+  "university": "BRYANT",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 195000,
+  "legacyNumber": 375,
+  "notes": null
+ },
+ {
+  "name": "Sean Hendrie",
+  "university": "Evansville",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 376,
+  "notes": null
+ },
+ {
+  "name": "Sebastian Rangel",
+  "university": "Gonzaga",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 377,
+  "notes": null
+ },
+ {
+  "name": "SERGIO DEL CASTILLO",
+  "university": "MISSOURI ST",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 378,
+  "notes": null
+ },
+ {
+  "name": "Simba Pelletier",
+  "university": "Longwood",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 379,
+  "notes": null
+ },
+ {
+  "name": "TIMO PRINZHORN",
+  "university": "MARIAN UNIVERSITY",
+  "season": "23/24",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 380,
+  "notes": null
+ },
+ {
+  "name": "Tyler Walser",
+  "university": "St. Thomas",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 381,
+  "notes": null
+ },
+ {
+  "name": "VIKTOR NIKOLOV",
+  "university": "FAIRFIELD",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 192000,
+  "legacyNumber": 382,
+  "notes": null
+ },
+ {
+  "name": "Whitney Schatz",
+  "university": "San Diego State",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 383,
+  "notes": null
+ },
+ {
+  "name": "YAGO TORRES",
+  "university": "GEORGE WASHINGTON",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 384,
+  "notes": null
+ },
+ {
+  "name": "Yordan Torres",
+  "university": "Central Florida",
+  "season": "23/24",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 385,
+  "notes": null
+ },
+ {
+  "name": "Zach Nelson",
+  "university": "Worcester State",
+  "season": "23/24",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 386,
+  "notes": null
+ },
+ {
+  "name": "Abhi Rajaiyan",
+  "university": "Wheaton",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 387,
+  "notes": null
+ },
+ {
+  "name": "Adan McGlynn",
+  "university": "UNF",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 388,
+  "notes": null
+ },
+ {
+  "name": "AIMAR BAÑULS",
+  "university": "MISSISIPI COLLEGE",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 389,
+  "notes": null
+ },
+ {
+  "name": "ALBERTO ARAGONESES",
+  "university": "FRANCIS MARION",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 27000,
+  "legacyNumber": 390,
+  "notes": null
+ },
+ {
+  "name": "ALEIX CELMA",
+  "university": "MADONNA UNIVERSITY",
+  "season": "24/25",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 391,
+  "notes": null
+ },
+ {
+  "name": "Alejandro Muratti",
+  "university": "AIC",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 392,
+  "notes": null
+ },
+ {
+  "name": "Alejandro Vigil",
+  "university": "Fullerton",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 393,
+  "notes": null
+ },
+ {
+  "name": "Alen Kapetanovik",
+  "university": "George Mason",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 394,
+  "notes": null
+ },
+ {
+  "name": "ALEX PONS",
+  "university": "SNHU",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 159000,
+  "legacyNumber": 395,
+  "notes": null
+ },
+ {
+  "name": "Alexander Hess",
+  "university": "Bloomsburg commonwealth university",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 396,
+  "notes": null
+ },
+ {
+  "name": "Allen Velazquez",
+  "university": "Central Connecticut",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 397,
+  "notes": null
+ },
+ {
+  "name": "ALVARO GIRONDA",
+  "university": "SANTA CLARA",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 47000,
+  "legacyNumber": 398,
+  "notes": null
+ },
+ {
+  "name": "ALVARO IVORRA",
+  "university": "FLORIDA TECH",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 66000,
+  "legacyNumber": 399,
+  "notes": null
+ },
+ {
+  "name": "Andrei Nikitovic",
+  "university": "North Park University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 400,
+  "notes": null
+ },
+ {
+  "name": "Andrew Do Carmo",
+  "university": "Pacific University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 401,
+  "notes": null
+ },
+ {
+  "name": "Andrew Seavers",
+  "university": "Louisville",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 402,
+  "notes": null
+ },
+ {
+  "name": "ANGEL CARCELES",
+  "university": "MISSISIPI COLLEGE",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 403,
+  "notes": null
+ },
+ {
+  "name": "ANGEL COBO",
+  "university": "FRANCIS MARION",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 54000,
+  "legacyNumber": 404,
+  "notes": null
+ },
+ {
+  "name": "Arturo McConnochie",
+  "university": "University of New Hampshire",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 405,
+  "notes": null
+ },
+ {
+  "name": "ASIER FERNANDEZ",
+  "university": "D´YOUVILLE",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 406,
+  "notes": null
+ },
+ {
+  "name": "Ben Martin Wilkinson",
+  "university": "Pacific University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 407,
+  "notes": null
+ },
+ {
+  "name": "Benny Kadribasic",
+  "university": "UIC University of Chicago Illinois",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 408,
+  "notes": null
+ },
+ {
+  "name": "BORJA BLAZQUEZ",
+  "university": "FPU",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 409,
+  "notes": null
+ },
+ {
+  "name": "Brady Schumacher",
+  "university": "Minnesota United FC",
+  "season": "24/25",
+  "division": "MLS Next Pro",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 410,
+  "notes": null
+ },
+ {
+  "name": "Brio Levitt",
+  "university": "Central Connecticut",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 411,
+  "notes": null
+ },
+ {
+  "name": "Brookly Connell",
+  "university": "Iona University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 412,
+  "notes": null
+ },
+ {
+  "name": "Bryce Strumeier",
+  "university": "BSt. Bonaventure",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 413,
+  "notes": null
+ },
+ {
+  "name": "CARLES DIEZ",
+  "university": "UNIVERSITY OF THE CUMBERLANDS",
+  "season": "24/25",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 414,
+  "notes": null
+ },
+ {
+  "name": "CARLES ZOMEÑO",
+  "university": "SIUE",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 92000,
+  "legacyNumber": 415,
+  "notes": null
+ },
+ {
+  "name": "CARLOS CÁMARA",
+  "university": "IOWA WESTERN",
+  "season": "24/25",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 416,
+  "notes": null
+ },
+ {
+  "name": "Charlie Lacey",
+  "university": "Central Arkansas",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 417,
+  "notes": null
+ },
+ {
+  "name": "Christian Lewis",
+  "university": "Florida Tech University",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 418,
+  "notes": null
+ },
+ {
+  "name": "CHUS ORTEGA",
+  "university": "SNHU",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 419,
+  "notes": null
+ },
+ {
+  "name": "CLAUDIO LOPEZ",
+  "university": "UNLV",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 129000,
+  "legacyNumber": 420,
+  "notes": null
+ },
+ {
+  "name": "Cohen Fritz",
+  "university": "Presbyterian",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 421,
+  "notes": null
+ },
+ {
+  "name": "Colin Wright",
+  "university": "Central Connecticut",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 422,
+  "notes": null
+ },
+ {
+  "name": "CRISTIAN GUIRADO",
+  "university": "BRYANT",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 65000,
+  "legacyNumber": 423,
+  "notes": null
+ },
+ {
+  "name": "DANI GAMBOA",
+  "university": "PITT:",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 232000,
+  "legacyNumber": 424,
+  "notes": null
+ },
+ {
+  "name": "DANIEL GONZALEZ",
+  "university": "Sin confirmar",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 425,
+  "notes": null
+ },
+ {
+  "name": "DAVID GRIFELL",
+  "university": "LENOIR",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 64000,
+  "legacyNumber": 426,
+  "notes": null
+ },
+ {
+  "name": "Diego Ramirez",
+  "university": "Lipscomb University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 427,
+  "notes": null
+ },
+ {
+  "name": "DIEGO REGUEIRA",
+  "university": "MARIAN UNIVERSITY",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 428,
+  "notes": null
+ },
+ {
+  "name": "Donovan Corbett",
+  "university": "Air Force University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 429,
+  "notes": null
+ },
+ {
+  "name": "Dylan Culbertson",
+  "university": "UNC Ashville",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 430,
+  "notes": null
+ },
+ {
+  "name": "Emmet Shea",
+  "university": "VCU",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 431,
+  "notes": null
+ },
+ {
+  "name": "EUGENI ALÓS",
+  "university": "Lincoln University",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 432,
+  "notes": null
+ },
+ {
+  "name": "FAUS",
+  "university": "MARS HILL",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 433,
+  "notes": null
+ },
+ {
+  "name": "FERRAN FLORENCIO",
+  "university": "SAN DIEGO ST",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 434,
+  "notes": null
+ },
+ {
+  "name": "Flynn Brown",
+  "university": "SIUE",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 435,
+  "notes": null
+ },
+ {
+  "name": "Foster Hayes",
+  "university": "Loyola Chicago",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 436,
+  "notes": null
+ },
+ {
+  "name": "FRANCOIS",
+  "university": "LINDSEY WILSON",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 148000,
+  "legacyNumber": 437,
+  "notes": null
+ },
+ {
+  "name": "Gabriel Morales",
+  "university": "Salem University",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 438,
+  "notes": null
+ },
+ {
+  "name": "Gent Muratti",
+  "university": "Saint Peters University (New York)",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 439,
+  "notes": null
+ },
+ {
+  "name": "George Diebert",
+  "university": "Sacred Heart University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 440,
+  "notes": null
+ },
+ {
+  "name": "Gio Polizzi",
+  "university": "Rider University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 441,
+  "notes": null
+ },
+ {
+  "name": "HADRIÁN GARCIA",
+  "university": "Lincoln University",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 442,
+  "notes": null
+ },
+ {
+  "name": "Hayden Galas",
+  "university": "Oregon State University/Utah Valley",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 443,
+  "notes": null
+ },
+ {
+  "name": "HECTOR OLIVER",
+  "university": "MISSOURI ST",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 102000,
+  "legacyNumber": 444,
+  "notes": null
+ },
+ {
+  "name": "HUGO PRATS",
+  "university": "UCWV",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 445,
+  "notes": null
+ },
+ {
+  "name": "HUGO TEJÓN",
+  "university": "DAVID AND ELKINS",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 168000,
+  "legacyNumber": 446,
+  "notes": null
+ },
+ {
+  "name": "HUGO URDIALES",
+  "university": "LOYOLA CHICAGO",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 210000,
+  "legacyNumber": 447,
+  "notes": null
+ },
+ {
+  "name": "Hussein Abdulaziz",
+  "university": "Tyler-Texas",
+  "season": "24/25",
+  "division": "JUCO",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 448,
+  "notes": null
+ },
+ {
+  "name": "Ian Jackson",
+  "university": "Depauw University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 449,
+  "notes": null
+ },
+ {
+  "name": "Ian McGee",
+  "university": "Saint Michaels",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 450,
+  "notes": null
+ },
+ {
+  "name": "IU PENTINANT",
+  "university": "NORTH FLORIDA",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 451,
+  "notes": null
+ },
+ {
+  "name": "Ivan Henwood",
+  "university": "Saint Michael's College",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 452,
+  "notes": null
+ },
+ {
+  "name": "IVAN MARQUÉS",
+  "university": "SACRED HEART",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 110000,
+  "legacyNumber": 453,
+  "notes": null
+ },
+ {
+  "name": "Jack Grace",
+  "university": "Clarkson University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 454,
+  "notes": null
+ },
+ {
+  "name": "Jai Sahni",
+  "university": "Florida Gulf Coast University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 455,
+  "notes": null
+ },
+ {
+  "name": "Jaiden Paniagua",
+  "university": "Florida Atlantic University (FAU)",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 456,
+  "notes": null
+ },
+ {
+  "name": "Jake Cicarello",
+  "university": "Evansville University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 457,
+  "notes": null
+ },
+ {
+  "name": "Jake Johnston",
+  "university": "St. Olaf College",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 458,
+  "notes": null
+ },
+ {
+  "name": "Jake Ross",
+  "university": "St. Joseph's Hawks",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 459,
+  "notes": null
+ },
+ {
+  "name": "JAVI MONTAVA",
+  "university": "GEORGE MASON",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 150000,
+  "legacyNumber": 460,
+  "notes": null
+ },
+ {
+  "name": "JAVIER LOPEZ",
+  "university": "UCF",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 138000,
+  "legacyNumber": 461,
+  "notes": null
+ },
+ {
+  "name": "Jaydon Whittaker",
+  "university": "St. Marys University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 462,
+  "notes": null
+ },
+ {
+  "name": "JESUS MACAYA",
+  "university": "LONGWOOD",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 120000,
+  "legacyNumber": 463,
+  "notes": null
+ },
+ {
+  "name": "JESUS PEREZ",
+  "university": "Webber",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 464,
+  "notes": null
+ },
+ {
+  "name": "JOAN BAUZA",
+  "university": "UCA",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 25000,
+  "legacyNumber": 465,
+  "notes": null
+ },
+ {
+  "name": "JOAN SANCHÍS",
+  "university": "URI",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 114000,
+  "legacyNumber": 466,
+  "notes": null
+ },
+ {
+  "name": "Joey Angelo",
+  "university": "Westmont College",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 467,
+  "notes": null
+ },
+ {
+  "name": "John Arguello",
+  "university": "Colorado College/NYU",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 468,
+  "notes": null
+ },
+ {
+  "name": "John Quizhpe",
+  "university": "Buffalo State",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 469,
+  "notes": null
+ },
+ {
+  "name": "Jonah Arzman",
+  "university": "Omaha (University of Nebraska)",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 470,
+  "notes": null
+ },
+ {
+  "name": "JORGE VALENTIN",
+  "university": "FORT HAYS",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 471,
+  "notes": null
+ },
+ {
+  "name": "JORGE VEINTIMILLA",
+  "university": "BRYANT",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 195000,
+  "legacyNumber": 472,
+  "notes": null
+ },
+ {
+  "name": "Josh Axelrod",
+  "university": "CSU Pueblo",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 473,
+  "notes": null
+ },
+ {
+  "name": "Joshua Cox",
+  "university": "Iona Gaels",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 474,
+  "notes": null
+ },
+ {
+  "name": "Jude Barzousky",
+  "university": "Corban University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 475,
+  "notes": null
+ },
+ {
+  "name": "JULEN MARTIN",
+  "university": "FPU",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 476,
+  "notes": null
+ },
+ {
+  "name": "Julian Dubash",
+  "university": "Central Connecticut",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 477,
+  "notes": null
+ },
+ {
+  "name": "Julian Ramirez",
+  "university": "Southern New Hampshire",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 478,
+  "notes": null
+ },
+ {
+  "name": "KIKE MARTIN",
+  "university": "LMU",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 479,
+  "notes": null
+ },
+ {
+  "name": "Landan Grange",
+  "university": "Virginia Tech University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 480,
+  "notes": null
+ },
+ {
+  "name": "Landon Paulson",
+  "university": "Davis & Elkins",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 481,
+  "notes": null
+ },
+ {
+  "name": "Lou Foster",
+  "university": "Rhode Island",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 482,
+  "notes": null
+ },
+ {
+  "name": "Lucas Kelly",
+  "university": "LaSalle",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 483,
+  "notes": null
+ },
+ {
+  "name": "Luke Marshall",
+  "university": "St. Thomas University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 484,
+  "notes": null
+ },
+ {
+  "name": "MANOLO FERRERES",
+  "university": "BUTLER",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 210000,
+  "legacyNumber": 485,
+  "notes": null
+ },
+ {
+  "name": "MANOLO VAZQUEZ",
+  "university": "UNLV",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 112000,
+  "legacyNumber": 486,
+  "notes": null
+ },
+ {
+  "name": "MANUEL YANGUAS",
+  "university": "SAN DIEGO ST",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 220000,
+  "legacyNumber": 487,
+  "notes": null
+ },
+ {
+  "name": "MARC VELASCO",
+  "university": "University of Montevallo",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 488,
+  "notes": null
+ },
+ {
+  "name": "MARTI SENYER",
+  "university": "Mount and Vicent",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 489,
+  "notes": null
+ },
+ {
+  "name": "Mason Christeansen",
+  "university": "Colgate University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 490,
+  "notes": null
+ },
+ {
+  "name": "Mateo Murillo",
+  "university": "University of Hawaii at Hilo",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 491,
+  "notes": null
+ },
+ {
+  "name": "MATEO NANCE",
+  "university": "LONGWOOD",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 492,
+  "notes": null
+ },
+ {
+  "name": "Max Uribe",
+  "university": "Canisius University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 493,
+  "notes": null
+ },
+ {
+  "name": "MELO DÍAZ",
+  "university": "UNION COLLEGE",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 494,
+  "notes": null
+ },
+ {
+  "name": "Miles courtney",
+  "university": "Long Island University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 495,
+  "notes": null
+ },
+ {
+  "name": "NACHO GARCIA",
+  "university": "EVANSVILLE",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 240000,
+  "legacyNumber": 496,
+  "notes": null
+ },
+ {
+  "name": "Nick Di Sessa",
+  "university": "Fordham Univerrsity",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 497,
+  "notes": null
+ },
+ {
+  "name": "Nico Scibird",
+  "university": "Evansville University",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 498,
+  "notes": null
+ },
+ {
+  "name": "Noah Finley",
+  "university": "Shenandoah University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 499,
+  "notes": null
+ },
+ {
+  "name": "Omar Jimenez",
+  "university": "Leron Rhyne",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 500,
+  "notes": null
+ },
+ {
+  "name": "ORIOL GAZQUEZ",
+  "university": "UNION COLLEGE",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 501,
+  "notes": null
+ },
+ {
+  "name": "PABLO ALCOBA",
+  "university": "SACRED HEART",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 105000,
+  "legacyNumber": 502,
+  "notes": null
+ },
+ {
+  "name": "PABLO GOMEZ",
+  "university": "UNIVERSITY OF RIO GRANDE",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 37000,
+  "legacyNumber": 503,
+  "notes": null
+ },
+ {
+  "name": "Parker Pollay",
+  "university": "Berry College",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 504,
+  "notes": null
+ },
+ {
+  "name": "PEPE LORA",
+  "university": "PROVIDENCE COLLEGE",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 69000,
+  "legacyNumber": 505,
+  "notes": null
+ },
+ {
+  "name": "POL MORLANS",
+  "university": "Oregon St",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 195000,
+  "legacyNumber": 506,
+  "notes": null
+ },
+ {
+  "name": "Quinn Muderlack",
+  "university": "Air Force",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 507,
+  "notes": null
+ },
+ {
+  "name": "Rafa Mata",
+  "university": "Sacred Heart",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 508,
+  "notes": null
+ },
+ {
+  "name": "RAFA RIOS",
+  "university": "NORTH FLORIDA",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 176000,
+  "legacyNumber": 509,
+  "notes": null
+ },
+ {
+  "name": "RAUL OLIU",
+  "university": "UNOH",
+  "season": "24/25",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 510,
+  "notes": null
+ },
+ {
+  "name": "Reeves Cates",
+  "university": "College of Charleston",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 511,
+  "notes": null
+ },
+ {
+  "name": "Rhys Tidwell",
+  "university": "St. Olaf College",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 512,
+  "notes": null
+ },
+ {
+  "name": "RODRIGO SALAMANCA",
+  "university": "ST MICHAELS",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 513,
+  "notes": null
+ },
+ {
+  "name": "Ryan Aiken",
+  "university": "John Hopkins University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 514,
+  "notes": null
+ },
+ {
+  "name": "Sami Ahmed",
+  "university": "Depauw University",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 515,
+  "notes": null
+ },
+ {
+  "name": "SANTI PALACIOS",
+  "university": "POST UNIVERSITY",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 31000,
+  "legacyNumber": 516,
+  "notes": null
+ },
+ {
+  "name": "Sean Correira",
+  "university": "Southern New Hampshire",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 517,
+  "notes": null
+ },
+ {
+  "name": "Sean Kelly",
+  "university": "Saint Anselm",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 518,
+  "notes": null
+ },
+ {
+  "name": "Sean Krause",
+  "university": "Iona Gaels",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 519,
+  "notes": null
+ },
+ {
+  "name": "SERGIO AGUILERA",
+  "university": "LINCOLN",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 45000,
+  "legacyNumber": 520,
+  "notes": null
+ },
+ {
+  "name": "SERGIO ASPAS",
+  "university": "USC Aiken",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 521,
+  "notes": null
+ },
+ {
+  "name": "Shane Williams",
+  "university": "University of Vermont",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 522,
+  "notes": null
+ },
+ {
+  "name": "Trevor Ritcher",
+  "university": "Nova Southeastern University",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 523,
+  "notes": null
+ },
+ {
+  "name": "Tristan Ruble",
+  "university": "Frostburg State university",
+  "season": "24/25",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 524,
+  "notes": null
+ },
+ {
+  "name": "Tucker Kern",
+  "university": "Air Force",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 525,
+  "notes": null
+ },
+ {
+  "name": "VORO RIVERA",
+  "university": "LENOIR",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 54000,
+  "legacyNumber": 526,
+  "notes": null
+ },
+ {
+  "name": "Whit Schatz",
+  "university": "SDSU",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 527,
+  "notes": null
+ },
+ {
+  "name": "XAVI JUL",
+  "university": "Hawaii Hilo",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 528,
+  "notes": null
+ },
+ {
+  "name": "YAGO MONTEAGUDO",
+  "university": "TIFFIN",
+  "season": "24/25",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 152000,
+  "legacyNumber": 529,
+  "notes": null
+ },
+ {
+  "name": "Yordan Torres",
+  "university": "UCF",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 530,
+  "notes": null
+ },
+ {
+  "name": "Yugo Yamamoto",
+  "university": "FDU",
+  "season": "24/25",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 531,
+  "notes": null
+ },
+ {
+  "name": "Adriano Samaoya",
+  "university": "University of Portland",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 532,
+  "notes": null
+ },
+ {
+  "name": "ADRIÁN CASTILLO",
+  "university": "ANDERSON UNIVERSITY",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 62000,
+  "legacyNumber": 533,
+  "notes": null
+ },
+ {
+  "name": "Aidan Ahmad",
+  "university": "Cal Berkeley",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 534,
+  "notes": null
+ },
+ {
+  "name": "AITOR JORDE",
+  "university": "IONA",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 535,
+  "notes": null
+ },
+ {
+  "name": "ALVARO JOSE",
+  "university": "MARSHALL",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 147000,
+  "legacyNumber": 536,
+  "notes": null
+ },
+ {
+  "name": "ALVARO MOROS",
+  "university": "CENTRAL CONNECTICUT",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 537,
+  "notes": null
+ },
+ {
+  "name": "ALVARO RUIZ MATEOS",
+  "university": "VIRGINIA TECH",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 104000,
+  "legacyNumber": 538,
+  "notes": null
+ },
+ {
+  "name": "ALVARO TIMÓN",
+  "university": "EVANSVILLE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 539,
+  "notes": null
+ },
+ {
+  "name": "ANDER MARTICORENA",
+  "university": "UCLA",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 210000,
+  "legacyNumber": 540,
+  "notes": null
+ },
+ {
+  "name": "ANDREI APOSTU",
+  "university": "LIFE COLLEGE",
+  "season": "25/26",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 75000,
+  "legacyNumber": 541,
+  "notes": null
+ },
+ {
+  "name": "ARSENII",
+  "university": "EVANSVILLE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 542,
+  "notes": null
+ },
+ {
+  "name": "AXIER ZEBERIO",
+  "university": "SHU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 543,
+  "notes": null
+ },
+ {
+  "name": "Billy Gillespie",
+  "university": "University of Bryant",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 544,
+  "notes": null
+ },
+ {
+  "name": "BRUNO BERTRAN",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Sin confirmar",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 545,
+  "notes": null
+ },
+ {
+  "name": "BRUNO MEDINA",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 546,
+  "notes": null
+ },
+ {
+  "name": "BRUNO ZAMBRANA",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Sin confirmar",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 547,
+  "notes": null
+ },
+ {
+  "name": "CACHA (Agustín Soldo)",
+  "university": "ADELPHI",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 165000,
+  "legacyNumber": 548,
+  "notes": null
+ },
+ {
+  "name": "CARLOS GONZALEZ",
+  "university": "SHU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 549,
+  "notes": null
+ },
+ {
+  "name": "CHRISTIAN OSUNA",
+  "university": "FPU",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 550,
+  "notes": null
+ },
+ {
+  "name": "Connor Vela",
+  "university": "DePaul University",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 551,
+  "notes": null
+ },
+ {
+  "name": "DANIEL LOS FABLOS",
+  "university": "SHU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 552,
+  "notes": null
+ },
+ {
+  "name": "DAVID EZERZER",
+  "university": "OMAHA: offer",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 553,
+  "notes": null
+ },
+ {
+  "name": "DAVID FERNANDEZ",
+  "university": "MARS HILL",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 132000,
+  "legacyNumber": 554,
+  "notes": null
+ },
+ {
+  "name": "DAVID MESTRE",
+  "university": "CANDEM CC",
+  "season": "25/26",
+  "division": "Division III",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 555,
+  "notes": null
+ },
+ {
+  "name": "DIDAC GLORIES",
+  "university": "QUINNIPIAC",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 264000,
+  "legacyNumber": 556,
+  "notes": null
+ },
+ {
+  "name": "Druv Pareek",
+  "university": "University of Tulsa",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 557,
+  "notes": null
+ },
+ {
+  "name": "Emerson Laorden",
+  "university": "FGCU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 558,
+  "notes": null
+ },
+ {
+  "name": "FER CUEVAS",
+  "university": "INDIANA TECH",
+  "season": "25/26",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 559,
+  "notes": null
+ },
+ {
+  "name": "FER GARCIA",
+  "university": "PROVIDENCE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 560,
+  "notes": null
+ },
+ {
+  "name": "FERMIN",
+  "university": "BRYANT",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 134000,
+  "legacyNumber": 561,
+  "notes": null
+ },
+ {
+  "name": "FERNANDO GUERRERO",
+  "university": "BRYANT",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 130000,
+  "legacyNumber": 562,
+  "notes": null
+ },
+ {
+  "name": "FERNANDO MARTIN",
+  "university": "SALT LAKE CC",
+  "season": "25/26",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 563,
+  "notes": null
+ },
+ {
+  "name": "FRANCISCO VERGARA",
+  "university": "FRANCIS MARION",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 564,
+  "notes": null
+ },
+ {
+  "name": "Gavin Weidman",
+  "university": "Missouri State",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 565,
+  "notes": null
+ },
+ {
+  "name": "GUILLERMO TERRY",
+  "university": "BARRY",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 566,
+  "notes": null
+ },
+ {
+  "name": "Harlem Clemson",
+  "university": "SIUE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 567,
+  "notes": null
+ },
+ {
+  "name": "Hayden Beier",
+  "university": "SIUE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 568,
+  "notes": null
+ },
+ {
+  "name": "HECTOR DIEZ",
+  "university": "SOUTHERN CONNECTICUT",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 569,
+  "notes": null
+ },
+ {
+  "name": "HECTOR GIL",
+  "university": "UIC",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 150000,
+  "legacyNumber": 570,
+  "notes": null
+ },
+ {
+  "name": "Hunter Hernandez",
+  "university": "Northern Kentucky University",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 571,
+  "notes": null
+ },
+ {
+  "name": "IKER CARBONELL",
+  "university": "OREGON ST",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 174000,
+  "legacyNumber": 572,
+  "notes": null
+ },
+ {
+  "name": "IZAN MARTINEZ",
+  "university": "UCF",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 138000,
+  "legacyNumber": 573,
+  "notes": null
+ },
+ {
+  "name": "IZAN REDONDO",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Sin confirmar",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 574,
+  "notes": null
+ },
+ {
+  "name": "JAIME CASADO",
+  "university": "URI",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 195000,
+  "legacyNumber": 575,
+  "notes": null
+ },
+ {
+  "name": "James Pidutti",
+  "university": "Limpscomb",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 576,
+  "notes": null
+ },
+ {
+  "name": "JAVI MARTINEZ",
+  "university": "CUMBERLANDS",
+  "season": "25/26",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 577,
+  "notes": null
+ },
+ {
+  "name": "JAVIER SOLÁ",
+  "university": "AIC",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 80000,
+  "legacyNumber": 578,
+  "notes": null
+ },
+ {
+  "name": "JOAQUIN RODRIGUEZ",
+  "university": "LOYOLA CHICAGO",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 210000,
+  "legacyNumber": 579,
+  "notes": null
+ },
+ {
+  "name": "JOEL BONA",
+  "university": "RHODE ISLAND",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 195000,
+  "legacyNumber": 580,
+  "notes": null
+ },
+ {
+  "name": "JOEL SANCHEZ",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Sin confirmar",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 581,
+  "notes": null
+ },
+ {
+  "name": "JOSE PERIS",
+  "university": "CSU PUEBLO",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 105000,
+  "legacyNumber": 582,
+  "notes": null
+ },
+ {
+  "name": "JUAN ANTONIO TRIPERO",
+  "university": "FRANCIS MARION",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 54000,
+  "legacyNumber": 583,
+  "notes": null
+ },
+ {
+  "name": "KIKE MORALES",
+  "university": "LOYOLA CHICAGO",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 584,
+  "notes": null
+ },
+ {
+  "name": "LUIS SANCHEZ-BARBUDO CRUZ",
+  "university": "SOUTHWEST BAPTIST",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 585,
+  "notes": null
+ },
+ {
+  "name": "MANU BERNABEU",
+  "university": "WEST FLORIDA",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 600000,
+  "legacyNumber": 586,
+  "notes": null
+ },
+ {
+  "name": "MANUEL YANGUAS",
+  "university": "IOWA WESTERN",
+  "season": "25/26",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": 20000,
+  "legacyNumber": 587,
+  "notes": null
+ },
+ {
+  "name": "MARCOS BAEZ",
+  "university": "EMORY & HENRY",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 160000,
+  "legacyNumber": 588,
+  "notes": null
+ },
+ {
+  "name": "MARCOS BLASCO",
+  "university": "VERMONT",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 78000,
+  "legacyNumber": 589,
+  "notes": null
+ },
+ {
+  "name": "MARCOS DIAZ",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 590,
+  "notes": null
+ },
+ {
+  "name": "MARIANO BEUNZA",
+  "university": "KANSAS",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 174000,
+  "legacyNumber": 591,
+  "notes": null
+ },
+ {
+  "name": "MARIO BASTANTE",
+  "university": "FGCU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 35000,
+  "legacyNumber": 592,
+  "notes": null
+ },
+ {
+  "name": "MARIO GIL",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 593,
+  "notes": null
+ },
+ {
+  "name": "MATIAS MESTRE",
+  "university": "FULLERTON",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 200000,
+  "legacyNumber": 594,
+  "notes": null
+ },
+ {
+  "name": "Matthew Leistensnider",
+  "university": "Indiana U of Columbus",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 595,
+  "notes": null
+ },
+ {
+  "name": "MAX OAWA",
+  "university": "NC STATE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 171000,
+  "legacyNumber": 596,
+  "notes": null
+ },
+ {
+  "name": "Max Walsh",
+  "university": "Bucknell University",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 597,
+  "notes": null
+ },
+ {
+  "name": "Michael Outerbridge",
+  "university": "Bryant University",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 598,
+  "notes": null
+ },
+ {
+  "name": "MIGUEL BELLO",
+  "university": "MNVU",
+  "season": "25/26",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 599,
+  "notes": null
+ },
+ {
+  "name": "NACHO DE MIGUEL",
+  "university": "BUTLER",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 280000,
+  "legacyNumber": 600,
+  "notes": null
+ },
+ {
+  "name": "NACHO RULLAN",
+  "university": "SHU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 30000,
+  "legacyNumber": 601,
+  "notes": null
+ },
+ {
+  "name": "NARCIS GAVALDA",
+  "university": "SVSU",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 86000,
+  "legacyNumber": 602,
+  "notes": null
+ },
+ {
+  "name": "Nate Chandler",
+  "university": "University of Washington",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 603,
+  "notes": null
+ },
+ {
+  "name": "PABLO ANGULO",
+  "university": "FORT HAYS",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 50000,
+  "legacyNumber": 604,
+  "notes": null
+ },
+ {
+  "name": "PABLO CALVETE",
+  "university": "EVANSVILLE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 180000,
+  "legacyNumber": 605,
+  "notes": null
+ },
+ {
+  "name": "PABLO DIAZ",
+  "university": "LIFE UNIVERSITY",
+  "season": "25/26",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 606,
+  "notes": null
+ },
+ {
+  "name": "PABLO GUERRERO",
+  "university": "BRYANT",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 90000,
+  "legacyNumber": 607,
+  "notes": null
+ },
+ {
+  "name": "PACO FERNANDEZ",
+  "university": "BRYANT",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 130000,
+  "legacyNumber": 608,
+  "notes": null
+ },
+ {
+  "name": "Paul Weidow",
+  "university": "Heidelberg University",
+  "season": "25/26",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 609,
+  "notes": null
+ },
+ {
+  "name": "PEDRO SALMON",
+  "university": "VCU",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 108000,
+  "legacyNumber": 610,
+  "notes": null
+ },
+ {
+  "name": "Preston Carroll",
+  "university": "UIC",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 611,
+  "notes": null
+ },
+ {
+  "name": "Raul Alvaro",
+  "university": "Missouri State",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 612,
+  "notes": null
+ },
+ {
+  "name": "RAUL PEREZ",
+  "university": "CSU PUEBLO",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 60000,
+  "legacyNumber": 613,
+  "notes": null
+ },
+ {
+  "name": "Rhys Tidwell",
+  "university": "St. Marys University",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 614,
+  "notes": null
+ },
+ {
+  "name": "RODRIGO FERNANDEZ",
+  "university": "PACIFIC",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 204000,
+  "legacyNumber": 615,
+  "notes": null
+ },
+ {
+  "name": "SERGIO ALONSO",
+  "university": "TWU",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 140000,
+  "legacyNumber": 616,
+  "notes": null
+ },
+ {
+  "name": "SERGIO MARTINEZ",
+  "university": "DAVIS AND ELKINS",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": 108000,
+  "legacyNumber": 617,
+  "notes": null
+ },
+ {
+  "name": "TIRI",
+  "university": "Sin confirmar",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 618,
+  "notes": null
+ },
+ {
+  "name": "TITO PERALTA",
+  "university": "VIRGINIA TECH",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 104000,
+  "legacyNumber": 619,
+  "notes": null
+ },
+ {
+  "name": "Tomas Paoli",
+  "university": "Bryant University",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 620,
+  "notes": null
+ },
+ {
+  "name": "VICENTE CUQUERELLA",
+  "university": "LIFE",
+  "season": "25/26",
+  "division": "NAIA III",
+  "program": "Becas EEUU",
+  "scholarship": 40000,
+  "legacyNumber": 621,
+  "notes": null
+ },
+ {
+  "name": "VICTOR FERRANDO",
+  "university": "OREGON STATE",
+  "season": "25/26",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": 82000,
+  "legacyNumber": 622,
+  "notes": null
+ },
+ {
+  "name": "William Jebejian",
+  "university": "Bentley University",
+  "season": "25/26",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 623,
+  "notes": null
+ },
+ {
+  "name": "ALBERTO GALICIA",
+  "university": "UMBC",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 624,
+  "notes": null
+ },
+ {
+  "name": "ALEJANDRO ILLAN",
+  "university": "Presbyterian College",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 625,
+  "notes": null
+ },
+ {
+  "name": "ALEJANDRO VALCARCE",
+  "university": "Lipscomb University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 626,
+  "notes": null
+ },
+ {
+  "name": "ALEX HUME",
+  "university": "Longwood University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 627,
+  "notes": null
+ },
+ {
+  "name": "ALEX TURA",
+  "university": "University of Evansville",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 628,
+  "notes": null
+ },
+ {
+  "name": "ALVARO MALON DE LA FUENTE",
+  "university": "Pellissippi College",
+  "season": "26/27",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 629,
+  "notes": null
+ },
+ {
+  "name": "ALVARO MORENO",
+  "university": "Sacred Heart University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 630,
+  "notes": null
+ },
+ {
+  "name": "ANDER CALLE",
+  "university": "Franklin Pierce University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 631,
+  "notes": null
+ },
+ {
+  "name": "Andres Valbuena",
+  "university": "Iowa Western Community College",
+  "season": "26/27",
+  "division": "JUCO",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 632,
+  "notes": null
+ },
+ {
+  "name": "Beshoy Eldaif",
+  "university": "Bradley University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 633,
+  "notes": null
+ },
+ {
+  "name": "Caleb Pak",
+  "university": "VCU",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 634,
+  "notes": null
+ },
+ {
+  "name": "Callaway Scott",
+  "university": "American International College",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 635,
+  "notes": null
+ },
+ {
+  "name": "Cameron Tedesco",
+  "university": "Mount St. Mary's University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 636,
+  "notes": null
+ },
+ {
+  "name": "CARLOS HONRUBIA",
+  "university": "Union College",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 637,
+  "notes": null
+ },
+ {
+  "name": "CARLOS MARTINEZ",
+  "university": "Oregon State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 638,
+  "notes": null
+ },
+ {
+  "name": "CIANOLE NGUEPISSI",
+  "university": "University of Kentucky",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 639,
+  "notes": null
+ },
+ {
+  "name": "Ciaran Stoffle",
+  "university": "Florida Southern College",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 640,
+  "notes": null
+ },
+ {
+  "name": "Curren Maxson",
+  "university": "Blinn College",
+  "season": "26/27",
+  "division": "JUCO",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 641,
+  "notes": null
+ },
+ {
+  "name": "DANIEL FERAUD",
+  "university": "Carl Sandburg College",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 642,
+  "notes": null
+ },
+ {
+  "name": "DANIEL MONTOYA",
+  "university": "Bowling Green State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 643,
+  "notes": null
+ },
+ {
+  "name": "David Diez (Tiri)",
+  "university": "UCLA",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 644,
+  "notes": null
+ },
+ {
+  "name": "DAVID TIRADO",
+  "university": "Mercer University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 645,
+  "notes": null
+ },
+ {
+  "name": "Dohryien Lee",
+  "university": "Manhattan College",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 646,
+  "notes": null
+ },
+ {
+  "name": "Eddie Davis",
+  "university": "Drexel University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 647,
+  "notes": null
+ },
+ {
+  "name": "EDUARDO PEÑA",
+  "university": "Shawnee State University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 648,
+  "notes": null
+ },
+ {
+  "name": "ELOI GOÑI",
+  "university": "Bryant University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 649,
+  "notes": null
+ },
+ {
+  "name": "Ethan Czaporowski",
+  "university": "Central Connecticut State Univ.",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 650,
+  "notes": null
+ },
+ {
+  "name": "Grey Glowacki",
+  "university": "Sacramento State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 651,
+  "notes": null
+ },
+ {
+  "name": "Harlem Clemons",
+  "university": "SIUE",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 652,
+  "notes": null
+ },
+ {
+  "name": "Hayden Beier",
+  "university": "SIUE",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 653,
+  "notes": null
+ },
+ {
+  "name": "HÉCTOR BLANCO",
+  "university": "Coastal Carolina University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 654,
+  "notes": null
+ },
+ {
+  "name": "IKER GARIJO",
+  "university": "Bryant University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 655,
+  "notes": null
+ },
+ {
+  "name": "Isaac Rosenthal",
+  "university": "Northwestern University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 656,
+  "notes": null
+ },
+ {
+  "name": "J Mossholder",
+  "university": "Bowling Green State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 657,
+  "notes": null
+ },
+ {
+  "name": "Jaime Barbero",
+  "university": "Fairleigh Dickinson University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 658,
+  "notes": null
+ },
+ {
+  "name": "Jake Rueckert",
+  "university": "Gardner-Webb University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 659,
+  "notes": null
+ },
+ {
+  "name": "James Pidutti",
+  "university": "Lipscomb University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 660,
+  "notes": null
+ },
+ {
+  "name": "Jamison Clarke",
+  "university": "University of Evansville",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 661,
+  "notes": null
+ },
+ {
+  "name": "JAVIER REDONDO",
+  "university": "Embry Riddle University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 662,
+  "notes": null
+ },
+ {
+  "name": "JOAN RUIZ",
+  "university": "Oregon State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 663,
+  "notes": null
+ },
+ {
+  "name": "John Tapia",
+  "university": "Missouri State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 664,
+  "notes": null
+ },
+ {
+  "name": "Jonah Ferrnate",
+  "university": "Suffolk University",
+  "season": "26/27",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 665,
+  "notes": null
+ },
+ {
+  "name": "JORGE MUÑOZ",
+  "university": "Gardner-Webb University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 666,
+  "notes": null
+ },
+ {
+  "name": "JUAN GARRIDO",
+  "university": "University of Northwestern Ohio",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 667,
+  "notes": null
+ },
+ {
+  "name": "JUAN NARANJO",
+  "university": "William Penn University",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 668,
+  "notes": null
+ },
+ {
+  "name": "Kai Sakata",
+  "university": "Tabor College",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 669,
+  "notes": null
+ },
+ {
+  "name": "Kao Garcia",
+  "university": "Coker University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 670,
+  "notes": null
+ },
+ {
+  "name": "Killian Turek",
+  "university": "Saint Michael's College",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 671,
+  "notes": null
+ },
+ {
+  "name": "Koke Garcia",
+  "university": "East Tennessee State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 672,
+  "notes": null
+ },
+ {
+  "name": "Leandro Gamba",
+  "university": "Missouri State University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 673,
+  "notes": null
+ },
+ {
+  "name": "Liam Sloan",
+  "university": "University of Nebraska-Kearney",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 674,
+  "notes": null
+ },
+ {
+  "name": "Lionel Mendez",
+  "university": "Hendrix College",
+  "season": "26/27",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 675,
+  "notes": null
+ },
+ {
+  "name": "Logan Coughlin",
+  "university": "Quinnipiac University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 676,
+  "notes": null
+ },
+ {
+  "name": "Luke Deppepe",
+  "university": "Mount St. Mary's University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 677,
+  "notes": null
+ },
+ {
+  "name": "MARC TASIES",
+  "university": "American International College",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 678,
+  "notes": null
+ },
+ {
+  "name": "MARCOS SEVILLA",
+  "university": "Felician University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 679,
+  "notes": null
+ },
+ {
+  "name": "Marko Vujić",
+  "university": "Widener University",
+  "season": "26/27",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 680,
+  "notes": null
+ },
+ {
+  "name": "MARTIN GUERRA",
+  "university": "Gannon University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 681,
+  "notes": null
+ },
+ {
+  "name": "Mason Street",
+  "university": "Coastal Carolina University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 682,
+  "notes": null
+ },
+ {
+  "name": "MATEO DEZA",
+  "university": "Longwood University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 683,
+  "notes": null
+ },
+ {
+  "name": "Matthew Leistensnider",
+  "university": "Indiana University Columbus",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 684,
+  "notes": null
+ },
+ {
+  "name": "Max Robertson",
+  "university": "Colorado School of Mines",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 685,
+  "notes": null
+ },
+ {
+  "name": "NACHO GARCIA",
+  "university": "Bryant University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 686,
+  "notes": null
+ },
+ {
+  "name": "Nathaniel Pi-Suyner",
+  "university": "Southern New Hampshire University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 687,
+  "notes": null
+ },
+ {
+  "name": "Oliver Farris",
+  "university": "SUNY New Paltz",
+  "season": "26/27",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 688,
+  "notes": null
+ },
+ {
+  "name": "PABLO GARCIA",
+  "university": "College of Southern Idaho",
+  "season": "26/27",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 689,
+  "notes": null
+ },
+ {
+  "name": "PAU ALEIXANDRE",
+  "university": "Lincoln Memorial University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 690,
+  "notes": null
+ },
+ {
+  "name": "POL BOTA",
+  "university": "University of New Haven",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 691,
+  "notes": null
+ },
+ {
+  "name": "POL IZQUIERDO",
+  "university": "UNLV",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 692,
+  "notes": null
+ },
+ {
+  "name": "Riley Davis",
+  "university": "NJIT",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 693,
+  "notes": null
+ },
+ {
+  "name": "Roman Gamino",
+  "university": "Emory & Henry College",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 694,
+  "notes": null
+ },
+ {
+  "name": "Ryder Bishop",
+  "university": "Mercer University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 695,
+  "notes": null
+ },
+ {
+  "name": "SANTI ARRUFAT",
+  "university": "Brescia University",
+  "season": "26/27",
+  "division": "NAIA",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 696,
+  "notes": null
+ },
+ {
+  "name": "Stefano Leverone",
+  "university": "North Greenville University",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 697,
+  "notes": null
+ },
+ {
+  "name": "Stephen Davenport",
+  "university": "Colby College",
+  "season": "26/27",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 698,
+  "notes": null
+ },
+ {
+  "name": "TOMMASO",
+  "university": "Tyler Junior College",
+  "season": "26/27",
+  "division": "JUCO",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 699,
+  "notes": null
+ },
+ {
+  "name": "Tripp Rondero",
+  "university": "Sewanee University",
+  "season": "26/27",
+  "division": "Division III",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 700,
+  "notes": null
+ },
+ {
+  "name": "UNAI DEL PUERTO",
+  "university": "Emory & Henry College",
+  "season": "26/27",
+  "division": "Division II",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 701,
+  "notes": null
+ },
+ {
+  "name": "VICTOR CIAURRIZ",
+  "university": "UCLA",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Becas EEUU",
+  "scholarship": null,
+  "legacyNumber": 702,
+  "notes": null
+ },
+ {
+  "name": "Zain Thompson",
+  "university": "NJIT",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 703,
+  "notes": null
+ },
+ {
+  "name": "Zolly Corrigan",
+  "university": "Lipscomb University",
+  "season": "26/27",
+  "division": "Division I",
+  "program": "Gap Year / Eture FC",
+  "scholarship": null,
+  "legacyNumber": 704,
+  "notes": null
+ }
+]
