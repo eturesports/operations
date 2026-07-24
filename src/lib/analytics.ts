@@ -22,7 +22,66 @@ type Row = {
   division: string | null;
   program: string | null;
   scholarship: number | null;
+  nationality?: string | null;
+  position?: string | null;
 };
+
+// ─────────────────────────── Segmentation ───────────────────────────
+
+export type SegmentRow = {
+  key: string;
+  operations: number;
+  uniquePlayers: number;
+  d1Pct: number;
+  scholarshipMedian: number | null;
+};
+
+export type SegmentationData = {
+  byPosition: SegmentRow[];
+  byNationality: SegmentRow[];
+  positionCoverage: number;
+  nationalityCoverage: number;
+};
+
+function segment(rows: Row[], pick: (r: Row) => string | null | undefined): SegmentRow[] {
+  const map = new Map<string, Row[]>();
+  for (const r of rows) {
+    const raw = (pick(r) ?? "").trim();
+    if (!raw) continue;
+    (map.get(raw) ?? map.set(raw, []).get(raw)!).push(r);
+  }
+  const out: SegmentRow[] = [];
+  for (const [key, list] of map) {
+    const d1 = list.filter((r) => isD1(r.division)).length;
+    const amounts = list.filter((r) => r.scholarship != null).map((r) => r.scholarship!);
+    out.push({
+      key,
+      operations: list.length,
+      uniquePlayers: new Set(list.map((r) => r.name.trim().toLowerCase())).size,
+      d1Pct: list.length ? Math.round((d1 / list.length) * 1000) / 10 : 0,
+      scholarshipMedian: median(amounts),
+    });
+  }
+  return out.sort((a, b) => b.operations - a.operations);
+}
+
+export async function getSegmentationData(): Promise<SegmentationData> {
+  const rows = (await prisma.player.findMany({
+    where: { active: true },
+    select: {
+      name: true, university: true, season: true, division: true, program: true,
+      scholarship: true, nationality: true, position: true,
+    },
+  })) as Row[];
+  const withPos = rows.filter((r) => (r.position ?? "").trim()).length;
+  const withNat = rows.filter((r) => (r.nationality ?? "").trim()).length;
+  return {
+    byPosition: segment(rows, (r) => r.position),
+    byNationality: segment(rows, (r) => r.nationality),
+    positionCoverage: rows.length ? Math.round((withPos / rows.length) * 1000) / 10 : 0,
+    nationalityCoverage: rows.length ? Math.round((withNat / rows.length) * 1000) / 10 : 0,
+  };
+}
 
 // ─────────────────────────── Program performance ───────────────────────────
 

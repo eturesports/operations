@@ -44,6 +44,9 @@ export default async function PlayersPage() {
         actionImageUrl: p.actionImageUrl,
         ncaaUrl: p.ncaaUrl,
         instagramUrl: p.instagramUrl,
+        nationality: p.nationality,
+        position: p.position,
+        previousClub: p.previousClub,
       }))}
       facets={{ seasons, divisions, programs }}
     />

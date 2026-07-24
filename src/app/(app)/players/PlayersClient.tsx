@@ -25,6 +25,9 @@ export type PlayerRow = {
   actionImageUrl: string | null;
   ncaaUrl: string | null;
   instagramUrl: string | null;
+  nationality: string | null;
+  position: string | null;
+  previousClub: string | null;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -133,6 +136,9 @@ export function PlayersClient({
       actionImageUrl: form.actionImageUrl,
       ncaaUrl: form.ncaaUrl,
       instagramUrl: form.instagramUrl,
+      nationality: form.nationality,
+      position: form.position,
+      previousClub: form.previousClub,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {
@@ -166,6 +172,9 @@ export function PlayersClient({
       actionImageUrl: player.actionImageUrl,
       ncaaUrl: player.ncaaUrl,
       instagramUrl: player.instagramUrl,
+      nationality: player.nationality,
+      position: player.position,
+      previousClub: player.previousClub,
     };
     setPlayers((prev) => (editing ? prev.map((p) => (p.id === row.id ? row : p)) : [row, ...prev]));
     setModalOpen(false);
@@ -262,10 +271,10 @@ export function PlayersClient({
   }
 
   function exportCSV() {
-    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Notes"];
+    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Notes"];
     const rows = (selectedCount > 0 ? filtered.filter((p) => selected.has(p.id)) : filtered);
     const lines = rows.map((p) =>
-      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, (p.notes ?? "").replace(/\n/g, " ")]
+      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", (p.notes ?? "").replace(/\n/g, " ")]
         .map((c) => `"${String(c).replace(/"/g, '""')}"`)
         .join(",")
     );

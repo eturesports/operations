@@ -7,6 +7,7 @@ const TABS = [
   { href: "/dashboard", label: "Authority" },
   { href: "/dashboard/programs", label: "Programs" },
   { href: "/dashboard/universities", label: "Universities" },
+  { href: "/dashboard/segmentation", label: "Segmentation" },
 ];
 
 export function AnalyticsTabs() {

@@ -77,6 +77,13 @@ const HEADER_MAP: Record<string, string> = {
   "código deporte": "sportCode",
   notas: "notes",
   notes: "notes",
+  nationality: "nationality",
+  nacionalidad: "nationality",
+  position: "position",
+  "posición": "position",
+  posicion: "position",
+  "previous club": "previousClub",
+  "club anterior": "previousClub",
 };
 
 export type CsvPlayer = {
@@ -88,6 +95,9 @@ export type CsvPlayer = {
   scholarship?: string;
   sportCode?: string;
   notes?: string;
+  nationality?: string;
+  position?: string;
+  previousClub?: string;
 };
 
 export function rowsToPlayers(rows: string[][]): {

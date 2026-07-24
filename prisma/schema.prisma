@@ -134,6 +134,11 @@ model Player {
   ncaaUrl         String? // NCAA profile / roster page
   instagramUrl    String? // Instagram handle URL
 
+  // Segmentation (framework cap. 7)
+  nationality  String?
+  position     String? // GK, DF, MF, FW…
+  previousClub String?
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   createdById String?

@@ -15,6 +15,9 @@ export type PlayerInput = {
   actionImageUrl?: string | null;
   ncaaUrl?: string | null;
   instagramUrl?: string | null;
+  nationality?: string | null;
+  position?: string | null;
+  previousClub?: string | null;
 };
 
 function str(v: unknown): string | null {
@@ -60,6 +63,9 @@ export function parsePlayerInput(
   if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
   if ("ncaaUrl" in body) data.ncaaUrl = str(body.ncaaUrl);
   if ("instagramUrl" in body) data.instagramUrl = str(body.instagramUrl);
+  if ("nationality" in body) data.nationality = str(body.nationality);
+  if ("position" in body) data.position = str(body.position);
+  if ("previousClub" in body) data.previousClub = str(body.previousClub);
 
   return { data };
 }

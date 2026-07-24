@@ -152,7 +152,7 @@ export function ImportModal({
                 >
                   {sports.map((s) => (
                     <option key={s.id} value={s.id}>
-                      {s.name}
+                      {s.name} ({s.code})
                     </option>
                   ))}
                 </select>

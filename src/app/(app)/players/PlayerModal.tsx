@@ -16,6 +16,9 @@ export type PlayerForm = {
   actionImageUrl: string;
   ncaaUrl: string;
   instagramUrl: string;
+  nationality: string;
+  position: string;
+  previousClub: string;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -133,6 +136,9 @@ export function PlayerModal({
     actionImageUrl: initial?.actionImageUrl ?? "",
     ncaaUrl: initial?.ncaaUrl ?? "",
     instagramUrl: initial?.instagramUrl ?? "",
+    nationality: initial?.nationality ?? "",
+    position: initial?.position ?? "",
+    previousClub: initial?.previousClub ?? "",
   });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -213,7 +219,7 @@ export function PlayerModal({
                 >
                   {sports.map((s) => (
                     <option key={s.id} value={s.id}>
-                      {s.name}
+                      {s.name} ({s.code})
                     </option>
                   ))}
                 </select>
@@ -286,6 +292,42 @@ export function PlayerModal({
                 className="input min-h-[70px]"
                 value={form.notes}
                 onChange={(e) => set("notes", e.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Segmentation */}
+          <div className="grid grid-cols-1 gap-4 border-t border-ink-600 pt-4 sm:grid-cols-3">
+            <div>
+              <label className="label">Position</label>
+              <input
+                className="input"
+                list="position-list"
+                placeholder="GK / DF / MF / FW"
+                value={form.position}
+                onChange={(e) => set("position", e.target.value)}
+              />
+              <datalist id="position-list">
+                <option value="GK" />
+                <option value="DF" />
+                <option value="MF" />
+                <option value="FW" />
+              </datalist>
+            </div>
+            <div>
+              <label className="label">Nationality</label>
+              <input
+                className="input"
+                value={form.nationality}
+                onChange={(e) => set("nationality", e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="label">Previous club</label>
+              <input
+                className="input"
+                value={form.previousClub}
+                onChange={(e) => set("previousClub", e.target.value)}
               />
             </div>
           </div>

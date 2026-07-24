@@ -73,6 +73,9 @@ export function PlayerDetail({
             label="Scholarship"
             value={player.scholarship != null ? formatUSD(player.scholarship) : null}
           />
+          <Info label="Position" value={player.position} />
+          <Info label="Nationality" value={player.nationality} />
+          <Info label="Previous club" value={player.previousClub} />
         </div>
 
         {player.notes && (

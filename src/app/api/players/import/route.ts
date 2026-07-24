@@ -14,6 +14,9 @@ type IncomingRow = {
   scholarship?: string | number;
   sportCode?: string;
   notes?: string;
+  nationality?: string;
+  position?: string;
+  previousClub?: string;
 };
 
 // POST /api/players/import
@@ -80,6 +83,9 @@ export async function POST(req: Request) {
         program: raw.program,
         scholarship: raw.scholarship,
         notes: raw.notes,
+        nationality: raw.nationality,
+        position: raw.position,
+        previousClub: raw.previousClub,
       },
       { partial: false }
     );
