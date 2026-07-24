@@ -22,23 +22,25 @@ export async function PATCH(
   const body = (await req.json().catch(() => ({}))) as {
     role?: string;
     active?: boolean;
+    approved?: boolean;
   };
 
-  const data: { role?: Role; active?: boolean } = {};
+  const data: { role?: Role; active?: boolean; approved?: boolean } = {};
   if (body.role !== undefined) {
     if (!VALID_ROLES.includes(body.role as Role)) {
-      return NextResponse.json({ error: "Rol inválido" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid role" }, { status: 400 });
     }
     data.role = body.role as Role;
   }
   if (body.active !== undefined) data.active = Boolean(body.active);
+  if (body.approved !== undefined) data.approved = Boolean(body.approved);
 
   // Evita que un admin se quite a sí mismo el último acceso admin.
   if (params.id === session.user.id && (data.role === "VIEWER" || data.role === "EDITOR")) {
     const admins = await prisma.user.count({ where: { role: "ADMIN", active: true } });
     if (admins <= 1) {
       return NextResponse.json(
-        { error: "No puedes quitarte el rol de administrador siendo el único." },
+        { error: "You can't remove your own admin role as the only administrator." },
         { status: 400 }
       );
     }

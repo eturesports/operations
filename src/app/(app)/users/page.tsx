@@ -15,6 +15,7 @@ export default async function UsersPage() {
       image: true,
       role: true,
       active: true,
+      approved: true,
       createdAt: true,
     },
   });

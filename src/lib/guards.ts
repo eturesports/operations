@@ -8,6 +8,7 @@ export async function requireSession(): Promise<Session> {
   const session = await auth();
   if (!session?.user) redirect("/login");
   if (session.user.active === false) redirect("/unauthorized");
+  if (session.user.approved === false) redirect("/pending");
   return session;
 }
 

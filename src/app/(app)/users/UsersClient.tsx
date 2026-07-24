@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Role } from "@prisma/client";
 
@@ -11,6 +11,7 @@ type UserRow = {
   image: string | null;
   role: Role;
   active: boolean;
+  approved: boolean;
   createdAt: string;
 };
 
@@ -19,6 +20,17 @@ const ROLES: { value: Role; label: string; desc: string }[] = [
   { value: "EDITOR", label: "Editor", desc: "Creates, edits and deletes players" },
   { value: "VIEWER", label: "Viewer", desc: "Read-only access" },
 ];
+
+function Avatar({ user }: { user: UserRow }) {
+  return user.image ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={user.image} alt="" className="h-8 w-8 rounded-full border border-ink-600" />
+  ) : (
+    <div className="grid h-8 w-8 place-items-center rounded-full bg-ink-700 text-xs font-bold text-fg">
+      {(user.name ?? user.email).slice(0, 1).toUpperCase()}
+    </div>
+  );
+}
 
 export function UsersClient({
   currentUserId,
@@ -32,7 +44,10 @@ export function UsersClient({
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  async function patch(id: string, body: { role?: Role; active?: boolean }) {
+  const pending = useMemo(() => users.filter((u) => !u.approved), [users]);
+  const members = useMemo(() => users.filter((u) => u.approved), [users]);
+
+  async function patch(id: string, body: { role?: Role; active?: boolean; approved?: boolean }) {
     setBusy(id);
     setError(null);
     try {
@@ -56,12 +71,12 @@ export function UsersClient({
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-fg sm:text-3xl">Access & permissions</h1>
         <p className="text-sm text-muted">
-          Users appear here the first time they sign in. Adjust their role or disable
-          their access.
+          Company accounts (@eturesports.com) are approved automatically. External
+          accounts can register but need admin approval before they get access.
         </p>
       </div>
 
@@ -71,6 +86,44 @@ export function UsersClient({
         </div>
       )}
 
+      {/* Pending approval */}
+      {pending.length > 0 && (
+        <div className="card overflow-hidden border-brand/40">
+          <div className="flex items-center gap-2 border-b border-ink-600 bg-brand/10 px-4 py-3">
+            <span className="badge bg-brand text-white">{pending.length}</span>
+            <h2 className="text-sm font-semibold text-fg">Pending approval</h2>
+          </div>
+          <ul className="divide-y divide-ink-700/60">
+            {pending.map((u) => (
+              <li key={u.id} className="flex flex-wrap items-center gap-3 px-4 py-3">
+                <Avatar user={u} />
+                <div className="min-w-0">
+                  <div className="truncate font-medium text-fg">{u.name ?? "—"}</div>
+                  <div className="truncate text-xs text-muted">{u.email}</div>
+                </div>
+                <div className="ml-auto flex gap-2">
+                  <button
+                    disabled={busy === u.id}
+                    onClick={() => patch(u.id, { approved: true, active: true })}
+                    className="btn-primary px-3 py-1.5 text-xs"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    disabled={busy === u.id}
+                    onClick={() => patch(u.id, { active: false })}
+                    className="btn-ghost px-3 py-1.5 text-xs"
+                  >
+                    Reject
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Members */}
       <div className="card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
@@ -82,22 +135,11 @@ export function UsersClient({
               </tr>
             </thead>
             <tbody>
-              {users.map((u) => (
+              {members.map((u) => (
                 <tr key={u.id} className="border-b border-ink-700/60">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
-                      {u.image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={u.image}
-                          alt=""
-                          className="h-8 w-8 rounded-full border border-ink-600"
-                        />
-                      ) : (
-                        <div className="grid h-8 w-8 place-items-center rounded-full bg-ink-700 text-xs font-bold text-fg">
-                          {(u.name ?? u.email).slice(0, 1).toUpperCase()}
-                        </div>
-                      )}
+                      <Avatar user={u} />
                       <div>
                         <div className="font-medium text-fg">
                           {u.name ?? "—"}

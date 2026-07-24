@@ -29,6 +29,7 @@ model User {
   image         String?
   role          Role      @default(VIEWER)
   active        Boolean   @default(true)
+  approved      Boolean   @default(false) // access requires admin approval unless auto-approved by domain/allowlist
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 

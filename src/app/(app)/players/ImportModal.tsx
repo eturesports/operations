@@ -127,7 +127,7 @@ export function ImportModal({
             <p className="text-sm text-muted">
               Upload a CSV with headers. Recognized columns: <b>Name</b> (required),
               University, Season, Division, Program, Scholarship, Sport and Notes. Same
-              mismo formato que genera «Export CSV».
+              format produced by “Export CSV”.
             </p>
 
             <div>
