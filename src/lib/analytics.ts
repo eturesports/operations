@@ -83,6 +83,116 @@ export async function getSegmentationData(): Promise<SegmentationData> {
   };
 }
 
+// ─────────────────────────── Active players ───────────────────────────
+
+export type ActivePlayerRow = {
+  profileId: string;
+  playerId: string;
+  name: string;
+  university: string;
+  division: string | null;
+  season: string | null;
+  jersey: string | null;
+  matchesPlayed: number | null;
+  minutes: number | null;
+  goals: number | null;
+  assists: number | null;
+  points: number | null;
+  saves: number | null;
+  statsSource: string | null;
+  statsUpdatedAt: Date | null;
+  ncaaUrl: string | null;
+  instagramUrl: string | null;
+  profileImageUrl: string | null;
+};
+
+export type ActiveData = {
+  activeCount: number;
+  withStats: number;
+  totals: { goals: number; assists: number; points: number; minutes: number; saves: number };
+  rows: ActivePlayerRow[];
+  topScorers: ActivePlayerRow[];
+  topAssists: ActivePlayerRow[];
+};
+
+export async function getActiveData(): Promise<ActiveData> {
+  const profiles = await prisma.playerProfile.findMany({
+    where: { current: true },
+    include: {
+      player: {
+        select: {
+          id: true,
+          name: true,
+          ncaaUrl: true,
+          instagramUrl: true,
+          profileImageUrl: true,
+          active: true,
+        },
+      },
+    },
+  });
+
+  const rows: ActivePlayerRow[] = profiles
+    .filter((p) => p.player.active)
+    .map((p) => ({
+      profileId: p.id,
+      playerId: p.playerId,
+      name: p.player.name,
+      university: p.university,
+      division: p.division,
+      season: p.season,
+      jersey: p.jersey,
+      matchesPlayed: p.matchesPlayed,
+      minutes: p.minutes,
+      goals: p.goals,
+      assists: p.assists,
+      points: p.points,
+      saves: p.saves,
+      statsSource: p.statsSource,
+      statsUpdatedAt: p.statsUpdatedAt,
+      ncaaUrl: p.player.ncaaUrl,
+      instagramUrl: p.player.instagramUrl,
+      profileImageUrl: p.player.profileImageUrl,
+    }));
+
+  const sum = (pick: (r: ActivePlayerRow) => number | null) =>
+    rows.reduce((a, r) => a + (pick(r) ?? 0), 0);
+
+  const hasStats = (r: ActivePlayerRow) =>
+    [r.matchesPlayed, r.minutes, r.goals, r.assists, r.points, r.saves].some((v) => v != null);
+
+  const byGoals = [...rows]
+    .filter((r) => (r.goals ?? 0) > 0)
+    .sort((a, b) => (b.goals ?? 0) - (a.goals ?? 0) || (b.points ?? 0) - (a.points ?? 0))
+    .slice(0, 10);
+  const byAssists = [...rows]
+    .filter((r) => (r.assists ?? 0) > 0)
+    .sort((a, b) => (b.assists ?? 0) - (a.assists ?? 0))
+    .slice(0, 10);
+
+  rows.sort(
+    (a, b) =>
+      (b.points ?? 0) - (a.points ?? 0) ||
+      (b.goals ?? 0) - (a.goals ?? 0) ||
+      a.name.localeCompare(b.name)
+  );
+
+  return {
+    activeCount: rows.length,
+    withStats: rows.filter(hasStats).length,
+    totals: {
+      goals: sum((r) => r.goals),
+      assists: sum((r) => r.assists),
+      points: sum((r) => r.points),
+      minutes: sum((r) => r.minutes),
+      saves: sum((r) => r.saves),
+    },
+    rows,
+    topScorers: byGoals,
+    topAssists: byAssists,
+  };
+}
+
 // ─────────────────────────── Program performance ───────────────────────────
 
 export type ProgramStat = {

@@ -84,14 +84,28 @@ export function ShowcaseClient({
           </p>
         </div>
         {editable && (
-          <button
-            onClick={() =>
-              setEditing({ year: years[0] ?? new Date().getFullYear(), name: "", logoUrl: "" })
-            }
-            className="btn-primary"
-          >
-            + Add university
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() =>
+                setEditing({
+                  year: (years[0] ?? new Date().getFullYear()) + 1,
+                  name: "",
+                  logoUrl: "",
+                })
+              }
+              className="btn-ghost"
+            >
+              + New edition
+            </button>
+            <button
+              onClick={() =>
+                setEditing({ year: years[0] ?? new Date().getFullYear(), name: "", logoUrl: "" })
+              }
+              className="btn-primary"
+            >
+              + Add university
+            </button>
+          </div>
         )}
       </div>
 

@@ -146,10 +146,50 @@ model Player {
   updatedById String?
   updatedBy   User?    @relation("PlayerUpdatedBy", fields: [updatedById], references: [id])
 
+  profiles PlayerProfile[]
+
   @@index([sportId])
   @@index([season])
   @@index([division])
   @@index([program])
+}
+
+// A player's stint at a university (a player may have several — transfers).
+// Stats can be edited by hand or refreshed from the public NCAA stats API.
+model PlayerProfile {
+  id       String @id @default(cuid())
+  playerId String
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  university String
+  division   String? // Division I/II/III, JUCO, NAIA…
+  season     String? // "24/25"
+  current    Boolean @default(false) // the player's current/active roster
+  jersey     String? // shirt number
+
+  // NCAA linkage (henrygd/ncaa-api)
+  ncaaSport    String? @default("soccer-men") // soccer-men | soccer-women
+  ncaaDivision String? @default("d1") // d1 | d2 | d3
+  rosterUrl    String? // roster / profile page
+
+  // Season stats (outfield + goalkeeper)
+  matchesPlayed  Int?
+  matchesStarted Int?
+  minutes        Int?
+  goals          Int?
+  assists        Int?
+  points         Int?
+  saves          Int?
+  goalsAgainst   Int?
+
+  statsUpdatedAt DateTime?
+  statsSource    String? // "manual" | "ncaa-api"
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([playerId])
+  @@index([current])
 }
 
 // Immutable audit trail: who changed what, when (never auto-deleted).

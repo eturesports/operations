@@ -530,6 +530,7 @@ export function PlayersClient({
           sports={sports}
           divisionOptions={divisionOptions}
           programOptions={programOptions}
+          seasonOptions={seasonOptions}
           initial={editing}
           onClose={() => setModalOpen(false)}
           onSave={handleSave}
@@ -562,6 +563,7 @@ export function PlayersClient({
         <PlayerDetail
           player={detail}
           editable={editable}
+          seasonOptions={seasonOptions}
           onClose={() => setDetail(null)}
           onEdit={() => {
             const p = detail;

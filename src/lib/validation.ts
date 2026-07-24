@@ -69,3 +69,60 @@ export function parsePlayerInput(
 
   return { data };
 }
+
+// ─────────────────────────── Player profiles ───────────────────────────
+
+export type ProfileInput = {
+  university: string;
+  division?: string | null;
+  season?: string | null;
+  current?: boolean;
+  jersey?: string | null;
+  ncaaSport?: string | null;
+  ncaaDivision?: string | null;
+  rosterUrl?: string | null;
+  matchesPlayed?: number | null;
+  matchesStarted?: number | null;
+  minutes?: number | null;
+  goals?: number | null;
+  assists?: number | null;
+  points?: number | null;
+  saves?: number | null;
+  goalsAgainst?: number | null;
+};
+
+const NUMERIC_PROFILE_FIELDS = [
+  "matchesPlayed",
+  "matchesStarted",
+  "minutes",
+  "goals",
+  "assists",
+  "points",
+  "saves",
+  "goalsAgainst",
+] as const;
+
+export function parseProfileInput(
+  body: Record<string, unknown>,
+  { partial = false }: { partial?: boolean } = {}
+): { data?: Partial<ProfileInput>; error?: string } {
+  const data: Partial<ProfileInput> = {};
+
+  if (!partial || "university" in body) {
+    const university = str(body.university);
+    if (!university) return { error: "University is required for a profile." };
+    data.university = university;
+  }
+  if ("division" in body) data.division = str(body.division);
+  if ("season" in body) data.season = str(body.season);
+  if ("current" in body) data.current = Boolean(body.current);
+  if ("jersey" in body) data.jersey = str(body.jersey);
+  if ("ncaaSport" in body) data.ncaaSport = str(body.ncaaSport);
+  if ("ncaaDivision" in body) data.ncaaDivision = str(body.ncaaDivision);
+  if ("rosterUrl" in body) data.rosterUrl = str(body.rosterUrl);
+  for (const f of NUMERIC_PROFILE_FIELDS) {
+    if (f in body) data[f] = intOrNull(body[f]);
+  }
+
+  return { data };
+}

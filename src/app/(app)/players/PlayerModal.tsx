@@ -112,6 +112,7 @@ export function PlayerModal({
   sports,
   divisionOptions,
   programOptions,
+  seasonOptions = [],
   initial,
   onClose,
   onSave,
@@ -119,6 +120,7 @@ export function PlayerModal({
   sports: SportOpt[];
   divisionOptions: string[];
   programOptions: string[];
+  seasonOptions?: string[];
   initial: PlayerRow | null;
   onClose: () => void;
   onSave: (form: PlayerForm) => Promise<void>;
@@ -239,10 +241,16 @@ export function PlayerModal({
               <label className="label">Season</label>
               <input
                 className="input"
-                placeholder="24/25"
+                list="season-list"
+                placeholder="24/25 — type a new one to add it"
                 value={form.season}
                 onChange={(e) => set("season", e.target.value)}
               />
+              <datalist id="season-list">
+                {seasonOptions.map((s) => (
+                  <option key={s} value={s} />
+                ))}
+              </datalist>
             </div>
 
             <div>

@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import type { Role } from "@prisma/client";
 import { ThemeToggle } from "./ThemeToggle";
+import { AccountModal } from "./AccountModal";
 
 const ROLE_LABEL: Record<Role, string> = {
   ADMIN: "Admin",
@@ -17,6 +19,7 @@ export function TopBar({
   user: { name?: string | null; email?: string | null; image?: string | null; role: Role };
   signOutAction: () => Promise<void>;
 }) {
+  const [accountOpen, setAccountOpen] = useState(false);
   return (
     <header className="sticky top-0 z-30">
       <div className="glass mx-auto mt-3 flex max-w-6xl items-center gap-3 rounded-2xl px-4 py-2.5 sm:px-5">
@@ -29,36 +32,43 @@ export function TopBar({
             height={26}
             className="h-6 w-auto"
           />
-          <span className="font-display text-lg leading-none tracking-[0.12em] text-fg">
-            ETURE
+          <span className="font-display text-lg font-black leading-none tracking-[0.12em] text-fg">
+            ETURE SPORTS
           </span>
           <span className="hidden text-[10px] font-semibold uppercase tracking-[0.28em] text-muted sm:inline">
-            Operations
+            Operations Database
           </span>
         </Link>
 
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
-          <div className="hidden text-right sm:block">
-            <div className="text-xs font-medium text-fg">
-              {user.name ?? user.email}
+          <button
+            type="button"
+            onClick={() => setAccountOpen(true)}
+            className="flex items-center gap-2 rounded-full pl-2 pr-1 py-1 transition-colors hover:bg-ink-700/60"
+            title="Account settings"
+          >
+            <div className="hidden text-right sm:block">
+              <div className="text-xs font-medium text-fg">
+                {user.name ?? user.email}
+              </div>
+              <div className="text-[10px] uppercase tracking-wide text-muted">
+                {ROLE_LABEL[user.role]}
+              </div>
             </div>
-            <div className="text-[10px] uppercase tracking-wide text-muted">
-              {ROLE_LABEL[user.role]}
-            </div>
-          </div>
-          {user.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={user.image}
-              alt=""
-              className="h-8 w-8 rounded-full border border-ink-600"
-            />
-          ) : (
-            <div className="grid h-8 w-8 place-items-center rounded-full bg-ink-700 text-xs font-bold text-fg">
-              {(user.name ?? user.email ?? "?").slice(0, 1).toUpperCase()}
-            </div>
-          )}
+            {user.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={user.image}
+                alt=""
+                className="h-8 w-8 rounded-full border border-ink-600 object-cover"
+              />
+            ) : (
+              <div className="grid h-8 w-8 place-items-center rounded-full bg-ink-700 text-xs font-bold text-fg">
+                {(user.name ?? user.email ?? "?").slice(0, 1).toUpperCase()}
+              </div>
+            )}
+          </button>
           <form action={signOutAction}>
             <button
               type="submit"
@@ -73,6 +83,15 @@ export function TopBar({
           </form>
         </div>
       </div>
+
+      {accountOpen && (
+        <AccountModal
+          initialName={user.name ?? ""}
+          initialImage={user.image ?? ""}
+          email={user.email ?? ""}
+          onClose={() => setAccountOpen(false)}
+        />
+      )}
     </header>
   );
 }

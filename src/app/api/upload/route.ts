@@ -1,19 +1,17 @@
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import { auth } from "@/auth";
-import { canEdit } from "@/lib/permissions";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
 
 // POST /api/upload  (multipart/form-data with a single "file")
-// Uploads an image to Vercel Blob and returns its public URL.
+// Uploads an image to Vercel Blob and returns its public URL. Any signed-in
+// user may upload (e.g. their own avatar); saving a URL onto a player record
+// is still permission-gated at that endpoint.
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-  }
-  if (!canEdit(session.user.role)) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   if (!process.env.BLOB_READ_WRITE_TOKEN) {
     return NextResponse.json(

@@ -49,9 +49,6 @@ export default async function DashboardPage() {
       <div>
         <div className="kicker mb-1">Data Intelligence</div>
         <h1 className="text-2xl font-bold text-fg sm:text-3xl">Authority Dashboard</h1>
-        <p className="text-sm text-muted">
-          Volume, level, value and reliability of Eture operations. Data as of {asOf}.
-        </p>
       </div>
 
       <AnalyticsTabs />

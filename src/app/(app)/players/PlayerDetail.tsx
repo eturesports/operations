@@ -2,6 +2,7 @@
 
 import { formatUSD } from "@/lib/format";
 import type { PlayerRow } from "./PlayersClient";
+import { ProfilesSection } from "./ProfilesSection";
 
 function Photo({ url, label }: { url: string | null; label: string }) {
   return (
@@ -31,11 +32,13 @@ function Info({ label, value }: { label: string; value: string | null }) {
 export function PlayerDetail({
   player,
   editable,
+  seasonOptions = [],
   onClose,
   onEdit,
 }: {
   player: PlayerRow;
   editable: boolean;
+  seasonOptions?: string[];
   onClose: () => void;
   onEdit: () => void;
 }) {
@@ -84,6 +87,12 @@ export function PlayerDetail({
             <p className="whitespace-pre-wrap text-sm text-fg">{player.notes}</p>
           </div>
         )}
+
+        <ProfilesSection
+          playerId={player.id}
+          seasonOptions={seasonOptions}
+          editable={editable}
+        />
 
         <div className="mt-5 flex flex-wrap gap-2">
           {player.ncaaUrl && (

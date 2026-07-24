@@ -18,10 +18,21 @@ export default async function PlayersPage() {
     }),
   ]);
 
-  // Opciones distintas para los filtros/desplegables.
-  const seasons = [...new Set(players.map((p) => p.season).filter(Boolean))] as string[];
-  const divisions = [...new Set(players.map((p) => p.division).filter(Boolean))] as string[];
-  const programs = [...new Set(players.map((p) => p.program).filter(Boolean))] as string[];
+  // Distinct options for filters/dropdowns. Dedupe case-insensitively so
+  // near-duplicate variants (e.g. "MLS NEXT PRO" vs "MLS Next Pro") collapse.
+  const distinctCI = (vals: (string | null)[]) => {
+    const seen = new Map<string, string>();
+    for (const v of vals) {
+      const s = (v ?? "").trim();
+      if (!s) continue;
+      const k = s.toLowerCase();
+      if (!seen.has(k)) seen.set(k, s);
+    }
+    return [...seen.values()];
+  };
+  const seasons = distinctCI(players.map((p) => p.season));
+  const divisions = distinctCI(players.map((p) => p.division));
+  const programs = distinctCI(players.map((p) => p.program));
 
   return (
     <PlayersClient
