@@ -21,6 +21,32 @@ enum Role {
   VIEWER // solo lectura
 }
 
+enum ClaimStatus {
+  DRAFT
+  APPROVED
+  ARCHIVED
+}
+
+// Official, versioned marketing claims (framework cap. 17): every public figure
+// as a record with definition, denominator, source, coverage and cutoff date.
+model Claim {
+  id            String      @id @default(cuid())
+  text          String      @db.Text
+  metric        String?
+  definition    String?     @db.Text
+  population    String?
+  period        String?
+  denominator   String?
+  source        String?
+  coverage      String?
+  authorizedUse String? // comma list: web, social, dossier, sales, PR
+  owner         String?
+  status        ClaimStatus @default(DRAFT)
+  asOf          DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?

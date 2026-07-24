@@ -13,6 +13,7 @@ export function BottomNav({ role }: { role: Role }) {
     { href: "/dashboard", label: "Overview", icon: <GridIcon /> },
     { href: "/players", label: "Players", icon: <UsersIcon /> },
     { href: "/showcase", label: "Showcase", icon: <TrophyIcon /> },
+    { href: "/claims", label: "Claims", icon: <QuoteIcon /> },
   ];
   if (role === "ADMIN")
     items.push({ href: "/users", label: "Access", icon: <ShieldIcon /> });
@@ -74,6 +75,13 @@ function TrophyIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
       <path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3" />
+    </svg>
+  );
+}
+function QuoteIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 21v-4a4 4 0 0 1 4-4h1M3 9a4 4 0 0 1 4-4h1M14 21v-4a4 4 0 0 1 4-4h1M14 9a4 4 0 0 1 4-4h1" />
     </svg>
   );
 }

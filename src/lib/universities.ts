@@ -126,16 +126,68 @@ const ALIASES: Record<string, string> = {
   "CAL ST": "California State University",
   "CAL BERKLEY": "University of California, Berkeley",
   "CAL BERKELEY": "University of California, Berkeley",
+  // --- refinements (real variants found in the data) ---
+  MSU: "Missouri State University",
+  "MISSISSIPPI ST": "Mississippi State University",
+  JMU: "James Madison University",
+  NSU: "Nova Southeastern University",
+  BU: "Boston University",
+  GSU: "Georgia State University",
+  UNF: "University of North Florida",
+  "NORTH FLORIDA": "University of North Florida",
+  UMASS: "University of Massachusetts",
+  "GEORGE MASON": "George Mason University",
+  MEMPHIS: "University of Memphis",
+  MILLIGAN: "Milligan University",
+  GANNON: "Gannon University",
+  "CSU PUEBLO": "Colorado State University Pueblo",
+  TIFFIN: "Tiffin University",
+  BARRY: "Barry University",
+  TYLER: "Tyler Junior College",
+  LENOIR: "Lenoir-Rhyne University",
+  "LENOIR RHYNE": "Lenoir-Rhyne University",
+  KANSAS: "University of Kansas",
+  LIFE: "Life University",
+  MACU: "Mid-America Christian University",
+  PBA: "Palm Beach Atlantic University",
+  SVSU: "Saginaw Valley State University",
+  UNOH: "University of Northwestern Ohio",
+  OCU: "Oklahoma City University",
+  FREED: "Freed-Hardeman University",
+  SIENNA: "Siena College",
+  SIENA: "Siena College",
+  "FLORIDA GULF COAST": "Florida Gulf Coast University",
+  DOMINICAN: "Dominican University",
+  SALEM: "Salem University",
+  "SALEM UNIVERSITY": "Salem University",
+  ICC: "Illinois Central College",
+  PITT: "University of Pittsburgh",
+  UWV: "University of Charleston (WV)",
+  UP: "University of Portland",
+  EIU: "Eastern Illinois University",
+  STETSON: "Stetson University",
+  LYNN: "Lynn University",
 };
 
 function titleize(s: string): string {
   // If it already has lowercase letters, assume it's a proper name; keep as-is.
   if (/[a-z]/.test(s)) return s;
+  // Short single-word ALL-CAPS token → keep as an abbreviation (e.g. MSU, GSU).
+  if (!s.includes(" ") && s.replace(/[^A-Z0-9]/g, "").length <= 4) return s.trim();
   return s
     .toLowerCase()
     .split(" ")
     .map((w) => (w.length <= 2 ? w.toUpperCase() : w[0].toUpperCase() + w.slice(1)))
     .join(" ");
+}
+
+function cleanKey(p: string): string {
+  return p
+    .toUpperCase()
+    .replace(/\./g, "")
+    .replace(/\s+/g, " ")
+    .replace(/^[^A-Z0-9]+|[^A-Z0-9]+$/g, "")
+    .trim();
 }
 
 export function canonicalizeUniversity(raw: string | null | undefined): string[] {
@@ -146,10 +198,10 @@ export function canonicalizeUniversity(raw: string | null | undefined): string[]
     .filter(Boolean);
   const out: string[] = [];
   for (const p of parts) {
-    const key = p.toUpperCase().replace(/\./g, "").replace(/\s+/g, " ").trim();
-    if (DROP.has(key)) continue;
-    const mapped = ALIASES[key] ?? ALIASES[p.toUpperCase().trim()];
-    out.push(mapped ?? titleize(p));
+    const key = cleanKey(p);
+    if (!key || DROP.has(key)) continue;
+    const mapped = ALIASES[key];
+    out.push(mapped ?? titleize(p.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "").trim()));
   }
   return out;
 }
