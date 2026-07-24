@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fuente display de la marca (NeuePower Black), igual que el catálogo MSOC */
+/* Brand display face (NeuePower Black) — same as the MSOC catalog */
 @font-face {
   font-family: "NeuePower";
   font-weight: 900;
@@ -11,45 +11,74 @@
     format("opentype");
 }
 
-:root {
+/* ---- Theme tokens (RGB triplets so Tailwind alpha modifiers keep working) ---- */
+:root,
+:root[data-theme="dark"] {
   color-scheme: dark;
-  --font-display: "NeuePower", var(--font-condensed), "Barlow Condensed", sans-serif;
+  --ink-950: 12 10 9;
+  --ink-900: 20 16 16;
+  --ink-800: 27 22 19;
+  --ink-700: 36 28 25;
+  --ink-600: 58 46 41;
+  --fg: 244 241 238;
+  --muted: 168 158 150;
+  /* Liquid Glass */
+  --glass-bg: 20 16 14;
+  --glass-alpha: 0.42;
+  --glass-border: 255 255 255;
+  --glass-border-alpha: 0.14;
+  --page-grad-1: rgba(196, 43, 43, 0.16);
+  --page-grad-2: rgba(201, 162, 39, 0.07);
+  --font-display: "NeuePower", "Poppins", sans-serif;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ink-950: 240 237 232; /* page background (paper) */
+  --ink-900: 255 255 255;
+  --ink-800: 250 248 245;
+  --ink-700: 238 233 227;
+  --ink-600: 214 206 198;
+  --fg: 26 20 18;
+  --muted: 96 86 80;
+  --glass-bg: 255 255 255;
+  --glass-alpha: 0.6;
+  --glass-border: 0 0 0;
+  --glass-border-alpha: 0.08;
+  --page-grad-1: rgba(196, 43, 43, 0.1);
+  --page-grad-2: rgba(201, 162, 39, 0.1);
 }
 
 html,
 body {
-  background-color: #0c0a09;
-  color: #ede8e1;
+  background-color: rgb(var(--ink-950));
+  color: rgb(var(--fg));
 }
 
 body {
   min-height: 100vh;
-  /* Glow sutil rojo/oro sobre negro cálido para que el efecto glassy se lea */
   background-image: radial-gradient(
       1100px 560px at 82% -12%,
-      rgba(196, 43, 43, 0.16),
+      var(--page-grad-1),
       transparent 60%
     ),
-    radial-gradient(
-      820px 480px at -12% 112%,
-      rgba(201, 162, 39, 0.07),
-      transparent 60%
-    );
+    radial-gradient(820px 480px at -12% 112%, var(--page-grad-2), transparent 60%);
   background-attachment: fixed;
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Scrollbars discretos */
+/* Discreet scrollbars */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3a2e29 transparent;
+  scrollbar-color: rgb(var(--ink-600)) transparent;
 }
 *::-webkit-scrollbar {
   height: 8px;
   width: 8px;
 }
 *::-webkit-scrollbar-thumb {
-  background: #3a2e29;
+  background: rgb(var(--ink-600));
   border-radius: 999px;
 }
 
@@ -62,49 +91,56 @@ body {
 }
 
 @layer components {
-  /* Tarjeta glassy de la marca */
+  /* Liquid Glass surface */
+  .glass {
+    background: rgb(var(--glass-bg) / var(--glass-alpha));
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgb(255 255 255 / 0.14);
+  }
   .card {
-    background: rgba(20, 16, 14, 0.42);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    backdrop-filter: blur(16px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    @apply glass rounded-2xl;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-150 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
   }
   .btn-primary {
     @apply btn text-white;
     background: linear-gradient(180deg, #c42b2b, #9b1a1a);
-    box-shadow: 0 2px 14px rgba(196, 43, 43, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    box-shadow: 0 2px 16px rgba(196, 43, 43, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
   }
   .btn-primary:hover {
     background: linear-gradient(180deg, #e0433f, #b31e1e);
   }
   .btn-ghost {
-    @apply btn text-bone;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    @apply btn text-fg;
+    background: rgb(var(--glass-bg) / 0.28);
+    border: 1px solid rgb(var(--glass-border) / 0.16);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
   .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.09);
+    background: rgb(var(--glass-bg) / 0.5);
   }
   .btn-danger {
-    @apply btn text-red-300;
-    border: 1px solid rgba(196, 43, 43, 0.4);
+    @apply btn text-brand;
+    border: 1px solid rgb(196 43 43 / 0.4);
   }
   .btn-danger:hover {
-    background: rgba(196, 43, 43, 0.12);
+    background: rgb(196 43 43 / 0.12);
   }
 
   .input {
-    @apply w-full rounded-lg px-3 py-2 text-sm text-bone placeholder-bone/40 outline-none transition-colors;
-    background: rgba(12, 10, 9, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    @apply w-full rounded-xl px-3 py-2.5 text-sm text-fg outline-none transition-colors;
+    background: rgb(var(--ink-950) / 0.55);
+    border: 1px solid rgb(var(--glass-border) / 0.16);
+  }
+  .input::placeholder {
+    color: rgb(var(--muted) / 0.7);
   }
   .input:focus {
     border-color: #c42b2b;
@@ -112,17 +148,13 @@ body {
   }
 
   .label {
-    @apply mb-1 block text-xs font-medium uppercase tracking-wide;
-    color: rgba(208, 202, 196, 0.65);
+    @apply mb-1 block text-xs font-medium uppercase tracking-wide text-muted;
   }
   .badge {
     @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
   }
-
-  /* Kicker / eyebrow al estilo del deck */
   .kicker {
-    @apply text-xs font-bold uppercase;
+    @apply text-xs font-bold uppercase text-brand;
     letter-spacing: 0.3em;
-    color: #c42b2b;
   }
 }

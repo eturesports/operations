@@ -60,14 +60,14 @@ export function PlayerModal({
     e.preventDefault();
     setError(null);
     if (!form.name.trim()) {
-      setError("El nombre es obligatorio.");
+      setError("Name is required.");
       return;
     }
     setSaving(true);
     try {
       await onSave(form);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Error al guardar");
+      setError(err instanceof Error ? err.message : "Failed to save");
     } finally {
       setSaving(false);
     }
@@ -83,10 +83,10 @@ export function PlayerModal({
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-white">
-            {initial ? "Editar jugador" : "Nuevo jugador"}
+          <h2 className="text-lg font-bold text-fg">
+            {initial ? "Edit player" : "New player"}
           </h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-white">
+          <button onClick={onClose} className="text-muted hover:text-fg">
             ✕
           </button>
         </div>
@@ -100,7 +100,7 @@ export function PlayerModal({
         <form onSubmit={submit} className="space-y-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
-              <label className="label">Nombre *</label>
+              <label className="label">Name *</label>
               <input
                 className="input"
                 value={form.name}
@@ -112,7 +112,7 @@ export function PlayerModal({
 
             {sports.length > 1 && (
               <div>
-                <label className="label">Deporte</label>
+                <label className="label">Sport</label>
                 <select
                   className="input"
                   value={form.sportId}
@@ -128,7 +128,7 @@ export function PlayerModal({
             )}
 
             <div>
-              <label className="label">Universidad</label>
+              <label className="label">University</label>
               <input
                 className="input"
                 value={form.university}
@@ -137,7 +137,7 @@ export function PlayerModal({
             </div>
 
             <div>
-              <label className="label">Temporada</label>
+              <label className="label">Season</label>
               <input
                 className="input"
                 placeholder="24/25"
@@ -147,7 +147,7 @@ export function PlayerModal({
             </div>
 
             <div>
-              <label className="label">Beca (USD)</label>
+              <label className="label">Scholarship (USD)</label>
               <input
                 className="input"
                 inputMode="numeric"
@@ -158,7 +158,7 @@ export function PlayerModal({
             </div>
 
             <div>
-              <label className="label">División</label>
+              <label className="label">Division</label>
               <input
                 className="input"
                 list="division-list"
@@ -173,7 +173,7 @@ export function PlayerModal({
             </div>
 
             <div>
-              <label className="label">Programa</label>
+              <label className="label">Program</label>
               <input
                 className="input"
                 list="program-list"
@@ -188,7 +188,7 @@ export function PlayerModal({
             </div>
 
             <div className="sm:col-span-2">
-              <label className="label">Notas</label>
+              <label className="label">Notes</label>
               <textarea
                 className="input min-h-[80px]"
                 value={form.notes}
@@ -199,10 +199,10 @@ export function PlayerModal({
 
           <div className="flex justify-end gap-2 pt-2">
             <button type="button" onClick={onClose} className="btn-ghost">
-              Cancelar
+              Cancel
             </button>
             <button type="submit" disabled={saving} className="btn-primary">
-              {saving ? "Guardando…" : initial ? "Guardar cambios" : "Crear jugador"}
+              {saving ? "Saving…" : initial ? "Save changes" : "Create player"}
             </button>
           </div>
         </form>

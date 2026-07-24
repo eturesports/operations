@@ -1,25 +1,21 @@
 import type { Metadata } from "next";
-import { Barlow, Barlow_Condensed } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const barlow = Barlow({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-condensed",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "ETURE Sports · Database",
-  description: "Plataforma unificada de operaciones de Eture Sports",
+  title: "ETURE Sports · Operations Database",
+  description: "Eture Sports unified operations & data intelligence platform",
 };
+
+// Sets the theme before paint to avoid a flash of the wrong theme.
+const themeInit = `(function(){try{var t=localStorage.getItem('eture-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
 
 export default function RootLayout({
   children,
@@ -27,10 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="es"
-      className={`${barlow.variable} ${barlowCondensed.variable}`}
-    >
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

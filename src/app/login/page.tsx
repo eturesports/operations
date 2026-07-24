@@ -18,17 +18,17 @@ export default async function LoginPage({
       <div className="w-full max-w-md">
         <div className="card p-8 text-center">
           <div className="kicker mb-3">ETURE SPORTS</div>
-          <h1 className="mb-1 text-4xl leading-none text-white">
+          <h1 className="mb-1 text-4xl leading-none text-fg">
             Database Platform
           </h1>
           <p className="mb-8 text-sm text-bone/55">
-            Base de datos unificada de operaciones
+            Unified operations database
           </p>
 
           {hasError && (
             <div className="mb-6 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-              Tu cuenta no tiene acceso a esta plataforma. Usa el correo de la
-              empresa o contacta con un administrador.
+              Your account does not have access to this platform. Use your company
+              email or contact an administrator.
             </div>
           )}
 
@@ -40,12 +40,12 @@ export default async function LoginPage({
           >
             <button type="submit" className="btn-ghost w-full py-3 text-base">
               <GoogleIcon />
-              Entrar con Google
+              Sign in with Google
             </button>
           </form>
 
-          <p className="mt-6 text-xs text-gray-500">
-            Acceso restringido al personal autorizado de Eture Sports.
+          <p className="mt-6 text-xs text-muted">
+            Restricted to authorized Eture Sports staff.
           </p>
         </div>
       </div>

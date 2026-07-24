@@ -18,9 +18,9 @@ export function BarList({
 
   return (
     <div className="card p-5">
-      <h3 className="mb-4 text-sm font-semibold text-gray-200">{title}</h3>
+      <h3 className="mb-4 text-sm font-semibold text-fg">{title}</h3>
       {buckets.length === 0 ? (
-        <p className="text-sm text-gray-500">Sin datos</p>
+        <p className="text-sm text-muted">No data</p>
       ) : (
         <ul className="space-y-3">
           {buckets.map((b) => {
@@ -29,12 +29,12 @@ export function BarList({
             return (
               <li key={b.key}>
                 <div className="mb-1 flex items-center justify-between gap-2 text-sm">
-                  <span className="truncate text-gray-300" title={b.key}>
+                  <span className="truncate text-fg" title={b.key}>
                     {b.key}
                   </span>
-                  <span className="shrink-0 tabular-nums text-gray-400">
+                  <span className="shrink-0 tabular-nums text-muted">
                     {formatNumber(b.players)}
-                    <span className="mx-1 text-gray-600">·</span>
+                    <span className="mx-1 text-muted">·</span>
                     <span className="text-accent">
                       {formatUSDCompact(b.scholarship)}
                     </span>

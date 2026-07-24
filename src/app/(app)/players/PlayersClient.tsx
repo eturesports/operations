@@ -112,7 +112,7 @@ export function PlayersClient({
 
     if (!res.ok) {
       const j = await res.json().catch(() => ({}));
-      throw new Error(j.error ?? "Error al guardar");
+      throw new Error(j.error ?? "Failed to save");
     }
     const { player } = await res.json();
     const row: PlayerRow = {
@@ -136,10 +136,10 @@ export function PlayersClient({
   }
 
   async function handleDelete(p: PlayerRow) {
-    if (!confirm(`¿Eliminar a "${p.name}"? Esta acción no se puede deshacer.`)) return;
+    if (!confirm(`Delete "${p.name}"? This action cannot be undone.`)) return;
     const res = await fetch(`/api/players/${p.id}`, { method: "DELETE" });
     if (!res.ok) {
-      alert("No se pudo eliminar.");
+      alert("Could not delete the player.");
       return;
     }
     setPlayers((prev) => prev.filter((x) => x.id !== p.id));
@@ -148,14 +148,14 @@ export function PlayersClient({
 
   function exportCSV() {
     const headers = [
-      "Nombre",
-      "Universidad",
-      "Temporada",
-      "División",
-      "Programa",
-      "Beca USD",
-      "Deporte",
-      "Notas",
+      "Name",
+      "University",
+      "Season",
+      "Division",
+      "Program",
+      "Scholarship USD",
+      "Sport",
+      "Notes",
     ];
     const lines = filtered.map((p) =>
       [
@@ -176,7 +176,7 @@ export function PlayersClient({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `eture-jugadores-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `eture-players-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -185,25 +185,25 @@ export function PlayersClient({
     <div className="space-y-5">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Jugadores</h1>
-          <p className="text-sm text-gray-400">
-            {formatNumber(filtered.length)} de {formatNumber(players.length)} ·{" "}
-            <span className="text-accent">{formatUSD(totalScholarship)}</span> en becas
-            {activeFilters ? " (filtrado)" : ""}
+          <h1 className="text-2xl font-bold text-fg">Players</h1>
+          <p className="text-sm text-muted">
+            {formatNumber(filtered.length)} of {formatNumber(players.length)} ·{" "}
+            <span className="text-accent">{formatUSD(totalScholarship)}</span> in scholarships
+            {activeFilters ? " (filtered)" : ""}
           </p>
         </div>
         <div className="flex gap-2">
           <button onClick={exportCSV} className="btn-ghost">
-            Exportar CSV
+            Export CSV
           </button>
           {editable && (
             <button onClick={() => setImportOpen(true)} className="btn-ghost">
-              Importar CSV
+              Import CSV
             </button>
           )}
           {editable && (
             <button onClick={openCreate} className="btn-primary">
-              + Añadir jugador
+              + Add player
             </button>
           )}
         </div>
@@ -214,13 +214,13 @@ export function PlayersClient({
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <input
             className="input lg:col-span-2"
-            placeholder="Buscar por nombre, universidad o notas…"
+            placeholder="Search by name, university or notes…"
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
           {sports.length > 1 && (
             <select className="input" value={fSport} onChange={(e) => setFSport(e.target.value)}>
-              <option value="">Todos los deportes</option>
+              <option value="">All sports</option>
               {sports.map((s) => (
                 <option key={s.code} value={s.code}>
                   {s.name}
@@ -229,7 +229,7 @@ export function PlayersClient({
             </select>
           )}
           <select className="input" value={fSeason} onChange={(e) => setFSeason(e.target.value)}>
-            <option value="">Todas las temporadas</option>
+            <option value="">All seasons</option>
             {seasonOptions.map((s) => (
               <option key={s} value={s}>
                 {s}
@@ -241,7 +241,7 @@ export function PlayersClient({
             value={fDivision}
             onChange={(e) => setFDivision(e.target.value)}
           >
-            <option value="">Todas las divisiones</option>
+            <option value="">All divisions</option>
             {divisionOptions.map((s) => (
               <option key={s} value={s}>
                 {s}
@@ -253,7 +253,7 @@ export function PlayersClient({
             value={fProgram}
             onChange={(e) => setFProgram(e.target.value)}
           >
-            <option value="">Todos los programas</option>
+            <option value="">All programs</option>
             {programOptions.map((s) => (
               <option key={s} value={s}>
                 {s}
@@ -270,9 +270,9 @@ export function PlayersClient({
               setFDivision("");
               setFProgram("");
             }}
-            className="mt-3 text-xs text-gray-400 hover:text-white"
+            className="mt-3 text-xs text-muted hover:text-fg"
           >
-            Limpiar filtros
+            Clear filters
           </button>
         )}
       </div>
@@ -281,15 +281,15 @@ export function PlayersClient({
       <div className="card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-gray-400">
+            <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
-                <th className="px-4 py-3 font-medium">Nombre</th>
-                <th className="px-4 py-3 font-medium">Universidad</th>
-                <th className="px-4 py-3 font-medium">Temp.</th>
-                <th className="px-4 py-3 font-medium">División</th>
-                <th className="px-4 py-3 font-medium">Programa</th>
-                <th className="px-4 py-3 text-right font-medium">Beca</th>
-                {sports.length > 1 && <th className="px-4 py-3 font-medium">Deporte</th>}
+                <th className="px-4 py-3 font-medium">Name</th>
+                <th className="px-4 py-3 font-medium">University</th>
+                <th className="px-4 py-3 font-medium">Season</th>
+                <th className="px-4 py-3 font-medium">Division</th>
+                <th className="px-4 py-3 font-medium">Program</th>
+                <th className="px-4 py-3 text-right font-medium">Scholarship</th>
+                {sports.length > 1 && <th className="px-4 py-3 font-medium">Sport</th>}
                 {editable && <th className="px-4 py-3" />}
               </tr>
             </thead>
@@ -299,30 +299,30 @@ export function PlayersClient({
                   key={p.id}
                   className="border-b border-ink-700/60 hover:bg-ink-800/40"
                 >
-                  <td className="px-4 py-3 font-medium text-white">
+                  <td className="px-4 py-3 font-medium text-fg">
                     {p.name}
                     {p.notes && (
-                      <span className="ml-2 text-xs text-gray-500" title={p.notes}>
+                      <span className="ml-2 text-xs text-muted" title={p.notes}>
                         ✎
                       </span>
                     )}
                   </td>
-                  <td className="px-4 py-3 text-gray-300">{p.university ?? "—"}</td>
-                  <td className="px-4 py-3 text-gray-400">{p.season ?? "—"}</td>
+                  <td className="px-4 py-3 text-fg">{p.university ?? "—"}</td>
+                  <td className="px-4 py-3 text-muted">{p.season ?? "—"}</td>
                   <td className="px-4 py-3">
                     {p.division ? (
-                      <span className="badge bg-ink-700 text-gray-300">{p.division}</span>
+                      <span className="badge bg-ink-700 text-fg">{p.division}</span>
                     ) : (
                       "—"
                     )}
                   </td>
-                  <td className="px-4 py-3 text-gray-400">{p.program ?? "—"}</td>
+                  <td className="px-4 py-3 text-muted">{p.program ?? "—"}</td>
                   <td className="px-4 py-3 text-right tabular-nums text-accent">
                     {p.scholarship != null ? formatUSD(p.scholarship) : "—"}
                   </td>
                   {sports.length > 1 && (
                     <td className="px-4 py-3">
-                      <span className="badge bg-ink-700 text-gray-300">{p.sportCode}</span>
+                      <span className="badge bg-ink-700 text-fg">{p.sportCode}</span>
                     </td>
                   )}
                   {editable && (
@@ -330,7 +330,7 @@ export function PlayersClient({
                       <div className="flex justify-end gap-2">
                         <button
                           onClick={() => openEdit(p)}
-                          className="text-xs text-gray-300 hover:text-white"
+                          className="text-xs text-fg hover:text-fg"
                         >
                           Editar
                         </button>
@@ -349,9 +349,9 @@ export function PlayersClient({
                 <tr>
                   <td
                     colSpan={8}
-                    className="px-4 py-10 text-center text-sm text-gray-500"
+                    className="px-4 py-10 text-center text-sm text-muted"
                   >
-                    No hay jugadores que coincidan con los filtros.
+                    No players match the current filters.
                   </td>
                 </tr>
               )}

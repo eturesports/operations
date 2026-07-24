@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,29 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ETURE Sports — paleta editorial oscura (del catálogo MSOC)
+        // Surfaces & borders (theme-aware via CSS variables → light/dark auto-flip)
         ink: {
-          950: "#0C0A09", // fondo base (negro cálido)
-          900: "#141010",
-          800: "#1b1613",
-          700: "#241c19",
-          600: "#3a2e29", // bordes suaves
+          950: "rgb(var(--ink-950) / <alpha-value>)",
+          900: "rgb(var(--ink-900) / <alpha-value>)",
+          800: "rgb(var(--ink-800) / <alpha-value>)",
+          700: "rgb(var(--ink-700) / <alpha-value>)",
+          600: "rgb(var(--ink-600) / <alpha-value>)",
         },
+        fg: "rgb(var(--fg) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        bone: "rgb(var(--fg) / <alpha-value>)", // alias kept for existing usages
+        // Brand marks (fixed in both themes)
         brand: {
           DEFAULT: "#C42B2B",
           light: "#e0433f",
           dark: "#9B1A1A",
         },
-        accent: "#C9A227", // oro
+        accent: "#C9A227",
         paper: "#EDE8E1",
-        bone: "#D0CAC4",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.10), 0 0 50px rgba(196,43,43,.10)",
+        glow: "0 12px 40px rgba(0,0,0,.35), 0 0 40px rgba(196,43,43,.14)",
       },
     },
   },

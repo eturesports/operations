@@ -1,6 +1,7 @@
 import { signOut } from "@/auth";
 import { requireSession } from "@/lib/guards";
-import { NavBar } from "@/components/NavBar";
+import { TopBar } from "@/components/TopBar";
+import { BottomNav } from "@/components/BottomNav";
 
 export default async function AppLayout({
   children,
@@ -15,9 +16,12 @@ export default async function AppLayout({
   }
 
   return (
-    <div className="min-h-screen bg-ink-950">
-      <NavBar user={session.user} signOutAction={signOutAction} />
-      <main className="mx-auto max-w-7xl px-4 py-6">{children}</main>
+    <div className="min-h-screen">
+      <div className="mx-auto max-w-6xl px-3 sm:px-4">
+        <TopBar user={session.user} signOutAction={signOutAction} />
+        <main className="py-6 pb-28">{children}</main>
+      </div>
+      <BottomNav role={session.user.role} />
     </div>
   );
 }

@@ -24,31 +24,31 @@ export default async function DashboardPage({
     <div className="space-y-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Panel general</h1>
-          <p className="text-sm text-gray-400">
-            Contabilización automática de las operaciones de Eture Sports.
+          <h1 className="text-2xl font-bold text-fg sm:text-3xl">Overview</h1>
+          <p className="text-sm text-muted">
+            Automatic accounting of Eture Sports operations.
           </p>
         </div>
         <Link href="/players" className="btn-primary">
-          Ir a jugadores
+          Go to players
         </Link>
       </div>
 
-      {/* Totales globales */}
+      {/* Global totals */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <StatCard label="Jugadores totales" value={formatNumber(data.totalPlayers)} />
+        <StatCard label="Total operations" value={formatNumber(data.totalPlayers)} />
         <StatCard
-          label="Becas acumuladas"
+          label="Total scholarships"
           value={formatUSD(data.totalScholarship)}
-          sub="Suma de todas las becas registradas (USD)"
+          sub="Sum of all recorded scholarships (USD)"
         />
-        <StatCard label="Deportes" value={formatNumber(data.sports.length)} />
+        <StatCard label="Sports" value={formatNumber(data.sports.length)} />
       </div>
 
-      {/* Filtro por deporte */}
+      {/* Sport filter */}
       {data.sports.length > 1 && (
         <div className="flex flex-wrap gap-2">
-          <FilterChip href="/dashboard" active={!selected} label="Todos" />
+          <FilterChip href="/dashboard" active={!selected} label="All" />
           {data.sports.map((s) => (
             <FilterChip
               key={s.code}
@@ -60,25 +60,25 @@ export default async function DashboardPage({
         </div>
       )}
 
-      {/* Detalle por deporte */}
+      {/* Per-sport detail */}
       {shownSports.map((s) => (
         <section key={s.code} className="space-y-4">
-          <div className="flex items-center gap-3">
-            <h2 className="text-lg font-semibold text-white">{s.name}</h2>
-            <span className="badge bg-ink-700 text-gray-300">{s.code}</span>
-            <span className="text-sm text-gray-400">
-              {formatNumber(s.totalPlayers)} jugadores ·{" "}
-              <span className="text-accent">{formatUSD(s.totalScholarship)}</span> en
-              becas
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 className="text-lg font-semibold text-fg">{s.name}</h2>
+            <span className="badge bg-ink-700 text-muted">{s.code}</span>
+            <span className="text-sm text-muted">
+              {formatNumber(s.totalPlayers)} operations ·{" "}
+              <span className="text-accent">{formatUSD(s.totalScholarship)}</span> in
+              scholarships
             </span>
           </div>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <BarList title="Por temporada" buckets={s.bySeason} />
-            <BarList title="Por división" buckets={s.byDivision} />
-            <BarList title="Por programa" buckets={s.byProgram} />
+            <BarList title="By season" buckets={s.bySeason} />
+            <BarList title="By division" buckets={s.byDivision} />
+            <BarList title="By program" buckets={s.byProgram} />
             <BarList
-              title="Top universidades (por becas)"
+              title="Top universities (by scholarship)"
               buckets={[...s.topUniversities].sort(
                 (a, b) => b.scholarship - a.scholarship
               )}
@@ -89,10 +89,10 @@ export default async function DashboardPage({
       ))}
 
       {data.totalPlayers === 0 && (
-        <div className="card p-8 text-center text-gray-400">
-          Aún no hay jugadores. Importa el Excel con el seed o añádelos desde{" "}
+        <div className="card p-8 text-center text-muted">
+          No players yet. Import a CSV or add them from{" "}
           <Link href="/players" className="text-brand underline">
-            Jugadores
+            Players
           </Link>
           .
         </div>
@@ -113,10 +113,10 @@ function FilterChip({
   return (
     <Link
       href={href}
-      className={`rounded-full border px-3 py-1 text-sm ${
+      className={`rounded-full border px-3 py-1 text-sm transition-colors ${
         active
-          ? "border-brand bg-brand/10 text-white"
-          : "border-ink-600 text-gray-400 hover:text-white"
+          ? "border-brand bg-brand/10 text-fg"
+          : "border-ink-600 text-muted hover:text-fg"
       }`}
     >
       {label}

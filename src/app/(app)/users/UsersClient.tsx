@@ -15,9 +15,9 @@ type UserRow = {
 };
 
 const ROLES: { value: Role; label: string; desc: string }[] = [
-  { value: "ADMIN", label: "Administrador", desc: "Gestiona usuarios y todos los datos" },
-  { value: "EDITOR", label: "Editor", desc: "Crea, edita y borra jugadores" },
-  { value: "VIEWER", label: "Lectura", desc: "Solo consulta" },
+  { value: "ADMIN", label: "Admin", desc: "Manages users and all data" },
+  { value: "EDITOR", label: "Editor", desc: "Creates, edits and deletes players" },
+  { value: "VIEWER", label: "Viewer", desc: "Read-only access" },
 ];
 
 export function UsersClient({
@@ -43,7 +43,7 @@ export function UsersClient({
       });
       if (!res.ok) {
         const j = await res.json().catch(() => ({}));
-        throw new Error(j.error ?? "Error al actualizar");
+        throw new Error(j.error ?? "Failed to update");
       }
       const { user } = await res.json();
       setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, ...user } : u)));
@@ -58,10 +58,10 @@ export function UsersClient({
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold text-white">Usuarios y permisos</h1>
-        <p className="text-sm text-gray-400">
-          Los usuarios aparecen aquí la primera vez que inician sesión. Ajusta su rol
-          o desactiva su acceso.
+        <h1 className="text-2xl font-bold text-fg sm:text-3xl">Access & permissions</h1>
+        <p className="text-sm text-muted">
+          Users appear here the first time they sign in. Adjust their role or disable
+          their access.
         </p>
       </div>
 
@@ -74,11 +74,11 @@ export function UsersClient({
       <div className="card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-gray-400">
+            <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
-                <th className="px-4 py-3 font-medium">Usuario</th>
-                <th className="px-4 py-3 font-medium">Rol</th>
-                <th className="px-4 py-3 font-medium">Estado</th>
+                <th className="px-4 py-3 font-medium">User</th>
+                <th className="px-4 py-3 font-medium">Role</th>
+                <th className="px-4 py-3 font-medium">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -94,24 +94,24 @@ export function UsersClient({
                           className="h-8 w-8 rounded-full border border-ink-600"
                         />
                       ) : (
-                        <div className="grid h-8 w-8 place-items-center rounded-full bg-ink-700 text-xs font-bold text-gray-300">
+                        <div className="grid h-8 w-8 place-items-center rounded-full bg-ink-700 text-xs font-bold text-fg">
                           {(u.name ?? u.email).slice(0, 1).toUpperCase()}
                         </div>
                       )}
                       <div>
-                        <div className="font-medium text-white">
+                        <div className="font-medium text-fg">
                           {u.name ?? "—"}
                           {u.id === currentUserId && (
-                            <span className="ml-2 text-xs text-gray-500">(tú)</span>
+                            <span className="ml-2 text-xs text-muted">(you)</span>
                           )}
                         </div>
-                        <div className="text-xs text-gray-500">{u.email}</div>
+                        <div className="text-xs text-muted">{u.email}</div>
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-3">
                     <select
-                      className="input max-w-[160px]"
+                      className="input max-w-[150px]"
                       value={u.role}
                       disabled={busy === u.id}
                       onChange={(e) => patch(u.id, { role: e.target.value as Role })}
@@ -134,11 +134,11 @@ export function UsersClient({
                       } ${u.id === currentUserId ? "opacity-60" : "hover:opacity-80"}`}
                       title={
                         u.id === currentUserId
-                          ? "No puedes desactivarte a ti mismo"
-                          : "Cambiar estado"
+                          ? "You can't deactivate yourself"
+                          : "Toggle status"
                       }
                     >
-                      {u.active ? "Activo" : "Inactivo"}
+                      {u.active ? "Active" : "Inactive"}
                     </button>
                   </td>
                 </tr>
@@ -151,8 +151,8 @@ export function UsersClient({
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         {ROLES.map((r) => (
           <div key={r.value} className="card p-4">
-            <div className="text-sm font-semibold text-white">{r.label}</div>
-            <div className="mt-1 text-xs text-gray-400">{r.desc}</div>
+            <div className="text-sm font-semibold text-fg">{r.label}</div>
+            <div className="mt-1 text-xs text-muted">{r.desc}</div>
           </div>
         ))}
       </div>

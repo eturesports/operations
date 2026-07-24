@@ -1,6 +1,6 @@
 // Utilidades de formato para importe de becas y agrupaciones.
 
-const usd = new Intl.NumberFormat("es-ES", {
+const usd = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
   maximumFractionDigits: 0,
@@ -11,7 +11,7 @@ export function formatUSD(value: number | null | undefined): string {
   return usd.format(value);
 }
 
-const compact = new Intl.NumberFormat("es-ES", {
+const compact = new Intl.NumberFormat("en-US", {
   notation: "compact",
   maximumFractionDigits: 1,
 });
@@ -22,7 +22,7 @@ export function formatUSDCompact(value: number | null | undefined): string {
 }
 
 export function formatNumber(value: number): string {
-  return new Intl.NumberFormat("es-ES").format(value);
+  return new Intl.NumberFormat("en-US").format(value);
 }
 
 // Ordena temporadas tipo "24/25" cronológicamente.
