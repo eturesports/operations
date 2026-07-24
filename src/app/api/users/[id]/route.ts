@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canManageUsers } from "@/lib/permissions";
+import { logAudit } from "@/lib/audit";
 import type { Role } from "@prisma/client";
 
 const VALID_ROLES: Role[] = ["ADMIN", "EDITOR", "VIEWER"];
@@ -46,6 +47,26 @@ export async function PATCH(
     }
   }
 
+  const before = await prisma.user.findUnique({ where: { id: params.id } });
   const user = await prisma.user.update({ where: { id: params.id }, data });
+
+  const bits: string[] = [];
+  if (data.role !== undefined && before && data.role !== before.role)
+    bits.push(`role ${before.role} → ${data.role}`);
+  if (data.approved !== undefined && before && data.approved !== before.approved)
+    bits.push(data.approved ? "approved" : "unapproved");
+  if (data.active !== undefined && before && data.active !== before.active)
+    bits.push(data.active ? "activated" : "deactivated");
+  if (bits.length) {
+    await logAudit(session.user, {
+      entity: "User",
+      entityId: user.id,
+      entityName: user.email,
+      action: data.approved === true && before?.approved === false ? "approve" : "update",
+      summary: `${user.email}: ${bits.join(", ")}`,
+      changes: data,
+    });
+  }
+
   return NextResponse.json({ user });
 }

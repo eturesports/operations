@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
+import { logAudit } from "@/lib/audit";
 
 type IncomingRow = {
   name?: string;
@@ -120,6 +121,13 @@ export async function POST(req: Request) {
     });
     created++;
   }
+
+  await logAudit(session.user, {
+    entity: "Player",
+    action: "import",
+    summary: `Imported CSV: ${created} created, ${skipped} skipped, ${errors.length} errors`,
+    changes: { created, skipped, errors: errors.length },
+  });
 
   return NextResponse.json({
     ok: true,

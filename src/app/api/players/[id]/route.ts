@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
+import { logAudit, diffFields } from "@/lib/audit";
 
 export async function GET(
   _req: Request,
@@ -51,6 +52,22 @@ export async function PATCH(
     include: { sport: { select: { code: true, name: true } } },
   });
 
+  const changes = diffFields(
+    exists as unknown as Record<string, unknown>,
+    data as Record<string, unknown>,
+    Object.keys(data)
+  );
+  if (changes) {
+    await logAudit(session.user, {
+      entity: "Player",
+      entityId: player.id,
+      entityName: player.name,
+      action: "update",
+      summary: `Edited player “${player.name}”`,
+      changes,
+    });
+  }
+
   return NextResponse.json({ player });
 }
 
@@ -72,5 +89,14 @@ export async function DELETE(
   }
 
   await prisma.player.delete({ where: { id: params.id } });
+
+  await logAudit(session.user, {
+    entity: "Player",
+    entityId: exists.id,
+    entityName: exists.name,
+    action: "delete",
+    summary: `Deleted player “${exists.name}”`,
+  });
+
   return NextResponse.json({ ok: true });
 }

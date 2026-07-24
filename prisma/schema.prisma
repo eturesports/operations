@@ -147,6 +147,25 @@ model Player {
   @@index([program])
 }
 
+// Immutable audit trail: who changed what, when (never auto-deleted).
+model AuditLog {
+  id         String   @id @default(cuid())
+  entity     String // Player, ShowcaseUniversity, Claim, User
+  entityId   String?
+  entityName String? // human label (player name, university…)
+  action     String // create, update, delete, bulk_update, bulk_delete, delete_all, import, approve, role_change…
+  summary    String?
+  changes    Json? // { field: { from, to } } or a summary object
+  userId     String?
+  userEmail  String?
+  userName   String?
+  createdAt  DateTime @default(now())
+
+  @@index([entity])
+  @@index([userId])
+  @@index([createdAt])
+}
+
 // Universities that attended the annual Eture showcase, by year (2020–…)
 model ShowcaseUniversity {
   id        String   @id @default(cuid())

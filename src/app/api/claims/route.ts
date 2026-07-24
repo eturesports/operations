@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
+import { logAudit } from "@/lib/audit";
 import type { ClaimStatus } from "@prisma/client";
 
 const FIELDS = [
@@ -52,5 +53,12 @@ export async function POST(req: Request) {
   else data.asOf = new Date();
 
   const item = await prisma.claim.create({ data: data as never });
+  await logAudit(session.user, {
+    entity: "Claim",
+    entityId: item.id,
+    entityName: item.text.slice(0, 80),
+    action: "create",
+    summary: `Created claim: “${item.text.slice(0, 60)}”`,
+  });
   return NextResponse.json({ item }, { status: 201 });
 }

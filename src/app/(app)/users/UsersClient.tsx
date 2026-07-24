@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Role } from "@prisma/client";
@@ -72,12 +73,17 @@ export function UsersClient({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-fg sm:text-3xl">Access & permissions</h1>
-        <p className="text-sm text-muted">
-          Company accounts (@eturesports.com) are approved automatically. External
-          accounts can register but need admin approval before they get access.
-        </p>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-fg sm:text-3xl">Access & permissions</h1>
+          <p className="text-sm text-muted">
+            Company accounts (@eturesports.com) are approved automatically. External
+            accounts can register but need admin approval before they get access.
+          </p>
+        </div>
+        <Link href="/activity" className="btn-ghost">
+          Activity log →
+        </Link>
       </div>
 
       {error && (

@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit, canManageUsers } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
+import { logAudit } from "@/lib/audit";
 
 // POST /api/players/bulk
 // { action: "delete", ids: string[] }
@@ -41,6 +42,12 @@ export async function POST(req: Request) {
       }
       const where = body.sportId ? { sportId: body.sportId } : {};
       const res = await prisma.player.deleteMany({ where });
+      await logAudit(session.user, {
+        entity: "Player",
+        action: "delete_all",
+        summary: `Deleted ALL players (${res.count})`,
+        changes: { count: res.count },
+      });
       return NextResponse.json({ ok: true, deleted: res.count });
     }
 
@@ -49,6 +56,12 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No players selected" }, { status: 400 });
     }
     const res = await prisma.player.deleteMany({ where: { id: { in: ids } } });
+    await logAudit(session.user, {
+      entity: "Player",
+      action: "bulk_delete",
+      summary: `Deleted ${res.count} selected players`,
+      changes: { count: res.count, ids },
+    });
     return NextResponse.json({ ok: true, deleted: res.count });
   }
 
@@ -73,6 +86,12 @@ export async function POST(req: Request) {
     const res = await prisma.player.updateMany({
       where: { id: { in: ids } },
       data: { ...data, updatedById: session.user.id },
+    });
+    await logAudit(session.user, {
+      entity: "Player",
+      action: "bulk_update",
+      summary: `Bulk-edited ${res.count} players`,
+      changes: { count: res.count, fields: data, ids },
     });
     return NextResponse.json({ ok: true, updated: res.count });
   }

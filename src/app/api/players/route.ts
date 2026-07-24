@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
+import { logAudit } from "@/lib/audit";
 import type { Prisma } from "@prisma/client";
 
 // GET /api/players?sport=MSOC&season=24/25&division=Division I&program=...&q=texto
@@ -82,6 +83,14 @@ export async function POST(req: Request) {
       updatedById: session.user.id,
     },
     include: { sport: { select: { code: true, name: true } } },
+  });
+
+  await logAudit(session.user, {
+    entity: "Player",
+    entityId: player.id,
+    entityName: player.name,
+    action: "create",
+    summary: `Created player “${player.name}”`,
   });
 
   return NextResponse.json({ player }, { status: 201 });

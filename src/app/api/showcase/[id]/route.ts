@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
+import { logAudit } from "@/lib/audit";
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   const session = await auth();
@@ -35,6 +36,14 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   if (!exists) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   const item = await prisma.showcaseUniversity.update({ where: { id: params.id }, data });
+  await logAudit(session.user, {
+    entity: "ShowcaseUniversity",
+    entityId: item.id,
+    entityName: `${item.name} (${item.year})`,
+    action: "update",
+    summary: `Edited Showcase entry “${item.name}” (${item.year})`,
+    changes: data,
+  });
   return NextResponse.json({ item });
 }
 
@@ -49,5 +58,12 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
   const exists = await prisma.showcaseUniversity.findUnique({ where: { id: params.id } });
   if (!exists) return NextResponse.json({ error: "Not found" }, { status: 404 });
   await prisma.showcaseUniversity.delete({ where: { id: params.id } });
+  await logAudit(session.user, {
+    entity: "ShowcaseUniversity",
+    entityId: exists.id,
+    entityName: `${exists.name} (${exists.year})`,
+    action: "delete",
+    summary: `Removed “${exists.name}” from Showcase ${exists.year}`,
+  });
   return NextResponse.json({ ok: true });
 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
+import { logAudit } from "@/lib/audit";
 import type { ClaimStatus } from "@prisma/client";
 
 const FIELDS = [
@@ -41,6 +42,14 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   if (!exists) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   const item = await prisma.claim.update({ where: { id: params.id }, data: data as never });
+  await logAudit(session.user, {
+    entity: "Claim",
+    entityId: item.id,
+    entityName: item.text.slice(0, 80),
+    action: "update",
+    summary: `Edited claim: “${item.text.slice(0, 60)}”`,
+    changes: data,
+  });
   return NextResponse.json({ item });
 }
 
@@ -51,5 +60,12 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
   const exists = await prisma.claim.findUnique({ where: { id: params.id } });
   if (!exists) return NextResponse.json({ error: "Not found" }, { status: 404 });
   await prisma.claim.delete({ where: { id: params.id } });
+  await logAudit(session.user, {
+    entity: "Claim",
+    entityId: exists.id,
+    entityName: exists.text.slice(0, 80),
+    action: "delete",
+    summary: `Deleted claim: “${exists.text.slice(0, 60)}”`,
+  });
   return NextResponse.json({ ok: true });
 }

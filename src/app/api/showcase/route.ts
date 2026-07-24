@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
+import { logAudit } from "@/lib/audit";
 
 export async function GET() {
   const session = await auth();
@@ -48,6 +49,13 @@ export async function POST(req: Request) {
       logoUrl: (body.logoUrl ?? "").trim() || null,
       notes: (body.notes ?? "").trim() || null,
     },
+  });
+  await logAudit(session.user, {
+    entity: "ShowcaseUniversity",
+    entityId: item.id,
+    entityName: `${item.name} (${item.year})`,
+    action: "create",
+    summary: `Added “${item.name}” to Showcase ${item.year}`,
   });
   return NextResponse.json({ item }, { status: 201 });
 }
