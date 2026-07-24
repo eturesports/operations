@@ -40,6 +40,10 @@ export default async function PlayersPage() {
         legacyNumber: p.legacyNumber,
         sportCode: p.sport.code,
         sportId: p.sportId,
+        profileImageUrl: p.profileImageUrl,
+        actionImageUrl: p.actionImageUrl,
+        ncaaUrl: p.ncaaUrl,
+        instagramUrl: p.instagramUrl,
       }))}
       facets={{ seasons, divisions, programs }}
     />

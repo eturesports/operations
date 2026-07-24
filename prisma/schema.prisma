@@ -102,6 +102,12 @@ model Player {
   legacyNumber Int? // número original (#) en el Excel
   active       Boolean  @default(true)
 
+  // Media & links
+  profileImageUrl String? // headshot / profile photo
+  actionImageUrl  String? // in-game / action photo
+  ncaaUrl         String? // NCAA profile / roster page
+  instagramUrl    String? // Instagram handle URL
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   createdById String?

@@ -7,6 +7,7 @@ import { DIVISIONS, PROGRAMS } from "@/lib/permissions";
 import { PlayerModal, type PlayerForm } from "./PlayerModal";
 import { ImportModal } from "./ImportModal";
 import { BulkEditModal, type BulkPatch } from "./BulkEditModal";
+import { PlayerDetail } from "./PlayerDetail";
 
 export type PlayerRow = {
   id: string;
@@ -20,6 +21,10 @@ export type PlayerRow = {
   legacyNumber: number | null;
   sportCode: string;
   sportId: string;
+  profileImageUrl: string | null;
+  actionImageUrl: string | null;
+  ncaaUrl: string | null;
+  instagramUrl: string | null;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -49,6 +54,7 @@ export function PlayersClient({
   const [editing, setEditing] = useState<PlayerRow | null>(null);
   const [importOpen, setImportOpen] = useState(false);
   const [bulkEditOpen, setBulkEditOpen] = useState(false);
+  const [detail, setDetail] = useState<PlayerRow | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
 
@@ -123,6 +129,10 @@ export function PlayersClient({
       program: form.program,
       scholarship: form.scholarship,
       notes: form.notes,
+      profileImageUrl: form.profileImageUrl,
+      actionImageUrl: form.actionImageUrl,
+      ncaaUrl: form.ncaaUrl,
+      instagramUrl: form.instagramUrl,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {
@@ -152,6 +162,10 @@ export function PlayersClient({
       legacyNumber: player.legacyNumber,
       sportCode: player.sport.code,
       sportId: player.sportId,
+      profileImageUrl: player.profileImageUrl,
+      actionImageUrl: player.actionImageUrl,
+      ncaaUrl: player.ncaaUrl,
+      instagramUrl: player.instagramUrl,
     };
     setPlayers((prev) => (editing ? prev.map((p) => (p.id === row.id ? row : p)) : [row, ...prev]));
     setModalOpen(false);
@@ -434,12 +448,28 @@ export function PlayersClient({
                       </td>
                     )}
                     <td className="px-4 py-3 font-medium text-fg">
-                      {p.name}
-                      {p.notes && (
-                        <span className="ml-2 text-xs text-muted" title={p.notes}>
-                          ✎
+                      <button
+                        onClick={() => setDetail(p)}
+                        className="flex items-center gap-2.5 text-left hover:text-brand"
+                        title="View profile"
+                      >
+                        <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded-full border border-ink-600 bg-ink-800 text-[10px] text-muted">
+                          {p.profileImageUrl ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={p.profileImageUrl} alt="" className="h-full w-full object-cover" />
+                          ) : (
+                            p.name.slice(0, 1).toUpperCase()
+                          )}
                         </span>
-                      )}
+                        <span>
+                          {p.name}
+                          {p.notes && (
+                            <span className="ml-1.5 text-xs text-muted" title={p.notes}>
+                              ✎
+                            </span>
+                          )}
+                        </span>
+                      </button>
                     </td>
                     <td className="px-4 py-3 text-fg">{p.university ?? "—"}</td>
                     <td className="px-4 py-3 text-muted">{p.season ?? "—"}</td>
@@ -516,6 +546,19 @@ export function PlayersClient({
           programOptions={programOptions}
           onClose={() => setBulkEditOpen(false)}
           onApply={bulkUpdate}
+        />
+      )}
+
+      {detail && (
+        <PlayerDetail
+          player={detail}
+          editable={editable}
+          onClose={() => setDetail(null)}
+          onEdit={() => {
+            const p = detail;
+            setDetail(null);
+            openEdit(p);
+          }}
         />
       )}
     </div>

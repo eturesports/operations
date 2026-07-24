@@ -11,6 +11,10 @@ export type PlayerInput = {
   notes?: string | null;
   legacyNumber?: number | null;
   active?: boolean;
+  profileImageUrl?: string | null;
+  actionImageUrl?: string | null;
+  ncaaUrl?: string | null;
+  instagramUrl?: string | null;
 };
 
 function str(v: unknown): string | null {
@@ -52,6 +56,10 @@ export function parsePlayerInput(
   if ("legacyNumber" in body) data.legacyNumber = intOrNull(body.legacyNumber);
   if ("notes" in body) data.notes = str(body.notes);
   if ("active" in body) data.active = Boolean(body.active);
+  if ("profileImageUrl" in body) data.profileImageUrl = str(body.profileImageUrl);
+  if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
+  if ("ncaaUrl" in body) data.ncaaUrl = str(body.ncaaUrl);
+  if ("instagramUrl" in body) data.instagramUrl = str(body.instagramUrl);
 
   return { data };
 }
