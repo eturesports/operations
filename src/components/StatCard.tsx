@@ -9,11 +9,13 @@ export function StatCard({
 }) {
   return (
     <div className="card p-5">
-      <div className="text-xs font-medium uppercase tracking-wide text-gray-400">
+      <div className="text-xs font-medium uppercase tracking-[0.18em] text-bone/55">
         {label}
       </div>
-      <div className="mt-2 text-3xl font-bold text-white">{value}</div>
-      {sub && <div className="mt-1 text-xs text-gray-500">{sub}</div>}
+      <div className="mt-2 font-display text-4xl leading-none text-white">
+        {value}
+      </div>
+      {sub && <div className="mt-2 text-xs text-bone/45">{sub}</div>}
     </div>
   );
 }

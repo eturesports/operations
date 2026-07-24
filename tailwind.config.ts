@@ -8,23 +8,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ETURE Sports dark editorial palette
+        // ETURE Sports — paleta editorial oscura (del catálogo MSOC)
         ink: {
-          950: "#0a0b0f",
-          900: "#0f1117",
-          800: "#161922",
-          700: "#1e222e",
-          600: "#2a2f3d",
+          950: "#0C0A09", // fondo base (negro cálido)
+          900: "#141010",
+          800: "#1b1613",
+          700: "#241c19",
+          600: "#3a2e29", // bordes suaves
         },
         brand: {
-          DEFAULT: "#e11d2a",
-          light: "#ff3b47",
-          dark: "#b3131e",
+          DEFAULT: "#C42B2B",
+          light: "#e0433f",
+          dark: "#9B1A1A",
         },
-        accent: "#f5c518",
+        accent: "#C9A227", // oro
+        paper: "#EDE8E1",
+        bone: "#D0CAC4",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "sans-serif"],
+      },
+      boxShadow: {
+        glow: "0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.10), 0 0 50px rgba(196,43,43,.10)",
       },
     },
   },

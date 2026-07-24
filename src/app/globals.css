@@ -2,53 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fuente display de la marca (NeuePower Black), igual que el catálogo MSOC */
+@font-face {
+  font-family: "NeuePower";
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://raw.githubusercontent.com/eturesports/gapyear-msoc-assets/main/assets/fonts/NeuePower-Black.otf")
+    format("opentype");
+}
+
 :root {
   color-scheme: dark;
+  --font-display: "NeuePower", var(--font-condensed), "Barlow Condensed", sans-serif;
 }
 
 html,
 body {
-  background: #0a0b0f;
-  color: #e8eaed;
+  background-color: #0c0a09;
+  color: #ede8e1;
+}
+
+body {
+  min-height: 100vh;
+  /* Glow sutil rojo/oro sobre negro cálido para que el efecto glassy se lea */
+  background-image: radial-gradient(
+      1100px 560px at 82% -12%,
+      rgba(196, 43, 43, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      820px 480px at -12% 112%,
+      rgba(201, 162, 39, 0.07),
+      transparent 60%
+    );
+  background-attachment: fixed;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 /* Scrollbars discretos */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #2a2f3d transparent;
+  scrollbar-color: #3a2e29 transparent;
 }
 *::-webkit-scrollbar {
   height: 8px;
   width: 8px;
 }
 *::-webkit-scrollbar-thumb {
-  background: #2a2f3d;
+  background: #3a2e29;
   border-radius: 999px;
 }
 
-@layer components {
-  .card {
-    @apply rounded-xl border border-ink-600 bg-ink-800/70 backdrop-blur;
+@layer base {
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
   }
+}
+
+@layer components {
+  /* Tarjeta glassy de la marca */
+  .card {
+    background: rgba(20, 16, 14, 0.42);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all disabled:opacity-50 disabled:pointer-events-none;
   }
   .btn-primary {
-    @apply btn bg-brand text-white hover:bg-brand-light;
+    @apply btn text-white;
+    background: linear-gradient(180deg, #c42b2b, #9b1a1a);
+    box-shadow: 0 2px 14px rgba(196, 43, 43, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(180deg, #e0433f, #b31e1e);
   }
   .btn-ghost {
-    @apply btn border border-ink-600 text-gray-200 hover:bg-ink-700;
+    @apply btn text-bone;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.09);
   }
   .btn-danger {
-    @apply btn border border-red-500/40 text-red-300 hover:bg-red-500/10;
+    @apply btn text-red-300;
+    border: 1px solid rgba(196, 43, 43, 0.4);
   }
+  .btn-danger:hover {
+    background: rgba(196, 43, 43, 0.12);
+  }
+
   .input {
-    @apply w-full rounded-lg border border-ink-600 bg-ink-900 px-3 py-2 text-sm text-gray-100 placeholder-gray-500 outline-none focus:border-brand;
+    @apply w-full rounded-lg px-3 py-2 text-sm text-bone placeholder-bone/40 outline-none transition-colors;
+    background: rgba(12, 10, 9, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
+  .input:focus {
+    border-color: #c42b2b;
+    box-shadow: 0 0 0 3px rgba(196, 43, 43, 0.18);
+  }
+
   .label {
-    @apply mb-1 block text-xs font-medium uppercase tracking-wide text-gray-400;
+    @apply mb-1 block text-xs font-medium uppercase tracking-wide;
+    color: rgba(208, 202, 196, 0.65);
   }
   .badge {
     @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+
+  /* Kicker / eyebrow al estilo del deck */
+  .kicker {
+    @apply text-xs font-bold uppercase;
+    letter-spacing: 0.3em;
+    color: #c42b2b;
   }
 }

@@ -17,11 +17,11 @@ export default async function LoginPage({
     <main className="flex min-h-screen items-center justify-center bg-ink-950 px-4">
       <div className="w-full max-w-md">
         <div className="card p-8 text-center">
-          <div className="mb-2 text-sm font-bold uppercase tracking-[0.3em] text-brand">
-            ETURE SPORTS
-          </div>
-          <h1 className="mb-1 text-2xl font-bold text-white">Database Platform</h1>
-          <p className="mb-8 text-sm text-gray-400">
+          <div className="kicker mb-3">ETURE SPORTS</div>
+          <h1 className="mb-1 text-4xl leading-none text-white">
+            Database Platform
+          </h1>
+          <p className="mb-8 text-sm text-bone/55">
             Base de datos unificada de operaciones
           </p>
 

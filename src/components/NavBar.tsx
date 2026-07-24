@@ -29,10 +29,10 @@ export function NavBar({
     <header className="sticky top-0 z-30 border-b border-ink-600 bg-ink-950/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3">
         <Link href="/dashboard" className="flex items-center gap-2">
-          <span className="text-sm font-black uppercase tracking-[0.25em] text-brand">
+          <span className="font-display text-xl leading-none tracking-[0.14em] text-brand">
             ETURE
           </span>
-          <span className="hidden text-xs font-semibold uppercase tracking-widest text-gray-500 sm:inline">
+          <span className="hidden text-[10px] font-semibold uppercase tracking-[0.3em] text-bone/45 sm:inline">
             Database
           </span>
         </Link>
