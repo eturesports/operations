@@ -1,0 +1,1462 @@
+[
+{
+"year": 2020,
+"name": "Franklin Pierce University",
+"order": 1
+},
+{
+"year": 2020,
+"name": "Oregon State University",
+"order": 2
+},
+{
+"year": 2020,
+"name": "University of Pittsburgh (Pitt)",
+"order": 3
+},
+{
+"year": 2020,
+"name": "West Virginia University",
+"order": 4
+},
+{
+"year": 2020,
+"name": "Northern Illinois University (NIU)",
+"order": 5
+},
+{
+"year": 2020,
+"name": "Grand Canyon University (GCU)",
+"order": 6
+},
+{
+"year": 2020,
+"name": "University of the Cumberlands",
+"order": 7
+},
+{
+"year": 2020,
+"name": "Clemson University",
+"order": 8
+},
+{
+"year": 2020,
+"name": "University of Vermont (UVM)",
+"order": 9
+},
+{
+"year": 2020,
+"name": "University of Wisconsin–Madison",
+"order": 10
+},
+{
+"year": 2020,
+"name": "California State University, Los Angeles (Cal State LA)",
+"order": 11
+},
+{
+"year": 2020,
+"name": "University of North Carolina at Chapel Hill (UNC)",
+"order": 12
+},
+{
+"year": 2020,
+"name": "University of San Francisco (USF)",
+"order": 13
+},
+{
+"year": 2020,
+"name": "University of Rhode Island (URI)",
+"order": 14
+},
+{
+"year": 2020,
+"name": "Providence College",
+"order": 15
+},
+{
+"year": 2020,
+"name": "North Carolina State University (NC State)",
+"order": 16
+},
+{
+"year": 2020,
+"name": "University of Delaware (UD)",
+"order": 17
+},
+{
+"year": 2020,
+"name": "Florida Atlantic University (FAU)",
+"order": 18
+},
+{
+"year": 2021,
+"name": "Boston College",
+"order": 1
+},
+{
+"year": 2021,
+"name": "Bradley University",
+"order": 2
+},
+{
+"year": 2021,
+"name": "California Baptist University (CBU)",
+"order": 3
+},
+{
+"year": 2021,
+"name": "Coastal Carolina University",
+"order": 4
+},
+{
+"year": 2021,
+"name": "Fairfield University",
+"order": 5
+},
+{
+"year": 2021,
+"name": "Fairleigh Dickinson University (FDU)",
+"order": 6
+},
+{
+"year": 2021,
+"name": "Franklin Pierce University",
+"order": 7
+},
+{
+"year": 2021,
+"name": "Gonzaga University",
+"order": 8
+},
+{
+"year": 2021,
+"name": "Grand Canyon University (GCU)",
+"order": 9
+},
+{
+"year": 2021,
+"name": "Missouri State University",
+"order": 10
+},
+{
+"year": 2021,
+"name": "Oregon State University",
+"order": 11
+},
+{
+"year": 2021,
+"name": "Providence College",
+"order": 12
+},
+{
+"year": 2021,
+"name": "Sacred Heart University",
+"order": 13
+},
+{
+"year": 2021,
+"name": "Saint Leo University",
+"order": 14
+},
+{
+"year": 2021,
+"name": "Salt Lake Community College (SLCC)",
+"order": 15
+},
+{
+"year": 2021,
+"name": "Southern Illinois University Edwardsville (SIUE)",
+"order": 16
+},
+{
+"year": 2021,
+"name": "The College of Saint Rose",
+"order": 17
+},
+{
+"year": 2021,
+"name": "The University of Tulsa (TU)",
+"order": 18
+},
+{
+"year": 2021,
+"name": "University of Charleston (West Virginia)",
+"order": 19
+},
+{
+"year": 2021,
+"name": "University of Memphis",
+"order": 20
+},
+{
+"year": 2021,
+"name": "University of Pittsburgh (Pitt)",
+"order": 21
+},
+{
+"year": 2021,
+"name": "University of the Incarnate Word (UIW)",
+"order": 22
+},
+{
+"year": 2021,
+"name": "University of the Pacific",
+"order": 23
+},
+{
+"year": 2022,
+"name": "Saint Leo University",
+"order": 1
+},
+{
+"year": 2022,
+"name": "California Baptist University (CBU)",
+"order": 2
+},
+{
+"year": 2022,
+"name": "University of Tulsa",
+"order": 3
+},
+{
+"year": 2022,
+"name": "Clemson University",
+"order": 4
+},
+{
+"year": 2022,
+"name": "Oregon State University",
+"order": 5
+},
+{
+"year": 2022,
+"name": "Gonzaga University",
+"order": 6
+},
+{
+"year": 2022,
+"name": "University of the Incarnate Word (UIW)",
+"order": 7
+},
+{
+"year": 2022,
+"name": "Sacred Heart University",
+"order": 8
+},
+{
+"year": 2022,
+"name": "Fairfield University",
+"order": 9
+},
+{
+"year": 2022,
+"name": "University of the Cumberlands",
+"order": 10
+},
+{
+"year": 2022,
+"name": "Coastal Carolina University",
+"order": 11
+},
+{
+"year": 2022,
+"name": "University of Pittsburgh (Pitt)",
+"order": 12
+},
+{
+"year": 2022,
+"name": "Grand Canyon University (GCU)",
+"order": 13
+},
+{
+"year": 2022,
+"name": "Creighton University",
+"order": 14
+},
+{
+"year": 2022,
+"name": "University of Memphis",
+"order": 15
+},
+{
+"year": 2022,
+"name": "Fairleigh Dickinson University (FDU)",
+"order": 16
+},
+{
+"year": 2022,
+"name": "West Virginia University",
+"order": 17
+},
+{
+"year": 2022,
+"name": "Missouri State University",
+"order": 18
+},
+{
+"year": 2022,
+"name": "The College of Saint Rose",
+"order": 19
+},
+{
+"year": 2022,
+"name": "SIMA (Soccer Institute at Montverde Academy)",
+"order": 20
+},
+{
+"year": 2022,
+"name": "Southern Illinois University Edwardsville (SIUE)",
+"order": 21
+},
+{
+"year": 2022,
+"name": "Bradley University",
+"order": 22
+},
+{
+"year": 2022,
+"name": "University of the Pacific",
+"order": 23
+},
+{
+"year": 2022,
+"name": "Providence College",
+"order": 24
+},
+{
+"year": 2022,
+"name": "University of Hartford (Red Hawks)",
+"order": 25
+},
+{
+"year": 2022,
+"name": "Boston College",
+"order": 26
+},
+{
+"year": 2022,
+"name": "University of Maine",
+"order": 27
+},
+{
+"year": 2023,
+"name": "Academy of Art University",
+"order": 1
+},
+{
+"year": 2023,
+"name": "American International College (AIC)",
+"order": 2
+},
+{
+"year": 2023,
+"name": "Barry University",
+"order": 3
+},
+{
+"year": 2023,
+"name": "Boston College",
+"order": 4
+},
+{
+"year": 2023,
+"name": "Stonehill College",
+"order": 5
+},
+{
+"year": 2023,
+"name": "Bradley University",
+"order": 6
+},
+{
+"year": 2023,
+"name": "Butler University",
+"order": 7
+},
+{
+"year": 2023,
+"name": "California State University, Los Angeles (Cal State LA)",
+"order": 8
+},
+{
+"year": 2023,
+"name": "New Jersey Institute of Technology (NJIT)",
+"order": 9
+},
+{
+"year": 2023,
+"name": "Creighton University",
+"order": 10
+},
+{
+"year": 2023,
+"name": "University of California, Berkeley (Cal)",
+"order": 11
+},
+{
+"year": 2023,
+"name": "University of Evansville",
+"order": 12
+},
+{
+"year": 2023,
+"name": "Fairfield University",
+"order": 13
+},
+{
+"year": 2023,
+"name": "Fairleigh Dickinson University (FDU)",
+"order": 14
+},
+{
+"year": 2023,
+"name": "University of Hartford",
+"order": 15
+},
+{
+"year": 2023,
+"name": "Lynn University",
+"order": 16
+},
+{
+"year": 2023,
+"name": "Marshall University",
+"order": 17
+},
+{
+"year": 2023,
+"name": "George Mason University",
+"order": 18
+},
+{
+"year": 2023,
+"name": "Missouri State University",
+"order": 19
+},
+{
+"year": 2023,
+"name": "University of Pittsburgh (Pitt)",
+"order": 20
+},
+{
+"year": 2023,
+"name": "Providence College",
+"order": 21
+},
+{
+"year": 2023,
+"name": "Southern New Hampshire University (SNHU)",
+"order": 22
+},
+{
+"year": 2023,
+"name": "University of South Carolina",
+"order": 23
+},
+{
+"year": 2023,
+"name": "Stony Brook University",
+"order": 24
+},
+{
+"year": 2023,
+"name": "James Madison University (JMU)",
+"order": 25
+},
+{
+"year": 2023,
+"name": "University of California, Santa Barbara (UCSB)",
+"order": 26
+},
+{
+"year": 2023,
+"name": "University of Central Arkansas (UCA)",
+"order": 27
+},
+{
+"year": 2023,
+"name": "University of Illinois Chicago (UIC)",
+"order": 28
+},
+{
+"year": 2023,
+"name": "University of New Hampshire (UNH)",
+"order": 29
+},
+{
+"year": 2023,
+"name": "Sacred Heart University (SHU)",
+"order": 30
+},
+{
+"year": 2023,
+"name": "Clemson University",
+"order": 31
+},
+{
+"year": 2023,
+"name": "University of the Incarnate Word (UIW)",
+"order": 32
+},
+{
+"year": 2023,
+"name": "Saint Leo University",
+"order": 33
+},
+{
+"year": 2023,
+"name": "University of Vermont (UVM)",
+"order": 34
+},
+{
+"year": 2023,
+"name": "Winthrop University",
+"order": 35
+},
+{
+"year": 2023,
+"name": "California Baptist University (CBU)",
+"order": 36
+},
+{
+"year": 2023,
+"name": "Converse University (Valkyries)",
+"order": 37
+},
+{
+"year": 2023,
+"name": "University of the Cumberlands",
+"order": 38
+},
+{
+"year": 2023,
+"name": "Bridgewater College",
+"order": 39
+},
+{
+"year": 2023,
+"name": "Cal State Bakersfield Roadrunners",
+"order": 40
+},
+{
+"year": 2024,
+"name": "Academy of Art University",
+"order": 1
+},
+{
+"year": 2024,
+"name": "Adelphi University",
+"order": 2
+},
+{
+"year": 2024,
+"name": "American International College (AIC)",
+"order": 3
+},
+{
+"year": 2024,
+"name": "Boston College",
+"order": 4
+},
+{
+"year": 2024,
+"name": "Brown University",
+"order": 5
+},
+{
+"year": 2024,
+"name": "Butler University",
+"order": 6
+},
+{
+"year": 2024,
+"name": "California Baptist University (CBU)",
+"order": 7
+},
+{
+"year": 2024,
+"name": "University of South Carolina",
+"order": 8
+},
+{
+"year": 2024,
+"name": "Clemson University",
+"order": 9
+},
+{
+"year": 2024,
+"name": "Colorado State University",
+"order": 10
+},
+{
+"year": 2024,
+"name": "University of Evansville",
+"order": 11
+},
+{
+"year": 2024,
+"name": "Florida Institute of Technology (Florida Tech)",
+"order": 12
+},
+{
+"year": 2024,
+"name": "Benedictine College (Ravens)",
+"order": 13
+},
+{
+"year": 2024,
+"name": "Southern New Hampshire University (SNHU)",
+"order": 14
+},
+{
+"year": 2024,
+"name": "George Mason University",
+"order": 15
+},
+{
+"year": 2024,
+"name": "George Washington University (GW)",
+"order": 16
+},
+{
+"year": 2024,
+"name": "Sterling College (KS)",
+"order": 17
+},
+{
+"year": 2024,
+"name": "Shawnee State University",
+"order": 18
+},
+{
+"year": 2024,
+"name": "San Diego State University (SDSU)",
+"order": 19
+},
+{
+"year": 2024,
+"name": "Saint Michael’s College",
+"order": 20
+},
+{
+"year": 2024,
+"name": "Providence College",
+"order": 21
+},
+{
+"year": 2024,
+"name": "Oregon State University",
+"order": 22
+},
+{
+"year": 2024,
+"name": "Nova Southeastern University (NSU)",
+"order": 23
+},
+{
+"year": 2024,
+"name": "University of Pittsburgh (Pitt)",
+"order": 24
+},
+{
+"year": 2024,
+"name": "University of South Carolina Aiken (USC Aiken)",
+"order": 25
+},
+{
+"year": 2024,
+"name": "Winthrop University",
+"order": 26
+},
+{
+"year": 2024,
+"name": "Indiana University (IU)",
+"order": 27
+},
+{
+"year": 2024,
+"name": "Iona University",
+"order": 28
+},
+{
+"year": 2024,
+"name": "University of Missouri–Kansas City (UMKC)",
+"order": 29
+},
+{
+"year": 2024,
+"name": "University of Louisville",
+"order": 30
+},
+{
+"year": 2024,
+"name": "University of Delaware (UD)",
+"order": 31
+},
+{
+"year": 2024,
+"name": "University of Kentucky (UK)",
+"order": 32
+},
+{
+"year": 2024,
+"name": "Mohawk Valley Community College (MVCC)",
+"order": 33
+},
+{
+"year": 2024,
+"name": "Missouri State University",
+"order": 34
+},
+{
+"year": 2024,
+"name": "University of Illinois Chicago (UIC)",
+"order": 35
+},
+{
+"year": 2024,
+"name": "Southern Illinois University Edwardsville (SIUE)",
+"order": 36
+},
+{
+"year": 2024,
+"name": "Sacred Heart University (SHU)",
+"order": 37
+},
+{
+"year": 2024,
+"name": "Tiffin University",
+"order": 38
+},
+{
+"year": 2024,
+"name": "University of Central Arkansas (UCA)",
+"order": 39
+},
+{
+"year": 2024,
+"name": "University of Maryland, Baltimore County (UMBC)",
+"order": 40
+},
+{
+"year": 2024,
+"name": "University of North Carolina Greensboro (UNCG)",
+"order": 41
+},
+{
+"year": 2024,
+"name": "University of North Florida (UNF)",
+"order": 42
+},
+{
+"year": 2024,
+"name": "University of Vermont (UVM)",
+"order": 43
+},
+{
+"year": 2024,
+"name": "Virginia Tech (VT)",
+"order": 44
+},
+{
+"year": 2024,
+"name": "Utah Valley University (UVU)",
+"order": 45
+},
+{
+"year": 2024,
+"name": "University of Nevada, Las Vegas (UNLV)",
+"order": 46
+},
+{
+"year": 2024,
+"name": "University of Connecticut (UConn)",
+"order": 47
+},
+{
+"year": 2024,
+"name": "University of Rhode Island (URI)",
+"order": 48
+},
+{
+"year": 2024,
+"name": "University of California, Berkeley (Cal)",
+"order": 49
+},
+{
+"year": 2024,
+"name": "Elon University",
+"order": 50
+},
+{
+"year": 2024,
+"name": "Loyola University Chicago (LUC)",
+"order": 51
+},
+{
+"year": 2024,
+"name": "Bryant University",
+"order": 52
+},
+{
+"year": 2025,
+"name": "Marshall",
+"order": 1
+},
+{
+"year": 2025,
+"name": "Vermont University",
+"order": 2
+},
+{
+"year": 2025,
+"name": "Providence College",
+"order": 3
+},
+{
+"year": 2025,
+"name": "Creighton University",
+"order": 4
+},
+{
+"year": 2025,
+"name": "Pittsburgh",
+"order": 5
+},
+{
+"year": 2025,
+"name": "Charlotte",
+"order": 6
+},
+{
+"year": 2025,
+"name": "University of North Florida",
+"order": 7
+},
+{
+"year": 2025,
+"name": "St Mary´s (TX)",
+"order": 8
+},
+{
+"year": 2025,
+"name": "Indiana University",
+"order": 9
+},
+{
+"year": 2025,
+"name": "Florida Institute of Technology",
+"order": 10
+},
+{
+"year": 2025,
+"name": "Franklin Pierce University",
+"order": 11
+},
+{
+"year": 2025,
+"name": "Fordham",
+"order": 12
+},
+{
+"year": 2025,
+"name": "University of Evansville",
+"order": 13
+},
+{
+"year": 2025,
+"name": "Bryant University",
+"order": 14
+},
+{
+"year": 2025,
+"name": "Butler University",
+"order": 15
+},
+{
+"year": 2025,
+"name": "Virginia Tech",
+"order": 16
+},
+{
+"year": 2025,
+"name": "Sacred Heart University",
+"order": 17
+},
+{
+"year": 2025,
+"name": "Missouri State",
+"order": 18
+},
+{
+"year": 2025,
+"name": "VCU",
+"order": 19
+},
+{
+"year": 2025,
+"name": "American International College",
+"order": 20
+},
+{
+"year": 2025,
+"name": "Rhode Island",
+"order": 21
+},
+{
+"year": 2025,
+"name": "SNHU",
+"order": 22
+},
+{
+"year": 2025,
+"name": "Tulsa",
+"order": 23
+},
+{
+"year": 2025,
+"name": "Lenoir Rhyne",
+"order": 24
+},
+{
+"year": 2025,
+"name": "UIC",
+"order": 25
+},
+{
+"year": 2025,
+"name": "De Paul University",
+"order": 26
+},
+{
+"year": 2025,
+"name": "Loyola Chicago",
+"order": 27
+},
+{
+"year": 2025,
+"name": "Saint Michaels College",
+"order": 28
+},
+{
+"year": 2025,
+"name": "FDU",
+"order": 29
+},
+{
+"year": 2025,
+"name": "University of Missouri Kansas City",
+"order": 30
+},
+{
+"year": 2025,
+"name": "University of Indianapolis",
+"order": 31
+},
+{
+"year": 2025,
+"name": "Mars Hill University",
+"order": 32
+},
+{
+"year": 2025,
+"name": "University of California, Berkeley",
+"order": 33
+},
+{
+"year": 2025,
+"name": "James Madison University",
+"order": 34
+},
+{
+"year": 2025,
+"name": "UAB",
+"order": 35
+},
+{
+"year": 2025,
+"name": "UC Riverside",
+"order": 36
+},
+{
+"year": 2025,
+"name": "Iona",
+"order": 37
+},
+{
+"year": 2025,
+"name": "Madonna University",
+"order": 38
+},
+{
+"year": 2025,
+"name": "University of Jamestown",
+"order": 39
+},
+{
+"year": 2025,
+"name": "Pacific University",
+"order": 40
+},
+{
+"year": 2025,
+"name": "NC State",
+"order": 41
+},
+{
+"year": 2025,
+"name": "Eastern Florida",
+"order": 42
+},
+{
+"year": 2025,
+"name": "Lipscomb",
+"order": 43
+},
+{
+"year": 2025,
+"name": "Brown University",
+"order": 44
+},
+{
+"year": 2025,
+"name": "McKendree University",
+"order": 45
+},
+{
+"year": 2025,
+"name": "Central Connecticut",
+"order": 46
+},
+{
+"year": 2025,
+"name": "Temple",
+"order": 47
+},
+{
+"year": 2025,
+"name": "California State Fullerton",
+"order": 48
+},
+{
+"year": 2025,
+"name": "George Mason University",
+"order": 49
+},
+{
+"year": 2025,
+"name": "SDSU (San Diego State)",
+"order": 50
+},
+{
+"year": 2025,
+"name": "Adelphi",
+"order": 51
+},
+{
+"year": 2025,
+"name": "USC Aiken",
+"order": 52
+},
+{
+"year": 2025,
+"name": "ST Mary´s",
+"order": 53
+},
+{
+"year": 2025,
+"name": "FGCU",
+"order": 54
+},
+{
+"year": 2025,
+"name": "Oregon State University",
+"order": 55
+},
+{
+"year": 2025,
+"name": "Adams State",
+"order": 56
+},
+{
+"year": 2025,
+"name": "CSU Pueblo",
+"order": 57
+},
+{
+"year": 2025,
+"name": "NJIT",
+"order": 58
+},
+{
+"year": 2025,
+"name": "Clemson University",
+"order": 59
+},
+{
+"year": 2025,
+"name": "Limenstone",
+"order": 60
+},
+{
+"year": 2025,
+"name": "Southern CT State University",
+"order": 61
+},
+{
+"year": 2025,
+"name": "CBU",
+"order": 62
+},
+{
+"year": 2025,
+"name": "Davis and Elkins",
+"order": 63
+},
+{
+"year": 2025,
+"name": "William Penn",
+"order": 64
+},
+{
+"year": 2026,
+"name": "University of Evansville",
+"order": 1
+},
+{
+"year": 2026,
+"name": "Iowa Western",
+"order": 2
+},
+{
+"year": 2026,
+"name": "Saint Mary's College of California",
+"order": 3
+},
+{
+"year": 2026,
+"name": "Clarkson University",
+"order": 4
+},
+{
+"year": 2026,
+"name": "Wake Forest",
+"order": 5
+},
+{
+"year": 2026,
+"name": "North Greenville University",
+"order": 6
+},
+{
+"year": 2026,
+"name": "Lispscomb",
+"order": 7
+},
+{
+"year": 2026,
+"name": "Tulsa",
+"order": 8
+},
+{
+"year": 2026,
+"name": "Saint Michael's College",
+"order": 9
+},
+{
+"year": 2026,
+"name": "SIUE",
+"order": 10
+},
+{
+"year": 2026,
+"name": "University of North Florida",
+"order": 11
+},
+{
+"year": 2026,
+"name": "UMKC",
+"order": 12
+},
+{
+"year": 2026,
+"name": "UMBC",
+"order": 13
+},
+{
+"year": 2026,
+"name": "Coastal Carolina",
+"order": 14
+},
+{
+"year": 2026,
+"name": "University of Vermont",
+"order": 15
+},
+{
+"year": 2026,
+"name": "Bowling Green University",
+"order": 16
+},
+{
+"year": 2026,
+"name": "VCU",
+"order": 17
+},
+{
+"year": 2026,
+"name": "Grand Canyon University",
+"order": 18
+},
+{
+"year": 2026,
+"name": "Penn State",
+"order": 19
+},
+{
+"year": 2026,
+"name": "Northwestern",
+"order": 20
+},
+{
+"year": 2026,
+"name": "OLD DOMINION",
+"order": 21
+},
+{
+"year": 2026,
+"name": "Rutgers University",
+"order": 22
+},
+{
+"year": 2026,
+"name": "Providence University",
+"order": 23
+},
+{
+"year": 2026,
+"name": "NC State University",
+"order": 24
+},
+{
+"year": 2026,
+"name": "Universidad Loyola Marymount (LMU)",
+"order": 25
+},
+{
+"year": 2026,
+"name": "Emory & Henry University",
+"order": 26
+},
+{
+"year": 2026,
+"name": "Oral Roberts University",
+"order": 27
+},
+{
+"year": 2026,
+"name": "West Virginia",
+"order": 28
+},
+{
+"year": 2026,
+"name": "Bryant University",
+"order": 29
+},
+{
+"year": 2026,
+"name": "IONA",
+"order": 30
+},
+{
+"year": 2026,
+"name": "Cal Berkley",
+"order": 31
+},
+{
+"year": 2026,
+"name": "University of Portland (stays with Cal)",
+"order": 32
+},
+{
+"year": 2026,
+"name": "Lenoir-Rhyne University",
+"order": 33
+},
+{
+"year": 2026,
+"name": "Franklin Pierce",
+"order": 34
+},
+{
+"year": 2026,
+"name": "CBU",
+"order": 35
+},
+{
+"year": 2026,
+"name": "UCWV",
+"order": 36
+},
+{
+"year": 2026,
+"name": "James Madison University",
+"order": 37
+},
+{
+"year": 2026,
+"name": "Fordham University",
+"order": 38
+},
+{
+"year": 2026,
+"name": "FGCU",
+"order": 39
+},
+{
+"year": 2026,
+"name": "Utah Valley",
+"order": 40
+},
+{
+"year": 2026,
+"name": "University of St. Thomas",
+"order": 41
+},
+{
+"year": 2026,
+"name": "UCLA",
+"order": 42
+},
+{
+"year": 2026,
+"name": "Brown University",
+"order": 43
+},
+{
+"year": 2026,
+"name": "Clemson University",
+"order": 44
+},
+{
+"year": 2026,
+"name": "Central Connecticut",
+"order": 45
+},
+{
+"year": 2026,
+"name": "SHU",
+"order": 46
+},
+{
+"year": 2026,
+"name": "University of New Hampshire",
+"order": 47
+},
+{
+"year": 2026,
+"name": "Missouri State University",
+"order": 48
+},
+{
+"year": 2026,
+"name": "NJIT (se queda en el barcelo)",
+"order": 49
+},
+{
+"year": 2026,
+"name": "American International College",
+"order": 50
+},
+{
+"year": 2026,
+"name": "Kentucky",
+"order": 51
+},
+{
+"year": 2026,
+"name": "University of Nebraska Omaha",
+"order": 52
+},
+{
+"year": 2026,
+"name": "Farifield",
+"order": 53
+},
+{
+"year": 2026,
+"name": "Saint Johns",
+"order": 54
+},
+{
+"year": 2026,
+"name": "Fairleigh Dickinson University",
+"order": 55
+},
+{
+"year": 2026,
+"name": "Roger State University",
+"order": 56
+},
+{
+"year": 2026,
+"name": "SNHU",
+"order": 57
+},
+{
+"year": 2026,
+"name": "Pittsburgh university",
+"order": 58
+},
+{
+"year": 2026,
+"name": "UIC",
+"order": 59
+},
+{
+"year": 2026,
+"name": "UNC Chapel Hill",
+"order": 60
+},
+{
+"year": 2026,
+"name": "Concordia University of Irvine",
+"order": 61
+},
+{
+"year": 2026,
+"name": "Fort Hays State University",
+"order": 62
+},
+{
+"year": 2026,
+"name": "Lousville",
+"order": 63
+},
+{
+"year": 2026,
+"name": "Quinnipiac",
+"order": 64
+},
+{
+"year": 2026,
+"name": "Carleton College",
+"order": 65
+},
+{
+"year": 2026,
+"name": "FIU",
+"order": 66
+},
+{
+"year": 2026,
+"name": "Indiana University",
+"order": 67
+},
+{
+"year": 2026,
+"name": "UCF",
+"order": 68
+}
+]

@@ -120,3 +120,17 @@ model Player {
   @@index([division])
   @@index([program])
 }
+
+// Universities that attended the annual Eture showcase, by year (2020–…)
+model ShowcaseUniversity {
+  id        String   @id @default(cuid())
+  year      Int
+  name      String
+  order     Int      @default(0)
+  logoUrl   String?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([year])
+}

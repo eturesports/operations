@@ -12,6 +12,7 @@ export function BottomNav({ role }: { role: Role }) {
   const items: Item[] = [
     { href: "/dashboard", label: "Overview", icon: <GridIcon /> },
     { href: "/players", label: "Players", icon: <UsersIcon /> },
+    { href: "/showcase", label: "Showcase", icon: <TrophyIcon /> },
   ];
   if (role === "ADMIN")
     items.push({ href: "/users", label: "Access", icon: <ShieldIcon /> });
@@ -26,7 +27,7 @@ export function BottomNav({ role }: { role: Role }) {
             <Link
               key={it.href}
               href={it.href}
-              className={`flex min-w-[74px] flex-col items-center gap-0.5 rounded-full px-4 py-1.5 text-[11px] font-medium transition-colors ${
+              className={`flex min-w-[60px] flex-col items-center gap-0.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-colors sm:min-w-[72px] sm:px-4 ${
                 active
                   ? "bg-brand text-white shadow-[0_2px_12px_rgba(196,43,43,0.45)]"
                   : "text-muted hover:text-fg"
@@ -65,6 +66,14 @@ function ShieldIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+function TrophyIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
+      <path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3" />
     </svg>
   );
 }
