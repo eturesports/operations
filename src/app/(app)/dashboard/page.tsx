@@ -3,6 +3,7 @@ import { getAuthorityData } from "@/lib/authority";
 import { formatNumber, formatUSD } from "@/lib/format";
 import { StatCard } from "@/components/StatCard";
 import { BarList } from "@/components/BarList";
+import { AnalyticsTabs } from "@/components/AnalyticsTabs";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +53,8 @@ export default async function DashboardPage() {
           Volume, level, value and reliability of Eture operations. Data as of {asOf}.
         </p>
       </div>
+
+      <AnalyticsTabs />
 
       {/* Volume — row 1 */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">

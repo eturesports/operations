@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { seasonSortKey } from "@/lib/format";
+import { canonicalizeUniversity, uniKey } from "@/lib/universities";
 
 // Authority metrics following the Eture Data Intelligence framework (Phase 1):
 // clear definitions, denominators and coverage — a row is an OPERATION, not
@@ -81,7 +82,10 @@ export async function getAuthorityData(): Promise<AuthorityData> {
   const uniquePlayers = uniqueNames.size;
   const transfers = Math.max(0, operations - uniquePlayers);
 
-  const universities = new Set(rows.map((r) => norm(r.university)).filter(Boolean)).size;
+  const uniSet = new Set<string>();
+  for (const r of rows)
+    for (const u of canonicalizeUniversity(r.university)) uniSet.add(uniKey(u));
+  const universities = uniSet.size;
 
   const seasons = [...new Set(rows.map((r) => (r.season ?? "").trim()).filter(Boolean))].sort(
     (a, b) => seasonSortKey(a) - seasonSortKey(b)
