@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
-import { lookupPlayerStats } from "@/lib/ncaa";
+import { fetchProfileStats } from "@/lib/statsRefresh";
 import { logAudit } from "@/lib/audit";
 
 // Weekly job: refresh NCAA season stats for every profile marked "current".
@@ -27,7 +27,7 @@ export async function GET(req: Request) {
 
   const profiles = await prisma.playerProfile.findMany({
     where: { current: true },
-    include: { player: { select: { name: true, active: true } } },
+    include: { player: { select: { name: true, active: true, ncaaUrl: true } } },
   });
 
   const results = { checked: 0, updated: 0, unmatched: 0, failed: 0 };
@@ -37,27 +37,23 @@ export async function GET(req: Request) {
     if (!p.player.active) continue;
     results.checked += 1;
     try {
-      const r = await lookupPlayerStats({
-        name: p.player.name,
-        sport: p.ncaaSport,
-        division: p.ncaaDivision,
+      const r = await fetchProfileStats({
+        playerName: p.player.name,
+        rosterUrl: p.rosterUrl,
+        ncaaUrl: p.player.ncaaUrl,
+        ncaaSport: p.ncaaSport,
+        ncaaDivision: p.ncaaDivision,
         season: p.season,
       });
-      if (!r.matched || !r.stats) {
+      if (!r.matched) {
         results.unmatched += 1;
         continue;
       }
-      const s = r.stats;
       await prisma.playerProfile.update({
         where: { id: p.id },
         data: {
-          matchesPlayed: s.games ?? null,
-          goals: s.goals ?? null,
-          assists: s.assists ?? null,
-          points: s.points ?? null,
-          minutes: s.minutes ?? null,
-          saves: s.saves ?? null,
-          statsSource: "ncaa-api",
+          ...r.patch,
+          statsSource: r.source,
           statsUpdatedAt: new Date(),
         },
       });

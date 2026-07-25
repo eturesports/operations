@@ -250,7 +250,11 @@ export function ProfilesSection({
         return;
       }
       setProfiles((prev) => prev.map((x) => (x.id === p.id ? (j.profile as Profile) : x)));
-      setNotice(`Updated from NCAA — matched ${j.ncaa.name} (${j.ncaa.team}).`);
+      setNotice(
+        j.source === "roster-site"
+          ? `Updated from the university roster page — ${j.ncaa.name}.`
+          : `Updated from the NCAA leaderboards — matched ${j.ncaa.name}.`
+      );
     } catch {
       setError("Could not reach the NCAA stats service.");
     } finally {
@@ -408,7 +412,11 @@ export function ProfilesSection({
                 )}
                 {p.statsSource && (
                   <span className="text-[10px] text-muted">
-                    {p.statsSource === "ncaa-api" ? "NCAA" : "Manual"}
+                    {p.statsSource === "roster-site"
+                      ? "University site"
+                      : p.statsSource === "manual"
+                        ? "Manual"
+                        : "NCAA"}
                     {p.statsUpdatedAt
                       ? ` · ${new Date(p.statsUpdatedAt).toLocaleDateString()}`
                       : ""}
