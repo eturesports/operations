@@ -10,7 +10,7 @@ import type { Prisma } from "@prisma/client";
 export async function GET(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
 
   const { searchParams } = new URL(req.url);
@@ -46,21 +46,21 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   if (!canEdit(session.user.role)) {
-    return NextResponse.json({ error: "Sin permiso" }, { status: 403 });
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   const body = (await req.json().catch(() => ({}))) as Record<string, unknown>;
   const { data, error } = parsePlayerInput(body);
   if (error || !data) {
-    return NextResponse.json({ error: error ?? "Datos inválidos" }, { status: 400 });
+    return NextResponse.json({ error: error ?? "Invalid data" }, { status: 400 });
   }
 
   const sport = await prisma.sport.findUnique({ where: { id: data.sportId! } });
   if (!sport) {
-    return NextResponse.json({ error: "Deporte no encontrado" }, { status: 400 });
+    return NextResponse.json({ error: "Sport not found" }, { status: 400 });
   }
 
   const player = await prisma.player.create({

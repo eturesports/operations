@@ -53,7 +53,15 @@ export function PlayerDetail({
       >
         <div className="mb-4 flex items-start justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-fg">{player.name}</h2>
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-xl font-bold text-fg">{player.name}</h2>
+              {player.activeProfile && (
+                <span className="badge inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Playing now
+                </span>
+              )}
+            </div>
             <p className="text-sm text-muted">
               {player.university ?? "—"}
               {player.season ? ` · ${player.season}` : ""}
@@ -92,6 +100,11 @@ export function PlayerDetail({
           playerId={player.id}
           seasonOptions={seasonOptions}
           editable={editable}
+          defaults={{
+            university: player.university,
+            season: player.season,
+            division: player.division,
+          }}
         />
 
         <div className="mt-5 flex flex-wrap gap-2">

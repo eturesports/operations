@@ -43,12 +43,12 @@ export function parsePlayerInput(
 
   if (!partial || "sportId" in body) {
     const sportId = str(body.sportId);
-    if (!sportId) return { error: "Falta el deporte (sportId)." };
+    if (!sportId) return { error: "Sport is required (sportId)." };
     data.sportId = sportId;
   }
   if (!partial || "name" in body) {
     const name = str(body.name);
-    if (!name) return { error: "El nombre es obligatorio." };
+    if (!name) return { error: "Name is required." };
     data.name = name;
   }
   if ("university" in body) data.university = str(body.university);

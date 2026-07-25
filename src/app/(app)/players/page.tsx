@@ -13,7 +13,15 @@ export default async function PlayersPage() {
   const [sports, players] = await Promise.all([
     prisma.sport.findMany({ orderBy: { order: "asc" } }),
     prisma.player.findMany({
-      include: { sport: { select: { code: true, name: true } } },
+      include: {
+        sport: { select: { code: true, name: true } },
+        // the single "currently playing" profile, if any — drives the Active badge
+        profiles: {
+          where: { current: true },
+          select: { university: true, season: true, goals: true, assists: true },
+          take: 1,
+        },
+      },
       orderBy: [{ season: "desc" }, { name: "asc" }],
     }),
   ]);
@@ -55,6 +63,14 @@ export default async function PlayersPage() {
         actionImageUrl: p.actionImageUrl,
         ncaaUrl: p.ncaaUrl,
         instagramUrl: p.instagramUrl,
+        activeProfile: p.profiles[0]
+          ? {
+              university: p.profiles[0].university,
+              season: p.profiles[0].season,
+              goals: p.profiles[0].goals,
+              assists: p.profiles[0].assists,
+            }
+          : null,
         nationality: p.nationality,
         position: p.position,
         previousClub: p.previousClub,

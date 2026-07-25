@@ -24,10 +24,10 @@ type IncomingRow = {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   if (!canEdit(session.user.role)) {
-    return NextResponse.json({ error: "Sin permiso" }, { status: 403 });
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   const body = (await req.json().catch(() => null)) as {
@@ -37,14 +37,14 @@ export async function POST(req: Request) {
   } | null;
 
   if (!body || !Array.isArray(body.rows)) {
-    return NextResponse.json({ error: "Formato inválido" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid format" }, { status: 400 });
   }
   if (body.rows.length === 0) {
-    return NextResponse.json({ error: "No hay filas para importar" }, { status: 400 });
+    return NextResponse.json({ error: "No rows to import" }, { status: 400 });
   }
   if (body.rows.length > 5000) {
     return NextResponse.json(
-      { error: "Demasiadas filas (máximo 5000 por importación)" },
+      { error: "Too many rows (maximum 5000 per import)" },
       { status: 400 }
     );
   }
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
   const defaultSportId = body.defaultSportId;
   if (!defaultSportId || !validIds.has(defaultSportId)) {
     return NextResponse.json(
-      { error: "Selecciona un deporte de destino válido" },
+      { error: "Select a valid target sport" },
       { status: 400 }
     );
   }
@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     );
 
     if (error || !data) {
-      errors.push({ row: i + 2, error: error ?? "Datos inválidos" }); // +2: fila 1 = cabecera
+      errors.push({ row: i + 2, error: error ?? "Invalid data" }); // +2: fila 1 = cabecera
       continue;
     }
 

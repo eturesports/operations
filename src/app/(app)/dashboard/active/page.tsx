@@ -4,6 +4,8 @@ import { getActiveData, type ActivePlayerRow } from "@/lib/analytics";
 import { formatNumber } from "@/lib/format";
 import { StatCard } from "@/components/StatCard";
 import { AnalyticsTabs } from "@/components/AnalyticsTabs";
+import { canEdit } from "@/lib/permissions";
+import { RefreshAllButton } from "./RefreshAllButton";
 
 export const dynamic = "force-dynamic";
 
@@ -75,7 +77,8 @@ function LeaderTable({
 }
 
 export default async function ActivePlayersPage() {
-  await requireSession();
+  const session = await requireSession();
+  const editable = canEdit(session.user.role);
   const d = await getActiveData();
 
   return (
@@ -84,12 +87,14 @@ export default async function ActivePlayersPage() {
         <div className="kicker mb-1">Data Intelligence</div>
         <h1 className="text-2xl font-bold text-fg sm:text-3xl">Active players</h1>
         <p className="text-sm text-muted">
-          Players with a current university roster. Add a profile to a player and pull live season
-          stats from the NCAA.
+          Players marked as playing on a university roster right now. Stats refresh automatically
+          every Monday from the NCAA.
         </p>
       </div>
 
       <AnalyticsTabs />
+
+      {editable && <RefreshAllButton />}
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard
@@ -113,8 +118,8 @@ export default async function ActivePlayersPage() {
             <Link href="/players" className="text-brand hover:underline">
               Players
             </Link>
-            , add their current university profile, mark it “Current”, then press ↻ NCAA to pull
-            their season stats.
+            , press <b className="text-fg">“Mark as playing now”</b> in their profile, and their
+            NCAA stats will appear here.
           </p>
         </div>
       ) : (

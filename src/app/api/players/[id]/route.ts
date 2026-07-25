@@ -11,14 +11,14 @@ export async function GET(
 ) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   const player = await prisma.player.findUnique({
     where: { id: params.id },
     include: { sport: { select: { code: true, name: true } } },
   });
   if (!player) {
-    return NextResponse.json({ error: "No encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
   return NextResponse.json({ player });
 }
@@ -29,21 +29,21 @@ export async function PATCH(
 ) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   if (!canEdit(session.user.role)) {
-    return NextResponse.json({ error: "Sin permiso" }, { status: 403 });
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   const body = (await req.json().catch(() => ({}))) as Record<string, unknown>;
   const { data, error } = parsePlayerInput(body, { partial: true });
   if (error || !data) {
-    return NextResponse.json({ error: error ?? "Datos inválidos" }, { status: 400 });
+    return NextResponse.json({ error: error ?? "Invalid data" }, { status: 400 });
   }
 
   const exists = await prisma.player.findUnique({ where: { id: params.id } });
   if (!exists) {
-    return NextResponse.json({ error: "No encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
   const player = await prisma.player.update({
@@ -77,15 +77,15 @@ export async function DELETE(
 ) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   if (!canEdit(session.user.role)) {
-    return NextResponse.json({ error: "Sin permiso" }, { status: 403 });
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   const exists = await prisma.player.findUnique({ where: { id: params.id } });
   if (!exists) {
-    return NextResponse.json({ error: "No encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
   await prisma.player.delete({ where: { id: params.id } });

@@ -28,6 +28,13 @@ export type PlayerRow = {
   nationality: string | null;
   position: string | null;
   previousClub: string | null;
+  // set when the player has a profile marked as their current NCAA roster
+  activeProfile: {
+    university: string;
+    season: string | null;
+    goals: number | null;
+    assists: number | null;
+  } | null;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -52,6 +59,7 @@ export function PlayersClient({
   const [fSeason, setFSeason] = useState("");
   const [fDivision, setFDivision] = useState("");
   const [fProgram, setFProgram] = useState("");
+  const [fActiveOnly, setFActiveOnly] = useState(false);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<PlayerRow | null>(null);
@@ -78,16 +86,21 @@ export function PlayersClient({
       if (fSeason && p.season !== fSeason) return false;
       if (fDivision && p.division !== fDivision) return false;
       if (fProgram && p.program !== fProgram) return false;
+      if (fActiveOnly && !p.activeProfile) return false;
       if (needle) {
         const hay = `${p.name} ${p.university ?? ""} ${p.notes ?? ""}`.toLowerCase();
         if (!hay.includes(needle)) return false;
       }
       return true;
     });
-  }, [players, q, fSport, fSeason, fDivision, fProgram]);
+  }, [players, q, fSport, fSeason, fDivision, fProgram, fActiveOnly]);
 
   const totalScholarship = filtered.reduce((a, p) => a + (p.scholarship ?? 0), 0);
-  const activeFilters = fSport || fSeason || fDivision || fProgram || q;
+  const activeFilters = fSport || fSeason || fDivision || fProgram || fActiveOnly || q;
+  const activeNcaaCount = useMemo(
+    () => players.filter((p) => p.activeProfile).length,
+    [players]
+  );
 
   const filteredIds = useMemo(() => filtered.map((p) => p.id), [filtered]);
   const selectedCount = selected.size;
@@ -175,6 +188,8 @@ export function PlayersClient({
       nationality: player.nationality,
       position: player.position,
       previousClub: player.previousClub,
+      // profiles aren't touched by this form; keep whatever the row already had
+      activeProfile: editing?.activeProfile ?? null,
     };
     setPlayers((prev) => (editing ? prev.map((p) => (p.id === row.id ? row : p)) : [row, ...prev]));
     setModalOpen(false);
@@ -367,20 +382,35 @@ export function PlayersClient({
             ))}
           </select>
         </div>
-        {activeFilters && (
+        <div className="mt-3 flex flex-wrap items-center gap-3">
           <button
-            onClick={() => {
-              setQ("");
-              setFSport("");
-              setFSeason("");
-              setFDivision("");
-              setFProgram("");
-            }}
-            className="mt-3 text-xs text-muted hover:text-fg"
+            onClick={() => setFActiveOnly((v) => !v)}
+            aria-pressed={fActiveOnly}
+            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+              fActiveOnly
+                ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-400"
+                : "border-ink-600 text-muted hover:text-fg"
+            }`}
           >
-            Clear filters
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            Playing now ({activeNcaaCount})
           </button>
-        )}
+          {activeFilters && (
+            <button
+              onClick={() => {
+                setQ("");
+                setFSport("");
+                setFSeason("");
+                setFDivision("");
+                setFProgram("");
+                setFActiveOnly(false);
+              }}
+              className="text-xs text-muted hover:text-fg"
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Bulk action bar */}
@@ -465,13 +495,28 @@ export function PlayersClient({
                         <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded-full border border-ink-600 bg-ink-800 text-[10px] text-muted">
                           {p.profileImageUrl ? (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={p.profileImageUrl} alt="" className="h-full w-full object-cover" />
+                            <img
+                              src={p.profileImageUrl}
+                              alt=""
+                              width={32}
+                              height={32}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-cover"
+                            />
                           ) : (
                             p.name.slice(0, 1).toUpperCase()
                           )}
                         </span>
                         <span>
                           {p.name}
+                          {p.activeProfile && (
+                            <span
+                              className="ml-1.5 inline-block h-2 w-2 rounded-full bg-emerald-400 align-middle"
+                              title={`Playing now at ${p.activeProfile.university}`}
+                              aria-label={`Currently playing at ${p.activeProfile.university}`}
+                            />
+                          )}
                           {p.notes && (
                             <span className="ml-1.5 text-xs text-muted" title={p.notes}>
                               ✎

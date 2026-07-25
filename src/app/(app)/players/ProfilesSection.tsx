@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export type Profile = {
   id: string;
@@ -98,11 +99,15 @@ export function ProfilesSection({
   playerId,
   seasonOptions,
   editable,
+  defaults,
 }: {
   playerId: string;
   seasonOptions: string[];
   editable: boolean;
+  // seeded from the player record so "mark as playing" is one click, not a form
+  defaults?: { university?: string | null; season?: string | null; division?: string | null };
 }) {
+  const router = useRouter();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
   const [draft, setDraft] = useState<Draft | null>(null);
@@ -129,6 +134,38 @@ export function ProfilesSection({
 
   function set<K extends keyof Draft>(k: K, v: Draft[K]) {
     setDraft((d) => (d ? { ...d, [k]: v } : d));
+  }
+
+  // New profile pre-filled from the player's own university/season/division.
+  function newDraft(current: boolean): Draft {
+    return {
+      ...empty,
+      current,
+      university: defaults?.university ?? "",
+      season: defaults?.season ?? "",
+      division: defaults?.division ?? "",
+    };
+  }
+
+  // One-click promote an existing profile to "playing now".
+  async function setCurrent(p: Profile) {
+    setError(null);
+    setNotice(null);
+    try {
+      const res = await fetch(`/api/profiles/${p.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ current: true }),
+      });
+      const j = await res.json();
+      if (!res.ok) throw new Error(j.error ?? "Could not update");
+      setProfiles((prev) =>
+        prev.map((x) => ({ ...x, current: x.id === p.id }))
+      );
+      router.refresh();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not update");
+    }
   }
 
   async function save() {
@@ -176,6 +213,7 @@ export function ProfilesSection({
         return saved.current ? next.map((p) => (p.id === saved.id ? p : { ...p, current: false })) : next;
       });
       setDraft(null);
+      router.refresh();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not save profile");
     } finally {
@@ -186,7 +224,10 @@ export function ProfilesSection({
   async function remove(p: Profile) {
     if (!confirm(`Remove ${p.university} profile?`)) return;
     const res = await fetch(`/api/profiles/${p.id}`, { method: "DELETE" });
-    if (res.ok) setProfiles((prev) => prev.filter((x) => x.id !== p.id));
+    if (res.ok) {
+      setProfiles((prev) => prev.filter((x) => x.id !== p.id));
+      router.refresh();
+    }
   }
 
   async function refresh(p: Profile) {
@@ -219,16 +260,21 @@ export function ProfilesSection({
 
   return (
     <div className="mt-6 border-t border-ink-600 pt-4">
-      <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-fg">University profiles</h3>
-        {editable && !draft && (
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <div>
+          <h3 className="text-sm font-semibold text-fg">University profiles &amp; NCAA stats</h3>
+          <p className="text-[11px] text-muted">
+            Mark the roster the player is on right now to track their live stats.
+          </p>
+        </div>
+        {editable && !draft && profiles.length > 0 && (
           <button
             onClick={() => {
               setError(null);
               setNotice(null);
-              setDraft({ ...empty, current: profiles.length === 0 });
+              setDraft(newDraft(false));
             }}
-            className="btn-ghost px-3 py-1 text-xs"
+            className="btn-ghost shrink-0 px-3 py-1 text-xs"
           >
             + Add profile
           </button>
@@ -249,9 +295,24 @@ export function ProfilesSection({
       {loading ? (
         <p className="text-xs text-muted">Loading…</p>
       ) : profiles.length === 0 && !draft ? (
-        <p className="text-xs text-muted">
-          No university profiles yet. A player can have several (e.g. after a transfer).
-        </p>
+        <div className="rounded-xl border border-dashed border-ink-500 bg-ink-900/30 p-4 text-center">
+          <p className="text-xs text-muted">
+            This player isn&apos;t marked as playing anywhere yet. A player can hold several
+            profiles (e.g. after a transfer).
+          </p>
+          {editable && (
+            <button
+              onClick={() => {
+                setError(null);
+                setNotice(null);
+                setDraft(newDraft(true));
+              }}
+              className="btn-primary mt-3 px-4 py-1.5 text-xs"
+            >
+              ✓ Mark as playing now
+            </button>
+          )}
+        </div>
       ) : (
         <div className="space-y-3">
           {profiles.map((p) => (
@@ -260,8 +321,21 @@ export function ProfilesSection({
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-fg">{p.university}</span>
-                    {p.current && (
-                      <span className="badge bg-brand/20 text-brand">Current</span>
+                    {p.current ? (
+                      <span className="badge inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        Playing now
+                      </span>
+                    ) : (
+                      editable && (
+                        <button
+                          onClick={() => setCurrent(p)}
+                          className="text-[11px] text-muted underline-offset-2 hover:text-fg hover:underline"
+                          aria-label={`Mark ${p.university} as the roster this player is on now`}
+                        >
+                          Set as playing now
+                        </button>
+                      )
                     )}
                   </div>
                   <div className="text-[11px] text-muted">
@@ -277,6 +351,7 @@ export function ProfilesSection({
                       disabled={refreshing === p.id}
                       className="btn-ghost px-2 py-1 text-[11px]"
                       title="Pull season stats from the NCAA stats API"
+                      aria-label={`Refresh ${p.university} stats from the NCAA`}
                     >
                       {refreshing === p.id ? "Refreshing…" : "↻ NCAA"}
                     </button>
@@ -287,14 +362,16 @@ export function ProfilesSection({
                         setDraft(toDraft(p));
                       }}
                       className="text-xs text-muted hover:text-fg"
-                      title="Edit"
+                      title="Edit profile"
+                      aria-label={`Edit ${p.university} profile`}
                     >
                       ✎
                     </button>
                     <button
                       onClick={() => remove(p)}
                       className="text-xs text-red-400 hover:text-red-300"
-                      title="Remove"
+                      title="Remove profile"
+                      aria-label={`Remove ${p.university} profile`}
                     >
                       ✕
                     </button>
@@ -422,14 +499,20 @@ function ProfileForm({
             onChange={(e) => onChange("jersey", e.target.value)}
           />
         </div>
-        <div className="flex items-end">
-          <label className="flex items-center gap-2 text-sm text-fg">
+        <div className="col-span-2 flex items-center rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-2">
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
             <input
               type="checkbox"
+              className="h-4 w-4 accent-emerald-500"
               checked={draft.current}
               onChange={(e) => onChange("current", e.target.checked)}
             />
-            Current roster
+            <span>
+              Playing here now
+              <span className="ml-1 text-xs text-muted">
+                — shows on the Active players dashboard
+              </span>
+            </span>
           </label>
         </div>
         <div>

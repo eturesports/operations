@@ -136,7 +136,15 @@ export function ShowcaseClient({
                   <span className="grid h-6 w-6 place-items-center overflow-hidden rounded-full bg-ink-700 text-[9px] text-muted">
                     {it.logoUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={it.logoUrl} alt="" className="h-full w-full object-contain" />
+                      <img
+                        src={it.logoUrl}
+                        alt=""
+                        width={24}
+                        height={24}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-contain"
+                      />
                     ) : (
                       it.name.slice(0, 1).toUpperCase()
                     )}
@@ -154,14 +162,16 @@ export function ShowcaseClient({
                           })
                         }
                         className="text-xs text-muted hover:text-fg"
-                        title="Edit"
+                        title={`Edit ${it.name}`}
+                        aria-label={`Edit ${it.name} in Showcase ${it.year}`}
                       >
                         ✎
                       </button>
                       <button
                         onClick={() => remove(it)}
                         className="text-xs text-red-400 hover:text-red-300"
-                        title="Remove"
+                        title={`Remove ${it.name}`}
+                        aria-label={`Remove ${it.name} from Showcase ${it.year}`}
                       >
                         ✕
                       </button>

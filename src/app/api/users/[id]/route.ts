@@ -14,10 +14,10 @@ export async function PATCH(
 ) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   if (!canManageUsers(session.user.role)) {
-    return NextResponse.json({ error: "Sin permiso" }, { status: 403 });
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   const body = (await req.json().catch(() => ({}))) as {
