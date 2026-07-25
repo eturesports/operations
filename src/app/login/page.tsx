@@ -27,8 +27,8 @@ export default async function LoginPage({
 
           {hasError && (
             <div className="mb-6 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-              Your account does not have access to this platform. Use your company
-              email or contact an administrator.
+              Something went wrong signing you in. Try again, or contact an
+              administrator if it persists.
             </div>
           )}
 
@@ -44,8 +44,9 @@ export default async function LoginPage({
             </button>
           </form>
 
-          <p className="mt-6 text-xs text-muted">
-            Restricted to authorized Eture Sports staff.
+          <p className="mt-6 text-xs leading-relaxed text-muted">
+            Eture Sports staff get access automatically. External accounts can
+            sign in to request access — an administrator approves each request.
           </p>
         </div>
       </div>
