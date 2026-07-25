@@ -1,5 +1,7 @@
 // Validación/normalización mínima del payload de jugador (sin dependencias externas).
 
+import { normalizePersonName } from "@/lib/names";
+
 export type PlayerInput = {
   sportId: string;
   name: string;
@@ -49,7 +51,8 @@ export function parsePlayerInput(
   if (!partial || "name" in body) {
     const name = str(body.name);
     if (!name) return { error: "Name is required." };
-    data.name = name;
+    // Names are stored as "First Last" — never shouted, whatever was typed.
+    data.name = normalizePersonName(name);
   }
   if ("university" in body) data.university = str(body.university);
   if ("season" in body) data.season = str(body.season);

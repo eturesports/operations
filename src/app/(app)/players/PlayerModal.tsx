@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { PlayerRow } from "./PlayersClient";
+import { normalizePersonName } from "@/lib/names";
 
 export type PlayerForm = {
   sportId: string;
@@ -206,6 +207,9 @@ export function PlayerModal({
                 className="input"
                 value={form.name}
                 onChange={(e) => set("name", e.target.value)}
+                // tidy the casing once the user leaves the field, so what they
+                // see is what gets stored
+                onBlur={(e) => set("name", normalizePersonName(e.target.value))}
                 autoFocus
                 required
               />

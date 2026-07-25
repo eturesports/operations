@@ -99,7 +99,9 @@ export async function POST(req: Request) {
       const dup = await prisma.player.findFirst({
         where: {
           sportId: data.sportId!,
-          name: data.name!,
+          // case-insensitive so a re-imported "FRAN CORTIJO" still matches the
+          // stored "Fran Cortijo" instead of creating a second record
+          name: { equals: data.name!, mode: "insensitive" },
           season: data.season ?? null,
           university: data.university ?? null,
         },
