@@ -86,7 +86,10 @@ export async function lookupPlayerStats(opts: {
 }): Promise<NcaaMatch> {
   const sport = (opts.sport || "soccer-men").trim();
   const div = (opts.division || "d1").trim().toLowerCase();
-  const season = (opts.season || "current").trim() || "current";
+  // Profiles store seasons as "24/25", but the NCAA API only accepts a plain
+  // year or "current" — anything else would break the URL, so map it down.
+  const rawSeason = (opts.season || "").trim();
+  const season = /^\d{4}$/.test(rawSeason) ? rawSeason : "current";
   const cats = CATEGORIES[sport];
 
   if (!cats || (cats.outfield == null && cats.goalie == null)) {
