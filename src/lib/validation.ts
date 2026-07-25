@@ -20,12 +20,26 @@ export type PlayerInput = {
   nationality?: string | null;
   position?: string | null;
   previousClub?: string | null;
+  graduated?: boolean;
+  graduationYear?: number | null;
 };
 
 function str(v: unknown): string | null {
   if (v == null) return null;
   const s = String(v).trim();
   return s === "" ? null : s;
+}
+
+// Accepts real booleans and the text a spreadsheet produces ("Yes", "Sí", "1",
+// "Inactive"…). Plain Boolean() would read the string "No" as true.
+function boolish(v: unknown, fallback = false): boolean {
+  if (typeof v === "boolean") return v;
+  if (v == null) return fallback;
+  const s = String(v).trim().toLowerCase();
+  if (s === "") return fallback;
+  if (["true", "yes", "y", "si", "sí", "1", "x", "graduated", "active"].includes(s)) return true;
+  if (["false", "no", "n", "0", "not graduated", "inactive"].includes(s)) return false;
+  return fallback;
 }
 
 function intOrNull(v: unknown): number | null {
@@ -61,7 +75,7 @@ export function parsePlayerInput(
   if ("scholarship" in body) data.scholarship = intOrNull(body.scholarship);
   if ("legacyNumber" in body) data.legacyNumber = intOrNull(body.legacyNumber);
   if ("notes" in body) data.notes = str(body.notes);
-  if ("active" in body) data.active = Boolean(body.active);
+  if ("active" in body) data.active = boolish(body.active, true);
   if ("profileImageUrl" in body) data.profileImageUrl = str(body.profileImageUrl);
   if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
   if ("ncaaUrl" in body) data.ncaaUrl = str(body.ncaaUrl);
@@ -69,6 +83,14 @@ export function parsePlayerInput(
   if ("nationality" in body) data.nationality = str(body.nationality);
   if ("position" in body) data.position = str(body.position);
   if ("previousClub" in body) data.previousClub = str(body.previousClub);
+  if ("graduated" in body) data.graduated = boolish(body.graduated);
+  if ("graduationYear" in body) {
+    const y = intOrNull(body.graduationYear);
+    if (y != null && (y < 1950 || y > 2100)) {
+      return { error: "Graduation year must be a four-digit year." };
+    }
+    data.graduationYear = y;
+  }
 
   return { data };
 }

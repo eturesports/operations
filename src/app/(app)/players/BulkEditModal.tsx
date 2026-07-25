@@ -7,7 +7,13 @@ export type BulkPatch = {
   division?: string;
   program?: string;
   university?: string;
+  active?: boolean;
+  graduated?: boolean;
+  graduationYear?: number | null;
 };
+
+// Tri-state selects: "" leaves the field untouched.
+type TriState = "" | "yes" | "no";
 
 export function BulkEditModal({
   count,
@@ -26,6 +32,9 @@ export function BulkEditModal({
   const [division, setDivision] = useState("");
   const [program, setProgram] = useState("");
   const [university, setUniversity] = useState("");
+  const [status, setStatus] = useState<TriState>("");
+  const [graduated, setGraduated] = useState<TriState>("");
+  const [graduationYear, setGraduationYear] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,6 +44,16 @@ export function BulkEditModal({
     if (division.trim()) patch.division = division.trim();
     if (program.trim()) patch.program = program.trim();
     if (university.trim()) patch.university = university.trim();
+    if (status) patch.active = status === "yes";
+    if (graduated) patch.graduated = graduated === "yes";
+    if (graduationYear.trim()) {
+      const y = parseInt(graduationYear.replace(/[^\d]/g, ""), 10);
+      if (Number.isNaN(y) || y < 1950 || y > 2100) {
+        setError("Graduation year must be a four-digit year.");
+        return;
+      }
+      patch.graduationYear = y;
+    }
     if (Object.keys(patch).length === 0) {
       setError("Fill at least one field to apply.");
       return;
@@ -99,6 +118,47 @@ export function BulkEditModal({
           <div>
             <label className="label">University</label>
             <input className="input" value={university} onChange={(e) => setUniversity(e.target.value)} />
+          </div>
+
+          <div className="border-t border-ink-600 pt-4">
+            <label className="label">Status</label>
+            <select
+              className="input"
+              value={status}
+              onChange={(e) => setStatus(e.target.value as TriState)}
+            >
+              <option value="">Keep unchanged</option>
+              <option value="yes">Active</option>
+              <option value="no">Inactive</option>
+            </select>
+            <p className="mt-1 text-xs text-muted">
+              Inactive players stay in the database but are excluded from dashboards and analytics.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="label">Graduated</label>
+              <select
+                className="input"
+                value={graduated}
+                onChange={(e) => setGraduated(e.target.value as TriState)}
+              >
+                <option value="">Keep unchanged</option>
+                <option value="yes">Graduated</option>
+                <option value="no">Not graduated</option>
+              </select>
+            </div>
+            <div>
+              <label className="label">Graduation year</label>
+              <input
+                className="input"
+                inputMode="numeric"
+                placeholder="2025"
+                value={graduationYear}
+                onChange={(e) => setGraduationYear(e.target.value)}
+              />
+            </div>
           </div>
         </div>
 

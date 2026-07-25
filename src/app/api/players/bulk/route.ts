@@ -72,7 +72,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No players selected" }, { status: 400 });
     }
     // Only allow a safe subset of fields for bulk edits.
-    const allowed = ["season", "division", "program", "university"] as const;
+    const allowed = [
+      "season",
+      "division",
+      "program",
+      "university",
+      "active",
+      "graduated",
+      "graduationYear",
+    ] as const;
     const raw = body.patch ?? {};
     const filtered: Record<string, unknown> = {};
     for (const k of allowed) if (k in raw) filtered[k] = raw[k];

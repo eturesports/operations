@@ -139,6 +139,10 @@ model Player {
   position     String? // GK, DF, MF, FW…
   previousClub String?
 
+  // Outcome: did the player finish their degree, and when
+  graduated      Boolean @default(false)
+  graduationYear Int?
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   createdById String?

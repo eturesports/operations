@@ -17,6 +17,9 @@ type IncomingRow = {
   nationality?: string;
   position?: string;
   previousClub?: string;
+  graduated?: string;
+  graduationYear?: string;
+  active?: string;
 };
 
 // POST /api/players/import
@@ -86,6 +89,9 @@ export async function POST(req: Request) {
         nationality: raw.nationality,
         position: raw.position,
         previousClub: raw.previousClub,
+        graduated: raw.graduated,
+        graduationYear: raw.graduationYear,
+        ...(raw.active !== undefined ? { active: raw.active } : {}),
       },
       { partial: false }
     );
@@ -123,6 +129,12 @@ export async function POST(req: Request) {
         program: data.program ?? null,
         scholarship: data.scholarship ?? null,
         notes: data.notes ?? null,
+        nationality: data.nationality ?? null,
+        position: data.position ?? null,
+        previousClub: data.previousClub ?? null,
+        graduated: data.graduated ?? false,
+        graduationYear: data.graduationYear ?? null,
+        active: data.active ?? true,
         createdById: session.user.id,
         updatedById: session.user.id,
       },

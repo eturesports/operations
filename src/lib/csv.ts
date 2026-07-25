@@ -84,6 +84,13 @@ const HEADER_MAP: Record<string, string> = {
   posicion: "position",
   "previous club": "previousClub",
   "club anterior": "previousClub",
+  graduated: "graduated",
+  graduado: "graduated",
+  status: "active",
+  estado: "active",
+  "graduation year": "graduationYear",
+  "año graduación": "graduationYear",
+  "ano graduacion": "graduationYear",
 };
 
 export type CsvPlayer = {
@@ -98,6 +105,9 @@ export type CsvPlayer = {
   nationality?: string;
   position?: string;
   previousClub?: string;
+  graduated?: string;
+  graduationYear?: string;
+  active?: string;
 };
 
 export function rowsToPlayers(rows: string[][]): {

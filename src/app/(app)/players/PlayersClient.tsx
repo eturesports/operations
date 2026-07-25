@@ -28,6 +28,9 @@ export type PlayerRow = {
   nationality: string | null;
   position: string | null;
   previousClub: string | null;
+  active: boolean;
+  graduated: boolean;
+  graduationYear: number | null;
   // set when the player has a profile marked as their current NCAA roster
   activeProfile: {
     university: string;
@@ -60,6 +63,8 @@ export function PlayersClient({
   const [fDivision, setFDivision] = useState("");
   const [fProgram, setFProgram] = useState("");
   const [fActiveOnly, setFActiveOnly] = useState(false);
+  const [fGraduated, setFGraduated] = useState<"" | "yes" | "no">("");
+  const [fStatus, setFStatus] = useState<"" | "active" | "inactive">("");
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<PlayerRow | null>(null);
@@ -87,16 +92,21 @@ export function PlayersClient({
       if (fDivision && p.division !== fDivision) return false;
       if (fProgram && p.program !== fProgram) return false;
       if (fActiveOnly && !p.activeProfile) return false;
+      if (fGraduated === "yes" && !p.graduated) return false;
+      if (fGraduated === "no" && p.graduated) return false;
+      if (fStatus === "active" && !p.active) return false;
+      if (fStatus === "inactive" && p.active) return false;
       if (needle) {
         const hay = `${p.name} ${p.university ?? ""} ${p.notes ?? ""}`.toLowerCase();
         if (!hay.includes(needle)) return false;
       }
       return true;
     });
-  }, [players, q, fSport, fSeason, fDivision, fProgram, fActiveOnly]);
+  }, [players, q, fSport, fSeason, fDivision, fProgram, fActiveOnly, fGraduated, fStatus]);
 
   const totalScholarship = filtered.reduce((a, p) => a + (p.scholarship ?? 0), 0);
-  const activeFilters = fSport || fSeason || fDivision || fProgram || fActiveOnly || q;
+  const activeFilters =
+    fSport || fSeason || fDivision || fProgram || fActiveOnly || fGraduated || fStatus || q;
   const activeNcaaCount = useMemo(
     () => players.filter((p) => p.activeProfile).length,
     [players]
@@ -152,6 +162,8 @@ export function PlayersClient({
       nationality: form.nationality,
       position: form.position,
       previousClub: form.previousClub,
+      graduated: form.graduated,
+      graduationYear: form.graduationYear,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {
@@ -188,6 +200,9 @@ export function PlayersClient({
       nationality: player.nationality,
       position: player.position,
       previousClub: player.previousClub,
+      active: player.active,
+      graduated: player.graduated,
+      graduationYear: player.graduationYear,
       // profiles aren't touched by this form; keep whatever the row already had
       activeProfile: editing?.activeProfile ?? null,
     };
@@ -286,10 +301,10 @@ export function PlayersClient({
   }
 
   function exportCSV() {
-    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Notes"];
+    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Graduated", "Graduation year", "Status", "Notes"];
     const rows = (selectedCount > 0 ? filtered.filter((p) => selected.has(p.id)) : filtered);
     const lines = rows.map((p) =>
-      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", (p.notes ?? "").replace(/\n/g, " ")]
+      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", p.graduated ? "Yes" : "No", p.graduationYear ?? "", p.active ? "Active" : "Inactive", (p.notes ?? "").replace(/\n/g, " ")]
         .map((c) => `"${String(c).replace(/"/g, '""')}"`)
         .join(",")
     );
@@ -381,6 +396,24 @@ export function PlayersClient({
               </option>
             ))}
           </select>
+          <select
+            className="input"
+            value={fGraduated}
+            onChange={(e) => setFGraduated(e.target.value as "" | "yes" | "no")}
+          >
+            <option value="">Graduated: all</option>
+            <option value="yes">Graduated</option>
+            <option value="no">Not graduated</option>
+          </select>
+          <select
+            className="input"
+            value={fStatus}
+            onChange={(e) => setFStatus(e.target.value as "" | "active" | "inactive")}
+          >
+            <option value="">Status: all</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <button
@@ -404,6 +437,8 @@ export function PlayersClient({
                 setFDivision("");
                 setFProgram("");
                 setFActiveOnly(false);
+                setFGraduated("");
+                setFStatus("");
               }}
               className="text-xs text-muted hover:text-fg"
             >
@@ -516,6 +551,26 @@ export function PlayersClient({
                               title={`Playing now at ${p.activeProfile.university}`}
                               aria-label={`Currently playing at ${p.activeProfile.university}`}
                             />
+                          )}
+                          {p.graduated && (
+                            <span
+                              className="ml-1.5 text-xs"
+                              title={
+                                p.graduationYear
+                                  ? `Graduated ${p.graduationYear}`
+                                  : "Graduated"
+                              }
+                              aria-label={
+                                p.graduationYear
+                                  ? `Graduated in ${p.graduationYear}`
+                                  : "Graduated"
+                              }
+                            >
+                              🎓
+                            </span>
+                          )}
+                          {!p.active && (
+                            <span className="ml-1.5 badge bg-ink-700 text-muted">Inactive</span>
                           )}
                           {p.notes && (
                             <span className="ml-1.5 text-xs text-muted" title={p.notes}>

@@ -20,6 +20,8 @@ export type PlayerForm = {
   nationality: string;
   position: string;
   previousClub: string;
+  graduated: boolean;
+  graduationYear: string;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -142,6 +144,9 @@ export function PlayerModal({
     nationality: initial?.nationality ?? "",
     position: initial?.position ?? "",
     previousClub: initial?.previousClub ?? "",
+    graduated: initial?.graduated ?? false,
+    graduationYear:
+      initial?.graduationYear != null ? String(initial.graduationYear) : "",
   });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -340,6 +345,31 @@ export function PlayerModal({
                 className="input"
                 value={form.previousClub}
                 onChange={(e) => set("previousClub", e.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Outcome */}
+          <div className="grid grid-cols-1 gap-4 border-t border-ink-600 pt-4 sm:grid-cols-2">
+            <div className="flex items-center rounded-lg border border-ink-600 bg-ink-900/40 px-3 py-2">
+              <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4 accent-brand"
+                  checked={form.graduated}
+                  onChange={(e) => set("graduated", e.target.checked)}
+                />
+                Graduated
+              </label>
+            </div>
+            <div>
+              <label className="label">Graduation year</label>
+              <input
+                className="input"
+                inputMode="numeric"
+                placeholder="2025"
+                value={form.graduationYear}
+                onChange={(e) => set("graduationYear", e.target.value)}
               />
             </div>
           </div>

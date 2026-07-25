@@ -63,6 +63,9 @@ export default async function PlayersPage() {
         actionImageUrl: p.actionImageUrl,
         ncaaUrl: p.ncaaUrl,
         instagramUrl: p.instagramUrl,
+        active: p.active,
+        graduated: p.graduated,
+        graduationYear: p.graduationYear,
         activeProfile: p.profiles[0]
           ? {
               university: p.profiles[0].university,

@@ -61,6 +61,12 @@ export function PlayerDetail({
                   Playing now
                 </span>
               )}
+              {player.graduated && (
+                <span className="badge bg-accent/20 text-accent">
+                  🎓 Graduated{player.graduationYear ? ` ${player.graduationYear}` : ""}
+                </span>
+              )}
+              {!player.active && <span className="badge bg-ink-700 text-muted">Inactive</span>}
             </div>
             <p className="text-sm text-muted">
               {player.university ?? "—"}
