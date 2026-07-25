@@ -162,6 +162,7 @@ export function PlayersClient({
       nationality: form.nationality,
       position: form.position,
       previousClub: form.previousClub,
+      active: form.active,
       graduated: form.graduated,
       graduationYear: form.graduationYear,
     };

@@ -20,6 +20,7 @@ export type PlayerForm = {
   nationality: string;
   position: string;
   previousClub: string;
+  active: boolean;
   graduated: boolean;
   graduationYear: string;
 };
@@ -144,6 +145,7 @@ export function PlayerModal({
     nationality: initial?.nationality ?? "",
     position: initial?.position ?? "",
     previousClub: initial?.previousClub ?? "",
+    active: initial?.active ?? true,
     graduated: initial?.graduated ?? false,
     graduationYear:
       initial?.graduationYear != null ? String(initial.graduationYear) : "",
@@ -349,28 +351,60 @@ export function PlayerModal({
             </div>
           </div>
 
-          {/* Outcome */}
-          <div className="grid grid-cols-1 gap-4 border-t border-ink-600 pt-4 sm:grid-cols-2">
-            <div className="flex items-center rounded-lg border border-ink-600 bg-ink-900/40 px-3 py-2">
-              <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 accent-brand"
-                  checked={form.graduated}
-                  onChange={(e) => set("graduated", e.target.checked)}
-                />
-                Graduated
-              </label>
-            </div>
+          {/* Status & outcome */}
+          <div className="space-y-4 border-t border-ink-600 pt-4">
             <div>
-              <label className="label">Graduation year</label>
-              <input
-                className="input"
-                inputMode="numeric"
-                placeholder="2025"
-                value={form.graduationYear}
-                onChange={(e) => set("graduationYear", e.target.value)}
-              />
+              <label className="label">Status</label>
+              <div className="flex gap-2">
+                {[
+                  { value: true, label: "Active" },
+                  { value: false, label: "Inactive" },
+                ].map((opt) => (
+                  <button
+                    key={String(opt.value)}
+                    type="button"
+                    onClick={() => set("active", opt.value)}
+                    aria-pressed={form.active === opt.value}
+                    className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                      form.active === opt.value
+                        ? opt.value
+                          ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-400"
+                          : "border-ink-500 bg-ink-700 text-fg"
+                        : "border-ink-600 text-muted hover:text-fg"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-1 text-xs text-muted">
+                Inactive players stay in the database but are excluded from dashboards and
+                analytics.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="flex items-center rounded-lg border border-ink-600 bg-ink-900/40 px-3 py-2">
+                <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4 accent-brand"
+                    checked={form.graduated}
+                    onChange={(e) => set("graduated", e.target.checked)}
+                  />
+                  Graduated
+                </label>
+              </div>
+              <div>
+                <label className="label">Graduation year</label>
+                <input
+                  className="input"
+                  inputMode="numeric"
+                  placeholder="2025"
+                  value={form.graduationYear}
+                  onChange={(e) => set("graduationYear", e.target.value)}
+                />
+              </div>
             </div>
           </div>
 
