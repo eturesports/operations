@@ -21,6 +21,7 @@ export type PlayerForm = {
   position: string;
   previousClub: string;
   active: boolean;
+  playingNow: boolean;
   graduated: boolean;
   graduationYear: string;
 };
@@ -146,6 +147,7 @@ export function PlayerModal({
     position: initial?.position ?? "",
     previousClub: initial?.previousClub ?? "",
     active: initial?.active ?? true,
+    playingNow: initial?.activeProfile != null,
     graduated: initial?.graduated ?? false,
     graduationYear:
       initial?.graduationYear != null ? String(initial.graduationYear) : "",
@@ -354,19 +356,19 @@ export function PlayerModal({
           {/* Status & outcome */}
           <div className="space-y-4 border-t border-ink-600 pt-4">
             <div>
-              <label className="label">Status</label>
+              <label className="label">Currently playing in college soccer</label>
               <div className="flex gap-2">
                 {[
-                  { value: true, label: "Active" },
-                  { value: false, label: "Inactive" },
+                  { value: true, label: "Playing now" },
+                  { value: false, label: "Not playing" },
                 ].map((opt) => (
                   <button
                     key={String(opt.value)}
                     type="button"
-                    onClick={() => set("active", opt.value)}
-                    aria-pressed={form.active === opt.value}
+                    onClick={() => set("playingNow", opt.value)}
+                    aria-pressed={form.playingNow === opt.value}
                     className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
-                      form.active === opt.value
+                      form.playingNow === opt.value
                         ? opt.value
                           ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-400"
                           : "border-ink-500 bg-ink-700 text-fg"
@@ -378,8 +380,36 @@ export function PlayerModal({
                 ))}
               </div>
               <p className="mt-1 text-xs text-muted">
-                Inactive players stay in the database but are excluded from dashboards and
-                analytics.
+                Counts them in the Active players dashboard and pulls their NCAA season stats.
+                Uses the university above unless they already have a profile.
+              </p>
+            </div>
+
+            <div>
+              <label className="label">Record</label>
+              <div className="flex gap-2">
+                {[
+                  { value: true, label: "In database" },
+                  { value: false, label: "Archived" },
+                ].map((opt) => (
+                  <button
+                    key={String(opt.value)}
+                    type="button"
+                    onClick={() => set("active", opt.value)}
+                    aria-pressed={form.active === opt.value}
+                    className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                      form.active === opt.value
+                        ? "border-ink-500 bg-ink-700 text-fg"
+                        : "border-ink-600 text-muted hover:text-fg"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-1 text-xs text-muted">
+                Archived players stay in the database but are excluded from every dashboard and
+                analytic.
               </p>
             </div>
 

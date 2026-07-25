@@ -42,6 +42,9 @@ export type AuthorityData = {
   byProgram: Bucket[];
   bySeason: Bucket[];
   topUniversities: Bucket[];
+  // players on a college roster right now (profiles marked "playing now")
+  playingNow: number;
+  playingNowUniversities: number;
 };
 
 function bucketize(
@@ -72,10 +75,16 @@ function bucketize(
 }
 
 export async function getAuthorityData(): Promise<AuthorityData> {
-  const rows = await prisma.player.findMany({
-    where: { active: true },
-    select: { name: true, university: true, season: true, division: true, program: true, scholarship: true },
-  });
+  const [rows, playing] = await Promise.all([
+    prisma.player.findMany({
+      where: { active: true },
+      select: { name: true, university: true, season: true, division: true, program: true, scholarship: true },
+    }),
+    prisma.playerProfile.findMany({
+      where: { current: true, player: { active: true } },
+      select: { university: true },
+    }),
+  ]);
 
   const operations = rows.length;
   const uniqueNames = new Set(rows.map((r) => norm(r.name)));
@@ -145,5 +154,7 @@ export async function getAuthorityData(): Promise<AuthorityData> {
     topUniversities: bucketize(rows.map((r) => ({ key: r.university, scholarship: r.scholarship })), {
       limit: 12,
     }),
+    playingNow: playing.length,
+    playingNowUniversities: new Set(playing.map((p) => uniKey(p.university))).size,
   };
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { requireSession } from "@/lib/guards";
 import { getAuthorityData } from "@/lib/authority";
 import { formatNumber, formatUSD } from "@/lib/format";
@@ -52,6 +53,32 @@ export default async function DashboardPage() {
       </div>
 
       <AnalyticsTabs />
+
+      {/* Playing right now — the live picture */}
+      <Link
+        href="/dashboard/active"
+        className="card flex items-center gap-4 p-5 transition-colors hover:border-emerald-500/40"
+      >
+        <span className="relative flex h-3 w-3 shrink-0">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+          <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400" />
+        </span>
+        <div className="flex-1">
+          <div className="text-[10px] uppercase tracking-wide text-muted">
+            Playing right now
+          </div>
+          <div className="font-display text-3xl text-fg">
+            {formatNumber(a.playingNow)}{" "}
+            <span className="text-base font-normal text-muted">
+              player{a.playingNow === 1 ? "" : "s"} in college soccer
+            </span>
+          </div>
+          <div className="text-xs text-muted">
+            Across {formatNumber(a.playingNowUniversities)} universit
+            {a.playingNowUniversities === 1 ? "y" : "ies"} · see who →
+          </div>
+        </div>
+      </Link>
 
       {/* Volume — row 1 */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">

@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
+import { setPlayingNow } from "@/lib/profiles";
 
 export async function GET(
   _req: Request,
@@ -52,6 +53,28 @@ export async function PATCH(
     include: { sport: { select: { code: true, name: true } } },
   });
 
+  // "Playing now" is stored on the player's university profiles, not on the
+  // player row, so it is applied separately when the form sends it.
+  let playingWarning: string | undefined;
+  if ("playingNow" in body) {
+    const wanted = Boolean(body.playingNow);
+    const res = await setPlayingNow(params.id, wanted);
+    if (!res.ok) {
+      playingWarning =
+        "Add a university to this player (or a university profile) before marking them as playing now.";
+    } else if (res.changed) {
+      await logAudit(session.user, {
+        entity: "Player",
+        entityId: player.id,
+        entityName: player.name,
+        action: wanted ? "playing_now_set" : "playing_now_cleared",
+        summary: wanted
+          ? `Marked ${player.name} as currently playing`
+          : `Marked ${player.name} as no longer playing`,
+      });
+    }
+  }
+
   const changes = diffFields(
     exists as unknown as Record<string, unknown>,
     data as Record<string, unknown>,
@@ -68,7 +91,7 @@ export async function PATCH(
     });
   }
 
-  return NextResponse.json({ player });
+  return NextResponse.json({ player, warning: playingWarning });
 }
 
 export async function DELETE(

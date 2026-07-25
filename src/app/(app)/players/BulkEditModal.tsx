@@ -121,18 +121,18 @@ export function BulkEditModal({
           </div>
 
           <div className="border-t border-ink-600 pt-4">
-            <label className="label">Status</label>
+            <label className="label">Record</label>
             <select
               className="input"
               value={status}
               onChange={(e) => setStatus(e.target.value as TriState)}
             >
               <option value="">Keep unchanged</option>
-              <option value="yes">Active</option>
-              <option value="no">Inactive</option>
+              <option value="yes">In database</option>
+              <option value="no">Archived</option>
             </select>
             <p className="mt-1 text-xs text-muted">
-              Inactive players stay in the database but are excluded from dashboards and analytics.
+              Archived players stay in the database but are excluded from dashboards and analytics.
             </p>
           </div>
 

@@ -163,6 +163,7 @@ export function PlayersClient({
       position: form.position,
       previousClub: form.previousClub,
       active: form.active,
+      playingNow: form.playingNow,
       graduated: form.graduated,
       graduationYear: form.graduationYear,
     };
@@ -181,7 +182,7 @@ export function PlayersClient({
       const j = await res.json().catch(() => ({}));
       throw new Error(j.error ?? "Failed to save");
     }
-    const { player } = await res.json();
+    const { player, warning } = await res.json();
     const row: PlayerRow = {
       id: player.id,
       name: player.name,
@@ -204,11 +205,20 @@ export function PlayersClient({
       active: player.active,
       graduated: player.graduated,
       graduationYear: player.graduationYear,
-      // profiles aren't touched by this form; keep whatever the row already had
-      activeProfile: editing?.activeProfile ?? null,
+      // reflect the playing-now toggle immediately; router.refresh() then
+      // replaces this with the authoritative profile from the server
+      activeProfile: form.playingNow
+        ? (editing?.activeProfile ?? {
+            university: player.university ?? "",
+            season: player.season,
+            goals: null,
+            assists: null,
+          })
+        : null,
     };
     setPlayers((prev) => (editing ? prev.map((p) => (p.id === row.id ? row : p)) : [row, ...prev]));
     setModalOpen(false);
+    if (warning) alert(warning);
     router.refresh();
   }
 
@@ -411,9 +421,9 @@ export function PlayersClient({
             value={fStatus}
             onChange={(e) => setFStatus(e.target.value as "" | "active" | "inactive")}
           >
-            <option value="">Status: all</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
+            <option value="">Record: all</option>
+            <option value="active">In database</option>
+            <option value="inactive">Archived</option>
           </select>
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -571,7 +581,7 @@ export function PlayersClient({
                             </span>
                           )}
                           {!p.active && (
-                            <span className="ml-1.5 badge bg-ink-700 text-muted">Inactive</span>
+                            <span className="ml-1.5 badge bg-ink-700 text-muted">Archived</span>
                           )}
                           {p.notes && (
                             <span className="ml-1.5 text-xs text-muted" title={p.notes}>
