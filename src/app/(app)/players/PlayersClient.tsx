@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
 import { DIVISIONS, PROGRAMS } from "@/lib/permissions";
@@ -9,6 +9,7 @@ import { ImportModal } from "./ImportModal";
 import { BulkEditModal, type BulkPatch } from "./BulkEditModal";
 import { PlayerDetail } from "./PlayerDetail";
 import { Select } from "@/components/Select";
+import { PlayerCard } from "./PlayerCard";
 
 export type PlayerRow = {
   id: string;
@@ -38,6 +39,9 @@ export type PlayerRow = {
     season: string | null;
     goals: number | null;
     assists: number | null;
+    matchesPlayed: number | null;
+    minutes: number | null;
+    saves: number | null;
   } | null;
 };
 
@@ -95,6 +99,17 @@ export function PlayersClient({
   const [detail, setDetail] = useState<PlayerRow | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
+  const [view, setView] = useState<"table" | "gallery">("table");
+
+  // remember the chosen view between visits
+  useEffect(() => {
+    const saved = localStorage.getItem("eture-players-view");
+    if (saved === "gallery" || saved === "table") setView(saved);
+  }, []);
+  function chooseView(v: "table" | "gallery") {
+    setView(v);
+    localStorage.setItem("eture-players-view", v);
+  }
 
   const seasonOptions = useMemo(() => [...facets.seasons].sort().reverse(), [facets.seasons]);
   const divisionOptions = useMemo(
@@ -387,6 +402,9 @@ export function PlayersClient({
             season: player.season,
             goals: null,
             assists: null,
+            matchesPlayed: null,
+            minutes: null,
+            saves: null,
           })
         : null,
     };
@@ -662,7 +680,50 @@ export function PlayersClient({
         ))}
       </datalist>
 
-      {/* Table */}
+      {/* View switch */}
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-xs text-muted">
+          {filtered.length} player{filtered.length === 1 ? "" : "s"}
+        </span>
+        <div className="flex gap-1 rounded-full border border-ink-600 p-1">
+          {([
+            ["table", "Table"],
+            ["gallery", "Gallery"],
+          ] as const).map(([v, label]) => (
+            <button
+              key={v}
+              onClick={() => chooseView(v)}
+              aria-pressed={view === v}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                view === v ? "bg-brand text-white" : "text-muted hover:text-fg"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {view === "gallery" ? (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {filtered.map((p) => (
+            <PlayerCard
+              key={p.id}
+              player={p}
+              onOpen={() => setDetail(p)}
+              selected={selected.has(p.id)}
+              onToggleSelect={() => toggleOne(p.id)}
+              selectable={editable}
+            />
+          ))}
+          {filtered.length === 0 && (
+            <div className="card col-span-full p-10 text-center text-sm text-muted">
+              No players match the current filters.
+            </div>
+          )}
+        </div>
+      ) : (
+      /* Table */
       <div className="card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
@@ -882,6 +943,7 @@ export function PlayersClient({
           </table>
         </div>
       </div>
+      )}
 
       {modalOpen && (
         <PlayerModal

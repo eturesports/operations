@@ -18,7 +18,15 @@ export default async function PlayersPage() {
         // the single "currently playing" profile, if any — drives the Active badge
         profiles: {
           where: { current: true },
-          select: { university: true, season: true, goals: true, assists: true },
+          select: {
+            university: true,
+            season: true,
+            goals: true,
+            assists: true,
+            matchesPlayed: true,
+            minutes: true,
+            saves: true,
+          },
           take: 1,
         },
       },
@@ -66,14 +74,7 @@ export default async function PlayersPage() {
         active: p.active,
         graduated: p.graduated,
         graduationYear: p.graduationYear,
-        activeProfile: p.profiles[0]
-          ? {
-              university: p.profiles[0].university,
-              season: p.profiles[0].season,
-              goals: p.profiles[0].goals,
-              assists: p.profiles[0].assists,
-            }
-          : null,
+        activeProfile: p.profiles[0] ?? null,
         nationality: p.nationality,
         position: p.position,
         previousClub: p.previousClub,
