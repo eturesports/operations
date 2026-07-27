@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit, canManageUsers } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
+import { setPlayingNow } from "@/lib/profiles";
 
 // POST /api/players/bulk
 // { action: "delete", ids: string[] }
@@ -84,24 +85,60 @@ export async function POST(req: Request) {
     const raw = body.patch ?? {};
     const filtered: Record<string, unknown> = {};
     for (const k of allowed) if (k in raw) filtered[k] = raw[k];
-    if (Object.keys(filtered).length === 0) {
+
+    // "Playing now" lives on the player's university profiles, not the player
+    // row, so it is applied separately from the column patch.
+    const hasPlaying = "playingNow" in raw;
+    if (Object.keys(filtered).length === 0 && !hasPlaying) {
       return NextResponse.json({ error: "Nothing to update" }, { status: 400 });
     }
-    const { data, error } = parsePlayerInput(filtered, { partial: true });
-    if (error || !data) {
-      return NextResponse.json({ error: error ?? "Invalid data" }, { status: 400 });
+
+    let count = 0;
+    let data: Record<string, unknown> = {};
+    if (Object.keys(filtered).length > 0) {
+      const parsed = parsePlayerInput(filtered, { partial: true });
+      if (parsed.error || !parsed.data) {
+        return NextResponse.json(
+          { error: parsed.error ?? "Invalid data" },
+          { status: 400 }
+        );
+      }
+      data = parsed.data as Record<string, unknown>;
+      const res = await prisma.player.updateMany({
+        where: { id: { in: ids } },
+        data: { ...parsed.data, updatedById: session.user.id },
+      });
+      count = res.count;
     }
-    const res = await prisma.player.updateMany({
-      where: { id: { in: ids } },
-      data: { ...data, updatedById: session.user.id },
-    });
+
+    let playingApplied = 0;
+    let playingSkipped = 0;
+    if (hasPlaying) {
+      const wanted = Boolean(raw.playingNow);
+      for (const id of ids) {
+        const r = await setPlayingNow(id, wanted);
+        if (r.ok) playingApplied += 1;
+        else playingSkipped += 1; // no university to build a profile from
+      }
+      count = Math.max(count, playingApplied);
+    }
+
     await logAudit(session.user, {
       entity: "Player",
       action: "bulk_update",
-      summary: `Bulk-edited ${res.count} players`,
-      changes: { count: res.count, fields: data, ids },
+      summary:
+        `Bulk-edited ${ids.length} players` +
+        (hasPlaying
+          ? ` (playing now: ${raw.playingNow ? "yes" : "no"}${playingSkipped ? `, ${playingSkipped} skipped without a university` : ""})`
+          : ""),
+      changes: { count, fields: data, playingNow: hasPlaying ? raw.playingNow : undefined, ids },
     });
-    return NextResponse.json({ ok: true, updated: res.count });
+
+    return NextResponse.json({
+      ok: true,
+      updated: count,
+      playingSkipped: playingSkipped || undefined,
+    });
   }
 
   return NextResponse.json({ error: "Unknown action" }, { status: 400 });

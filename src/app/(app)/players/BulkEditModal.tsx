@@ -9,6 +9,7 @@ export type BulkPatch = {
   program?: string;
   university?: string;
   active?: boolean;
+  playingNow?: boolean;
   graduated?: boolean;
   graduationYear?: number | null;
 };
@@ -21,6 +22,12 @@ const STATUS_LABEL: Record<TriState, string> = {
 };
 const LABEL_STATUS: Record<string, TriState> = {
   "Keep unchanged": "", "In database": "yes", Archived: "no",
+};
+const PLAYING_LABEL: Record<TriState, string> = {
+  "": "Keep unchanged", yes: "Playing now", no: "Not playing",
+};
+const LABEL_PLAYING: Record<string, TriState> = {
+  "Keep unchanged": "", "Playing now": "yes", "Not playing": "no",
 };
 const GRAD_LABEL: Record<TriState, string> = {
   "": "Keep unchanged", yes: "Graduated", no: "Not graduated",
@@ -47,6 +54,7 @@ export function BulkEditModal({
   const [program, setProgram] = useState("");
   const [university, setUniversity] = useState("");
   const [status, setStatus] = useState<TriState>("");
+  const [playing, setPlaying] = useState<TriState>("");
   const [graduated, setGraduated] = useState<TriState>("");
   const [graduationYear, setGraduationYear] = useState("");
   const [busy, setBusy] = useState(false);
@@ -59,6 +67,7 @@ export function BulkEditModal({
     if (program.trim()) patch.program = program.trim();
     if (university.trim()) patch.university = university.trim();
     if (status) patch.active = status === "yes";
+    if (playing) patch.playingNow = playing === "yes";
     if (graduated) patch.graduated = graduated === "yes";
     if (graduationYear.trim()) {
       const y = parseInt(graduationYear.replace(/[^\d]/g, ""), 10);
@@ -139,6 +148,20 @@ export function BulkEditModal({
           </div>
 
           <div className="border-t border-ink-600 pt-4">
+            <label className="label">Currently playing in college soccer</label>
+            <Select
+              value={PLAYING_LABEL[playing]}
+              options={["Keep unchanged", "Playing now", "Not playing"]}
+              onChange={(v) => setPlaying(LABEL_PLAYING[v] ?? "")}
+              ariaLabel="Currently playing"
+            />
+            <p className="mt-1 text-xs text-muted">
+              Marks their current university roster. Players with no university on
+              record are skipped.
+            </p>
+          </div>
+
+          <div>
             <label className="label">Record</label>
             <Select
               value={STATUS_LABEL[status]}

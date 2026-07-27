@@ -464,16 +464,38 @@ export function PlayersClient({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "update", ids, patch }),
     });
-    if (!res.ok) {
-      const j = await res.json().catch(() => ({}));
-      throw new Error(j.error ?? "Failed to update");
-    }
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(j.error ?? "Failed to update");
+
     const idSet = new Set(ids);
+    // playingNow isn't a player column; reflect it on the row's activeProfile
+    const { playingNow, ...columns } = patch;
     setPlayers((prev) =>
-      prev.map((p) => (idSet.has(p.id) ? { ...p, ...patch } : p))
+      prev.map((p) => {
+        if (!idSet.has(p.id)) return p;
+        const next = { ...p, ...columns };
+        if (playingNow === false) next.activeProfile = null;
+        else if (playingNow === true && !next.activeProfile && next.university) {
+          next.activeProfile = {
+            university: next.university,
+            season: next.season,
+            goals: null,
+            assists: null,
+            matchesPlayed: null,
+            minutes: null,
+            saves: null,
+          };
+        }
+        return next;
+      })
     );
     setBulkEditOpen(false);
     clearSelection();
+    if (j.playingSkipped) {
+      alert(
+        `${j.playingSkipped} player${j.playingSkipped === 1 ? " was" : "s were"} skipped: add a university before marking them as playing.`
+      );
+    }
     router.refresh();
   }
 
