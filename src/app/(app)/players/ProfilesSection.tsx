@@ -147,6 +147,45 @@ export function ProfilesSection({
     };
   }
 
+  // Player-level refresh: uses the player's own NCAA profile link, and creates
+  // their first university profile if they don't have one yet.
+  async function refreshFromPlayerLink() {
+    setRefreshing("player");
+    setNotice(null);
+    setError(null);
+    try {
+      const res = await fetch(`/api/players/${playerId}/refresh-stats`, {
+        method: "POST",
+      });
+      const j = await res.json();
+      if (!res.ok) {
+        setError(j.error ?? "Refresh failed");
+        return;
+      }
+      if (!j.matched) {
+        setNotice(j.reason ?? "No stats found for this player.");
+        return;
+      }
+      const saved = j.profile as Profile;
+      setProfiles((prev) => {
+        const exists = prev.some((p) => p.id === saved.id);
+        const next = exists ? prev.map((p) => (p.id === saved.id ? saved : p)) : [saved, ...prev];
+        return saved.current
+          ? next.map((p) => (p.id === saved.id ? p : { ...p, current: false }))
+          : next;
+      });
+      setNotice(
+        (j.createdProfile ? "Created their profile and updated stats" : "Stats updated") +
+          ` from ${j.source === "roster-site" ? "their NCAA profile page" : "the NCAA leaderboards"} — ${j.matchedLabel}.`
+      );
+      router.refresh();
+    } catch {
+      setError("Could not reach the stats service.");
+    } finally {
+      setRefreshing(null);
+    }
+  }
+
   // One-click promote an existing profile to "playing now".
   async function setCurrent(p: Profile) {
     setError(null);
@@ -271,17 +310,29 @@ export function ProfilesSection({
             Mark the roster the player is on right now to track their live stats.
           </p>
         </div>
-        {editable && !draft && profiles.length > 0 && (
-          <button
-            onClick={() => {
-              setError(null);
-              setNotice(null);
-              setDraft(newDraft(false));
-            }}
-            className="btn-ghost shrink-0 px-3 py-1 text-xs"
-          >
-            + Add profile
-          </button>
+        {editable && !draft && (
+          <div className="flex shrink-0 flex-wrap justify-end gap-2">
+            <button
+              onClick={refreshFromPlayerLink}
+              disabled={refreshing === "player"}
+              className="btn-ghost px-3 py-1 text-xs"
+              title="Read this player's NCAA profile link and pull their season stats"
+            >
+              {refreshing === "player" ? "Refreshing…" : "↻ Refresh from NCAA"}
+            </button>
+            {profiles.length > 0 && (
+              <button
+                onClick={() => {
+                  setError(null);
+                  setNotice(null);
+                  setDraft(newDraft(false));
+                }}
+                className="btn-ghost px-3 py-1 text-xs"
+              >
+                + Add profile
+              </button>
+            )}
+          </div>
         )}
       </div>
 

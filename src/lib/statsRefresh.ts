@@ -22,6 +22,7 @@ export type RefreshOutcome =
       matched: true;
       source: "roster-site" | "ncaa-leaderboards";
       matchedLabel: string; // e.g. "Asier Fernandez (D'Youville)" — for human confirmation
+      teamName: string; // used to name a profile when the player has none yet
       patch: ProfileStatPatch;
     }
   | { matched: false; reason: string; candidates: { name: string; team: string }[] };
@@ -44,6 +45,7 @@ export async function fetchProfileStats(opts: {
         matched: true,
         source: "roster-site",
         matchedLabel: `${opts.playerName} (${s.teamName})`,
+        teamName: s.teamName,
         patch: {
           matchesPlayed: s.matchesPlayed ?? null,
           matchesStarted: s.matchesStarted ?? null,
@@ -92,6 +94,7 @@ async function fromLeaderboards(opts: {
     matched: true,
     source: "ncaa-leaderboards",
     matchedLabel: `${s.name} (${s.team})`,
+    teamName: s.team,
     patch: {
       matchesPlayed: s.games ?? null,
       matchesStarted: null,
