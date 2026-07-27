@@ -1,9 +1,11 @@
 import { lookupPlayerStats } from "@/lib/ncaa";
 import { lookupRosterStats } from "@/lib/sidearm";
+import { lookupWmtStats } from "@/lib/wmt";
 
 // One place that decides where a profile's stats come from:
-//  1. the player's own roster page (profile.rosterUrl or player.ncaaUrl) —
-//     complete data for everyone on the team, via the Sidearm stats service
+//  1. the player's own roster page (profile.rosterUrl or player.ncaaUrl).
+//     University athletics sites run on a handful of platforms, so both are
+//     tried: Sidearm (…/roster/name/1234) and WMT (…/roster/player/name).
 //  2. fallback: the NCAA national leaderboards (top players only), by name
 
 export type ProfileStatPatch = {
@@ -38,7 +40,13 @@ export async function fetchProfileStats(opts: {
   const url = opts.rosterUrl?.trim() || opts.ncaaUrl?.trim();
 
   if (url) {
-    const r = await lookupRosterStats(url);
+    // Sidearm first (it's the most common), then WMT. Whichever recognises
+    // the page wins; only if neither does do we fall back to the leaderboards.
+    let r = await lookupRosterStats(url);
+    if (!r.ok) {
+      const wmt = await lookupWmtStats(url);
+      if (wmt.ok) r = wmt;
+    }
     if (r.ok) {
       const s = r.stats;
       return {
