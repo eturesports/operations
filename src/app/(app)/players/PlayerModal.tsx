@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { PlayerRow } from "./PlayersClient";
 import { normalizePersonName } from "@/lib/names";
+import { Select } from "@/components/Select";
 
 export type PlayerForm = {
   sportId: string;
@@ -227,17 +228,18 @@ export function PlayerModal({
             {sports.length > 1 && (
               <div>
                 <label className="label">Sport</label>
-                <select
-                  className="input"
-                  value={form.sportId}
-                  onChange={(e) => set("sportId", e.target.value)}
-                >
-                  {sports.map((s) => (
-                    <option key={s.id} value={s.id}>
-                      {s.name} ({s.code})
-                    </option>
-                  ))}
-                </select>
+                <Select
+                  value={(() => {
+                    const s = sports.find((x) => x.id === form.sportId);
+                    return s ? `${s.name} (${s.code})` : "";
+                  })()}
+                  options={sports.map((s) => `${s.name} (${s.code})`)}
+                  onChange={(v) => {
+                    const found = sports.find((s) => `${s.name} (${s.code})` === v);
+                    if (found) set("sportId", found.id);
+                  }}
+                  ariaLabel="Sport"
+                />
               </div>
             )}
 
@@ -252,18 +254,14 @@ export function PlayerModal({
 
             <div>
               <label className="label">Season</label>
-              <input
-                className="input"
-                list="season-list"
-                placeholder="24/25 — type a new one to add it"
+              <Select
                 value={form.season}
-                onChange={(e) => set("season", e.target.value)}
+                options={seasonOptions}
+                onChange={(v) => set("season", v)}
+                placeholder="24/25 — or type a new one"
+                allowCustom
+                ariaLabel="Season"
               />
-              <datalist id="season-list">
-                {seasonOptions.map((s) => (
-                  <option key={s} value={s} />
-                ))}
-              </datalist>
             </div>
 
             <div>
@@ -279,32 +277,26 @@ export function PlayerModal({
 
             <div>
               <label className="label">Division</label>
-              <input
-                className="input"
-                list="division-list"
+              <Select
                 value={form.division}
-                onChange={(e) => set("division", e.target.value)}
+                options={divisionOptions}
+                onChange={(v) => set("division", v)}
+                placeholder="Select a division"
+                allowCustom
+                ariaLabel="Division"
               />
-              <datalist id="division-list">
-                {divisionOptions.map((d) => (
-                  <option key={d} value={d} />
-                ))}
-              </datalist>
             </div>
 
             <div>
               <label className="label">Program</label>
-              <input
-                className="input"
-                list="program-list"
+              <Select
                 value={form.program}
-                onChange={(e) => set("program", e.target.value)}
+                options={programOptions}
+                onChange={(v) => set("program", v)}
+                placeholder="Select a program"
+                allowCustom
+                ariaLabel="Program"
               />
-              <datalist id="program-list">
-                {programOptions.map((p) => (
-                  <option key={p} value={p} />
-                ))}
-              </datalist>
             </div>
 
             <div className="sm:col-span-2">

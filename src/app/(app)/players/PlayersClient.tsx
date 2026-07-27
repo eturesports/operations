@@ -8,6 +8,7 @@ import { PlayerModal, type PlayerForm } from "./PlayerModal";
 import { ImportModal } from "./ImportModal";
 import { BulkEditModal, type BulkPatch } from "./BulkEditModal";
 import { PlayerDetail } from "./PlayerDetail";
+import { Select } from "@/components/Select";
 
 export type PlayerRow = {
   id: string;
@@ -547,57 +548,49 @@ export function PlayersClient({
             onChange={(e) => setQ(e.target.value)}
           />
           {sports.length > 1 && (
-            <select className="input" value={fSport} onChange={(e) => setFSport(e.target.value)}>
-              <option value="">All sports</option>
-              {sports.map((s) => (
-                <option key={s.code} value={s.code}>
-                  {s.name}
-                </option>
-              ))}
-            </select>
+            <Select
+              value={fSport ? (sports.find((s) => s.code === fSport)?.name ?? "") : "All sports"}
+              options={["All sports", ...sports.map((s) => s.name)]}
+              onChange={(v) =>
+                setFSport(v === "All sports" ? "" : (sports.find((s) => s.name === v)?.code ?? ""))
+              }
+              ariaLabel="Filter by sport"
+            />
           )}
-          <select className="input" value={fSeason} onChange={(e) => setFSeason(e.target.value)}>
-            <option value="">All seasons</option>
-            {seasonOptions.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-          <select className="input" value={fDivision} onChange={(e) => setFDivision(e.target.value)}>
-            <option value="">All divisions</option>
-            {divisionOptions.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-          <select className="input" value={fProgram} onChange={(e) => setFProgram(e.target.value)}>
-            <option value="">All programs</option>
-            {programOptions.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-          <select
-            className="input"
-            value={fGraduated}
-            onChange={(e) => setFGraduated(e.target.value as "" | "yes" | "no")}
-          >
-            <option value="">Graduated: all</option>
-            <option value="yes">Graduated</option>
-            <option value="no">Not graduated</option>
-          </select>
-          <select
-            className="input"
-            value={fStatus}
-            onChange={(e) => setFStatus(e.target.value as "" | "active" | "inactive")}
-          >
-            <option value="">Record: all</option>
-            <option value="active">In database</option>
-            <option value="inactive">Archived</option>
-          </select>
+          <Select
+            value={fSeason || "All seasons"}
+            options={["All seasons", ...seasonOptions]}
+            onChange={(v) => setFSeason(v === "All seasons" ? "" : v)}
+            ariaLabel="Filter by season"
+          />
+          <Select
+            value={fDivision || "All divisions"}
+            options={["All divisions", ...divisionOptions]}
+            onChange={(v) => setFDivision(v === "All divisions" ? "" : v)}
+            ariaLabel="Filter by division"
+          />
+          <Select
+            value={fProgram || "All programs"}
+            options={["All programs", ...programOptions]}
+            onChange={(v) => setFProgram(v === "All programs" ? "" : v)}
+            ariaLabel="Filter by program"
+          />
+          <Select
+            value={fGraduated === "yes" ? "Graduated" : fGraduated === "no" ? "Not graduated" : "Graduated: all"}
+            options={["Graduated: all", "Graduated", "Not graduated"]}
+            onChange={(v) =>
+              setFGraduated(v === "Graduated" ? "yes" : v === "Not graduated" ? "no" : "")
+            }
+            ariaLabel="Filter by graduation"
+          />
+          <Select
+            value={fStatus === "active" ? "In database" : fStatus === "inactive" ? "Archived" : "Record: all"}
+            options={["Record: all", "In database", "Archived"]}
+            onChange={(v) =>
+              setFStatus(v === "In database" ? "active" : v === "Archived" ? "inactive" : "")
+            }
+            ariaLabel="Filter by record status"
+          />
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <button

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Select } from "@/components/Select";
 
 export type BulkPatch = {
   season?: string;
@@ -14,6 +15,19 @@ export type BulkPatch = {
 
 // Tri-state selects: "" leaves the field untouched.
 type TriState = "" | "yes" | "no";
+
+const STATUS_LABEL: Record<TriState, string> = {
+  "": "Keep unchanged", yes: "In database", no: "Archived",
+};
+const LABEL_STATUS: Record<string, TriState> = {
+  "Keep unchanged": "", "In database": "yes", Archived: "no",
+};
+const GRAD_LABEL: Record<TriState, string> = {
+  "": "Keep unchanged", yes: "Graduated", no: "Not graduated",
+};
+const LABEL_GRAD: Record<string, TriState> = {
+  "Keep unchanged": "", Graduated: "yes", "Not graduated": "no",
+};
 
 export function BulkEditModal({
   count,
@@ -99,21 +113,25 @@ export function BulkEditModal({
           </div>
           <div>
             <label className="label">Division</label>
-            <input className="input" list="bulk-division" value={division} onChange={(e) => setDivision(e.target.value)} />
-            <datalist id="bulk-division">
-              {divisionOptions.map((d) => (
-                <option key={d} value={d} />
-              ))}
-            </datalist>
+            <Select
+              value={division}
+              options={divisionOptions}
+              onChange={setDivision}
+              placeholder="Keep unchanged"
+              allowCustom
+              ariaLabel="Division"
+            />
           </div>
           <div>
             <label className="label">Program</label>
-            <input className="input" list="bulk-program" value={program} onChange={(e) => setProgram(e.target.value)} />
-            <datalist id="bulk-program">
-              {programOptions.map((p) => (
-                <option key={p} value={p} />
-              ))}
-            </datalist>
+            <Select
+              value={program}
+              options={programOptions}
+              onChange={setProgram}
+              placeholder="Keep unchanged"
+              allowCustom
+              ariaLabel="Program"
+            />
           </div>
           <div>
             <label className="label">University</label>
@@ -122,15 +140,12 @@ export function BulkEditModal({
 
           <div className="border-t border-ink-600 pt-4">
             <label className="label">Record</label>
-            <select
-              className="input"
-              value={status}
-              onChange={(e) => setStatus(e.target.value as TriState)}
-            >
-              <option value="">Keep unchanged</option>
-              <option value="yes">In database</option>
-              <option value="no">Archived</option>
-            </select>
+            <Select
+              value={STATUS_LABEL[status]}
+              options={["Keep unchanged", "In database", "Archived"]}
+              onChange={(v) => setStatus(LABEL_STATUS[v] ?? "")}
+              ariaLabel="Record status"
+            />
             <p className="mt-1 text-xs text-muted">
               Archived players stay in the database but are excluded from dashboards and analytics.
             </p>
@@ -139,15 +154,12 @@ export function BulkEditModal({
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="label">Graduated</label>
-              <select
-                className="input"
-                value={graduated}
-                onChange={(e) => setGraduated(e.target.value as TriState)}
-              >
-                <option value="">Keep unchanged</option>
-                <option value="yes">Graduated</option>
-                <option value="no">Not graduated</option>
-              </select>
+              <Select
+                value={GRAD_LABEL[graduated]}
+                options={["Keep unchanged", "Graduated", "Not graduated"]}
+                onChange={(v) => setGraduated(LABEL_GRAD[v] ?? "")}
+                ariaLabel="Graduated"
+              />
             </div>
             <div>
               <label className="label">Graduation year</label>
