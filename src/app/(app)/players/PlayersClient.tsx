@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { formatNumber, formatUSD } from "@/lib/format";
+import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
 import { DIVISIONS, PROGRAMS } from "@/lib/permissions";
 import { PlayerModal, type PlayerForm } from "./PlayerModal";
 import { ImportModal } from "./ImportModal";
@@ -72,6 +72,21 @@ export function PlayersClient({
   const [fGraduated, setFGraduated] = useState<"" | "yes" | "no">("");
   const [fStatus, setFStatus] = useState<"" | "active" | "inactive">("");
 
+  // Column sorting. Season sorts chronologically, scholarship numerically,
+  // everything else alphabetically; blanks always sink to the bottom.
+  type SortKey = "name" | "university" | "season" | "division" | "program" | "scholarship";
+  const [sortKey, setSortKey] = useState<SortKey>("name");
+  const [sortAsc, setSortAsc] = useState(true);
+
+  function toggleSort(key: SortKey) {
+    if (key === sortKey) setSortAsc((v) => !v);
+    else {
+      setSortKey(key);
+      // numbers and seasons read best newest/highest first; text A→Z
+      setSortAsc(key !== "scholarship" && key !== "season");
+    }
+  }
+
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<PlayerRow | null>(null);
   const [importOpen, setImportOpen] = useState(false);
@@ -92,7 +107,7 @@ export function PlayersClient({
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    return players.filter((p) => {
+    const rows = players.filter((p) => {
       if (fSport && p.sportCode !== fSport) return false;
       if (fSeason && p.season !== fSeason) return false;
       if (fDivision && p.division !== fDivision) return false;
@@ -108,7 +123,34 @@ export function PlayersClient({
       }
       return true;
     });
-  }, [players, q, fSport, fSeason, fDivision, fProgram, fActiveOnly, fGraduated, fStatus]);
+
+    const dir = sortAsc ? 1 : -1;
+    return [...rows].sort((a, b) => {
+      const va = a[sortKey];
+      const vb = b[sortKey];
+      // empty cells always sit at the bottom, whichever way we're sorting
+      const aEmpty = va == null || va === "";
+      const bEmpty = vb == null || vb === "";
+      if (aEmpty && bEmpty) return a.name.localeCompare(b.name);
+      if (aEmpty) return 1;
+      if (bEmpty) return -1;
+
+      let cmp: number;
+      if (sortKey === "scholarship") {
+        cmp = (va as number) - (vb as number);
+      } else if (sortKey === "season") {
+        cmp = seasonSortKey(va as string) - seasonSortKey(vb as string);
+      } else {
+        cmp = String(va).localeCompare(String(vb), undefined, { sensitivity: "base" });
+      }
+      // stable, predictable tie-break
+      if (cmp === 0) cmp = a.name.localeCompare(b.name);
+      return cmp * dir;
+    });
+  }, [
+    players, q, fSport, fSeason, fDivision, fProgram, fActiveOnly, fGraduated,
+    fStatus, sortKey, sortAsc,
+  ]);
 
   const totalScholarship = filtered.reduce((a, p) => a + (p.scholarship ?? 0), 0);
   const activeFilters =
@@ -191,6 +233,31 @@ export function PlayersClient({
     } finally {
       setSavingCell(false);
     }
+  }
+
+  // Clickable column header that sorts by that column.
+  function sortableTh(key: SortKey, label: string, right = false) {
+    const active = sortKey === key;
+    return (
+      <th
+        key={key}
+        aria-sort={active ? (sortAsc ? "ascending" : "descending") : "none"}
+        className={`px-4 py-3 font-medium ${right ? "text-right" : ""}`}
+      >
+        <button
+          onClick={() => toggleSort(key)}
+          className={`inline-flex items-center gap-1 uppercase tracking-wide transition-colors hover:text-fg ${
+            active ? "text-fg" : ""
+          }`}
+          title={`Sort by ${label}`}
+        >
+          {label}
+          <span className={active ? "text-brand" : "opacity-30"}>
+            {active ? (sortAsc ? "↑" : "↓") : "↕"}
+          </span>
+        </button>
+      </th>
+    );
   }
 
   // Renders a table cell that turns into an input on double-click (editors).
@@ -624,12 +691,12 @@ export function PlayersClient({
                     />
                   </th>
                 )}
-                <th className="px-4 py-3 font-medium">Name</th>
-                <th className="px-4 py-3 font-medium">University</th>
-                <th className="px-4 py-3 font-medium">Season</th>
-                <th className="px-4 py-3 font-medium">Division</th>
-                <th className="px-4 py-3 font-medium">Program</th>
-                <th className="px-4 py-3 text-right font-medium">Scholarship</th>
+                {sortableTh("name", "Name")}
+                {sortableTh("university", "University")}
+                {sortableTh("season", "Season")}
+                {sortableTh("division", "Division")}
+                {sortableTh("program", "Program")}
+                {sortableTh("scholarship", "Scholarship", true)}
                 {sports.length > 1 && <th className="px-4 py-3 font-medium">Sport</th>}
                 {editable && <th className="px-4 py-3" />}
               </tr>
