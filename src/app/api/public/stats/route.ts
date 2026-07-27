@@ -10,15 +10,18 @@ import { getAuthorityData } from "@/lib/authority";
 //
 // CORS is open because it is meant to be read from the public website.
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+// Cached for 10 minutes: the marketing site can get all the traffic it likes
+// without every visitor turning into a database query. force-dynamic would
+// make Vercel drop the s-maxage header, so the route is revalidated instead.
+export const revalidate = 600;
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
-  // let the CDN serve it and refresh in the background
-  "Cache-Control": "public, s-maxage=600, stale-while-revalidate=3600",
+  // explicit for the CDN, alongside the route-level revalidate above
+  "CDN-Cache-Control": "public, s-maxage=600, stale-while-revalidate=3600",
+  "Vercel-CDN-Cache-Control": "public, s-maxage=600, stale-while-revalidate=3600",
 };
 
 export async function OPTIONS() {
