@@ -63,6 +63,8 @@ export function PlayersClient({
   const [fDivision, setFDivision] = useState("");
   const [fProgram, setFProgram] = useState("");
   const [fActiveOnly, setFActiveOnly] = useState(false);
+  const [editingCell, setEditingCell] = useState<{ id: string; value: string } | null>(null);
+  const [savingCell, setSavingCell] = useState(false);
   const [fGraduated, setFGraduated] = useState<"" | "yes" | "no">("");
   const [fStatus, setFStatus] = useState<"" | "active" | "inactive">("");
 
@@ -134,6 +136,39 @@ export function PlayersClient({
   }
   function clearSelection() {
     setSelected(new Set());
+  }
+
+  // Inline scholarship editing: double-click the cell, type, Enter to save.
+  async function commitScholarship() {
+    if (!editingCell) return;
+    const target = players.find((p) => p.id === editingCell.id);
+    const raw = editingCell.value.replace(/[^\d-]/g, "");
+    const next = raw === "" ? null : parseInt(raw, 10);
+    if (!target || next === (target.scholarship ?? null)) {
+      setEditingCell(null);
+      return;
+    }
+    setSavingCell(true);
+    try {
+      const res = await fetch(`/api/players/${editingCell.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ scholarship: next }),
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j.error ?? "Could not save");
+      }
+      setPlayers((prev) =>
+        prev.map((p) => (p.id === editingCell.id ? { ...p, scholarship: next } : p))
+      );
+      setEditingCell(null);
+      router.refresh();
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Could not save");
+    } finally {
+      setSavingCell(false);
+    }
   }
 
   function openCreate() {
@@ -506,7 +541,14 @@ export function PlayersClient({
                 <th className="px-4 py-3 font-medium">Season</th>
                 <th className="px-4 py-3 font-medium">Division</th>
                 <th className="px-4 py-3 font-medium">Program</th>
-                <th className="px-4 py-3 text-right font-medium">Scholarship</th>
+                <th className="px-4 py-3 text-right font-medium">
+                  Scholarship
+                  {editable && (
+                    <span className="ml-1 normal-case text-[10px] tracking-normal opacity-60">
+                      (dbl-click)
+                    </span>
+                  )}
+                </th>
                 {sports.length > 1 && <th className="px-4 py-3 font-medium">Sport</th>}
                 {editable && <th className="px-4 py-3" />}
               </tr>
@@ -601,8 +643,45 @@ export function PlayersClient({
                       )}
                     </td>
                     <td className="px-4 py-3 text-muted">{p.program ?? "—"}</td>
-                    <td className="px-4 py-3 text-right tabular-nums text-accent">
-                      {p.scholarship != null ? formatUSD(p.scholarship) : "—"}
+                    <td
+                      className={`px-4 py-3 text-right tabular-nums text-accent ${
+                        editable ? "cursor-pointer" : ""
+                      }`}
+                      onDoubleClick={() =>
+                        editable &&
+                        setEditingCell({
+                          id: p.id,
+                          value: p.scholarship != null ? String(p.scholarship) : "",
+                        })
+                      }
+                      title={editable ? "Double-click to edit" : undefined}
+                    >
+                      {editingCell?.id === p.id ? (
+                        <input
+                          autoFocus
+                          inputMode="numeric"
+                          disabled={savingCell}
+                          className="input w-28 px-2 py-1 text-right text-sm"
+                          value={editingCell.value}
+                          onChange={(e) =>
+                            setEditingCell({ id: p.id, value: e.target.value })
+                          }
+                          onBlur={commitScholarship}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              e.preventDefault();
+                              commitScholarship();
+                            } else if (e.key === "Escape") {
+                              setEditingCell(null);
+                            }
+                          }}
+                          aria-label={`Scholarship for ${p.name}`}
+                        />
+                      ) : p.scholarship != null ? (
+                        formatUSD(p.scholarship)
+                      ) : (
+                        <span className={editable ? "text-muted" : ""}>—</span>
+                      )}
                     </td>
                     {sports.length > 1 && (
                       <td className="px-4 py-3">

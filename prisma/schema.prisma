@@ -63,6 +63,7 @@ model User {
   sessions       Session[]
   createdPlayers Player[]  @relation("PlayerCreatedBy")
   updatedPlayers Player[]  @relation("PlayerUpdatedBy")
+  shareLinks     PlayerShareLink[] @relation("ShareLinkCreatedBy")
 }
 
 model Account {
@@ -150,7 +151,8 @@ model Player {
   updatedById String?
   updatedBy   User?    @relation("PlayerUpdatedBy", fields: [updatedById], references: [id])
 
-  profiles PlayerProfile[]
+  profiles   PlayerProfile[]
+  shareLinks PlayerShareLink[]
 
   @@index([sportId])
   @@index([season])
@@ -194,6 +196,27 @@ model PlayerProfile {
 
   @@index([playerId])
   @@index([current])
+}
+
+// A revocable, expiring link that lets someone without an account edit one
+// player's details. Scoped to a single player and a limited set of fields;
+// every edit made through it is written to the audit trail.
+model PlayerShareLink {
+  id       String @id @default(cuid())
+  token    String @unique
+  playerId String
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  createdById String?
+  createdBy   User?   @relation("ShareLinkCreatedBy", fields: [createdById], references: [id])
+
+  expiresAt  DateTime?
+  revokedAt  DateTime?
+  lastUsedAt DateTime?
+  useCount   Int       @default(0)
+  createdAt  DateTime  @default(now())
+
+  @@index([playerId])
 }
 
 // Immutable audit trail: who changed what, when (never auto-deleted).

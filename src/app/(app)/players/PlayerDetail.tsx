@@ -3,6 +3,7 @@
 import { formatUSD } from "@/lib/format";
 import type { PlayerRow } from "./PlayersClient";
 import { ProfilesSection } from "./ProfilesSection";
+import { ShareLinkPanel } from "./ShareLinkPanel";
 
 function Photo({ url, label }: { url: string | null; label: string }) {
   return (
@@ -112,6 +113,8 @@ export function PlayerDetail({
             division: player.division,
           }}
         />
+
+        {editable && <ShareLinkPanel playerId={player.id} />}
 
         <div className="mt-5 flex flex-wrap gap-2">
           {player.ncaaUrl && (
