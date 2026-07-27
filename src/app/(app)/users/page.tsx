@@ -1,6 +1,7 @@
 import { requireAdmin } from "@/lib/guards";
 import { prisma } from "@/lib/prisma";
 import { UsersClient } from "./UsersClient";
+import { SystemStatus } from "./SystemStatus";
 
 export const dynamic = "force-dynamic";
 
@@ -21,12 +22,15 @@ export default async function UsersPage() {
   });
 
   return (
-    <UsersClient
-      currentUserId={session.user.id}
-      users={users.map((u) => ({
-        ...u,
-        createdAt: u.createdAt.toISOString(),
-      }))}
-    />
+    <div className="space-y-6">
+      <UsersClient
+        currentUserId={session.user.id}
+        users={users.map((u) => ({
+          ...u,
+          createdAt: u.createdAt.toISOString(),
+        }))}
+      />
+      <SystemStatus />
+    </div>
   );
 }
