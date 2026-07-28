@@ -33,6 +33,7 @@ type Draft = {
   jersey: string;
   ncaaSport: string;
   ncaaDivision: string;
+  rosterUrl: string;
   matchesPlayed: string;
   minutes: string;
   goals: string;
@@ -50,6 +51,7 @@ const empty: Draft = {
   jersey: "",
   ncaaSport: "soccer-men",
   ncaaDivision: "d1",
+  rosterUrl: "",
   matchesPlayed: "",
   minutes: "",
   goals: "",
@@ -70,6 +72,7 @@ function toDraft(p: Profile): Draft {
     jersey: p.jersey ?? "",
     ncaaSport: p.ncaaSport ?? "soccer-men",
     ncaaDivision: p.ncaaDivision ?? "d1",
+    rosterUrl: p.rosterUrl ?? "",
     matchesPlayed: s(p.matchesPlayed),
     minutes: s(p.minutes),
     goals: s(p.goals),
@@ -176,7 +179,7 @@ export function ProfilesSection({
       });
       setNotice(
         (j.createdProfile ? "Created their profile and updated stats" : "Stats updated") +
-          ` from ${j.source === "roster-site" ? "their NCAA profile page" : "the NCAA leaderboards"} — ${j.matchedLabel}` +
+          ` from ${j.source === "roster-site" ? "their college profile page" : "the national leaderboards"} — ${j.matchedLabel}` +
           (j.seasonsCounted > 1 ? ` · career totals across ${j.seasonsCounted} seasons.` : ".")
       );
       router.refresh();
@@ -224,6 +227,7 @@ export function ProfilesSection({
       jersey: draft.jersey.trim() || null,
       ncaaSport: draft.ncaaSport,
       ncaaDivision: draft.ncaaDivision,
+      rosterUrl: draft.rosterUrl.trim() || null,
       matchesPlayed: num(draft.matchesPlayed),
       minutes: num(draft.minutes),
       goals: num(draft.goals),
@@ -292,7 +296,7 @@ export function ProfilesSection({
       setNotice(
         j.source === "roster-site"
           ? `Updated from the university roster page — ${j.ncaa.name}.`
-          : `Updated from the NCAA leaderboards — matched ${j.ncaa.name}.`
+          : `Updated from the national leaderboards — matched ${j.ncaa.name}.`
       );
     } catch {
       setError("Could not reach the NCAA stats service.");
@@ -305,7 +309,7 @@ export function ProfilesSection({
     <div className="mt-6 border-t border-ink-600 pt-4">
       <div className="mb-3 flex items-center justify-between gap-3">
         <div>
-          <h3 className="text-sm font-semibold text-fg">University profiles &amp; NCAA stats</h3>
+          <h3 className="text-sm font-semibold text-fg">College profiles &amp; stats</h3>
           <p className="text-[11px] text-muted">
             Mark the roster the player is on right now to track their live stats.
           </p>
@@ -317,9 +321,9 @@ export function ProfilesSection({
               onClick={refreshFromPlayerLink}
               disabled={refreshing === "player"}
               className="btn-ghost px-3 py-1 text-xs"
-              title="Read this player's NCAA profile link and pull their season stats"
+              title="Read this player's college profile link and pull their season stats"
             >
-              {refreshing === "player" ? "Refreshing…" : "↻ Refresh from NCAA"}
+              {refreshing === "player" ? "Refreshing…" : "↻ Refresh stats"}
             </button>
             {profiles.length > 0 && (
               <button
@@ -410,10 +414,10 @@ export function ProfilesSection({
                       onClick={() => refresh(p)}
                       disabled={refreshing === p.id}
                       className="btn-ghost px-2 py-1 text-[11px]"
-                      title="Pull season stats from the NCAA stats API"
-                      aria-label={`Refresh ${p.university} stats from the NCAA`}
+                      title="Pull season stats from this college's roster page"
+                      aria-label={`Refresh ${p.university} stats`}
                     >
-                      {refreshing === p.id ? "Refreshing…" : "↻ NCAA"}
+                      {refreshing === p.id ? "Refreshing…" : "↻ Refresh"}
                     </button>
                     <button
                       type="button"
@@ -608,17 +612,17 @@ function ProfileForm({
           </select>
         </div>
         <div className="col-span-2">
-          <label className="label">NCAA profile link</label>
-          <div className="input flex items-center gap-2 text-xs text-muted">
-            {playerNcaaUrl ? (
-              <span className="truncate" title={playerNcaaUrl}>{playerNcaaUrl}</span>
-            ) : (
-              <span>Not set</span>
-            )}
-          </div>
+          <label className="label">College profile link</label>
+          <input
+            className="input"
+            placeholder={playerNcaaUrl || "https://university.com/sports/mens-soccer/roster/…"}
+            value={draft.rosterUrl}
+            onChange={(e) => onChange("rosterUrl", e.target.value)}
+          />
           <p className="mt-1 text-[11px] text-muted">
-            Taken from the player&apos;s NCAA profile field — edit it there and every
-            profile uses it.
+            This college&apos;s own roster page, used for these stats. Leave empty to
+            use the player&apos;s main link
+            {playerNcaaUrl ? "" : " (none set yet)"}.
           </p>
         </div>
       </div>

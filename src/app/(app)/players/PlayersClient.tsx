@@ -582,8 +582,9 @@ export function PlayersClient({
         </div>
       </div>
 
-      {/* Filters */}
-      <div className="card p-4">
+      {/* Filters — lifted above the panels below, whose backdrop-filter creates
+          a stacking context that would otherwise cover an open dropdown. */}
+      <div className="card relative z-30 p-4">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <input
             className="input lg:col-span-2"
@@ -1012,6 +1013,12 @@ export function PlayersClient({
           player={detail}
           editable={editable}
           seasonOptions={seasonOptions}
+          related={players.filter(
+            (x) =>
+              x.id !== detail.id &&
+              x.name.trim().toLowerCase() === detail.name.trim().toLowerCase()
+          )}
+          onOpenRelated={(p) => setDetail(p)}
           onClose={() => setDetail(null)}
           onEdit={() => {
             const p = detail;

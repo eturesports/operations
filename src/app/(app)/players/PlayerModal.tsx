@@ -460,7 +460,7 @@ export function PlayerModal({
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label className="label">NCAA profile</label>
+                <label className="label">College profile</label>
                 <input
                   className="input"
                   placeholder="https://university.com/sports/mens-soccer/roster/…"
@@ -468,8 +468,8 @@ export function PlayerModal({
                   onChange={(e) => set("ncaaUrl", e.target.value)}
                 />
                 <p className="mt-1 text-[11px] text-muted">
-                  Their roster page. This is the only place the link goes — stats are
-                  pulled from it.
+                  Their college roster page — NCAA, NAIA or JUCO. Each college profile
+                  below can override it with its own link.
                 </p>
               </div>
               <div>

@@ -34,12 +34,17 @@ export function PlayerDetail({
   player,
   editable,
   seasonOptions = [],
+  related = [],
+  onOpenRelated,
   onClose,
   onEdit,
 }: {
   player: PlayerRow;
   editable: boolean;
   seasonOptions?: string[];
+  /** the same person's other operations — a transfer is a separate record */
+  related?: PlayerRow[];
+  onOpenRelated?: (p: PlayerRow) => void;
   onClose: () => void;
   onEdit: () => void;
 }) {
@@ -112,12 +117,42 @@ export function PlayerDetail({
           playerNcaaUrl={player.ncaaUrl}
         />
 
+        {related.length > 0 && (
+          <div className="mt-6 border-t border-ink-600 pt-4">
+            <h3 className="text-sm font-semibold text-fg">Career path</h3>
+            <p className="mb-2 text-[11px] text-muted">
+              {related.length === 1 ? "One other operation" : `${related.length} other operations`}{" "}
+              for this player — each move is counted separately.
+            </p>
+            <div className="space-y-1.5">
+              {related.map((r) => (
+                <button
+                  key={r.id}
+                  type="button"
+                  onClick={() => onOpenRelated?.(r)}
+                  className="flex w-full items-center justify-between gap-3 rounded-lg border border-ink-600 bg-ink-800/40 px-3 py-2 text-left transition-colors hover:border-brand/40"
+                >
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm text-fg">
+                      {r.university ?? "—"}
+                    </span>
+                    <span className="block text-[11px] text-muted">
+                      {[r.season, r.division, r.program].filter(Boolean).join(" · ")}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-xs text-brand">Open →</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {editable && <ShareLinkPanel playerId={player.id} />}
 
         <div className="mt-5 flex flex-wrap gap-2">
           {player.ncaaUrl && (
             <a href={player.ncaaUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost px-3 py-1.5 text-xs">
-              NCAA profile ↗
+              College profile ↗
             </a>
           )}
           {player.instagramUrl && (
