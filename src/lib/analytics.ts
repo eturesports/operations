@@ -83,6 +83,118 @@ export async function getSegmentationData(): Promise<SegmentationData> {
   };
 }
 
+// ─────────────────────────── Season breakdown ───────────────────────────
+
+export type SeasonStat = {
+  season: string;
+  operations: number;
+  uniquePlayers: number;
+  universities: number;
+  ncaaOps: number;
+  d1Ops: number;
+  d1Pct: number;
+  scholarshipTotal: number;
+  scholarshipMedian: number | null;
+  scholarshipCoveragePct: number;
+  programs: { program: string; ops: number }[];
+  topUniversity: string | null;
+  growthPct: number | null; // vs the previous season, by operations
+};
+
+export type SeasonBreakdown = {
+  seasons: SeasonStat[];
+  totals: {
+    operations: number;
+    uniquePlayers: number;
+    universities: number;
+    d1Ops: number;
+    scholarshipTotal: number;
+  };
+};
+
+export async function getSeasonBreakdown(): Promise<SeasonBreakdown> {
+  const rows = (await prisma.player.findMany({
+    where: { active: true },
+    select: {
+      name: true, university: true, season: true, division: true,
+      program: true, scholarship: true,
+    },
+  })) as Row[];
+
+  const groups = new Map<string, Row[]>();
+  for (const r of rows) {
+    const key = (r.season ?? "").trim() || "—";
+    (groups.get(key) ?? groups.set(key, []).get(key)!).push(r);
+  }
+
+  // chronological, so growth compares against the actual previous season
+  const ordered = [...groups.entries()].sort(
+    (a, b) => seasonSortKey(a[0]) - seasonSortKey(b[0])
+  );
+
+  const seasons: SeasonStat[] = ordered.map(([season, list], i) => {
+    const d1 = list.filter((r) => isD1(r.division)).length;
+    const ncaa = list.filter((r) => isNCAA(r.division)).length;
+    const amounts = list.filter((r) => r.scholarship != null).map((r) => r.scholarship!);
+
+    const uniCounts = new Map<string, number>();
+    for (const r of list)
+      for (const u of canonicalizeUniversity(r.university))
+        uniCounts.set(u, (uniCounts.get(u) ?? 0) + 1);
+    const topUniversity =
+      [...uniCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+
+    const progCounts = new Map<string, number>();
+    for (const r of list) {
+      const k = (r.program ?? "").trim() || "—";
+      progCounts.set(k, (progCounts.get(k) ?? 0) + 1);
+    }
+
+    const prevOps = i > 0 ? ordered[i - 1][1].length : null;
+    const growthPct =
+      prevOps && prevOps > 0
+        ? Math.round(((list.length - prevOps) / prevOps) * 1000) / 10
+        : null;
+
+    return {
+      season,
+      operations: list.length,
+      uniquePlayers: new Set(list.map((r) => norm(r.name))).size,
+      universities: uniCounts.size,
+      ncaaOps: ncaa,
+      d1Ops: d1,
+      d1Pct: list.length ? Math.round((d1 / list.length) * 1000) / 10 : 0,
+      scholarshipTotal: amounts.reduce((a, v) => a + v, 0),
+      scholarshipMedian: median(amounts),
+      scholarshipCoveragePct: list.length
+        ? Math.round((amounts.length / list.length) * 1000) / 10
+        : 0,
+      programs: [...progCounts.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([program, ops]) => ({ program, ops })),
+      topUniversity,
+      growthPct,
+    };
+  });
+
+  const allUnis = new Set<string>();
+  for (const r of rows)
+    for (const u of canonicalizeUniversity(r.university)) allUnis.add(uniKey(u));
+
+  return {
+    seasons: seasons.reverse(), // newest first for display
+    totals: {
+      operations: rows.length,
+      uniquePlayers: new Set(rows.map((r) => norm(r.name))).size,
+      universities: allUnis.size,
+      d1Ops: rows.filter((r) => isD1(r.division)).length,
+      scholarshipTotal: rows
+        .filter((r) => r.scholarship != null)
+        .reduce((a, r) => a + r.scholarship!, 0),
+    },
+  };
+}
+
 // ─────────────────────────── Active players ───────────────────────────
 
 export type ActivePlayerRow = {
