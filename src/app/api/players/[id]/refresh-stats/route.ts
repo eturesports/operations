@@ -10,6 +10,10 @@ import { logAudit } from "@/lib/audit";
 // their season totals. If they have no university profile yet, one is created
 // from what the roster page reports, so a single click is enough to go from
 // "just a link" to a tracked, up-to-date player.
+// Reads several seasons of ~2MB stats feeds, which does not fit the
+// default 10s function limit.
+export const maxDuration = 60;
+
 export async function POST(
   _req: Request,
   { params }: { params: { id: string } }

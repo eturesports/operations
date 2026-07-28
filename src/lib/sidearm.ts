@@ -96,6 +96,9 @@ type CumeStats = {
   overall_individual_stats?: Record<string, StatRow[]>;
 };
 
+// One season of this feed is 2–3MB, which is over Next's 2MB data-cache limit,
+// so it is fetched uncached with a hard timeout — a single slow university
+// site must not hang the whole refresh.
 async function fetchSeason(
   origin: string,
   sport: string,
@@ -106,7 +109,8 @@ async function fetchSeason(
       `${origin}/services/cumestats.ashx?global_sport_shortname=${sport}&year=${year}`,
       {
         headers: { "user-agent": UA, accept: "application/json" },
-        next: { revalidate: 3600 },
+        cache: "no-store",
+        signal: AbortSignal.timeout(12_000),
       }
     );
     if (!res.ok) return null;
@@ -142,7 +146,9 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
   let misses = 0;
   let reached = false;
 
-  for (let year = thisYear; year > thisYear - 8; year--) {
+  // A college career is at most five years, and each season costs a ~2MB
+  // request, so the walk is capped rather than open-ended.
+  for (let year = thisYear; year > thisYear - 5; year--) {
     const json = await fetchSeason(parsed.origin, parsed.sport, year);
     if (!json) {
       misses += 1;

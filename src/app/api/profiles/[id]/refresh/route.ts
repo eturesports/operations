@@ -8,6 +8,10 @@ import { logAudit } from "@/lib/audit";
 // POST /api/profiles/[id]/refresh — pull season stats for this profile.
 // Prefers the player's own roster page (complete team stats); falls back to
 // the NCAA national leaderboards matched by name.
+// Reads several seasons of ~2MB stats feeds, which does not fit the
+// default 10s function limit.
+export const maxDuration = 60;
+
 export async function POST(
   _req: Request,
   { params }: { params: { id: string } }
