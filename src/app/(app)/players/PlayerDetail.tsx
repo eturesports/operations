@@ -4,6 +4,7 @@ import { formatUSD } from "@/lib/format";
 import type { PlayerRow } from "./PlayersClient";
 import { ProfilesSection } from "./ProfilesSection";
 import { ShareLinkPanel } from "./ShareLinkPanel";
+import { uniKey } from "@/lib/universities";
 
 function Photo({ url, label }: { url: string | null; label: string }) {
   return (
@@ -121,8 +122,8 @@ export function PlayerDetail({
           <div className="mt-6 border-t border-ink-600 pt-4">
             <h3 className="text-sm font-semibold text-fg">Career path</h3>
             <p className="mb-2 text-[11px] text-muted">
-              {related.length === 1 ? "One other operation" : `${related.length} other operations`}{" "}
-              for this player — each move is counted separately.
+              The same person across their college journey.{" "}
+              {related.length === 1 ? "One other record" : `${related.length} other records`}.
             </p>
             <div className="space-y-1.5">
               {related.map((r) => (
@@ -140,7 +141,20 @@ export function PlayerDetail({
                       {[r.season, r.division, r.program].filter(Boolean).join(" · ")}
                     </span>
                   </span>
-                  <span className="shrink-0 text-xs text-brand">Open →</span>
+                  <span className="shrink-0 text-right">
+                    <span
+                      className={`badge ${
+                        uniKey(r.university ?? "") === uniKey(player.university ?? "")
+                          ? "bg-ink-700 text-muted"
+                          : "bg-accent/20 text-accent"
+                      }`}
+                    >
+                      {uniKey(r.university ?? "") === uniKey(player.university ?? "")
+                        ? "Same college"
+                        : "Transfer"}
+                    </span>
+                    <span className="mt-0.5 block text-[11px] text-brand">Open →</span>
+                  </span>
                 </button>
               ))}
             </div>

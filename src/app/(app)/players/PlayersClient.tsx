@@ -178,6 +178,17 @@ export function PlayersClient({
     [players]
   );
 
+  // How many records each person has, so the list can show at a glance who
+  // moved around — they are one person across several operations.
+  const recordsByName = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const p of players) {
+      const k = p.name.trim().toLowerCase();
+      m.set(k, (m.get(k) ?? 0) + 1);
+    }
+    return m;
+  }, [players]);
+
   const filteredIds = useMemo(() => filtered.map((p) => p.id), [filtered]);
   const selectedCount = selected.size;
   const allFilteredSelected =
@@ -882,6 +893,14 @@ export function PlayersClient({
                           )}
                           {!p.active && (
                             <span className="ml-1.5 badge bg-ink-700 text-muted">Archived</span>
+                          )}
+                          {(recordsByName.get(p.name.trim().toLowerCase()) ?? 1) > 1 && (
+                            <span
+                              className="ml-1.5 badge bg-accent/15 text-accent"
+                              title={`${recordsByName.get(p.name.trim().toLowerCase())} records for this player — see Career path`}
+                            >
+                              ×{recordsByName.get(p.name.trim().toLowerCase())}
+                            </span>
                           )}
                           {p.notes && (
                             <span className="ml-1.5 text-xs text-muted" title={p.notes}>
