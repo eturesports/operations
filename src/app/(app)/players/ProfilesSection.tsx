@@ -176,7 +176,8 @@ export function ProfilesSection({
       });
       setNotice(
         (j.createdProfile ? "Created their profile and updated stats" : "Stats updated") +
-          ` from ${j.source === "roster-site" ? "their NCAA profile page" : "the NCAA leaderboards"} — ${j.matchedLabel}.`
+          ` from ${j.source === "roster-site" ? "their NCAA profile page" : "the NCAA leaderboards"} — ${j.matchedLabel}` +
+          (j.seasonsCounted > 1 ? ` · career totals across ${j.seasonsCounted} seasons.` : ".")
       );
       router.refresh();
     } catch {

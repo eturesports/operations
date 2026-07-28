@@ -77,6 +77,7 @@ export async function POST(
     matched: true,
     profile: updated,
     source: result.source,
+    seasonsCounted: result.seasonsCounted,
     ncaa: { name: result.matchedLabel, team: "" },
   });
 }

@@ -111,6 +111,7 @@ export async function POST(
     matched: true,
     source: result.source,
     matchedLabel: result.matchedLabel,
+    seasonsCounted: result.seasonsCounted,
     createdProfile: !existing,
     profile,
   });
