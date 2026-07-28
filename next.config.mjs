@@ -15,15 +15,14 @@ const nextConfig = {
         source: "/embed/:path*",
         headers: [
           {
-            // The season a visitor picks makes this page dynamic, so the CDN
-            // is what keeps a busy marketing page off the database.
-            key: "Cache-Control",
-            value: "public, s-maxage=300, stale-while-revalidate=3600",
-          },
-          {
+            // Anyone may frame the reader: it is public information and
+            // offers nothing to click, so there is no clicking to hijack.
+            // Naming allowed domains only breaks the embed when a builder
+            // serves the surrounding page from a sandbox domain, which Wix
+            // does — the protection that matters is that this rule covers
+            // /embed alone and the signed-in app stays unframeable.
             key: "Content-Security-Policy",
-            value:
-              "frame-ancestors 'self' https://eturesports.com https://*.eturesports.com https://*.wixsite.com https://*.wix.com https://*.editorx.io https://*.wixstudio.io https://*.wixstudio.com",
+            value: "frame-ancestors *",
           },
         ],
       },

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import type { PublicPlayer, PublicSeason } from "@/lib/publicRoster";
 
 // Deterministic tint so a player without a photo still looks composed —
@@ -67,14 +68,23 @@ function Card({ p }: { p: PublicPlayer }) {
 export function EmbedRoster({
   players,
   seasons,
-  initialSeason,
 }: {
   players: PublicPlayer[];
   seasons: PublicSeason[];
-  initialSeason: string | null;
 }) {
-  const [season, setSeason] = useState<string | null>(initialSeason);
+  const params = useSearchParams();
+  const asked = params.get("season");
+  const [season, setSeason] = useState<string | null>(
+    asked && seasons.some((s) => s.season === asked) ? asked : null
+  );
   const [q, setQ] = useState("");
+
+  // The page around this one decides the look; the visitor's preference for
+  // the internal app has nothing to do with it.
+  const theme = params.get("theme") === "dark" ? "dark" : "light";
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const visible = useMemo(() => {
     const needle = q.trim().toLowerCase();
