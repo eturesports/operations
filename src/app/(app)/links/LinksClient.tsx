@@ -222,6 +222,7 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
   async function copyPhotos() {
     setPhotoRun({ busy: true, message: "Reading roster pages…" });
     let total = 0;
+    let lastReason: string | null = null;
     try {
       for (let round = 0; round < 12; round += 1) {
         const res = await fetch("/api/players/photos/backfill", { method: "POST" });
@@ -239,6 +240,7 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
         }
         const done = (j.added ?? 0) + (j.mirrored ?? 0);
         total += done;
+        if (done === 0 && j.reason) lastReason = j.reason;
         setPhotoRun({ busy: true, message: `${total} photo${total === 1 ? "" : "s"} copied…` });
         // Nothing left to try, or this batch found nothing new to copy.
         if (!j.remaining || done === 0) break;
@@ -248,7 +250,7 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
         message:
           total > 0
             ? `${total} photo${total === 1 ? "" : "s"} stored on the platform.`
-            : "No new photos — those pages only publish club images.",
+            : (lastReason ?? "No new photos — those pages only publish club images."),
       });
     } catch (e) {
       setPhotoRun({

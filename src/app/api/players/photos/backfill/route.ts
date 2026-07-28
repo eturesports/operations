@@ -50,6 +50,7 @@ export async function POST() {
 
   const added: Done[] = [];
   const mirrored: Done[] = [];
+  const reasons: string[] = [];
   let skipped = 0;
 
   for (let i = 0; i < batch.length; i += CONCURRENCY) {
@@ -63,6 +64,7 @@ export async function POST() {
       const { player, kind } = slice[n];
       if (!o.added) {
         skipped += 1;
+        if (o.reason) reasons.push(o.reason);
         return;
       }
       (kind === "adopt" ? added : mirrored).push({
@@ -92,7 +94,15 @@ export async function POST() {
     });
   }
 
+  // When nothing worked, say what actually went wrong instead of leaving the
+  // screen to guess: a store that rejects the upload is not the same as a
+  // roster page that only publishes a crest.
+  const counted = new Map<string, number>();
+  for (const r of reasons) counted.set(r, (counted.get(r) ?? 0) + 1);
+  const commonest = [...counted.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+
   return NextResponse.json({
+    reason: added.length + mirrored.length === 0 ? commonest : null,
     added: added.length,
     mirrored: mirrored.length,
     photos: [...added, ...mirrored],
