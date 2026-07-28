@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { trackPointer } from "./useTravellingPill";
 
 export function AccountModal({
   initialName,
@@ -68,7 +69,11 @@ export function AccountModal({
       className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4"
       onMouseDown={onClose}
     >
-      <div className="card w-full max-w-md p-6" onMouseDown={(e) => e.stopPropagation()}>
+      <div
+        className="liquid-glass w-full max-w-md rounded-2xl p-6"
+        onMouseDown={(e) => e.stopPropagation()}
+        onPointerMove={trackPointer}
+      >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-fg">Account settings</h2>
           <button onClick={onClose} className="text-muted hover:text-fg" aria-label="Close">

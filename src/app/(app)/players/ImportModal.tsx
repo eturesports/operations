@@ -1,5 +1,7 @@
 "use client";
 
+import { trackPointer } from "@/components/useTravellingPill";
+
 import { useState } from "react";
 import { parseCSV, rowsToPlayers, type CsvPlayer } from "@/lib/csv";
 
@@ -80,7 +82,11 @@ export function ImportModal({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
       onMouseDown={onClose}
     >
-      <div className="card w-full max-w-lg p-6" onMouseDown={(e) => e.stopPropagation()}>
+      <div
+        className="liquid-glass w-full max-w-lg rounded-2xl p-6"
+        onMouseDown={(e) => e.stopPropagation()}
+        onPointerMove={trackPointer}
+      >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-fg">Import players (CSV)</h2>
           <button onClick={onClose} className="text-muted hover:text-fg">
