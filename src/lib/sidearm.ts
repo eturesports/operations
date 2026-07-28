@@ -143,22 +143,30 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
 
   const thisYear = new Date().getFullYear();
   const stats: RosterStats = { teamName: parsed.origin, seasonsCounted: 0 };
-  let misses = 0;
-  let reached = false;
 
-  // A college career is at most five years, and each season costs a ~2MB
-  // request, so the walk is capped rather than open-ended.
-  for (let year = thisYear; year > thisYear - 5; year--) {
-    const json = await fetchSeason(parsed.origin, parsed.sport, year);
-    if (!json) {
-      misses += 1;
-      if (misses >= 2 && reached) break;
-      continue;
-    }
-    reached = true;
-    if (json.our_team_name) stats.teamName = json.our_team_name;
+  // How far back to look. The player record's season is the season the
+  // placement was agreed, not when they competed — Adrian Crespo is filed
+  // under 17/18 but his stats sit in 2021 — so the year can't be derived and
+  // has to be searched. Seasons are fetched in small parallel batches to keep
+  // a wide search fast; the search stops once a whole batch comes back empty
+  // after the player has already been found.
+  const YEARS_BACK = 10;
+  const BATCH = 4;
+  const years: number[] = [];
+  for (let y = thisYear; y > thisYear - YEARS_BACK; y--) years.push(y);
 
-    const sections = json.overall_individual_stats ?? {};
+  for (let i = 0; i < years.length; i += BATCH) {
+    const batch = years.slice(i, i + BATCH);
+    const results = await Promise.all(
+      batch.map((y) => fetchSeason(parsed.origin, parsed.sport, y))
+    );
+    let hitsInBatch = 0;
+
+    for (const json of results) {
+      if (!json) continue;
+      if (json.our_team_name) stats.teamName = json.our_team_name;
+
+      const sections = json.overall_individual_stats ?? {};
     // Two wrinkles in this feed:
     //  - schools issue a fresh roster id each season, so the id in the URL
     //    often isn't the one attached to older stats → fall back to the name
@@ -185,13 +193,8 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
     const offense = offenseRows.length > 0;
     const goalie = goalieRows.length > 0;
 
-    if (!offense && !goalie) {
-      misses += 1;
-      // two blank seasons in a row means we've walked past their first year
-      if (misses >= 2 && (stats.seasonsCounted ?? 0) > 0) break;
-      continue;
-    }
-    misses = 0;
+    if (!offense && !goalie) continue;
+    hitsInBatch += 1;
     stats.seasonsCounted = (stats.seasonsCounted ?? 0) + 1;
 
     if (offense) {
@@ -211,6 +214,11 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
         stats.minutes = add(stats.minutes, sumOf(goalieRows, "minutes_played", true));
       }
     }
+    }
+
+    // Once the player has been found, a whole batch with nothing means we've
+    // gone past their first year — no point fetching another 2MB per season.
+    if (hitsInBatch === 0 && (stats.seasonsCounted ?? 0) > 0) break;
   }
 
   if (!stats.seasonsCounted) {
