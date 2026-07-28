@@ -16,6 +16,7 @@ export default async function LinksPage() {
       season: true,
       division: true,
       ncaaUrl: true,
+      profileImageUrl: true,
       profiles: { where: { current: true }, select: { id: true }, take: 1 },
     },
     orderBy: [{ season: "desc" }, { name: "asc" }],
@@ -29,6 +30,7 @@ export default async function LinksPage() {
     division: p.division,
     ncaaUrl: p.ncaaUrl,
     playingNow: p.profiles.length > 0,
+    photo: p.profileImageUrl,
   }));
 
   return <LinksClient rows={rows} />;

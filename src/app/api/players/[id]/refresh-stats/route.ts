@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
+import { adoptRosterPhoto } from "@/lib/playerPhoto";
 import { logAudit } from "@/lib/audit";
 
 // POST /api/players/[id]/refresh-stats
@@ -63,6 +64,20 @@ export async function POST(
     );
   }
 
+  // The roster page carries the player's headshot as well as their numbers,
+  // and it is worth having even when the stats feed comes back empty.
+  const photo = await adoptRosterPhoto(player, link);
+  if (photo.added) {
+    await logAudit(session.user, {
+      entity: "Player",
+      entityId: player.id,
+      entityName: player.name,
+      action: "photo_from_roster",
+      summary: `Copied ${player.name}'s photo from their college roster page`,
+      changes: { profileImageUrl: photo.url },
+    });
+  }
+
   if (!result.matched) {
     return NextResponse.json(
       {
@@ -71,6 +86,8 @@ export async function POST(
           ? result.reason
           : `${result.reason} Adding this player's NCAA profile link gives complete stats.`,
         candidates: result.candidates,
+        photoAdded: photo.added,
+        photoUrl: photo.added ? photo.url : undefined,
       },
       { status: 200 }
     );
@@ -120,6 +137,8 @@ export async function POST(
     matchedLabel: result.matchedLabel,
     seasonsCounted: result.seasonsCounted,
     createdProfile: !existing,
+    photoAdded: photo.added,
+    photoUrl: photo.added ? photo.url : undefined,
     profile,
   });
 }

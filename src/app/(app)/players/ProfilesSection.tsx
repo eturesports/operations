@@ -166,7 +166,11 @@ export function ProfilesSection({
         return;
       }
       if (!j.matched) {
-        setNotice(j.reason ?? "No stats found for this player.");
+        setNotice(
+          (j.reason ?? "No stats found for this player.") +
+            (j.photoAdded ? " Their photo was copied from the roster page." : "")
+        );
+        if (j.photoAdded) router.refresh();
         return;
       }
       const saved = j.profile as Profile;
@@ -180,7 +184,8 @@ export function ProfilesSection({
       setNotice(
         (j.createdProfile ? "Created their profile and updated stats" : "Stats updated") +
           ` from ${j.source === "roster-site" ? "their college profile page" : "the national leaderboards"} — ${j.matchedLabel}` +
-          (j.seasonsCounted > 1 ? ` · career totals across ${j.seasonsCounted} seasons.` : ".")
+          (j.seasonsCounted > 1 ? ` · career totals across ${j.seasonsCounted} seasons.` : ".") +
+          (j.photoAdded ? " Photo copied from the roster page." : "")
       );
       router.refresh();
     } catch {
@@ -289,15 +294,22 @@ export function ProfilesSection({
           j.candidates?.length > 0
             ? ` Closest names: ${j.candidates.map((c: { name: string; team: string }) => `${c.name} (${c.team})`).join(", ")}.`
             : "";
-        setNotice((j.reason ?? "No match found on NCAA leaderboards.") + cand);
+        setNotice(
+          (j.reason ?? "No match found on NCAA leaderboards.") +
+            cand +
+            (j.photoAdded ? " Their photo was copied from the roster page." : "")
+        );
+        if (j.photoAdded) router.refresh();
         return;
       }
       setProfiles((prev) => prev.map((x) => (x.id === p.id ? (j.profile as Profile) : x)));
       setNotice(
-        j.source === "roster-site"
+        (j.source === "roster-site"
           ? `Updated from the university roster page — ${j.ncaa.name}.`
-          : `Updated from the national leaderboards — matched ${j.ncaa.name}.`
+          : `Updated from the national leaderboards — matched ${j.ncaa.name}.`) +
+          (j.photoAdded ? " Photo copied from the roster page." : "")
       );
+      if (j.photoAdded) router.refresh();
     } catch {
       setError("Could not reach the NCAA stats service.");
     } finally {

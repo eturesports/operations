@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
+import { adoptRosterPhoto } from "@/lib/playerPhoto";
 import { logAudit } from "@/lib/audit";
 
 // POST /api/profiles/[id]/refresh — pull season stats for this profile.
@@ -26,7 +27,11 @@ export async function POST(
 
   const profile = await prisma.playerProfile.findUnique({
     where: { id: params.id },
-    include: { player: { select: { name: true, ncaaUrl: true } } },
+    include: {
+      player: {
+        select: { id: true, name: true, ncaaUrl: true, profileImageUrl: true },
+      },
+    },
   });
   if (!profile) {
     return NextResponse.json({ error: "Profile not found" }, { status: 404 });
@@ -50,9 +55,31 @@ export async function POST(
     );
   }
 
+  // This profile's own roster page also carries the player's headshot.
+  const photo = await adoptRosterPhoto(
+    profile.player,
+    profile.rosterUrl ?? profile.player.ncaaUrl
+  );
+  if (photo.added) {
+    await logAudit(session.user, {
+      entity: "Player",
+      entityId: profile.player.id,
+      entityName: profile.player.name,
+      action: "photo_from_roster",
+      summary: `Copied ${profile.player.name}'s photo from their college roster page`,
+      changes: { profileImageUrl: photo.url },
+    });
+  }
+
   if (!result.matched) {
     return NextResponse.json(
-      { matched: false, reason: result.reason, candidates: result.candidates },
+      {
+        matched: false,
+        reason: result.reason,
+        candidates: result.candidates,
+        photoAdded: photo.added,
+        photoUrl: photo.added ? photo.url : undefined,
+      },
       { status: 200 }
     );
   }
@@ -82,6 +109,8 @@ export async function POST(
     profile: updated,
     source: result.source,
     seasonsCounted: result.seasonsCounted,
+    photoAdded: photo.added,
+    photoUrl: photo.added ? photo.url : undefined,
     ncaa: { name: result.matchedLabel, team: "" },
   });
 }

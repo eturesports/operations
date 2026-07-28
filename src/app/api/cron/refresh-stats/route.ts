@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
+import { adoptRosterPhoto } from "@/lib/playerPhoto";
 import { logAudit } from "@/lib/audit";
 
 // Weekly job: refresh NCAA season stats for every profile marked "current".
@@ -27,16 +28,30 @@ export async function GET(req: Request) {
 
   const profiles = await prisma.playerProfile.findMany({
     where: { current: true },
-    include: { player: { select: { name: true, active: true, ncaaUrl: true } } },
+    include: {
+      player: {
+        select: {
+          id: true,
+          name: true,
+          active: true,
+          ncaaUrl: true,
+          profileImageUrl: true,
+        },
+      },
+    },
   });
 
-  const results = { checked: 0, updated: 0, unmatched: 0, failed: 0 };
+  const results = { checked: 0, updated: 0, unmatched: 0, failed: 0, photos: 0 };
   const updatedNames: string[] = [];
 
   for (const p of profiles) {
     if (!p.player.active) continue;
     results.checked += 1;
     try {
+      // Players who still have no photo get one from the same roster page.
+      const photo = await adoptRosterPhoto(p.player, p.rosterUrl ?? p.player.ncaaUrl);
+      if (photo.added) results.photos += 1;
+
       const r = await fetchProfileStats({
         playerName: p.player.name,
         rosterUrl: p.rosterUrl,
@@ -69,7 +84,7 @@ export async function GET(req: Request) {
     await logAudit(null, {
       entity: "PlayerProfile",
       action: "stats_refresh_weekly",
-      summary: `Weekly NCAA refresh: ${results.updated} updated, ${results.unmatched} unmatched, ${results.failed} failed (of ${results.checked} active)`,
+      summary: `Weekly NCAA refresh: ${results.updated} updated, ${results.unmatched} unmatched, ${results.failed} failed, ${results.photos} photo${results.photos === 1 ? "" : "s"} added (of ${results.checked} active)`,
       changes: { ...results, updatedNames },
     });
   }
