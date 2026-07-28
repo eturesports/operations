@@ -12,6 +12,11 @@ export function GET() {
     {
       ok: true,
       imageStorage: !!blobToken(),
+      // Names only, never values. Vercel names a store's variable after the
+      // store when it is not the first one connected, so seeing which ones
+      // arrive is the difference between "not connected" and "connected
+      // under a name we are not reading".
+      storageVars: Object.keys(process.env).filter((n) => /_READ_WRITE_TOKEN$/.test(n)),
       weeklyRefreshSecret: !!process.env.CRON_SECRET,
       deployedAt: process.env.VERCEL_DEPLOYMENT_ID ? undefined : "local",
     },
