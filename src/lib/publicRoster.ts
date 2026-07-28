@@ -7,6 +7,7 @@
 // embedded reader, whatever the caller asks for.
 
 import { prisma } from "@/lib/prisma";
+import DOMAINS from "@/data/roster-domains.json";
 import { preferDisplay, uniKey } from "@/lib/universities";
 import { seasonSortKey } from "@/lib/format";
 
@@ -17,6 +18,10 @@ export type PublicPlayer = {
   university: string | null;
   division: string | null;
   photo: string | null;
+  /** the university's crest, served by its own athletics site */
+  logo: string | null;
+  /** minutes played across every college profile we hold */
+  minutes: number | null;
   playingNow: boolean;
 };
 
@@ -25,6 +30,25 @@ export type PublicSeason = {
   players: number;
   universities: number;
 };
+
+// Sidearm — which is most of college athletics — serves every site's crest
+// from the same path. Sites that don't (Clemson, UCLA) simply answer 404 and
+// the card falls back to the university's initials, so this needs no storage
+// of ours and no third-party logo service.
+function logoFor(rosterUrl: string | null, university: string | null): string | null {
+  let host: string | null = null;
+  if (rosterUrl) {
+    try {
+      host = new URL(rosterUrl).host;
+    } catch {
+      host = null;
+    }
+  }
+  if (!host && university) {
+    host = (DOMAINS as Record<string, string>)[uniKey(university)] ?? null;
+  }
+  return host ? `https://${host}/images/logos/site/site.png` : null;
+}
 
 // A readable, stable handle for a player, so the website can link to them.
 export function slugFor(name: string, id: string): string {
@@ -63,22 +87,28 @@ async function readRoster(): Promise<PublicPlayer[]> {
       division: true,
       profileImageUrl: true,
       actionImageUrl: true,
-      profiles: { where: { current: true }, select: { id: true }, take: 1 },
+      ncaaUrl: true,
+      profiles: { select: { current: true, minutes: true, rosterUrl: true } },
     },
     orderBy: [{ season: "desc" }, { name: "asc" }],
   });
 
   // The action shot is the one worth showing; the roster headshot stands in
   // when there isn't one.
-  const players = rows.map((p) => ({
-    slug: slugFor(p.name, p.id),
-    name: p.name,
-    season: p.season,
-    university: p.university,
-    division: p.division,
-    photo: p.actionImageUrl || p.profileImageUrl,
-    playingNow: p.profiles.length > 0,
-  }));
+  const players = rows.map((p) => {
+    const minutes = p.profiles.reduce((a, x) => a + (x.minutes ?? 0), 0);
+    return {
+      slug: slugFor(p.name, p.id),
+      name: p.name,
+      season: p.season,
+      university: p.university,
+      division: p.division,
+      photo: p.actionImageUrl || p.profileImageUrl,
+      logo: logoFor(p.profiles[0]?.rosterUrl ?? p.ncaaUrl, p.university),
+      minutes: minutes > 0 ? minutes : null,
+      playingNow: p.profiles.some((x) => x.current),
+    };
+  });
 
   // Players with a photo first: a wall of placeholders is not a showcase.
   return players.sort((a, b) => {

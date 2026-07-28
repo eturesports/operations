@@ -4,6 +4,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { PublicPlayer, PublicSeason } from "@/lib/publicRoster";
 
+// This widget lives inside somebody else's page, so it owns a fixed slice of
+// it: the filters stay put and the grid scrolls beneath them, never growing
+// past this height. A page that keeps getting taller pushes the rest of the
+// site down every time a visitor changes a filter.
+const MAX_HEIGHT = 1200;
+
 // Deterministic tint so a player without a photo still looks composed —
 // the same rule the internal gallery uses, so the two never disagree.
 const TINTS = [
@@ -27,7 +33,13 @@ const initials = (name: string) =>
     .join("")
     .toUpperCase();
 
+const number = (n: number) => n.toLocaleString("en-US");
+
 function Card({ p }: { p: PublicPlayer }) {
+  // Not every athletics site publishes its crest at the shared path; when it
+  // doesn't, the row simply loses the badge rather than showing a broken one.
+  const [logoOk, setLogoOk] = useState(true);
+
   return (
     <figure className="card overflow-hidden p-0">
       <div className="relative aspect-[3/4] w-full overflow-hidden">
@@ -45,25 +57,70 @@ function Card({ p }: { p: PublicPlayer }) {
               p.slug
             )}`}
           >
-            <span className="font-display text-4xl text-fg/70">{initials(p.name)}</span>
+            <span className="font-display text-3xl text-fg/70 sm:text-4xl">
+              {initials(p.name)}
+            </span>
           </div>
+        )}
+
+        {p.season && (
+          <span className="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
+            {p.season}
+          </span>
         )}
         {p.playingNow && (
           <span className="absolute right-2 top-2 rounded-full bg-emerald-500/90 px-2 py-0.5 text-[10px] font-medium text-white">
-            Playing now
+            Playing
+          </span>
+        )}
+        {p.minutes != null && (
+          <span className="absolute bottom-2 right-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
+            {number(p.minutes)}′
           </span>
         )}
       </div>
-      <figcaption className="p-3">
-        <div className="truncate text-sm font-semibold text-fg">{p.name}</div>
-        <div className="truncate text-xs text-muted">{p.university ?? "—"}</div>
-        {p.season && (
-          <div className="mt-1 text-[11px] uppercase tracking-wide text-muted">{p.season}</div>
+
+      <figcaption className="flex items-center gap-2 p-2.5">
+        {p.logo && logoOk ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={p.logo}
+            alt=""
+            loading="lazy"
+            onError={() => setLogoOk(false)}
+            className="h-7 w-7 shrink-0 object-contain"
+          />
+        ) : (
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-ink-700 text-[9px] font-semibold text-muted">
+            {initials(p.university ?? "—")}
+          </span>
         )}
+        <div className="min-w-0">
+          <div className="truncate text-[13px] font-semibold leading-tight text-fg">
+            {p.name}
+          </div>
+          <div className="truncate text-[11px] leading-tight text-muted">
+            {p.university ?? "—"}
+          </div>
+        </div>
       </figcaption>
     </figure>
   );
 }
+
+function Figure({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="min-w-0">
+      <div className="font-display text-lg leading-none text-fg sm:text-2xl">{value}</div>
+      <div className="mt-0.5 truncate text-[10px] uppercase tracking-wide text-muted">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+const isD1 = (division: string | null) =>
+  (division ?? "").trim().toLowerCase() === "division i";
 
 export function EmbedRoster({
   players,
@@ -74,9 +131,13 @@ export function EmbedRoster({
 }) {
   const params = useSearchParams();
   const asked = params.get("season");
-  const [season, setSeason] = useState<string | null>(
-    asked && seasons.some((s) => s.season === asked) ? asked : null
+
+  const [season, setSeason] = useState<string>(
+    asked && seasons.some((s) => s.season === asked) ? asked : ""
   );
+  const [division, setDivision] = useState("");
+  const [university, setUniversity] = useState("");
+  const [onlyPlaying, setOnlyPlaying] = useState(false);
   const [q, setQ] = useState("");
 
   // The page around this one decides the look; the visitor's preference for
@@ -86,83 +147,168 @@ export function EmbedRoster({
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
+  const divisions = useMemo(
+    () =>
+      [...new Set(players.map((p) => p.division).filter(Boolean) as string[])].sort(),
+    [players]
+  );
+  const universities = useMemo(
+    () =>
+      [...new Set(players.map((p) => p.university).filter(Boolean) as string[])].sort(
+        (a, b) => a.localeCompare(b)
+      ),
+    [players]
+  );
+
   const visible = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return players.filter((p) => {
       if (season && p.season !== season) return false;
+      if (division && p.division !== division) return false;
+      if (university && p.university !== university) return false;
+      if (onlyPlaying && !p.playingNow) return false;
       if (!needle) return true;
       return `${p.name} ${p.university ?? ""}`.toLowerCase().includes(needle);
     });
-  }, [players, season, q]);
+  }, [players, season, division, university, onlyPlaying, q]);
 
-  const current = seasons.find((s) => s.season === season);
+  const totals = useMemo(
+    () => ({
+      players: visible.length,
+      d1: visible.filter((p) => isD1(p.division)).length,
+      universities: new Set(visible.map((p) => p.university).filter(Boolean)).size,
+      minutes: visible.reduce((a, p) => a + (p.minutes ?? 0), 0),
+    }),
+    [visible]
+  );
 
-  // Wix gives an embedded frame a fixed height, so the page it sits on has no
-  // way of knowing how tall this is. Publishing the height lets the host
-  // resize the frame instead of leaving the grid to scroll inside a box.
+  // Wix gives an embedded frame a fixed height and cannot know how tall this
+  // is, so the widget reports its own — capped, because it never grows past
+  // the height it has claimed.
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const send = () => {
-      const height = root.current?.scrollHeight ?? 0;
-      window.parent?.postMessage({ type: "eture:height", height }, "*");
-    };
+    const send = () =>
+      window.parent?.postMessage(
+        { type: "eture:height", height: Math.min(root.current?.scrollHeight ?? 0, MAX_HEIGHT) },
+        "*"
+      );
     send();
     const observer = new ResizeObserver(send);
     if (root.current) observer.observe(root.current);
     return () => observer.disconnect();
-  }, [visible.length]);
+  }, []);
+
+  const filtered = season || division || university || onlyPlaying || q.trim();
 
   return (
-    <div ref={root} className="space-y-4">
-      {/* Season strip — the tabs double as the season's headline figures. */}
-      <div className="flex gap-2 overflow-x-auto pb-1">
-        <button
-          type="button"
-          onClick={() => setSeason(null)}
-          className={`shrink-0 rounded-full px-3 py-1.5 text-xs transition ${
-            season === null ? "bg-brand text-white" : "btn-ghost"
-          }`}
-        >
-          All seasons
-        </button>
-        {seasons.map((s) => (
+    <div
+      ref={root}
+      className="flex flex-col gap-3"
+      style={{ maxHeight: MAX_HEIGHT, height: "100dvh" }}
+    >
+      {/* Headline figures for whatever the filters are showing */}
+      <div className="grid shrink-0 grid-cols-4 gap-2 rounded-2xl border border-ink-600 px-3 py-2.5">
+        <Figure label="Players" value={number(totals.players)} />
+        <Figure label="Division I" value={number(totals.d1)} />
+        <Figure label="Colleges" value={number(totals.universities)} />
+        <Figure label="Minutes" value={number(totals.minutes)} />
+      </div>
+
+      {/* Filters. Native controls on purpose: inside an iframe on a phone,
+          the browser's own pickers behave far better than a custom menu. */}
+      <div className="shrink-0 space-y-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <select
+            className="input py-1.5 text-xs"
+            value={season}
+            onChange={(e) => setSeason(e.target.value)}
+            aria-label="Season"
+          >
+            <option value="">All seasons</option>
+            {seasons.map((s) => (
+              <option key={s.season} value={s.season}>
+                {s.season} · {s.players}
+              </option>
+            ))}
+          </select>
+
+          <select
+            className="input py-1.5 text-xs"
+            value={division}
+            onChange={(e) => setDivision(e.target.value)}
+            aria-label="Division"
+          >
+            <option value="">All divisions</option>
+            {divisions.map((d) => (
+              <option key={d} value={d}>
+                {d}
+              </option>
+            ))}
+          </select>
+
+          <select
+            className="input col-span-2 py-1.5 text-xs sm:col-span-1"
+            value={university}
+            onChange={(e) => setUniversity(e.target.value)}
+            aria-label="College"
+          >
+            <option value="">All colleges</option>
+            {universities.map((u) => (
+              <option key={u} value={u}>
+                {u}
+              </option>
+            ))}
+          </select>
+
+          <input
+            className="input col-span-2 py-1.5 text-xs sm:col-span-1"
+            placeholder="Search a player…"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            aria-label="Search"
+          />
+        </div>
+
+        <div className="flex items-center gap-2">
           <button
-            key={s.season}
             type="button"
-            onClick={() => setSeason(s.season)}
-            className={`shrink-0 rounded-full px-3 py-1.5 text-xs transition ${
-              season === s.season ? "bg-brand text-white" : "btn-ghost"
+            onClick={() => setOnlyPlaying((v) => !v)}
+            className={`rounded-full px-3 py-1 text-[11px] transition ${
+              onlyPlaying ? "bg-brand text-white" : "btn-ghost"
             }`}
           >
-            {s.season}
+            Playing now
           </button>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-muted">
-          <span className="font-display text-2xl text-fg">{visible.length}</span>{" "}
-          {visible.length === 1 ? "player" : "players"}
-          {current && ` · ${current.universities} universities`}
-        </p>
-        <input
-          className="input max-w-[16rem] py-1.5 text-sm"
-          placeholder="Search a player or college…"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          aria-label="Search"
-        />
-      </div>
-
-      {visible.length === 0 ? (
-        <p className="py-16 text-center text-sm text-muted">No players to show here.</p>
-      ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {visible.map((p) => (
-            <Card key={p.slug} p={p} />
-          ))}
+          {filtered && (
+            <button
+              type="button"
+              onClick={() => {
+                setSeason("");
+                setDivision("");
+                setUniversity("");
+                setOnlyPlaying(false);
+                setQ("");
+              }}
+              className="text-[11px] text-muted underline underline-offset-2"
+            >
+              Clear filters
+            </button>
+          )}
         </div>
-      )}
+      </div>
+
+      {/* Only this scrolls, so the figures and filters stay in view */}
+      <div className="min-h-0 flex-1 overflow-y-auto pr-0.5">
+        {visible.length === 0 ? (
+          <p className="py-16 text-center text-sm text-muted">No players to show here.</p>
+        ) : (
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {visible.map((p) => (
+              <Card key={p.slug} p={p} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

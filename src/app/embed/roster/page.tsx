@@ -27,7 +27,7 @@ export default async function EmbedRosterPage() {
   const seasons = seasonsOf(all);
 
   return (
-    <div className="min-h-screen px-3 py-4">
+    <div className="p-3">
       <Suspense fallback={null}>
         <EmbedRoster players={all} seasons={seasons} />
       </Suspense>
