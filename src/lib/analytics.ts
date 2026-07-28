@@ -46,9 +46,10 @@ export type SegmentationData = {
 function segment(rows: Row[], pick: (r: Row) => string | null | undefined): SegmentRow[] {
   const map = new Map<string, Row[]>();
   for (const r of rows) {
-    const raw = (pick(r) ?? "").trim();
-    if (!raw) continue;
-    (map.get(raw) ?? map.set(raw, []).get(raw)!).push(r);
+    // a value may hold several entries (dual nationality) — count each one
+    for (const raw of (pick(r) ?? "").split(",").map((s) => s.trim()).filter(Boolean)) {
+      (map.get(raw) ?? map.set(raw, []).get(raw)!).push(r);
+    }
   }
   const out: SegmentRow[] = [];
   for (const [key, list] of map) {

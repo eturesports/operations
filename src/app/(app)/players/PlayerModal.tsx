@@ -5,6 +5,8 @@ import type { PlayerRow } from "./PlayersClient";
 import { normalizePersonName } from "@/lib/names";
 import { Select } from "@/components/Select";
 import { ProfilesSection } from "./ProfilesSection";
+import { MultiSelect } from "@/components/MultiSelect";
+import { COUNTRIES, flagOf, parseNationalities } from "@/lib/countries";
 
 export type PlayerForm = {
   sportId: string;
@@ -332,10 +334,13 @@ export function PlayerModal({
             </div>
             <div>
               <label className="label">Nationality</label>
-              <input
-                className="input"
-                value={form.nationality}
-                onChange={(e) => set("nationality", e.target.value)}
+              <MultiSelect
+                values={parseNationalities(form.nationality)}
+                options={COUNTRIES.map((c) => c.name)}
+                onChange={(next) => set("nationality", next.join(", "))}
+                renderPrefix={flagOf}
+                placeholder="Search countries…"
+                ariaLabel="Nationality"
               />
             </div>
             <div>
