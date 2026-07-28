@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { formatNumber, seasonSortKey } from "@/lib/format";
 import { Select } from "@/components/Select";
+import { isOurCopy } from "@/lib/photo";
 
 export type LinkRow = {
   id: string;
@@ -67,7 +68,11 @@ function Row({
       const j = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(j.error ?? "Refresh failed");
       if (j.photoAdded && j.photoUrl) onPhoto(r.id, j.photoUrl);
-      const photoNote = j.photoAdded ? " · photo added" : "";
+      const photoNote = j.photoAdded
+        ? " · photo added"
+        : j.photoBlocked
+          ? " · photo not copied: image storage is off"
+          : "";
       setStatus(j.matched ? "saved" : "error");
       setMessage(
         j.matched
@@ -205,10 +210,15 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
   const pct = rows.length ? Math.round((withLink / rows.length) * 100) : 0;
   const withPhoto = rows.filter((r) => r.photo).length;
   const missingPhoto = rows.filter((r) => r.ncaaUrl && !r.photo).length;
+  // Photos still served from a university's own site — one redesign away
+  // from disappearing, so they are worth copying across too.
+  const notStored = rows.filter((r) => r.photo && !isOurCopy(r.photo)).length;
+  const photoWork = missingPhoto + notStored;
 
-  // Copies headshots for everyone who has a link but no photo. The server
-  // works in batches to stay inside its time limit, so keep asking until it
-  // says there is nothing left.
+  // Copies headshots for everyone who has a link but no photo, and brings
+  // any photo still hosted elsewhere into our own storage. The server works
+  // in batches to stay inside its time limit, so keep asking until it says
+  // there is nothing left.
   async function copyPhotos() {
     setPhotoRun({ busy: true, message: "Reading roster pages…" });
     let total = 0;
@@ -227,16 +237,17 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
             })
           );
         }
-        total += j.added ?? 0;
+        const done = (j.added ?? 0) + (j.mirrored ?? 0);
+        total += done;
         setPhotoRun({ busy: true, message: `${total} photo${total === 1 ? "" : "s"} copied…` });
         // Nothing left to try, or this batch found nothing new to copy.
-        if (!j.remaining || j.added === 0) break;
+        if (!j.remaining || done === 0) break;
       }
       setPhotoRun({
         busy: false,
         message:
           total > 0
-            ? `${total} photo${total === 1 ? "" : "s"} copied from roster pages.`
+            ? `${total} photo${total === 1 ? "" : "s"} stored on the platform.`
             : "No new photos — those pages only publish club images.",
       });
     } catch (e) {
@@ -300,6 +311,7 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
           <span className="text-xs text-muted">
             {formatNumber(withPhoto)} with a photo
             {missingPhoto > 0 && ` · ${formatNumber(missingPhoto)} linked but still without one`}
+            {notStored > 0 && ` · ${formatNumber(notStored)} not stored on the platform yet`}
           </span>
           <div className="flex items-center gap-2">
             {photoRun.message && (
@@ -308,9 +320,9 @@ export function LinksClient({ rows: initial }: { rows: LinkRow[] }) {
             <button
               type="button"
               onClick={copyPhotos}
-              disabled={photoRun.busy || missingPhoto === 0}
+              disabled={photoRun.busy || photoWork === 0}
               className="btn-ghost px-3 py-1 text-xs"
-              title="Copy each player's headshot from their college roster page"
+              title="Copy each player's headshot from their college roster page into our own storage"
             >
               {photoRun.busy ? "Copying…" : "Copy photos from links"}
             </button>

@@ -1,15 +1,18 @@
 // Fill a player's profile photo from their college roster page.
 //
 // Reading the photo is only half the job: universities re-cut their roster
-// images every season and some block hotlinking, so the picture is copied
-// into our own Blob storage and the record points at our copy. A photo an
-// editor uploaded themselves is never touched.
+// images every season and some block hotlinking, so every photo lives in our
+// own Blob storage and the record points at our copy — never at theirs. A
+// photo an editor uploaded themselves is never touched.
 
 import { put } from "@vercel/blob";
 import { prisma } from "@/lib/prisma";
-import { fetchRosterPhoto } from "@/lib/photo";
+import { fetchRosterPhoto, isOurCopy } from "@/lib/photo";
 
 const MAX_BYTES = 8 * 1024 * 1024;
+
+export const NO_STORAGE =
+  "Image storage is not enabled yet. Create a Blob store in Vercel (Storage → Create → Blob) and redeploy.";
 
 export type PhotoAdoption =
   | { added: false; reason?: string }
@@ -22,6 +25,42 @@ function extensionFor(contentType: string, url: string): string {
   }
   const fromUrl = url.split("?")[0].split(".").pop()?.toLowerCase();
   return fromUrl && /^(jpe?g|png|webp|avif|gif)$/.test(fromUrl) ? fromUrl : "jpg";
+}
+
+type Stored = { ok: true; url: string } | { ok: false; reason: string };
+
+// Downloads someone else's image and keeps our own copy of it.
+async function storeCopy(
+  playerId: string,
+  imageUrl: string,
+  referer: string
+): Promise<Stored> {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) return { ok: false, reason: NO_STORAGE };
+
+  const res = await fetch(imageUrl, {
+    headers: { referer, "user-agent": "Mozilla/5.0" },
+    cache: "no-store",
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!res.ok) return { ok: false, reason: `The photo answered ${res.status}.` };
+
+  const contentType = res.headers.get("content-type") ?? "";
+  if (!contentType.startsWith("image/")) {
+    return { ok: false, reason: "That address is not an image." };
+  }
+
+  const bytes = Buffer.from(await res.arrayBuffer());
+  if (bytes.byteLength === 0) return { ok: false, reason: "The photo came back empty." };
+  if (bytes.byteLength > MAX_BYTES) {
+    return { ok: false, reason: "The photo is too large to copy." };
+  }
+
+  const blob = await put(
+    `players/${playerId}-${Date.now()}.${extensionFor(contentType, imageUrl)}`,
+    bytes,
+    { access: "public", contentType }
+  );
+  return { ok: true, url: blob.url };
 }
 
 /**
@@ -41,41 +80,45 @@ export async function adoptRosterPhoto(
     const found = await fetchRosterPhoto(link, player.name);
     if (!found.ok) return { added: false, reason: found.reason };
 
-    let stored = found.url;
-
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
-      const res = await fetch(found.url, {
-        headers: { referer: link, "user-agent": "Mozilla/5.0" },
-        cache: "no-store",
-        signal: AbortSignal.timeout(15_000),
-      });
-      if (!res.ok) return { added: false, reason: `The photo answered ${res.status}.` };
-
-      const contentType = res.headers.get("content-type") ?? "";
-      if (!contentType.startsWith("image/")) {
-        return { added: false, reason: "That address is not an image." };
-      }
-
-      const bytes = Buffer.from(await res.arrayBuffer());
-      if (bytes.byteLength === 0) return { added: false, reason: "The photo came back empty." };
-      if (bytes.byteLength > MAX_BYTES) {
-        return { added: false, reason: "The photo is too large to copy." };
-      }
-
-      const blob = await put(
-        `players/${player.id}-${Date.now()}.${extensionFor(contentType, found.url)}`,
-        bytes,
-        { access: "public", contentType }
-      );
-      stored = blob.url;
-    }
+    const stored = await storeCopy(player.id, found.url, link);
+    if (!stored.ok) return { added: false, reason: stored.reason };
 
     await prisma.player.update({
       where: { id: player.id },
-      data: { profileImageUrl: stored },
+      data: { profileImageUrl: stored.url },
     });
 
-    return { added: true, url: stored, confident: found.confident };
+    return { added: true, url: stored.url, confident: found.confident };
+  } catch (e) {
+    return {
+      added: false,
+      reason: e instanceof Error ? e.message : "Could not copy the photo.",
+    };
+  }
+}
+
+/**
+ * Brings a photo that still points at somebody else's server into our Blob
+ * storage, keeping the same picture. For records whose photo was pasted as a
+ * link before we stored our own copies.
+ */
+export async function mirrorPhoto(player: {
+  id: string;
+  profileImageUrl: string | null;
+}): Promise<PhotoAdoption> {
+  const current = player.profileImageUrl?.trim();
+  if (!current || isOurCopy(current)) return { added: false };
+
+  try {
+    const stored = await storeCopy(player.id, current, current);
+    if (!stored.ok) return { added: false, reason: stored.reason };
+
+    await prisma.player.update({
+      where: { id: player.id },
+      data: { profileImageUrl: stored.url },
+    });
+
+    return { added: true, url: stored.url, confident: true };
   } catch (e) {
     return {
       added: false,

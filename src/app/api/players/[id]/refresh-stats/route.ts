@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
-import { adoptRosterPhoto } from "@/lib/playerPhoto";
+import { adoptRosterPhoto, NO_STORAGE } from "@/lib/playerPhoto";
 import { logAudit } from "@/lib/audit";
 
 // POST /api/players/[id]/refresh-stats
@@ -88,6 +88,7 @@ export async function POST(
         candidates: result.candidates,
         photoAdded: photo.added,
         photoUrl: photo.added ? photo.url : undefined,
+        photoBlocked: !photo.added && photo.reason === NO_STORAGE,
       },
       { status: 200 }
     );
@@ -139,6 +140,7 @@ export async function POST(
     createdProfile: !existing,
     photoAdded: photo.added,
     photoUrl: photo.added ? photo.url : undefined,
+    photoBlocked: !photo.added && photo.reason === NO_STORAGE,
     profile,
   });
 }

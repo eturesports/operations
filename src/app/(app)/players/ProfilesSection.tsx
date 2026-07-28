@@ -168,7 +168,11 @@ export function ProfilesSection({
       if (!j.matched) {
         setNotice(
           (j.reason ?? "No stats found for this player.") +
-            (j.photoAdded ? " Their photo was copied from the roster page." : "")
+            (j.photoAdded
+              ? " Their photo was copied from the roster page."
+              : j.photoBlocked
+                ? " Their photo could not be copied: image storage is not enabled in Vercel."
+                : "")
         );
         if (j.photoAdded) router.refresh();
         return;
@@ -185,7 +189,11 @@ export function ProfilesSection({
         (j.createdProfile ? "Created their profile and updated stats" : "Stats updated") +
           ` from ${j.source === "roster-site" ? "their college profile page" : "the national leaderboards"} — ${j.matchedLabel}` +
           (j.seasonsCounted > 1 ? ` · career totals across ${j.seasonsCounted} seasons.` : ".") +
-          (j.photoAdded ? " Photo copied from the roster page." : "")
+          (j.photoAdded
+            ? " Photo copied from the roster page."
+            : j.photoBlocked
+              ? " Photo not copied: image storage is not enabled in Vercel."
+              : "")
       );
       router.refresh();
     } catch {
@@ -297,7 +305,11 @@ export function ProfilesSection({
         setNotice(
           (j.reason ?? "No match found on NCAA leaderboards.") +
             cand +
-            (j.photoAdded ? " Their photo was copied from the roster page." : "")
+            (j.photoAdded
+              ? " Their photo was copied from the roster page."
+              : j.photoBlocked
+                ? " Their photo could not be copied: image storage is not enabled in Vercel."
+                : "")
         );
         if (j.photoAdded) router.refresh();
         return;
@@ -307,7 +319,11 @@ export function ProfilesSection({
         (j.source === "roster-site"
           ? `Updated from the university roster page — ${j.ncaa.name}.`
           : `Updated from the national leaderboards — matched ${j.ncaa.name}.`) +
-          (j.photoAdded ? " Photo copied from the roster page." : "")
+          (j.photoAdded
+            ? " Photo copied from the roster page."
+            : j.photoBlocked
+              ? " Photo not copied: image storage is not enabled in Vercel."
+              : "")
       );
       if (j.photoAdded) router.refresh();
     } catch {

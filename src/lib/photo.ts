@@ -83,3 +83,16 @@ export async function fetchRosterPhoto(
 
   return { ok: true, url: absolute, confident: shared > 0 };
 }
+
+/**
+ * True when the photo already lives in our own Blob storage rather than on a
+ * university's server. Safe to use from the browser.
+ */
+export function isOurCopy(url: string | null | undefined): boolean {
+  if (!url) return false;
+  try {
+    return new URL(url).hostname.endsWith(".vercel-storage.com");
+  } catch {
+    return false;
+  }
+}
