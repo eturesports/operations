@@ -92,7 +92,10 @@ export async function POST(
           university: result.teamName || player.university || "Unknown",
           season: player.season,
           division: player.division,
-          current: true,
+          // Pulling stats says nothing about whether they are on a roster
+          // right now — most of these are past seasons. "Playing now" stays a
+          // deliberate choice, made with its own control.
+          current: false,
           rosterUrl: player.ncaaUrl,
           ...result.patch,
           statsSource: result.source,

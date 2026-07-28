@@ -358,21 +358,34 @@ export function ProfilesSection({
       ) : profiles.length === 0 && !draft ? (
         <div className="rounded-xl border border-dashed border-ink-500 bg-ink-900/30 p-4 text-center">
           <p className="text-xs text-muted">
-            This player isn&apos;t marked as playing anywhere yet. A player can hold several
-            profiles (e.g. after a transfer).
+            No college profiles yet. A player can hold several — one per college
+            they&apos;ve played for.
           </p>
           {editable && (
-            <button
-              type="button"
-              onClick={() => {
-                setError(null);
-                setNotice(null);
-                setDraft(newDraft(true));
-              }}
-              className="btn-primary mt-3 px-4 py-1.5 text-xs"
-            >
-              ✓ Mark as playing now
-            </button>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setError(null);
+                  setNotice(null);
+                  setDraft(newDraft(false));
+                }}
+                className="btn-primary px-4 py-1.5 text-xs"
+              >
+                + Add college profile
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setError(null);
+                  setNotice(null);
+                  setDraft(newDraft(true));
+                }}
+                className="btn-ghost px-4 py-1.5 text-xs"
+              >
+                ✓ Add as playing now
+              </button>
+            </div>
           )}
         </div>
       ) : (
