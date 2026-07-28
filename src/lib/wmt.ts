@@ -35,8 +35,17 @@ export async function lookupWmtStats(rosterUrl: string): Promise<WmtLookup> {
     const u = new URL(rosterUrl);
     origin = u.hostname.replace(/^www\./, "");
     const res = await fetch(rosterUrl, {
-      headers: { "user-agent": UA },
-      next: { revalidate: 3600 },
+      // Athletics sites sit behind bot protection that rejects requests which
+      // don't look like a browser — a bare user-agent gets a challenge page.
+      headers: {
+        "user-agent": UA,
+        accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "accept-language": "en-US,en;q=0.9",
+        "cache-control": "no-cache",
+      },
+      cache: "no-store",
+      signal: AbortSignal.timeout(12_000),
     });
     if (!res.ok) return { ok: false, reason: `The roster page answered ${res.status}.` };
     html = await res.text();
@@ -46,9 +55,13 @@ export async function lookupWmtStats(rosterUrl: string): Promise<WmtLookup> {
 
   const personId = html.match(/wmt\.games\/[^/"']+\/stats\/roster\/(\d+)/)?.[1];
   if (!personId) {
+    // A challenge page still returns 200, so tell these apart for the user.
+    const blocked = /incapsula|captcha|cf-browser-verification|access denied/i.test(html);
     return {
       ok: false,
-      reason: "No stats widget found on that roster page.",
+      reason: blocked
+        ? "The university site blocked the request (bot protection)."
+        : "No stats widget found on that roster page — check the link opens their profile.",
     };
   }
 
@@ -65,7 +78,8 @@ export async function lookupWmtStats(rosterUrl: string): Promise<WmtLookup> {
   try {
     const res = await fetch(`https://api.wmt.games/api/statistics/persons/${personId}`, {
       headers: { "user-agent": UA, accept: "application/json" },
-      next: { revalidate: 3600 },
+      cache: "no-store",
+      signal: AbortSignal.timeout(12_000),
     });
     if (!res.ok) return { ok: false, reason: `The stats service answered ${res.status}.` };
     payload = await res.json();

@@ -41,13 +41,24 @@ export async function fetchProfileStats(opts: {
   const url = opts.rosterUrl?.trim() || opts.ncaaUrl?.trim();
 
   if (url) {
-    // Sidearm first (it's the most common), then WMT. Whichever recognises
-    // the page wins; only if neither does do we fall back to the leaderboards.
-    let r = await lookupRosterStats(url);
+    // Two platforms, told apart by the shape of the URL: Sidearm ends in a
+    // numeric roster id (…/roster/name/1234), WMT does not (…/roster/player/name).
+    // Try the likely one first, then the other, and keep whichever reason is
+    // most specific so a failure explains itself instead of blaming the
+    // leaderboards.
+    const looksSidearm = /\/roster\/[^/]+\/\d+\/?$/.test(url);
+    const readers = looksSidearm
+      ? [lookupRosterStats, lookupWmtStats]
+      : [lookupWmtStats, lookupRosterStats];
+
+    let r = await readers[0](url);
+    let firstReason = r.ok ? null : r.reason;
     if (!r.ok) {
-      const wmt = await lookupWmtStats(url);
-      if (wmt.ok) r = wmt;
+      const second = await readers[1](url);
+      if (second.ok) r = second;
     }
+    if (!r.ok) r = { ok: false, reason: firstReason ?? r.reason };
+
     if (r.ok) {
       const s = r.stats;
       return {
@@ -68,11 +79,15 @@ export async function fetchProfileStats(opts: {
         },
       };
     }
-    // fall through to the leaderboards, but keep the roster error in case
-    // those don't match either
+    // The link is the reliable source, so when it fails that is the finding —
+    // the leaderboards only cover the national top ~150 and saying "no match"
+    // there hides the real problem.
     const fallback = await fromLeaderboards(opts);
     if (fallback.matched) return fallback;
-    return { ...fallback, reason: `${r.reason} ${fallback.reason}` };
+    return {
+      ...fallback,
+      reason: `Couldn't read their roster page: ${r.reason} They also don't rank in the NCAA leaderboards, so there is nothing to fall back on.`,
+    };
   }
 
   return fromLeaderboards(opts);
