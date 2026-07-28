@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Role } from "@prisma/client";
 
 type Item = { href: string; label: string; icon: React.ReactNode };
@@ -20,20 +21,73 @@ export function BottomNav({ role }: { role: Role }) {
   if (role === "ADMIN")
     items.push({ href: "/users", label: "Access", icon: <ShieldIcon /> });
 
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+
+  const bar = useRef<HTMLDivElement>(null);
+  const tabs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
+  // The first paint places the pill without animating it; only later moves
+  // should travel, or every page load would begin with the pill sliding in
+  // from the left.
+  const [settled, setSettled] = useState(false);
+
+  const placePill = useCallback(() => {
+    const index = items.findIndex((it) => isActive(it.href));
+    const el = index >= 0 ? tabs.current[index] : null;
+    setPill(el ? { x: el.offsetLeft, w: el.offsetWidth } : null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
+  useLayoutEffect(placePill, [placePill]);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setSettled(true));
+    // Labels reflow between breakpoints, so the pill is re-measured with them.
+    const observer = new ResizeObserver(placePill);
+    if (bar.current) observer.observe(bar.current);
+    return () => {
+      cancelAnimationFrame(id);
+      observer.disconnect();
+    };
+  }, [placePill]);
+
+  // Where the light falls, for the specular highlight.
+  function trackPointer(e: React.PointerEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  }
+
   return (
     <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-      <div className="glass pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 shadow-glow">
-        {items.map((it) => {
-          const active =
-            pathname === it.href || pathname.startsWith(it.href + "/");
+      <div
+        ref={bar}
+        onPointerMove={trackPointer}
+        className="liquid-glass pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 shadow-glow"
+      >
+        {pill && (
+          <span
+            aria-hidden
+            className="nav-pill"
+            style={{
+              transform: `translateX(${pill.x}px)`,
+              width: pill.w,
+              transitionDuration: settled ? undefined : "0ms",
+            }}
+          />
+        )}
+        {items.map((it, i) => {
+          const active = isActive(it.href);
           return (
             <Link
               key={it.href}
+              ref={(el) => {
+                tabs.current[i] = el;
+              }}
               href={it.href}
-              className={`flex min-w-[60px] flex-col items-center gap-0.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-colors sm:min-w-[72px] sm:px-4 ${
-                active
-                  ? "bg-brand text-white shadow-[0_2px_12px_rgba(196,43,43,0.45)]"
-                  : "text-muted hover:text-fg"
+              aria-current={active ? "page" : undefined}
+              className={`relative z-[2] flex min-w-[60px] flex-col items-center gap-0.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-colors duration-300 sm:min-w-[72px] sm:px-4 ${
+                active ? "text-white" : "text-muted hover:text-fg"
               }`}
             >
               <span className="h-5 w-5">{it.icon}</span>

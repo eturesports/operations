@@ -22,7 +22,14 @@ export function TopBar({
   const [accountOpen, setAccountOpen] = useState(false);
   return (
     <header className="sticky top-0 z-30">
-      <div className="glass mx-auto mt-3 flex max-w-6xl items-center gap-3 rounded-2xl px-4 py-2.5 sm:px-5">
+      <div
+        onPointerMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+          e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+        }}
+        className="liquid-glass mx-auto mt-3 flex max-w-6xl items-center gap-3 rounded-2xl px-4 py-2.5 sm:px-5"
+      >
         <Link href="/dashboard" className="flex items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

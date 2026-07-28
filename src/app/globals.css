@@ -120,6 +120,94 @@ body {
     @apply glass rounded-2xl;
   }
 
+  /* Liquid glass: the same surface, given the two things that make Apple's
+     version read as glass rather than as a blurred rectangle — an edge that
+     catches light unevenly, and a specular highlight that tracks the pointer.
+     Both live on pseudo-elements so no extra markup is needed, and both are
+     purely decorative, so they never intercept a click. */
+  .liquid-glass {
+    @apply glass;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .liquid-glass::before,
+  .liquid-glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  /* The rim. A gradient drawn only on the border box, brightest where light
+     would land and thinning away from it. */
+  .liquid-glass::before {
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      rgb(255 255 255 / calc(var(--glass-hi) * 1.1)) 0%,
+      rgb(255 255 255 / 0) 38%,
+      rgb(255 255 255 / 0) 62%,
+      rgb(255 255 255 / calc(var(--glass-hi) * 0.55)) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1;
+  }
+  /* The specular sheen, centred whereever the pointer is. --mx/--my are set
+     by the component; with no pointer it rests off to one side. */
+  .liquid-glass::after {
+    background: radial-gradient(
+      120px circle at var(--mx, 30%) var(--my, 0%),
+      rgb(255 255 255 / calc(var(--glass-hi) * 0.45)),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 220ms ease;
+    z-index: 0;
+  }
+  .liquid-glass:hover::after {
+    opacity: 1;
+  }
+  .liquid-glass > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* The travelling pill behind the active navigation item. Movement is the
+     point: one surface that flows to where you are, rather than a colour
+     switching off in one place and on in another. */
+  .nav-pill {
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    border-radius: 9999px;
+    background: #c42b2b;
+    box-shadow:
+      0 2px 12px rgb(196 43 43 / 0.45),
+      inset 0 1px 0 rgb(255 255 255 / 0.22);
+    transition:
+      transform 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
+      width 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
+      opacity 200ms ease;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-pill {
+      transition: opacity 120ms ease;
+    }
+    .liquid-glass::after {
+      transition: none;
+    }
+  }
+
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-150 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
   }
