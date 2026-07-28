@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { PlayerRow } from "./PlayersClient";
 import { normalizePersonName } from "@/lib/names";
 import { Select } from "@/components/Select";
+import { ProfilesSection } from "./ProfilesSection";
 
 export type PlayerForm = {
   sportId: string;
@@ -469,6 +470,23 @@ export function PlayerModal({
               </div>
             </div>
           </div>
+
+          {/* University profiles & NCAA stats — the same form, so there is one
+              place to edit a player. Only for saved players: a profile needs an
+              id to attach to. */}
+          {initial && (
+            <ProfilesSection
+              playerId={initial.id}
+              seasonOptions={seasonOptions}
+              editable
+              playerNcaaUrl={form.ncaaUrl || initial.ncaaUrl}
+              defaults={{
+                university: form.university || initial.university,
+                season: form.season || initial.season,
+                division: form.division || initial.division,
+              }}
+            />
+          )}
 
           <div className="flex justify-end gap-2 pt-2">
             <button type="button" onClick={onClose} className="btn-ghost">

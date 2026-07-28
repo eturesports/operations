@@ -313,6 +313,7 @@ export function ProfilesSection({
         {editable && !draft && (
           <div className="flex shrink-0 flex-wrap justify-end gap-2">
             <button
+              type="button"
               onClick={refreshFromPlayerLink}
               disabled={refreshing === "player"}
               className="btn-ghost px-3 py-1 text-xs"
@@ -322,6 +323,7 @@ export function ProfilesSection({
             </button>
             {profiles.length > 0 && (
               <button
+                type="button"
                 onClick={() => {
                   setError(null);
                   setNotice(null);
@@ -357,6 +359,7 @@ export function ProfilesSection({
           </p>
           {editable && (
             <button
+              type="button"
               onClick={() => {
                 setError(null);
                 setNotice(null);
@@ -384,6 +387,7 @@ export function ProfilesSection({
                     ) : (
                       editable && (
                         <button
+                          type="button"
                           onClick={() => setCurrent(p)}
                           className="text-[11px] text-muted underline-offset-2 hover:text-fg hover:underline"
                           aria-label={`Mark ${p.university} as the roster this player is on now`}
@@ -402,6 +406,7 @@ export function ProfilesSection({
                 {editable && (
                   <div className="flex shrink-0 items-center gap-1.5">
                     <button
+                      type="button"
                       onClick={() => refresh(p)}
                       disabled={refreshing === p.id}
                       className="btn-ghost px-2 py-1 text-[11px]"
@@ -411,6 +416,7 @@ export function ProfilesSection({
                       {refreshing === p.id ? "Refreshing…" : "↻ NCAA"}
                     </button>
                     <button
+                      type="button"
                       onClick={() => {
                         setError(null);
                         setNotice(null);
@@ -423,6 +429,7 @@ export function ProfilesSection({
                       ✎
                     </button>
                     <button
+                      type="button"
                       onClick={() => remove(p)}
                       className="text-xs text-red-400 hover:text-red-300"
                       title="Remove profile"
@@ -643,10 +650,10 @@ function ProfileForm({
       </div>
 
       <div className="mt-4 flex justify-end gap-2">
-        <button onClick={onCancel} className="btn-ghost px-3 py-1.5 text-xs">
+        <button type="button" onClick={onCancel} className="btn-ghost px-3 py-1.5 text-xs">
           Cancel
         </button>
-        <button onClick={onSave} disabled={busy} className="btn-primary px-3 py-1.5 text-xs">
+        <button type="button" onClick={onSave} disabled={busy} className="btn-primary px-3 py-1.5 text-xs">
           {busy ? "Saving…" : draft.id ? "Save" : "Add profile"}
         </button>
       </div>

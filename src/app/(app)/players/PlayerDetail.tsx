@@ -103,16 +103,13 @@ export function PlayerDetail({
           </div>
         )}
 
+        {/* Read-only here — university profiles and NCAA stats are edited in
+            the single Edit form, so there is only one place to change things. */}
         <ProfilesSection
           playerId={player.id}
           seasonOptions={seasonOptions}
-          editable={editable}
+          editable={false}
           playerNcaaUrl={player.ncaaUrl}
-          defaults={{
-            university: player.university,
-            season: player.season,
-            division: player.division,
-          }}
         />
 
         {editable && <ShareLinkPanel playerId={player.id} />}
