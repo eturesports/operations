@@ -27,6 +27,13 @@ export type PlayerRow = {
   profileImageUrl: string | null;
   actionImageUrl: string | null;
   ncaaUrl: string | null;
+  career?: {
+    minutes: number;
+    goals: number;
+    assists: number;
+    matchesPlayed: number;
+    colleges: number;
+  } | null;
   instagramUrl: string | null;
   nationality: string | null;
   position: string | null;

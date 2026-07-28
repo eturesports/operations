@@ -52,10 +52,12 @@ export function PlayerCard({
   selectable: boolean;
 }) {
   const photo = player.actionImageUrl || player.profileImageUrl;
-  const ap = player.activeProfile;
+  // Their live roster if they are on one, otherwise what their college years
+  // add up to — a player who has finished still has a record worth showing.
+  const ap = player.activeProfile ?? player.career ?? null;
   const hasStats =
     ap &&
-    [ap.matchesPlayed, ap.minutes, ap.goals, ap.assists, ap.saves].some((v) => v != null);
+    [ap.matchesPlayed, ap.minutes, ap.goals, ap.assists].some((v) => v != null && v !== 0);
 
   return (
     <div
@@ -120,7 +122,7 @@ export function PlayerCard({
               {player.name}
             </h3>
             <p className="truncate text-xs text-white/70">
-              {ap?.university || player.university || "—"}
+              {player.activeProfile?.university || player.university || "—"}
               {player.season ? ` · ${player.season}` : ""}
             </p>
           </div>
@@ -147,7 +149,11 @@ export function PlayerCard({
               <Stat label="GP" value={ap!.matchesPlayed} />
               <Stat label="Min" value={ap!.minutes} />
               <Stat label="G" value={ap!.goals} />
-              <Stat label={ap!.saves != null ? "Sv" : "A"} value={ap!.saves ?? ap!.assists} />
+              {player.activeProfile?.saves != null ? (
+                <Stat label="Sv" value={player.activeProfile.saves} />
+              ) : (
+                <Stat label="A" value={ap!.assists} />
+              )}
             </div>
           )}
         </div>

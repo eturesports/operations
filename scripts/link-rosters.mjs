@@ -58,6 +58,10 @@ function nameMatch(a, b) {
 // stay live long after the player has gone.
 const SEASONS_BACK = 8;
 
+// Hosts that appear on every athletics page and are never the school's own.
+const OFF_SITE =
+  /facebook|twitter|x\.com|instagram|youtube|linkedin|tiktok|google|apple|adobe|cloudflare|jquery|gstatic|doubleclick|sidearmsports|prestosports|flosports|smugmug|vimeo|spotify|issuu|wufoo|evenue|ticket|ncaa\.(com|org)|w3\.org|schema\.org/i;
+
 async function rosterLinks(domain) {
   const base = domain.startsWith("http") ? domain : `https://${domain}`;
   const host = base.replace(/^https?:\/\//, "");
@@ -65,6 +69,13 @@ async function rosterLinks(domain) {
   const paths = ["/sports/mens-soccer/roster"];
   for (let y = now; y > now - SEASONS_BACK; y--) {
     paths.push(`/sports/mens-soccer/roster/${y}`);
+  }
+  // PrestoSports, the other platform small colleges use, files rosters by
+  // academic year: /sports/msoc/2021-22/roster. It serves old seasons
+  // straight from the URL, which is exactly what our leavers need.
+  const prestoPaths = [];
+  for (let y = now; y > now - SEASONS_BACK; y--) {
+    prestoPaths.push(`/sports/msoc/${y}-${String((y + 1) % 100).padStart(2, "0")}/roster`);
   }
 
   const out = [];
@@ -94,6 +105,15 @@ async function rosterLinks(domain) {
       seenHref.add(href);
       out.push({ url: base + href, slug, host });
     }
+    // Presto: /sports/msoc/2021-22/bios/ward_carson_9244
+    for (const m of html.matchAll(/href="(\/sports\/msoc\/[\d-]+\/bios\/[^"?#]+)"/g)) {
+      const href = m[1];
+      if (seenHref.has(href)) continue;
+      seenHref.add(href);
+      // The trailing four characters are an id, not part of the name.
+      const slug = href.split("/").pop().replace(/_[a-z0-9]{4}$/i, "").replace(/_/g, "-");
+      out.push({ url: base + href, slug, host });
+    }
   };
 
   await Promise.all(
@@ -103,16 +123,62 @@ async function rosterLinks(domain) {
     })
   );
 
+  if (!out.length) {
+    await Promise.all(
+      prestoPaths.map(async (path) => {
+        const html = await read(base + path);
+        if (html) harvest(html);
+      })
+    );
+  }
+
   // Some sites file men's soccer under a different path. Ask the site itself
   // where its roster lives before giving up on it.
+  let home = null;
   if (!out.length) {
-    const home = await read(base + "/");
+    home = await read(base + "/");
     const link = home?.match(
-      /href="(\/sports\/[a-z-]*soc[a-z-]*\/(?:\d{4}-\d{2}\/)?roster[^"]*)"/i
+      /href="(\/sports\/[a-z-]*soc[a-z-]*\/(?:[\d-]+\/)?roster[^"]*)"/i
     )?.[1];
     if (link) {
-      const page = await read(base + link);
-      if (page) harvest(page);
+      // Once one season's URL is known, its neighbours follow the same shape.
+      const seasons = new Set([link]);
+      const year = link.match(/\/(\d{4})-(\d{2})\//);
+      if (year) {
+        for (let y = now; y > now - SEASONS_BACK; y--) {
+          seasons.add(
+            link.replace(
+              /\/\d{4}-\d{2}\//,
+              `/${y}-${String((y + 1) % 100).padStart(2, "0")}/`
+            )
+          );
+        }
+      }
+      await Promise.all(
+        [...seasons].map(async (path) => {
+          const page = await read(base + path);
+          if (page) harvest(page);
+        })
+      );
+    }
+  }
+
+  // The NCAA directory sometimes lists the campus website rather than the
+  // athletics one (Bentley, Guilford). The athletics site is normally linked
+  // from the homepage, so follow the site's own outbound links.
+  if (!out.length && home) {
+    const bare = host.replace(/^www\./, "");
+    const external = [
+      ...new Set(
+        [...home.matchAll(/https?:\/\/([a-z0-9.-]+\.[a-z]{2,})/gi)].map((m) => m[1].toLowerCase())
+      ),
+    ].filter((h) => !OFF_SITE.test(h) && !h.endsWith(bare));
+
+    for (const candidate of external.slice(0, 8)) {
+      const page = await read(`https://${candidate}/sports/mens-soccer/roster`);
+      if (page && /\/sports\/[a-z-]+\/roster\//.test(page)) {
+        return rosterLinks(candidate);
+      }
     }
   }
   return out;

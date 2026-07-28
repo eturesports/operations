@@ -59,9 +59,12 @@ export function FilterStats({
     const withMoney = filtered.filter((p) => p.scholarship != null);
     const scholarship = withMoney.reduce((a, p) => a + (p.scholarship ?? 0), 0);
 
-    const minutes = filtered.reduce((a, p) => a + (p.activeProfile?.minutes ?? 0), 0);
-    const goals = filtered.reduce((a, p) => a + (p.activeProfile?.goals ?? 0), 0);
-    const assists = filtered.reduce((a, p) => a + (p.activeProfile?.assists ?? 0), 0);
+    // Every college profile counts, not just the one flagged as playing now:
+    // most of these players have finished, and their minutes are still theirs.
+    const withStats = filtered.filter((p) => p.career);
+    const minutes = withStats.reduce((a, p) => a + (p.career?.minutes ?? 0), 0);
+    const goals = withStats.reduce((a, p) => a + (p.career?.goals ?? 0), 0);
+    const assists = withStats.reduce((a, p) => a + (p.career?.assists ?? 0), 0);
 
     const pct = (n: number) => (ops ? Math.round((n / ops) * 1000) / 10 : 0);
 
@@ -81,6 +84,7 @@ export function FilterStats({
       minutes,
       goals,
       assists,
+      withStats: withStats.length,
     };
   }, [filtered]);
 
@@ -144,18 +148,19 @@ export function FilterStats({
         <Tile
           label="Minutes"
           value={formatNumber(s.minutes)}
-          sub="Current rosters"
+          sub={`${formatNumber(s.withStats)} with stats`}
         />
-        <Tile label="Goals" value={formatNumber(s.goals)} sub="Current rosters" />
-        <Tile label="Assists" value={formatNumber(s.assists)} sub="Current rosters" />
+        <Tile label="Goals" value={formatNumber(s.goals)} sub="Career totals" />
+        <Tile label="Assists" value={formatNumber(s.assists)} sub="Career totals" />
       </div>
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted">
         Percentages are measured against the {formatNumber(s.ops)} operation
         {s.ops === 1 ? "" : "s"} in this selection. Scholarship totals cover only the
-        operations with a recorded amount ({s.coveragePct}%). Minutes, goals and assists
-        come from players marked as playing now, so they reflect live rosters rather than
-        career history.
+        operations with a recorded amount ({s.coveragePct}%). Minutes, goals and assists are
+        career totals across every college profile we have pulled, for the{" "}
+        {formatNumber(s.withStats)} operation{s.withStats === 1 ? "" : "s"} with stats —
+        not only the players on a roster today.
       </p>
     </section>
   );

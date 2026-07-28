@@ -15,10 +15,13 @@ export default async function PlayersPage() {
     prisma.player.findMany({
       include: {
         sport: { select: { code: true, name: true } },
-        // the single "currently playing" profile, if any — drives the Active badge
+        // Every college profile: the current one drives the Active badge, and
+        // all of them together are the player's career, which is what the
+        // stats panel counts. Pulling stats no longer marks anyone as playing
+        // now, so "current only" would report almost nothing.
         profiles: {
-          where: { current: true },
           select: {
+            current: true,
             university: true,
             season: true,
             goals: true,
@@ -27,12 +30,38 @@ export default async function PlayersPage() {
             minutes: true,
             saves: true,
           },
-          take: 1,
+          orderBy: [{ current: "desc" }, { createdAt: "desc" }],
         },
       },
       orderBy: [{ season: "desc" }, { name: "asc" }],
     }),
   ]);
+
+  // A player's totals across every college they have played for. Each
+  // profile already holds their career figures at that university.
+  const careerOf = (
+    profiles: {
+      goals: number | null;
+      assists: number | null;
+      matchesPlayed: number | null;
+      minutes: number | null;
+    }[]
+  ) => {
+    const has = profiles.some(
+      (x) =>
+        x.minutes != null || x.goals != null || x.assists != null || x.matchesPlayed != null
+    );
+    if (!has) return null;
+    const sum = (pick: (x: (typeof profiles)[number]) => number | null) =>
+      profiles.reduce((a, x) => a + (pick(x) ?? 0), 0);
+    return {
+      minutes: sum((x) => x.minutes),
+      goals: sum((x) => x.goals),
+      assists: sum((x) => x.assists),
+      matchesPlayed: sum((x) => x.matchesPlayed),
+      colleges: profiles.length,
+    };
+  };
 
   // Distinct options for filters/dropdowns. Dedupe case-insensitively so
   // near-duplicate variants (e.g. "MLS NEXT PRO" vs "MLS Next Pro") collapse.
@@ -75,7 +104,8 @@ export default async function PlayersPage() {
         graduated: p.graduated,
         graduationYear: p.graduationYear,
         nationalChampion: p.nationalChampion,
-        activeProfile: p.profiles[0] ?? null,
+        activeProfile: p.profiles.find((x) => x.current) ?? null,
+        career: careerOf(p.profiles),
         nationality: p.nationality,
         position: p.position,
         previousClub: p.previousClub,
