@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { trackPointer, useTravellingPill } from "./useTravellingPill";
 
 const TABS = [
   { href: "/dashboard", label: "Authority" },
@@ -10,26 +11,48 @@ const TABS = [
   { href: "/dashboard/programs", label: "Programs" },
   { href: "/dashboard/universities", label: "Universities" },
   { href: "/dashboard/segmentation", label: "Segmentation" },
+  { href: "/dashboard/claims", label: "Claims" },
 ];
 
 export function AnalyticsTabs() {
   const pathname = usePathname();
+  const activeIndex = TABS.findIndex((t) => t.href === pathname);
+  const { container, items, pill, settled } = useTravellingPill<HTMLDivElement>(activeIndex);
+
   return (
-    <div className="flex gap-1 overflow-x-auto rounded-full border border-ink-600 bg-ink-900/40 p-1">
-      {TABS.map((t) => {
-        const active = pathname === t.href;
-        return (
-          <Link
-            key={t.href}
-            href={t.href}
-            className={`whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-              active ? "bg-brand text-white" : "text-muted hover:text-fg"
-            }`}
-          >
-            {t.label}
-          </Link>
-        );
-      })}
+    <div
+      ref={container}
+      onPointerMove={trackPointer}
+      className="liquid-glass relative flex gap-1 overflow-x-auto rounded-full p-1"
+    >
+      {pill && (
+        <span
+          aria-hidden
+          className="nav-pill"
+          style={{
+            top: "0.25rem",
+            bottom: "0.25rem",
+            transform: `translateX(${pill.x}px)`,
+            width: pill.w,
+            transitionDuration: settled ? undefined : "0ms",
+          }}
+        />
+      )}
+      {TABS.map((t, i) => (
+        <Link
+          key={t.href}
+          ref={(el) => {
+            items.current[i] = el;
+          }}
+          href={t.href}
+          aria-current={i === activeIndex ? "page" : undefined}
+          className={`relative z-[2] whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300 ${
+            i === activeIndex ? "text-white" : "text-muted hover:text-fg"
+          }`}
+        >
+          {t.label}
+        </Link>
+      ))}
     </div>
   );
 }

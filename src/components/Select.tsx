@@ -128,7 +128,7 @@ export function Select({
         <ul
           id={listId}
           role="listbox"
-          className="glass absolute z-50 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl p-1"
+          className="glass glass-rim absolute z-50 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl p-1"
         >
           {shown.map((o, i) => {
             const selected = o === value;

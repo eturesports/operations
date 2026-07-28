@@ -779,7 +779,7 @@ export function PlayersClient({
 
       {/* Bulk action bar */}
       {editable && selectedCount > 0 && (
-        <div className="glass sticky top-20 z-20 flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3">
+        <div className="glass glass-rim sticky top-20 z-20 flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3">
           <span className="text-sm font-medium text-fg">
             {selectedCount} selected
           </span>

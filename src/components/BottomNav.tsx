@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Role } from "@prisma/client";
+import { trackPointer, useTravellingPill } from "./useTravellingPill";
 
 type Item = { href: string; label: string; icon: React.ReactNode };
 
@@ -14,7 +14,6 @@ export function BottomNav({ role }: { role: Role }) {
     { href: "/dashboard", label: "Overview", icon: <GridIcon /> },
     { href: "/players", label: "Players", icon: <UsersIcon /> },
     { href: "/showcase", label: "Showcase", icon: <TrophyIcon /> },
-    { href: "/claims", label: "Claims", icon: <QuoteIcon /> },
   ];
   if (role === "ADMIN" || role === "EDITOR")
     items.splice(2, 0, { href: "/links", label: "Links", icon: <LinkIcon /> });
@@ -22,46 +21,13 @@ export function BottomNav({ role }: { role: Role }) {
     items.push({ href: "/users", label: "Access", icon: <ShieldIcon /> });
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
-
-  const bar = useRef<HTMLDivElement>(null);
-  const tabs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
-  // The first paint places the pill without animating it; only later moves
-  // should travel, or every page load would begin with the pill sliding in
-  // from the left.
-  const [settled, setSettled] = useState(false);
-
-  const placePill = useCallback(() => {
-    const index = items.findIndex((it) => isActive(it.href));
-    const el = index >= 0 ? tabs.current[index] : null;
-    setPill(el ? { x: el.offsetLeft, w: el.offsetWidth } : null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
-
-  useLayoutEffect(placePill, [placePill]);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setSettled(true));
-    // Labels reflow between breakpoints, so the pill is re-measured with them.
-    const observer = new ResizeObserver(placePill);
-    if (bar.current) observer.observe(bar.current);
-    return () => {
-      cancelAnimationFrame(id);
-      observer.disconnect();
-    };
-  }, [placePill]);
-
-  // Where the light falls, for the specular highlight.
-  function trackPointer(e: React.PointerEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
-  }
+  const activeIndex = items.findIndex((it) => isActive(it.href));
+  const { container, items: tabs, pill, settled } = useTravellingPill<HTMLDivElement>(activeIndex);
 
   return (
     <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))]">
       <div
-        ref={bar}
+        ref={container}
         onPointerMove={trackPointer}
         className="liquid-glass pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 shadow-glow"
       >
@@ -77,7 +43,7 @@ export function BottomNav({ role }: { role: Role }) {
           />
         )}
         {items.map((it, i) => {
-          const active = isActive(it.href);
+          const active = i === activeIndex;
           return (
             <Link
               key={it.href}
@@ -140,13 +106,6 @@ function TrophyIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
       <path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3" />
-    </svg>
-  );
-}
-function QuoteIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 21v-4a4 4 0 0 1 4-4h1M3 9a4 4 0 0 1 4-4h1M14 21v-4a4 4 0 0 1 4-4h1M14 9a4 4 0 0 1 4-4h1" />
     </svg>
   );
 }

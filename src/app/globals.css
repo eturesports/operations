@@ -117,31 +117,22 @@ body {
       inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
   }
   .card {
-    @apply glass rounded-2xl;
+    @apply glass glass-rim rounded-2xl;
   }
 
-  /* Liquid glass: the same surface, given the two things that make Apple's
-     version read as glass rather than as a blurred rectangle — an edge that
-     catches light unevenly, and a specular highlight that tracks the pointer.
-     Both live on pseudo-elements so no extra markup is needed, and both are
-     purely decorative, so they never intercept a click. */
-  .liquid-glass {
-    @apply glass;
+  /* The refracting edge. A gradient drawn only on the border box, brightest
+     where light would land and thinning away from it — the detail that makes
+     a translucent panel read as glass rather than as a blurred rectangle.
+     It is safe on any surface: nothing is clipped and no child rules apply. */
+  .glass-rim {
     position: relative;
-    isolation: isolate;
-    overflow: hidden;
   }
-  .liquid-glass::before,
-  .liquid-glass::after {
+  .glass-rim::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-  }
-  /* The rim. A gradient drawn only on the border box, brightest where light
-     would land and thinning away from it. */
-  .liquid-glass::before {
     padding: 1px;
     background: linear-gradient(
       140deg,
@@ -160,9 +151,19 @@ body {
     mask-composite: exclude;
     z-index: 1;
   }
-  /* The specular sheen, centred whereever the pointer is. --mx/--my are set
-     by the component; with no pointer it rests off to one side. */
+
+  /* The rim plus a specular highlight that tracks the pointer. Reserved for
+     surfaces whose children are ours — the sheen has to sit under the
+     content, which means positioning the children. */
+  .liquid-glass {
+    @apply glass glass-rim;
+  }
   .liquid-glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
     background: radial-gradient(
       120px circle at var(--mx, 30%) var(--my, 0%),
       rgb(255 255 255 / calc(var(--glass-hi) * 0.45)),
