@@ -265,6 +265,34 @@ export function canonicalOne(raw: string | null | undefined): string {
   return c[0] ?? (raw ?? "").trim();
 }
 
+/**
+ * Grouping key for a university name.
+ *
+ * The sheet holds the same institution written many ways — "CLEMSON",
+ * "Clemson University", "University of Evansville", "Evansville" — so the key
+ * drops the generic words that carry no identity. "Clemson" and "Clemson
+ * University" therefore land in the same bucket without needing an alias each.
+ */
 export function uniKey(name: string): string {
-  return name.trim().toLowerCase();
+  return (
+    name
+      .toLowerCase()
+      .replace(/[.,]/g, "")
+      .replace(/\b(university|univ|college|of|the)\b/g, " ")
+      .replace(/[^a-z0-9&' -]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim() ||
+    // never collapse to nothing (a name made only of generic words)
+    name.trim().toLowerCase()
+  );
+}
+
+/**
+ * Of several spellings that share a key, the one to show: prefer a properly
+ * capitalized name over a shouted one, then the more complete spelling.
+ */
+export function preferDisplay(a: string, b: string): string {
+  const mixed = (s: string) => /[a-z]/.test(s) && /[A-Z]/.test(s);
+  if (mixed(a) !== mixed(b)) return mixed(a) ? a : b;
+  return b.length > a.length ? b : a;
 }

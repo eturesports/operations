@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { seasonSortKey } from "@/lib/format";
-import { canonicalizeUniversity, uniKey } from "@/lib/universities";
+import { canonicalizeUniversity, uniKey, preferDisplay } from "@/lib/universities";
 
 const norm = (s: string | null | undefined) => (s ?? "").trim().toLowerCase();
 const isNCAA = (d: string | null) =>
@@ -137,12 +137,18 @@ export async function getSeasonBreakdown(): Promise<SeasonBreakdown> {
     const ncaa = list.filter((r) => isNCAA(r.division)).length;
     const amounts = list.filter((r) => r.scholarship != null).map((r) => r.scholarship!);
 
-    const uniCounts = new Map<string, number>();
+    const uniCounts = new Map<string, { name: string; ops: number }>();
     for (const r of list)
-      for (const u of canonicalizeUniversity(r.university))
-        uniCounts.set(u, (uniCounts.get(u) ?? 0) + 1);
+      for (const u of canonicalizeUniversity(r.university)) {
+        const k = uniKey(u);
+        const cur = uniCounts.get(k);
+        uniCounts.set(k, {
+          name: cur ? preferDisplay(cur.name, u) : u,
+          ops: (cur?.ops ?? 0) + 1,
+        });
+      }
     const topUniversity =
-      [...uniCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+      [...uniCounts.values()].sort((a, b) => b.ops - a.ops)[0]?.name ?? null;
 
     const progCounts = new Map<string, number>();
     for (const r of list) {
@@ -335,15 +341,19 @@ export async function getProgramStats(): Promise<ProgramStat[]> {
   for (const [program, list] of groups) {
     const d1 = list.filter((r) => isD1(r.division)).length;
     const amounts = list.filter((r) => r.scholarship != null).map((r) => r.scholarship!) ;
-    const uniCounts = new Map<string, number>();
+    const uniCounts = new Map<string, { name: string; ops: number }>();
     for (const r of list)
       for (const u of canonicalizeUniversity(r.university)) {
-        uniCounts.set(u, (uniCounts.get(u) ?? 0) + 1);
+        const k = uniKey(u);
+        const cur = uniCounts.get(k);
+        uniCounts.set(k, {
+          name: cur ? preferDisplay(cur.name, u) : u,
+          ops: (cur?.ops ?? 0) + 1,
+        });
       }
-    const topUniversities = [...uniCounts.entries()]
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 5)
-      .map(([name, ops]) => ({ name, ops }));
+    const topUniversities = [...uniCounts.values()]
+      .sort((a, b) => b.ops - a.ops)
+      .slice(0, 5);
 
     out.push({
       program,
@@ -418,6 +428,7 @@ export async function getUniversityNetwork(): Promise<UniversityNetwork> {
           scholarship: 0,
           schCount: 0,
         };
+      a.name = preferDisplay(a.name, name);
       a.ops += 1;
       a.players.add(norm(r.name));
       if (r.season) a.seasons.add(r.season.trim());
