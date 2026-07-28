@@ -2,6 +2,7 @@ import { signOut } from "@/auth";
 import { requireSession } from "@/lib/guards";
 import { TopBar } from "@/components/TopBar";
 import { BottomNav } from "@/components/BottomNav";
+import { GlassFilter } from "@/components/GlassFilter";
 
 export default async function AppLayout({
   children,
@@ -17,6 +18,7 @@ export default async function AppLayout({
 
   return (
     <div className="min-h-screen">
+      <GlassFilter />
       <div className="mx-auto max-w-6xl px-3 sm:px-4">
         <TopBar user={session.user} signOutAction={signOutAction} />
         <main className="py-6 pb-28">{children}</main>
