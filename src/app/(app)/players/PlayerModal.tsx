@@ -449,10 +449,14 @@ export function PlayerModal({
                 <label className="label">NCAA profile</label>
                 <input
                   className="input"
-                  placeholder="https://…"
+                  placeholder="https://university.com/sports/mens-soccer/roster/…"
                   value={form.ncaaUrl}
                   onChange={(e) => set("ncaaUrl", e.target.value)}
                 />
+                <p className="mt-1 text-[11px] text-muted">
+                  Their roster page. This is the only place the link goes — stats are
+                  pulled from it.
+                </p>
               </div>
               <div>
                 <label className="label">Instagram</label>

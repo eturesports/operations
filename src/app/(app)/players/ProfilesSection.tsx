@@ -33,7 +33,6 @@ type Draft = {
   jersey: string;
   ncaaSport: string;
   ncaaDivision: string;
-  rosterUrl: string;
   matchesPlayed: string;
   minutes: string;
   goals: string;
@@ -51,7 +50,6 @@ const empty: Draft = {
   jersey: "",
   ncaaSport: "soccer-men",
   ncaaDivision: "d1",
-  rosterUrl: "",
   matchesPlayed: "",
   minutes: "",
   goals: "",
@@ -72,7 +70,6 @@ function toDraft(p: Profile): Draft {
     jersey: p.jersey ?? "",
     ncaaSport: p.ncaaSport ?? "soccer-men",
     ncaaDivision: p.ncaaDivision ?? "d1",
-    rosterUrl: p.rosterUrl ?? "",
     matchesPlayed: s(p.matchesPlayed),
     minutes: s(p.minutes),
     goals: s(p.goals),
@@ -100,10 +97,13 @@ export function ProfilesSection({
   seasonOptions,
   editable,
   defaults,
+  playerNcaaUrl,
 }: {
   playerId: string;
   seasonOptions: string[];
   editable: boolean;
+  /** the single place the NCAA link lives — shown here, edited on the player */
+  playerNcaaUrl?: string | null;
   // seeded from the player record so "mark as playing" is one click, not a form
   defaults?: { university?: string | null; season?: string | null; division?: string | null };
 }) {
@@ -223,7 +223,6 @@ export function ProfilesSection({
       jersey: draft.jersey.trim() || null,
       ncaaSport: draft.ncaaSport,
       ncaaDivision: draft.ncaaDivision,
-      rosterUrl: draft.rosterUrl.trim() || null,
       matchesPlayed: num(draft.matchesPlayed),
       minutes: num(draft.minutes),
       goals: num(draft.goals),
@@ -483,6 +482,7 @@ export function ProfilesSection({
         <ProfileForm
           draft={draft}
           seasonOptions={seasonOptions}
+          playerNcaaUrl={playerNcaaUrl}
           busy={busy}
           onChange={set}
           onCancel={() => {
@@ -499,6 +499,7 @@ export function ProfilesSection({
 function ProfileForm({
   draft,
   seasonOptions,
+  playerNcaaUrl,
   busy,
   onChange,
   onCancel,
@@ -506,6 +507,7 @@ function ProfileForm({
 }: {
   draft: Draft;
   seasonOptions: string[];
+  playerNcaaUrl?: string | null;
   busy: boolean;
   onChange: <K extends keyof Draft>(k: K, v: Draft[K]) => void;
   onCancel: () => void;
@@ -598,13 +600,18 @@ function ProfileForm({
           </select>
         </div>
         <div className="col-span-2">
-          <label className="label">Roster / profile URL</label>
-          <input
-            className="input"
-            placeholder="https://…"
-            value={draft.rosterUrl}
-            onChange={(e) => onChange("rosterUrl", e.target.value)}
-          />
+          <label className="label">NCAA profile link</label>
+          <div className="input flex items-center gap-2 text-xs text-muted">
+            {playerNcaaUrl ? (
+              <span className="truncate" title={playerNcaaUrl}>{playerNcaaUrl}</span>
+            ) : (
+              <span>Not set</span>
+            )}
+          </div>
+          <p className="mt-1 text-[11px] text-muted">
+            Taken from the player&apos;s NCAA profile field — edit it there and every
+            profile uses it.
+          </p>
         </div>
       </div>
 

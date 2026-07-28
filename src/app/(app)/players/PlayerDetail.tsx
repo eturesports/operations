@@ -107,6 +107,7 @@ export function PlayerDetail({
           playerId={player.id}
           seasonOptions={seasonOptions}
           editable={editable}
+          playerNcaaUrl={player.ncaaUrl}
           defaults={{
             university: player.university,
             season: player.season,
