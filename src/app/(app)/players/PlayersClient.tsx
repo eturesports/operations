@@ -10,6 +10,7 @@ import { BulkEditModal, type BulkPatch } from "./BulkEditModal";
 import { PlayerDetail } from "./PlayerDetail";
 import { Select } from "@/components/Select";
 import { PlayerCard } from "./PlayerCard";
+import { FilterStats } from "./FilterStats";
 
 export type PlayerRow = {
   id: string;
@@ -33,6 +34,7 @@ export type PlayerRow = {
   active: boolean;
   graduated: boolean;
   graduationYear: number | null;
+  nationalChampion: boolean;
   // set when the player has a profile marked as their current NCAA roster
   activeProfile: {
     university: string;
@@ -355,6 +357,7 @@ export function PlayersClient({
       playingNow: form.playingNow,
       graduated: form.graduated,
       graduationYear: form.graduationYear,
+      nationalChampion: form.nationalChampion,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {
@@ -394,6 +397,7 @@ export function PlayersClient({
       active: player.active,
       graduated: player.graduated,
       graduationYear: player.graduationYear,
+      nationalChampion: player.nationalChampion,
       // reflect the playing-now toggle immediately; router.refresh() then
       // replaces this with the authoritative profile from the server
       activeProfile: form.playingNow
@@ -526,10 +530,10 @@ export function PlayersClient({
   }
 
   function exportCSV() {
-    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Graduated", "Graduation year", "Status", "Notes"];
+    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Graduated", "Graduation year", "National champion", "Status", "Notes"];
     const rows = (selectedCount > 0 ? filtered.filter((p) => selected.has(p.id)) : filtered);
     const lines = rows.map((p) =>
-      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", p.graduated ? "Yes" : "No", p.graduationYear ?? "", p.active ? "Active" : "Inactive", (p.notes ?? "").replace(/\n/g, " ")]
+      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", p.graduated ? "Yes" : "No", p.graduationYear ?? "", p.nationalChampion ? "Yes" : "No", p.active ? "Active" : "Inactive", (p.notes ?? "").replace(/\n/g, " ")]
         .map((c) => `"${String(c).replace(/"/g, '""')}"`)
         .join(",")
     );
@@ -684,6 +688,8 @@ export function PlayersClient({
           </div>
         </div>
       )}
+
+      <FilterStats rows={players} filtered={filtered} />
 
       {/* Suggestions shared by every inline cell editor */}
       <datalist id="cell-season-list">

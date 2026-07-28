@@ -74,6 +74,7 @@ export default async function PlayersPage() {
         active: p.active,
         graduated: p.graduated,
         graduationYear: p.graduationYear,
+        nationalChampion: p.nationalChampion,
         activeProfile: p.profiles[0] ?? null,
         nationality: p.nationality,
         position: p.position,

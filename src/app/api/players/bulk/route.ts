@@ -81,6 +81,7 @@ export async function POST(req: Request) {
       "active",
       "graduated",
       "graduationYear",
+      "nationalChampion",
     ] as const;
     const raw = body.patch ?? {};
     const filtered: Record<string, unknown> = {};

@@ -12,6 +12,7 @@ export type BulkPatch = {
   playingNow?: boolean;
   graduated?: boolean;
   graduationYear?: number | null;
+  nationalChampion?: boolean;
 };
 
 // Tri-state selects: "" leaves the field untouched.
@@ -28,6 +29,12 @@ const PLAYING_LABEL: Record<TriState, string> = {
 };
 const LABEL_PLAYING: Record<string, TriState> = {
   "Keep unchanged": "", "Playing now": "yes", "Not playing": "no",
+};
+const CHAMP_LABEL: Record<TriState, string> = {
+  "": "Keep unchanged", yes: "National champion", no: "Not a champion",
+};
+const LABEL_CHAMP: Record<string, TriState> = {
+  "Keep unchanged": "", "National champion": "yes", "Not a champion": "no",
 };
 const GRAD_LABEL: Record<TriState, string> = {
   "": "Keep unchanged", yes: "Graduated", no: "Not graduated",
@@ -56,6 +63,7 @@ export function BulkEditModal({
   const [status, setStatus] = useState<TriState>("");
   const [playing, setPlaying] = useState<TriState>("");
   const [graduated, setGraduated] = useState<TriState>("");
+  const [champion, setChampion] = useState<TriState>("");
   const [graduationYear, setGraduationYear] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -69,6 +77,7 @@ export function BulkEditModal({
     if (status) patch.active = status === "yes";
     if (playing) patch.playingNow = playing === "yes";
     if (graduated) patch.graduated = graduated === "yes";
+    if (champion) patch.nationalChampion = champion === "yes";
     if (graduationYear.trim()) {
       const y = parseInt(graduationYear.replace(/[^\d]/g, ""), 10);
       if (Number.isNaN(y) || y < 1950 || y > 2100) {
@@ -172,6 +181,16 @@ export function BulkEditModal({
             <p className="mt-1 text-xs text-muted">
               Archived players stay in the database but are excluded from dashboards and analytics.
             </p>
+          </div>
+
+          <div>
+            <label className="label">National champion</label>
+            <Select
+              value={CHAMP_LABEL[champion]}
+              options={["Keep unchanged", "National champion", "Not a champion"]}
+              onChange={(v) => setChampion(LABEL_CHAMP[v] ?? "")}
+              ariaLabel="National champion"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-3">

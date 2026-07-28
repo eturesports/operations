@@ -26,6 +26,7 @@ export type PlayerForm = {
   playingNow: boolean;
   graduated: boolean;
   graduationYear: string;
+  nationalChampion: boolean;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -151,6 +152,7 @@ export function PlayerModal({
     active: initial?.active ?? true,
     playingNow: initial?.activeProfile != null,
     graduated: initial?.graduated ?? false,
+    nationalChampion: initial?.nationalChampion ?? false,
     graduationYear:
       initial?.graduationYear != null ? String(initial.graduationYear) : "",
   });
@@ -416,6 +418,17 @@ export function PlayerModal({
                     onChange={(e) => set("graduated", e.target.checked)}
                   />
                   Graduated
+                </label>
+              </div>
+              <div className="flex items-center rounded-lg border border-ink-600 bg-ink-900/40 px-3 py-2 sm:col-span-2">
+                <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4 accent-accent"
+                    checked={form.nationalChampion}
+                    onChange={(e) => set("nationalChampion", e.target.checked)}
+                  />
+                  🏆 Won an NCAA national championship
                 </label>
               </div>
               <div>
