@@ -76,13 +76,35 @@ function nameTokens(s: string): Set<string> {
   );
 }
 
+const deaccent = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+// Name parts as written, accents intact, so we can tell which ones a URL
+// would have mangled.
+function rawTokens(s: string): string[] {
+  return s.split(/[^\p{L}]+/u).filter((w) => deaccent(w).length > 1);
+}
+
+// Roster URLs strip accented letters instead of transliterating them:
+// "Álvaro Timón" becomes "-lvaro-tim-n", so those parts arrive clipped. That
+// only happens to a part that carried an accent — for a plain one the URL is
+// exact, and demanding an exact match there is what stops "marc-garcia" from
+// claiming Marco García's season.
+function samePart(reported: string, fromUrl: string): boolean {
+  const plain = deaccent(reported);
+  if (plain === fromUrl) return true;
+  if (plain === reported.toLowerCase()) return false; // nothing was stripped
+  if (fromUrl.length < 3 || fromUrl.length >= plain.length) return false;
+  return plain.startsWith(fromUrl) || plain.endsWith(fromUrl);
+}
+
+/** @param b the name as it appears in the roster URL */
 function sameName(a: string, b: string): boolean {
-  const A = nameTokens(a);
+  const A = rawTokens(a);
   const B = nameTokens(b);
-  if (A.size === 0 || B.size === 0) return false;
-  const shared = [...A].filter((w) => B.has(w)).length;
+  if (A.length === 0 || B.size === 0) return false;
+  const shared = A.filter((w) => [...B].some((x) => samePart(w, x))).length;
   // every part of the shorter name must appear in the longer one
-  return shared === Math.min(A.size, B.size);
+  return shared === Math.min(A.length, B.size);
 }
 
 type StatRow = Record<string, unknown> & { player_roster_bio_id?: string };

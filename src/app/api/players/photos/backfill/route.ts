@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
-import { adoptRosterPhoto, mirrorPhoto, NO_STORAGE } from "@/lib/playerPhoto";
+import { adoptRosterPhoto, mirrorPhoto } from "@/lib/playerPhoto";
+import { blobToken, NO_STORAGE } from "@/lib/blob";
 import { isOurCopy } from "@/lib/photo";
 import { logAudit } from "@/lib/audit";
 
@@ -27,7 +28,7 @@ export async function POST() {
   if (!canEdit(session.user.role)) {
     return NextResponse.json({ error: "No permission" }, { status: 403 });
   }
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  if (!blobToken()) {
     return NextResponse.json({ error: NO_STORAGE }, { status: 501 });
   }
 

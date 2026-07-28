@@ -3,6 +3,8 @@
 // an environment variable to deployments built after it was added, so a value
 // can be set in the dashboard and still be missing here until a redeploy.
 
+import { blobToken } from "@/lib/blob";
+
 function Row({
   label,
   ok,
@@ -36,7 +38,7 @@ function Row({
 }
 
 export function SystemStatus() {
-  const blob = !!process.env.BLOB_READ_WRITE_TOKEN;
+  const blob = !!blobToken();
   const cron = !!process.env.CRON_SECRET;
 
   return (

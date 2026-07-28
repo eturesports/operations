@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
+import { blobToken, NO_STORAGE } from "@/lib/blob";
 import { auth } from "@/auth";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
@@ -13,7 +14,8 @@ export async function POST(req: Request) {
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  const token = blobToken();
+  if (!token) {
     return NextResponse.json(
       {
         error:
@@ -39,10 +41,7 @@ export async function POST(req: Request) {
   const key = `players/${crypto.randomUUID()}.${ext}`;
 
   try {
-    const blob = await put(key, file, {
-      access: "public",
-      contentType: file.type,
-    });
+    const blob = await put(key, file, { access: "public", contentType: file.type, token });
     return NextResponse.json({ url: blob.url });
   } catch (e) {
     return NextResponse.json(

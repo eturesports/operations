@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
+import { blobToken, NO_STORAGE } from "@/lib/blob";
 import { resolveShareToken, noteShareUse } from "@/lib/share";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
@@ -14,7 +15,8 @@ export async function POST(
   if (!share.ok) {
     return NextResponse.json({ error: share.reason }, { status: share.status });
   }
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  const token = blobToken();
+  if (!token) {
     return NextResponse.json(
       { error: "Image uploads aren't enabled yet — paste an image URL instead." },
       { status: 501 }
@@ -35,10 +37,7 @@ export async function POST(
 
   const ext = (file.name.split(".").pop() ?? "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
   try {
-    const blob = await put(`players/${crypto.randomUUID()}.${ext}`, file, {
-      access: "public",
-      contentType: file.type,
-    });
+    const blob = await put(`players/${crypto.randomUUID()}.${ext}`, file, { access: "public", contentType: file.type, token });
     await noteShareUse(share.linkId);
     return NextResponse.json({ url: blob.url });
   } catch (e) {

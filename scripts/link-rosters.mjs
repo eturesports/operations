@@ -30,27 +30,37 @@ const uniKey = (s) =>
     .replace(/\s+/g, " ")
     .trim()) || s.trim().toLowerCase();
 
-const tokens = (s) =>
-  new Set(
-    s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
-      .split(/[^a-z]+/).filter((w) => w.length > 1)
-  );
+const deaccent = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
-// Athletics sites mangle accents into their slugs: "Javier Solá" becomes
-// "javier-sol-mart-nez". A truncated stem still identifies the name.
-const sameWord = (a, b) =>
-  a === b || (a.length >= 3 && b.length >= 3 && (a.startsWith(b) || b.startsWith(a)));
+const tokens = (s) =>
+  new Set(deaccent(s).split(/[^a-z]+/).filter((w) => w.length > 1));
+
+// Our own records keep their accents, so they are compared as written.
+const rawTokens = (s) => s.split(/[^\p{L}]+/u).filter((w) => deaccent(w).length > 1);
+
+// Athletics sites mangle accents into their slugs: "Javier Solá Martínez"
+// becomes "javier-sol-mart-nez". Only a part that carried an accent can lose
+// letters that way; for a plain part the slug is exact, and requiring that
+// keeps a roster's Marco from matching our Marc.
+const sameWord = (fromSlug, ours) => {
+  const plain = deaccent(ours);
+  if (plain === fromSlug) return true;
+  if (plain === ours.toLowerCase()) return false;
+  if (fromSlug.length < 3 || fromSlug.length >= plain.length) return false;
+  return plain.startsWith(fromSlug) || plain.endsWith(fromSlug);
+};
 
 // Every part of the shorter name must appear in the longer one. Returns how
 // many parts matched, because one shared part is far weaker evidence than two:
 // a record holding only "Cristobal" would otherwise match any Cristobal on the
 // roster, and a wrong link would credit someone else's stats to our player.
+// @param a the name as it appears in the roster URL, b ours
 function nameMatch(a, b) {
   const A = tokens(a);
-  const B = tokens(b);
-  if (!A.size || !B.size) return 0;
-  const shared = [...A].filter((w) => [...B].some((x) => sameWord(w, x))).length;
-  return shared === Math.min(A.size, B.size) ? shared : 0;
+  const B = rawTokens(b);
+  if (!A.size || !B.length) return 0;
+  const shared = B.filter((ours) => [...A].some((x) => sameWord(x, ours))).length;
+  return shared === Math.min(A.size, B.length) ? shared : 0;
 }
 
 // Most of our players have already left, so the current roster alone finds

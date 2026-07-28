@@ -8,11 +8,11 @@
 import { put } from "@vercel/blob";
 import { prisma } from "@/lib/prisma";
 import { fetchRosterPhoto, isOurCopy } from "@/lib/photo";
+import { blobToken, NO_STORAGE } from "@/lib/blob";
 
 const MAX_BYTES = 8 * 1024 * 1024;
 
-export const NO_STORAGE =
-  "Image storage is not enabled yet. Create a Blob store in Vercel (Storage → Create → Blob) and redeploy.";
+export { NO_STORAGE };
 
 export type PhotoAdoption =
   | { added: false; reason?: string }
@@ -35,7 +35,8 @@ async function storeCopy(
   imageUrl: string,
   referer: string
 ): Promise<Stored> {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) return { ok: false, reason: NO_STORAGE };
+  const token = blobToken();
+  if (!token) return { ok: false, reason: NO_STORAGE };
 
   const res = await fetch(imageUrl, {
     headers: { referer, "user-agent": "Mozilla/5.0" },
@@ -58,7 +59,7 @@ async function storeCopy(
   const blob = await put(
     `players/${playerId}-${Date.now()}.${extensionFor(contentType, imageUrl)}`,
     bytes,
-    { access: "public", contentType }
+    { access: "public", contentType, token }
   );
   return { ok: true, url: blob.url };
 }
