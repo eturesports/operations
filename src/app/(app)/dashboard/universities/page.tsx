@@ -1,15 +1,35 @@
 import { requireSession } from "@/lib/guards";
-import { getUniversityNetwork } from "@/lib/analytics";
-import { formatNumber } from "@/lib/format";
-import { StatCard } from "@/components/StatCard";
+import { prisma } from "@/lib/prisma";
 import { AnalyticsTabs } from "@/components/AnalyticsTabs";
-import { UniversitiesTable } from "./UniversitiesTable";
+import { UniversitiesTable, type OperationRow } from "./UniversitiesTable";
 
 export const dynamic = "force-dynamic";
 
 export default async function UniversitiesPage() {
   await requireSession();
-  const net = await getUniversityNetwork();
+
+  // The ranking is built in the browser so the filters answer instantly;
+  // this is the raw material for it, and it is only a few hundred rows.
+  const players = await prisma.player.findMany({
+    where: { active: true },
+    select: {
+      name: true,
+      university: true,
+      season: true,
+      division: true,
+      program: true,
+      scholarship: true,
+    },
+  });
+
+  const rows: OperationRow[] = players.map((p) => ({
+    player: p.name,
+    university: p.university,
+    season: p.season,
+    division: p.division,
+    program: p.program,
+    scholarship: p.scholarship,
+  }));
 
   return (
     <div className="space-y-6">
@@ -17,26 +37,22 @@ export default async function UniversitiesPage() {
         <div className="kicker mb-1">Data Intelligence</div>
         <h1 className="text-2xl font-bold text-fg sm:text-3xl">University Network</h1>
         <p className="text-sm text-muted">
-          Click any column header to reorder — by scholarships, seasons, players and more.
-          Names are normalized (best-effort).
+          Which universities take our players, how many, and how much they fund. Filter by
+          season, division or program, and click any column to reorder.
         </p>
       </div>
 
       <AnalyticsTabs />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <StatCard label="Universities (normalized)" value={formatNumber(net.totalUniversities)} />
-        <StatCard label="Recurring partners" value={formatNumber(net.partners)} sub="3+ operations" />
-        <StatCard label="Avg operations / university" value={String(net.avgOpsPerUniversity)} />
-      </div>
-
-      <UniversitiesTable universities={net.universities} />
+      <UniversitiesTable rows={rows} />
 
       <p className="text-xs leading-relaxed text-muted">
-        <b className="text-fg">Relationship tier</b> is an orientative 0–100 score combining volume,
-        seasons of continuity, recency and average scholarship. University names are normalized
-        best-effort (aliases like OSU / Oregon St. → Oregon State University); the alias map is still
-        being refined, so some entries may need manual review.
+        <b className="text-fg">Signed</b> counts operations, so a player who returns to the same
+        university in a later season counts twice; <b className="text-fg">Players</b> counts each
+        person once. Scholarship figures cover only the records that carry an amount, and a record
+        naming two universities is credited to the first so the money is not counted twice.{" "}
+        <b className="text-fg">Tier</b> is an orientative 0–100 score combining volume, seasons of
+        continuity, recency and average scholarship. University names are normalized best-effort.
       </p>
     </div>
   );
