@@ -152,21 +152,6 @@ body {
     z-index: 1;
   }
 
-  /* Refraction, on the surfaces that float: the backdrop is pushed around by
-     a soft noise field before it is blurred, so the page behind a panel bends
-     the way it would through glass.
-     Two guards. It is opt-in through @supports because Safari rejects url()
-     in backdrop-filter, and an unguarded declaration would take the blur down
-     with it — a refusal must cost the effect, never the whole surface. And it
-     is scoped to .liquid-glass, never .card: measured in Chromium, forty
-     refracting panels cost three times the frame budget, while the handful of
-     bars and modals cost about a quarter more. */
-  @supports (backdrop-filter: url("#eture-lens")) {
-    .liquid-glass {
-      backdrop-filter: url("#eture-lens") blur(20px) saturate(135%);
-    }
-  }
-
   /* The rim plus a specular highlight that tracks the pointer. Reserved for
      surfaces whose children are ours — the sheen has to sit under the
      content, which means positioning the children. */
