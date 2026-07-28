@@ -1,0 +1,5472 @@
+[
+ {
+  "name": "Abilene Christian University",
+  "division": "I",
+  "domain": "www.acusports.com"
+ },
+ {
+  "name": "University of Akron",
+  "division": "I",
+  "domain": "gozips.com"
+ },
+ {
+  "name": "University of Alabama",
+  "division": "I",
+  "domain": "www.rolltide.com"
+ },
+ {
+  "name": "Alabama A&M University",
+  "division": "I",
+  "domain": "www.aamusports.com"
+ },
+ {
+  "name": "Alabama State University",
+  "division": "I",
+  "domain": "www.bamastatesports.com"
+ },
+ {
+  "name": "University of Alabama at Birmingham",
+  "division": "I",
+  "domain": "www.uabsports.com"
+ },
+ {
+  "name": "University at Albany",
+  "division": "I",
+  "domain": "www.ualbanysports.com"
+ },
+ {
+  "name": "Alcorn State University",
+  "division": "I",
+  "domain": "www.alcornsports.com"
+ },
+ {
+  "name": "American University",
+  "division": "I",
+  "domain": "www.aueagles.com"
+ },
+ {
+  "name": "Appalachian State University",
+  "division": "I",
+  "domain": "appstatesports.com"
+ },
+ {
+  "name": "University of Arizona",
+  "division": "I",
+  "domain": "www.arizonawildcats.com"
+ },
+ {
+  "name": "Arizona State University",
+  "division": "I",
+  "domain": "sundevils.com"
+ },
+ {
+  "name": "Arkansas State University",
+  "division": "I",
+  "domain": "www.astateredwolves.com"
+ },
+ {
+  "name": "University of Arkansas, Fayetteville",
+  "division": "I",
+  "domain": "arkansasrazorbacks.com"
+ },
+ {
+  "name": "University of Arkansas at Little Rock",
+  "division": "I",
+  "domain": "lrtrojans.com"
+ },
+ {
+  "name": "University of Arkansas, Pine Bluff",
+  "division": "I",
+  "domain": "uapblionsroar.com"
+ },
+ {
+  "name": "Auburn University",
+  "division": "I",
+  "domain": "www.auburntigers.com"
+ },
+ {
+  "name": "Austin Peay State University",
+  "division": "I",
+  "domain": "www.letsgopeay.com"
+ },
+ {
+  "name": "Ball State University",
+  "division": "I",
+  "domain": "www.ballstatesports.com"
+ },
+ {
+  "name": "Baylor University",
+  "division": "I",
+  "domain": "www.baylorbears.com"
+ },
+ {
+  "name": "Bellarmine University",
+  "division": "I",
+  "domain": "athletics.bellarmine.edu"
+ },
+ {
+  "name": "Belmont University",
+  "division": "I",
+  "domain": "www.belmontbruins.com"
+ },
+ {
+  "name": "Bethune-Cookman University",
+  "division": "I",
+  "domain": "www.bcuathletics.com"
+ },
+ {
+  "name": "Binghamton University",
+  "division": "I",
+  "domain": "www.bubearcats.com"
+ },
+ {
+  "name": "Boise State University",
+  "division": "I",
+  "domain": "www.broncosports.com"
+ },
+ {
+  "name": "Boston College",
+  "division": "I",
+  "domain": "www.bceagles.com"
+ },
+ {
+  "name": "Boston University",
+  "division": "I",
+  "domain": "www.goterriers.com"
+ },
+ {
+  "name": "Bowling Green State University",
+  "division": "I",
+  "domain": "www.bgsufalcons.com"
+ },
+ {
+  "name": "Bradley University",
+  "division": "I",
+  "domain": "www.bradleybraves.com"
+ },
+ {
+  "name": "Brigham Young University",
+  "division": "I",
+  "domain": "byucougars.com"
+ },
+ {
+  "name": "Brown University",
+  "division": "I",
+  "domain": "www.brownbears.com"
+ },
+ {
+  "name": "Bryant University",
+  "division": "I",
+  "domain": "www.bryantbulldogs.com"
+ },
+ {
+  "name": "Bucknell University",
+  "division": "I",
+  "domain": "bucknellbison.com"
+ },
+ {
+  "name": "University at Buffalo, the State University of New York",
+  "division": "I",
+  "domain": "www.ubbulls.com"
+ },
+ {
+  "name": "Butler University",
+  "division": "I",
+  "domain": "www.butlersports.com"
+ },
+ {
+  "name": "California Baptist University",
+  "division": "I",
+  "domain": "www.cbulancers.com"
+ },
+ {
+  "name": "California Polytechnic State University",
+  "division": "I",
+  "domain": "gopoly.com"
+ },
+ {
+  "name": "California State University, Bakersfield",
+  "division": "I",
+  "domain": "www.gorunners.com"
+ },
+ {
+  "name": "California State University, Fresno",
+  "division": "I",
+  "domain": "www.gobulldogs.com"
+ },
+ {
+  "name": "California State University, Fullerton",
+  "division": "I",
+  "domain": "www.fullertontitans.com"
+ },
+ {
+  "name": "California State University, Northridge",
+  "division": "I",
+  "domain": "www.gomatadors.com"
+ },
+ {
+  "name": "California State University, Sacramento",
+  "division": "I",
+  "domain": "www.hornetsports.com"
+ },
+ {
+  "name": "University of California, Berkeley",
+  "division": "I",
+  "domain": "www.calbears.com"
+ },
+ {
+  "name": "University of California, Davis",
+  "division": "I",
+  "domain": "www.ucdavisaggies.com"
+ },
+ {
+  "name": "University of California, Irvine",
+  "division": "I",
+  "domain": "ucirvinesports.com"
+ },
+ {
+  "name": "University of California, Los Angeles",
+  "division": "I",
+  "domain": "www.uclabruins.com"
+ },
+ {
+  "name": "University of California, Riverside",
+  "division": "I",
+  "domain": "www.gohighlanders.com"
+ },
+ {
+  "name": "University of California, San Diego",
+  "division": "I",
+  "domain": "www.ucsdtritons.com"
+ },
+ {
+  "name": "University of California, Santa Barbara",
+  "division": "I",
+  "domain": "ucsbgauchos.com"
+ },
+ {
+  "name": "Campbell University",
+  "division": "I",
+  "domain": "www.gocamels.com"
+ },
+ {
+  "name": "Canisius University",
+  "division": "I",
+  "domain": "www.gogriffs.com"
+ },
+ {
+  "name": "University of Central Arkansas",
+  "division": "I",
+  "domain": "www.ucasports.com"
+ },
+ {
+  "name": "Central Connecticut State University",
+  "division": "I",
+  "domain": "www.ccsubluedevils.com"
+ },
+ {
+  "name": "University of Central Florida",
+  "division": "I",
+  "domain": "www.ucfknights.com"
+ },
+ {
+  "name": "Central Michigan University",
+  "division": "I",
+  "domain": "www.cmuchippewas.com"
+ },
+ {
+  "name": "College of Charleston (South Carolina)",
+  "division": "I",
+  "domain": "www.cofcsports.com"
+ },
+ {
+  "name": "Charleston Southern University",
+  "division": "I",
+  "domain": "csusports.com"
+ },
+ {
+  "name": "Chicago State University",
+  "division": "I",
+  "domain": "www.gocsucougars.com"
+ },
+ {
+  "name": "University of Cincinnati",
+  "division": "I",
+  "domain": "gobearcats.com"
+ },
+ {
+  "name": "The Citadel",
+  "division": "I",
+  "domain": "www.citadelsports.com"
+ },
+ {
+  "name": "Clemson University",
+  "division": "I",
+  "domain": "clemsontigers.com"
+ },
+ {
+  "name": "Cleveland State University",
+  "division": "I",
+  "domain": "www.csuvikings.com"
+ },
+ {
+  "name": "Coastal Carolina University",
+  "division": "I",
+  "domain": "www.goccusports.com"
+ },
+ {
+  "name": "Colgate University",
+  "division": "I",
+  "domain": "gocolgateraiders.com"
+ },
+ {
+  "name": "University of Colorado Boulder",
+  "division": "I",
+  "domain": "www.cubuffs.com"
+ },
+ {
+  "name": "Colorado State University",
+  "division": "I",
+  "domain": "www.csurams.com"
+ },
+ {
+  "name": "Columbia University-Barnard College",
+  "division": "I",
+  "domain": "www.gocolumbialions.com"
+ },
+ {
+  "name": "University of Connecticut",
+  "division": "I",
+  "domain": "www.uconnhuskies.com"
+ },
+ {
+  "name": "Coppin State University",
+  "division": "I",
+  "domain": "www.coppinstatesports.com"
+ },
+ {
+  "name": "Cornell University",
+  "division": "I",
+  "domain": "www.cornellbigred.com"
+ },
+ {
+  "name": "Creighton University",
+  "division": "I",
+  "domain": "gocreighton.com"
+ },
+ {
+  "name": "Dartmouth College",
+  "division": "I",
+  "domain": "www.dartmouthsports.com"
+ },
+ {
+  "name": "Davidson College",
+  "division": "I",
+  "domain": "www.davidsonwildcats.com"
+ },
+ {
+  "name": "University of Dayton",
+  "division": "I",
+  "domain": "www.daytonflyers.com"
+ },
+ {
+  "name": "University of Delaware",
+  "division": "I",
+  "domain": "www.bluehens.com"
+ },
+ {
+  "name": "Delaware State University",
+  "division": "I",
+  "domain": "www.dsuhornets.com"
+ },
+ {
+  "name": "University of Denver",
+  "division": "I",
+  "domain": "denverpioneers.com"
+ },
+ {
+  "name": "DePaul University",
+  "division": "I",
+  "domain": "www.depaulbluedemons.com"
+ },
+ {
+  "name": "University of Detroit Mercy",
+  "division": "I",
+  "domain": "www.detroittitans.com"
+ },
+ {
+  "name": "Drake University",
+  "division": "I",
+  "domain": "godrakebulldogs.com"
+ },
+ {
+  "name": "Drexel University",
+  "division": "I",
+  "domain": "www.drexeldragons.com"
+ },
+ {
+  "name": "Duke University",
+  "division": "I",
+  "domain": "www.goduke.com"
+ },
+ {
+  "name": "Duquesne University",
+  "division": "I",
+  "domain": "www.goduquesne.com"
+ },
+ {
+  "name": "East Carolina University",
+  "division": "I",
+  "domain": "www.ecupirates.com"
+ },
+ {
+  "name": "East Tennessee State University",
+  "division": "I",
+  "domain": "www.etsubucs.com"
+ },
+ {
+  "name": "East Texas A&M University",
+  "division": "I",
+  "domain": "www.lionathletics.com"
+ },
+ {
+  "name": "Eastern Illinois University",
+  "division": "I",
+  "domain": "www.eiupanthers.com"
+ },
+ {
+  "name": "Eastern Kentucky University",
+  "division": "I",
+  "domain": "www.ekusports.com"
+ },
+ {
+  "name": "Eastern Michigan University",
+  "division": "I",
+  "domain": "www.emueagles.com"
+ },
+ {
+  "name": "Eastern Washington University",
+  "division": "I",
+  "domain": "goeags.com"
+ },
+ {
+  "name": "Elon University",
+  "division": "I",
+  "domain": "www.elonphoenix.com"
+ },
+ {
+  "name": "University of Evansville",
+  "division": "I",
+  "domain": "www.gopurpleaces.com"
+ },
+ {
+  "name": "Fairfield University",
+  "division": "I",
+  "domain": "fairfieldstags.com"
+ },
+ {
+  "name": "Fairleigh Dickinson University, Metropolitan Campus",
+  "division": "I",
+  "domain": "www.fduknights.com"
+ },
+ {
+  "name": "University of Florida",
+  "division": "I",
+  "domain": "www.floridagators.com"
+ },
+ {
+  "name": "Florida A&M University",
+  "division": "I",
+  "domain": "www.famuathletics.com"
+ },
+ {
+  "name": "Florida Atlantic University",
+  "division": "I",
+  "domain": "www.fausports.com"
+ },
+ {
+  "name": "Florida Gulf Coast University",
+  "division": "I",
+  "domain": "fgcuathletics.com"
+ },
+ {
+  "name": "Florida International University",
+  "division": "I",
+  "domain": "www.fiusports.com"
+ },
+ {
+  "name": "Florida State University",
+  "division": "I",
+  "domain": "www.seminoles.com"
+ },
+ {
+  "name": "Fordham University",
+  "division": "I",
+  "domain": "www.fordhamsports.com"
+ },
+ {
+  "name": "Furman University",
+  "division": "I",
+  "domain": "www.furmanpaladins.com"
+ },
+ {
+  "name": "Gardner-Webb University",
+  "division": "I",
+  "domain": "gwusports.com"
+ },
+ {
+  "name": "George Mason University",
+  "division": "I",
+  "domain": "www.gomason.com"
+ },
+ {
+  "name": "George Washington University",
+  "division": "I",
+  "domain": "www.gwsports.com"
+ },
+ {
+  "name": "Georgetown University",
+  "division": "I",
+  "domain": "guhoyas.com"
+ },
+ {
+  "name": "University of Georgia",
+  "division": "I",
+  "domain": "www.georgiadogs.com"
+ },
+ {
+  "name": "Georgia Institute of Technology",
+  "division": "I",
+  "domain": "www.ramblinwreck.com"
+ },
+ {
+  "name": "Georgia Southern University",
+  "division": "I",
+  "domain": "gseagles.com"
+ },
+ {
+  "name": "Georgia State University",
+  "division": "I",
+  "domain": "georgiastatesports.com"
+ },
+ {
+  "name": "Gonzaga University",
+  "division": "I",
+  "domain": "www.gozags.com"
+ },
+ {
+  "name": "Grambling State University",
+  "division": "I",
+  "domain": "www.gsutigers.com"
+ },
+ {
+  "name": "Grand Canyon University",
+  "division": "I",
+  "domain": "www.gculopes.com"
+ },
+ {
+  "name": "Hampton University",
+  "division": "I",
+  "domain": "hamptonpirates.com"
+ },
+ {
+  "name": "Harvard University",
+  "division": "I",
+  "domain": "gocrimson.com"
+ },
+ {
+  "name": "University of Hawaii, Manoa",
+  "division": "I",
+  "domain": "hawaiiathletics.com"
+ },
+ {
+  "name": "High Point University",
+  "division": "I",
+  "domain": "www.highpointpanthers.com"
+ },
+ {
+  "name": "Hofstra University",
+  "division": "I",
+  "domain": "www.gohofstra.com"
+ },
+ {
+  "name": "College of the Holy Cross",
+  "division": "I",
+  "domain": "goholycross.com"
+ },
+ {
+  "name": "University of Houston",
+  "division": "I",
+  "domain": "www.uhcougars.com"
+ },
+ {
+  "name": "Houston Christian University",
+  "division": "I",
+  "domain": "www.hcuhuskies.com"
+ },
+ {
+  "name": "Howard University",
+  "division": "I",
+  "domain": "www.hubison.com"
+ },
+ {
+  "name": "University of Idaho",
+  "division": "I",
+  "domain": "www.govandals.com"
+ },
+ {
+  "name": "Idaho State University",
+  "division": "I",
+  "domain": "www.isubengals.com"
+ },
+ {
+  "name": "Illinois State University",
+  "division": "I",
+  "domain": "goredbirds.com"
+ },
+ {
+  "name": "University of Illinois Chicago",
+  "division": "I",
+  "domain": "www.uicflames.com"
+ },
+ {
+  "name": "University of Illinois Urbana-Champaign",
+  "division": "I",
+  "domain": "www.fightingillini.com"
+ },
+ {
+  "name": "University of the Incarnate Word",
+  "division": "I",
+  "domain": "uiwcardinals.com"
+ },
+ {
+  "name": "Indiana University Indianapolis",
+  "division": "I",
+  "domain": "iuindyjags.com"
+ },
+ {
+  "name": "Indiana State University",
+  "division": "I",
+  "domain": "www.gosycamores.com"
+ },
+ {
+  "name": "Indiana University, Bloomington",
+  "division": "I",
+  "domain": "www.iuhoosiers.com"
+ },
+ {
+  "name": "Iona University",
+  "division": "I",
+  "domain": "www.ionagaels.com"
+ },
+ {
+  "name": "University of Iowa",
+  "division": "I",
+  "domain": "www.hawkeyesports.com"
+ },
+ {
+  "name": "Iowa State University",
+  "division": "I",
+  "domain": "www.cyclones.com"
+ },
+ {
+  "name": "Jackson State University",
+  "division": "I",
+  "domain": "www.gojsutigers.com"
+ },
+ {
+  "name": "Jacksonville State University",
+  "division": "I",
+  "domain": "www.jaxstatesports.com"
+ },
+ {
+  "name": "Jacksonville University",
+  "division": "I",
+  "domain": "www.judolphins.com"
+ },
+ {
+  "name": "James Madison University",
+  "division": "I",
+  "domain": "www.jmusports.com"
+ },
+ {
+  "name": "University of Kansas",
+  "division": "I",
+  "domain": "kuathletics.com"
+ },
+ {
+  "name": "Kansas State University",
+  "division": "I",
+  "domain": "www.kstatesports.com"
+ },
+ {
+  "name": "Kennesaw State University",
+  "division": "I",
+  "domain": "www.ksuowls.com"
+ },
+ {
+  "name": "Kent State University",
+  "division": "I",
+  "domain": "www.kentstatesports.com"
+ },
+ {
+  "name": "University of Kentucky",
+  "division": "I",
+  "domain": "www.ukathletics.com"
+ },
+ {
+  "name": "La Salle University",
+  "division": "I",
+  "domain": "www.goexplorers.com"
+ },
+ {
+  "name": "Lafayette College",
+  "division": "I",
+  "domain": "www.goleopards.com"
+ },
+ {
+  "name": "Lamar University",
+  "division": "I",
+  "domain": "www.lamarcardinals.com"
+ },
+ {
+  "name": "Le Moyne College",
+  "division": "I",
+  "domain": "www.lemoynedolphins.com"
+ },
+ {
+  "name": "Lehigh University",
+  "division": "I",
+  "domain": "www.lehighsports.com"
+ },
+ {
+  "name": "Liberty University",
+  "division": "I",
+  "domain": "www.libertyflames.com"
+ },
+ {
+  "name": "Lindenwood University",
+  "division": "I",
+  "domain": "lindenwoodlions.com"
+ },
+ {
+  "name": "Lipscomb University",
+  "division": "I",
+  "domain": "www.lipscombsports.com"
+ },
+ {
+  "name": "Long Beach State University",
+  "division": "I",
+  "domain": "longbeachstate.com"
+ },
+ {
+  "name": "Long Island University",
+  "division": "I",
+  "domain": "www.liuathletics.com"
+ },
+ {
+  "name": "Longwood University",
+  "division": "I",
+  "domain": "longwoodlancers.com"
+ },
+ {
+  "name": "Louisiana State University",
+  "division": "I",
+  "domain": "www.lsusports.net"
+ },
+ {
+  "name": "Louisiana Tech University",
+  "division": "I",
+  "domain": "www.latechsports.com"
+ },
+ {
+  "name": "University of Louisiana at Lafayette",
+  "division": "I",
+  "domain": "www.ragincajuns.com"
+ },
+ {
+  "name": "University of Louisiana Monroe",
+  "division": "I",
+  "domain": "www.ulmwarhawks.com"
+ },
+ {
+  "name": "University of Louisville",
+  "division": "I",
+  "domain": "www.gocards.com"
+ },
+ {
+  "name": "Loyola Marymount University",
+  "division": "I",
+  "domain": "www.lmulions.com"
+ },
+ {
+  "name": "Loyola University Chicago",
+  "division": "I",
+  "domain": "www.loyolaramblers.com"
+ },
+ {
+  "name": "Loyola University Maryland",
+  "division": "I",
+  "domain": "www.loyolagreyhounds.com"
+ },
+ {
+  "name": "University of Maine",
+  "division": "I",
+  "domain": "goblackbears.com"
+ },
+ {
+  "name": "Manhattan University",
+  "division": "I",
+  "domain": "www.gojaspers.com"
+ },
+ {
+  "name": "Marist University",
+  "division": "I",
+  "domain": "goredfoxes.com"
+ },
+ {
+  "name": "Marquette University",
+  "division": "I",
+  "domain": "www.gomarquette.com"
+ },
+ {
+  "name": "Marshall University",
+  "division": "I",
+  "domain": "www.herdzone.com"
+ },
+ {
+  "name": "University of Maryland Eastern Shore",
+  "division": "I",
+  "domain": "umeshawksports.com"
+ },
+ {
+  "name": "University of Maryland, Baltimore County",
+  "division": "I",
+  "domain": "umbcretrievers.com"
+ },
+ {
+  "name": "University of Maryland, College Park",
+  "division": "I",
+  "domain": "www.umterps.com"
+ },
+ {
+  "name": "University of Massachusetts, Amherst",
+  "division": "I",
+  "domain": "www.umassathletics.com"
+ },
+ {
+  "name": "University of Massachusetts Lowell",
+  "division": "I",
+  "domain": "www.goriverhawks.com"
+ },
+ {
+  "name": "McNeese State University",
+  "division": "I",
+  "domain": "www.mcneesesports.com"
+ },
+ {
+  "name": "University of Memphis",
+  "division": "I",
+  "domain": "www.gotigersgo.com"
+ },
+ {
+  "name": "Mercer University",
+  "division": "I",
+  "domain": "www.mercerbears.com"
+ },
+ {
+  "name": "Mercyhurst University",
+  "division": "I",
+  "domain": "www.hurstathletics.com"
+ },
+ {
+  "name": "Merrimack College",
+  "division": "I",
+  "domain": "www.merrimackathletics.com"
+ },
+ {
+  "name": "University of Miami (Florida)",
+  "division": "I",
+  "domain": "miamihurricanes.com"
+ },
+ {
+  "name": "Miami University (Ohio)",
+  "division": "I",
+  "domain": "www.miamiredhawks.com"
+ },
+ {
+  "name": "University of Michigan",
+  "division": "I",
+  "domain": "www.mgoblue.com"
+ },
+ {
+  "name": "Michigan State University",
+  "division": "I",
+  "domain": "msuspartans.com"
+ },
+ {
+  "name": "Middle Tennessee State University",
+  "division": "I",
+  "domain": "www.goblueraiders.com"
+ },
+ {
+  "name": "University of Minnesota, Twin Cities",
+  "division": "I",
+  "domain": "www.gophersports.com"
+ },
+ {
+  "name": "University of Mississippi",
+  "division": "I",
+  "domain": "www.olemisssports.com"
+ },
+ {
+  "name": "Mississippi State University",
+  "division": "I",
+  "domain": "www.hailstate.com"
+ },
+ {
+  "name": "Mississippi Valley State University",
+  "division": "I",
+  "domain": "www.mvsusports.com"
+ },
+ {
+  "name": "Missouri State University",
+  "division": "I",
+  "domain": "www.missouristatebears.com"
+ },
+ {
+  "name": "University of Missouri, Columbia",
+  "division": "I",
+  "domain": "www.mutigers.com"
+ },
+ {
+  "name": "University of Missouri-Kansas City",
+  "division": "I",
+  "domain": "www.kcroos.com"
+ },
+ {
+  "name": "Monmouth University",
+  "division": "I",
+  "domain": "www.monmouthhawks.com"
+ },
+ {
+  "name": "University of Montana",
+  "division": "I",
+  "domain": "www.gogriz.com"
+ },
+ {
+  "name": "Montana State University-Bozeman",
+  "division": "I",
+  "domain": "www.msubobcats.com"
+ },
+ {
+  "name": "Morehead State University",
+  "division": "I",
+  "domain": "www.msueagles.com"
+ },
+ {
+  "name": "Morgan State University",
+  "division": "I",
+  "domain": "www.morganstatebears.com"
+ },
+ {
+  "name": "Mount St. Mary's University",
+  "division": "I",
+  "domain": "www.mountathletics.com"
+ },
+ {
+  "name": "Murray State University",
+  "division": "I",
+  "domain": "www.goracers.com"
+ },
+ {
+  "name": "University of Nebraska at Omaha",
+  "division": "I",
+  "domain": "www.omavs.com"
+ },
+ {
+  "name": "University of Nebraska-Lincoln",
+  "division": "I",
+  "domain": "www.huskers.com"
+ },
+ {
+  "name": "University of Nevada, Las Vegas",
+  "division": "I",
+  "domain": "unlvrebels.com"
+ },
+ {
+  "name": "University of Nevada, Reno",
+  "division": "I",
+  "domain": "nevadawolfpack.com"
+ },
+ {
+  "name": "University of New Hampshire",
+  "division": "I",
+  "domain": "www.unhwildcats.com"
+ },
+ {
+  "name": "University of New Haven",
+  "division": "I",
+  "domain": "www.newhavenchargers.com"
+ },
+ {
+  "name": "New Jersey Institute of Technology",
+  "division": "I",
+  "domain": "www.njithighlanders.com"
+ },
+ {
+  "name": "University of New Mexico",
+  "division": "I",
+  "domain": "www.golobos.com"
+ },
+ {
+  "name": "New Mexico State University",
+  "division": "I",
+  "domain": "www.nmstatesports.com"
+ },
+ {
+  "name": "LSU New Orleans",
+  "division": "I",
+  "domain": "www.unoprivateers.com"
+ },
+ {
+  "name": "Niagara University",
+  "division": "I",
+  "domain": "www.purpleeagles.com"
+ },
+ {
+  "name": "Nicholls State University",
+  "division": "I",
+  "domain": "www.geauxcolonels.com"
+ },
+ {
+  "name": "Norfolk State University",
+  "division": "I",
+  "domain": "www.nsuspartans.com"
+ },
+ {
+  "name": "University of North Alabama",
+  "division": "I",
+  "domain": "www.roarlions.com"
+ },
+ {
+  "name": "University of North Carolina Asheville",
+  "division": "I",
+  "domain": "www.uncabulldogs.com"
+ },
+ {
+  "name": "North Carolina A&T State University",
+  "division": "I",
+  "domain": "www.ncataggies.com"
+ },
+ {
+  "name": "North Carolina Central University",
+  "division": "I",
+  "domain": "www.nccueaglepride.com"
+ },
+ {
+  "name": "North Carolina State University",
+  "division": "I",
+  "domain": "www.gopack.com"
+ },
+ {
+  "name": "University of North Carolina Wilmington",
+  "division": "I",
+  "domain": "www.uncwsports.com"
+ },
+ {
+  "name": "University of North Carolina, Chapel Hill",
+  "division": "I",
+  "domain": "www.goheels.com"
+ },
+ {
+  "name": "The University of North Carolina at Charlotte",
+  "division": "I",
+  "domain": "www.charlotte49ers.com"
+ },
+ {
+  "name": "The University of North Carolina at Greensboro",
+  "division": "I",
+  "domain": "www.uncgspartans.com"
+ },
+ {
+  "name": "University of North Dakota",
+  "division": "I",
+  "domain": "www.fightinghawks.com"
+ },
+ {
+  "name": "North Dakota State University",
+  "division": "I",
+  "domain": "www.gobison.com"
+ },
+ {
+  "name": "University of North Florida",
+  "division": "I",
+  "domain": "www.unfospreys.com"
+ },
+ {
+  "name": "University of North Texas",
+  "division": "I",
+  "domain": "www.meangreensports.com"
+ },
+ {
+  "name": "Northeastern University",
+  "division": "I",
+  "domain": "www.nuhuskies.com"
+ },
+ {
+  "name": "Northern Arizona University",
+  "division": "I",
+  "domain": "www.nauathletics.com"
+ },
+ {
+  "name": "University of Northern Colorado",
+  "division": "I",
+  "domain": "uncbears.com"
+ },
+ {
+  "name": "Northern Illinois University",
+  "division": "I",
+  "domain": "www.niuhuskies.com"
+ },
+ {
+  "name": "University of Northern Iowa",
+  "division": "I",
+  "domain": "unipanthers.com"
+ },
+ {
+  "name": "Northern Kentucky University",
+  "division": "I",
+  "domain": "www.nkunorse.com"
+ },
+ {
+  "name": "Northwestern State University",
+  "division": "I",
+  "domain": "www.nsudemons.com"
+ },
+ {
+  "name": "Northwestern University",
+  "division": "I",
+  "domain": "www.nusports.com"
+ },
+ {
+  "name": "University of Notre Dame",
+  "division": "I",
+  "domain": "www.fightingirish.com"
+ },
+ {
+  "name": "Oakland University",
+  "division": "I",
+  "domain": "goldengrizzlies.com"
+ },
+ {
+  "name": "The Ohio State University",
+  "division": "I",
+  "domain": "ohiostatebuckeyes.com"
+ },
+ {
+  "name": "Ohio University",
+  "division": "I",
+  "domain": "www.ohiobobcats.com"
+ },
+ {
+  "name": "University of Oklahoma",
+  "division": "I",
+  "domain": "soonersports.com"
+ },
+ {
+  "name": "Oklahoma State University",
+  "division": "I",
+  "domain": "www.okstate.com"
+ },
+ {
+  "name": "Old Dominion University",
+  "division": "I",
+  "domain": "www.odusports.com"
+ },
+ {
+  "name": "Oral Roberts University",
+  "division": "I",
+  "domain": "www.oruathletics.com"
+ },
+ {
+  "name": "University of Oregon",
+  "division": "I",
+  "domain": "www.goducks.com"
+ },
+ {
+  "name": "Oregon State University",
+  "division": "I",
+  "domain": "osubeavers.com"
+ },
+ {
+  "name": "University of the Pacific",
+  "division": "I",
+  "domain": "www.pacifictigers.com"
+ },
+ {
+  "name": "University of Pennsylvania",
+  "division": "I",
+  "domain": "www.pennathletics.com"
+ },
+ {
+  "name": "Pennsylvania State University",
+  "division": "I",
+  "domain": "gopsusports.com"
+ },
+ {
+  "name": "Pepperdine University",
+  "division": "I",
+  "domain": "www.pepperdinewaves.com"
+ },
+ {
+  "name": "University of Pittsburgh",
+  "division": "I",
+  "domain": "www.pittsburghpanthers.com"
+ },
+ {
+  "name": "University of Portland",
+  "division": "I",
+  "domain": "www.portlandpilots.com"
+ },
+ {
+  "name": "Portland State University",
+  "division": "I",
+  "domain": "goviks.com"
+ },
+ {
+  "name": "Prairie View A&M University",
+  "division": "I",
+  "domain": "www.pvpanthers.com"
+ },
+ {
+  "name": "Presbyterian College",
+  "division": "I",
+  "domain": "gobluehose.com"
+ },
+ {
+  "name": "Princeton University",
+  "division": "I",
+  "domain": "www.goprincetontigers.com"
+ },
+ {
+  "name": "Providence College",
+  "division": "I",
+  "domain": "www.friars.com"
+ },
+ {
+  "name": "Purdue University Fort Wayne",
+  "division": "I",
+  "domain": "www.gomastodons.com"
+ },
+ {
+  "name": "Purdue University",
+  "division": "I",
+  "domain": "purduesports.com"
+ },
+ {
+  "name": "Queens University of Charlotte",
+  "division": "I",
+  "domain": "www.queensathletics.com"
+ },
+ {
+  "name": "Quinnipiac University",
+  "division": "I",
+  "domain": "www.gobobcats.com"
+ },
+ {
+  "name": "Radford University",
+  "division": "I",
+  "domain": "www.radfordathletics.com"
+ },
+ {
+  "name": "University of Rhode Island",
+  "division": "I",
+  "domain": "www.gorhody.com"
+ },
+ {
+  "name": "Rice University",
+  "division": "I",
+  "domain": "www.riceowls.com"
+ },
+ {
+  "name": "University of Richmond",
+  "division": "I",
+  "domain": "richmondspiders.com"
+ },
+ {
+  "name": "Rider University",
+  "division": "I",
+  "domain": "www.gobroncs.com"
+ },
+ {
+  "name": "Robert Morris University",
+  "division": "I",
+  "domain": "www.rmucolonials.com"
+ },
+ {
+  "name": "Rutgers, The State University of New Jersey, New Brunswick",
+  "division": "I",
+  "domain": "www.scarletknights.com"
+ },
+ {
+  "name": "Sacred Heart University",
+  "division": "I",
+  "domain": "sacredheartpioneers.com"
+ },
+ {
+  "name": "Saint Francis University ",
+  "division": "I",
+  "domain": "www.sfuathletics.com"
+ },
+ {
+  "name": "Sam Houston State University",
+  "division": "I",
+  "domain": "www.gobearkats.com"
+ },
+ {
+  "name": "Samford University",
+  "division": "I",
+  "domain": "samfordsports.com"
+ },
+ {
+  "name": "University of San Diego",
+  "division": "I",
+  "domain": "www.usdtoreros.com"
+ },
+ {
+  "name": "San Diego State University",
+  "division": "I",
+  "domain": "goaztecs.com"
+ },
+ {
+  "name": "University of San Francisco",
+  "division": "I",
+  "domain": "usfdons.com"
+ },
+ {
+  "name": "San Jose State University",
+  "division": "I",
+  "domain": "www.sjsuspartans.com"
+ },
+ {
+  "name": "Santa Clara University",
+  "division": "I",
+  "domain": "santaclarabroncos.com"
+ },
+ {
+  "name": "Seattle University",
+  "division": "I",
+  "domain": "goseattleu.com"
+ },
+ {
+  "name": "Seton Hall University",
+  "division": "I",
+  "domain": "www.shupirates.com"
+ },
+ {
+  "name": "Siena University",
+  "division": "I",
+  "domain": "www.sienasaints.com"
+ },
+ {
+  "name": "University of South Alabama",
+  "division": "I",
+  "domain": "www.usajaguars.com"
+ },
+ {
+  "name": "University of South Carolina, Columbia",
+  "division": "I",
+  "domain": "gamecocksonline.com"
+ },
+ {
+  "name": "South Carolina State University",
+  "division": "I",
+  "domain": "www.scsuathletics.com"
+ },
+ {
+  "name": "University of South Carolina Upstate",
+  "division": "I",
+  "domain": "www.upstatespartans.com"
+ },
+ {
+  "name": "University of South Dakota",
+  "division": "I",
+  "domain": "www.goyotes.com"
+ },
+ {
+  "name": "South Dakota State University",
+  "division": "I",
+  "domain": "www.gojacks.com"
+ },
+ {
+  "name": "University of South Florida",
+  "division": "I",
+  "domain": "www.gousfbulls.com"
+ },
+ {
+  "name": "Southeast Missouri State University",
+  "division": "I",
+  "domain": "www.semoredhawks.com"
+ },
+ {
+  "name": "Southeastern Louisiana University",
+  "division": "I",
+  "domain": "www.lionsports.net"
+ },
+ {
+  "name": "University of Southern California",
+  "division": "I",
+  "domain": "usctrojans.com"
+ },
+ {
+  "name": "Southern Illinois University at Carbondale",
+  "division": "I",
+  "domain": "www.siusalukis.com"
+ },
+ {
+  "name": "Southern Illinois University Edwardsville",
+  "division": "I",
+  "domain": "www.siuecougars.com"
+ },
+ {
+  "name": "University of Southern Indiana",
+  "division": "I",
+  "domain": "www.usiscreamingeagles.com"
+ },
+ {
+  "name": "Southern Methodist University",
+  "division": "I",
+  "domain": "www.smumustangs.com"
+ },
+ {
+  "name": "The University of Southern Mississippi",
+  "division": "I",
+  "domain": "www.southernmiss.com"
+ },
+ {
+  "name": "Southern University, Baton Rouge",
+  "division": "I",
+  "domain": "www.gojagsports.com"
+ },
+ {
+  "name": "Southern Utah University",
+  "division": "I",
+  "domain": "www.suutbirds.com"
+ },
+ {
+  "name": "St. Bonaventure University",
+  "division": "I",
+  "domain": "www.gobonnies.com"
+ },
+ {
+  "name": "St. John's University (New York)",
+  "division": "I",
+  "domain": "www.redstormsports.com"
+ },
+ {
+  "name": "Saint Joseph's University",
+  "division": "I",
+  "domain": "sjuhawks.com"
+ },
+ {
+  "name": "Saint Louis University",
+  "division": "I",
+  "domain": "www.slubillikens.com"
+ },
+ {
+  "name": "Saint Mary's College of California",
+  "division": "I",
+  "domain": "www.smcgaels.com"
+ },
+ {
+  "name": "Saint Peter's University",
+  "division": "I",
+  "domain": "www.saintpeterspeacocks.com"
+ },
+ {
+  "name": "University of St. Thomas (Minnesota)",
+  "division": "I",
+  "domain": "www.tommiesports.com"
+ },
+ {
+  "name": "Stanford University",
+  "division": "I",
+  "domain": "gostanford.com"
+ },
+ {
+  "name": "Stephen F. Austin State University",
+  "division": "I",
+  "domain": "sfajacks.com"
+ },
+ {
+  "name": "Stetson University",
+  "division": "I",
+  "domain": "www.gohatters.com"
+ },
+ {
+  "name": "Stonehill College",
+  "division": "I",
+  "domain": "www.stonehillskyhawks.com"
+ },
+ {
+  "name": "Stony Brook University",
+  "division": "I",
+  "domain": "stonybrookathletics.com"
+ },
+ {
+  "name": "Syracuse University",
+  "division": "I",
+  "domain": "cuse.com"
+ },
+ {
+  "name": "Tarleton State University",
+  "division": "I",
+  "domain": "tarletonsports.com"
+ },
+ {
+  "name": "Temple University",
+  "division": "I",
+  "domain": "www.owlsports.com"
+ },
+ {
+  "name": "Tennessee State University",
+  "division": "I",
+  "domain": "www.tsutigers.com"
+ },
+ {
+  "name": "Tennessee Technological University",
+  "division": "I",
+  "domain": "www.ttusports.com"
+ },
+ {
+  "name": "University of Tennessee at Chattanooga",
+  "division": "I",
+  "domain": "www.gomocs.com"
+ },
+ {
+  "name": "University of Tennessee, Knoxville",
+  "division": "I",
+  "domain": "www.utsports.com"
+ },
+ {
+  "name": "University of Tennessee at Martin",
+  "division": "I",
+  "domain": "www.utmsports.com"
+ },
+ {
+  "name": "Texas A&M University, College Station",
+  "division": "I",
+  "domain": "www.12thman.com"
+ },
+ {
+  "name": "Texas A&M University-Corpus Christi",
+  "division": "I",
+  "domain": "www.goislanders.com"
+ },
+ {
+  "name": "University of Texas at Arlington",
+  "division": "I",
+  "domain": "www.utamavs.com"
+ },
+ {
+  "name": "Texas Christian University",
+  "division": "I",
+  "domain": "www.gofrogs.com"
+ },
+ {
+  "name": "The University of Texas Rio Grande Valley",
+  "division": "I",
+  "domain": "goutrgv.com"
+ },
+ {
+  "name": "Texas Southern University",
+  "division": "I",
+  "domain": "www.tsusports.com"
+ },
+ {
+  "name": "Texas State University",
+  "division": "I",
+  "domain": "txstatebobcats.com"
+ },
+ {
+  "name": "Texas Tech University",
+  "division": "I",
+  "domain": "www.texastech.com"
+ },
+ {
+  "name": "University of Texas at Austin",
+  "division": "I",
+  "domain": "www.texaslonghorns.com"
+ },
+ {
+  "name": "University of Texas at El Paso",
+  "division": "I",
+  "domain": "www.utepminers.com"
+ },
+ {
+  "name": "University of Texas at San Antonio",
+  "division": "I",
+  "domain": "www.goutsa.com"
+ },
+ {
+  "name": "University of Toledo",
+  "division": "I",
+  "domain": "www.utrockets.com"
+ },
+ {
+  "name": "Towson University",
+  "division": "I",
+  "domain": "www.towsontigers.com"
+ },
+ {
+  "name": "Troy University",
+  "division": "I",
+  "domain": "troytrojans.com"
+ },
+ {
+  "name": "Tulane University",
+  "division": "I",
+  "domain": "www.tulanegreenwave.com"
+ },
+ {
+  "name": "The University of Tulsa",
+  "division": "I",
+  "domain": "www.tulsahurricane.com"
+ },
+ {
+  "name": "U.S. Air Force Academy",
+  "division": "I",
+  "domain": "www.goairforcefalcons.com"
+ },
+ {
+  "name": "U.S. Military Academy",
+  "division": "I",
+  "domain": "goarmywestpoint.com"
+ },
+ {
+  "name": "U.S. Naval Academy",
+  "division": "I",
+  "domain": "www.navysports.com"
+ },
+ {
+  "name": "University of Utah",
+  "division": "I",
+  "domain": "utahutes.com"
+ },
+ {
+  "name": "Utah State University",
+  "division": "I",
+  "domain": "www.utahstateaggies.com"
+ },
+ {
+  "name": "Utah Tech University",
+  "division": "I",
+  "domain": "utahtechtrailblazers.com"
+ },
+ {
+  "name": "Utah Valley University",
+  "division": "I",
+  "domain": "www.gouvu.com"
+ },
+ {
+  "name": "Valparaiso University",
+  "division": "I",
+  "domain": "www.valpoathletics.com"
+ },
+ {
+  "name": "Vanderbilt University",
+  "division": "I",
+  "domain": "vucommodores.com"
+ },
+ {
+  "name": "University of Vermont",
+  "division": "I",
+  "domain": "www.uvmathletics.com"
+ },
+ {
+  "name": "Villanova University",
+  "division": "I",
+  "domain": "www.villanova.com"
+ },
+ {
+  "name": "University of Virginia",
+  "division": "I",
+  "domain": "www.virginiasports.com"
+ },
+ {
+  "name": "Virginia Commonwealth University",
+  "division": "I",
+  "domain": "www.vcuathletics.com"
+ },
+ {
+  "name": "Virginia Military Institute",
+  "division": "I",
+  "domain": "www.vmikeydets.com"
+ },
+ {
+  "name": "Virginia Polytechnic Institute and State University",
+  "division": "I",
+  "domain": "www.hokiesports.com"
+ },
+ {
+  "name": "Wagner College",
+  "division": "I",
+  "domain": "www.wagnerathletics.com"
+ },
+ {
+  "name": "Wake Forest University",
+  "division": "I",
+  "domain": "www.godeacs.com"
+ },
+ {
+  "name": "University of Washington",
+  "division": "I",
+  "domain": "www.gohuskies.com"
+ },
+ {
+  "name": "Washington State University",
+  "division": "I",
+  "domain": "www.wsucougars.com"
+ },
+ {
+  "name": "Weber State University",
+  "division": "I",
+  "domain": "www.weberstatesports.com"
+ },
+ {
+  "name": "University of West Florida",
+  "division": "I",
+  "domain": "www.goargos.com"
+ },
+ {
+  "name": "University of West Georgia",
+  "division": "I",
+  "domain": "www.uwgathletics.com"
+ },
+ {
+  "name": "West Virginia University",
+  "division": "I",
+  "domain": "www.wvusports.com"
+ },
+ {
+  "name": "Western Carolina University",
+  "division": "I",
+  "domain": "www.catamountsports.com"
+ },
+ {
+  "name": "Western Illinois University",
+  "division": "I",
+  "domain": "www.goleathernecks.com"
+ },
+ {
+  "name": "Western Kentucky University",
+  "division": "I",
+  "domain": "www.wkusports.com"
+ },
+ {
+  "name": "Western Michigan University",
+  "division": "I",
+  "domain": "www.wmubroncos.com"
+ },
+ {
+  "name": "Wichita State University",
+  "division": "I",
+  "domain": "www.goshockers.com"
+ },
+ {
+  "name": "William & Mary",
+  "division": "I",
+  "domain": "www.tribeathletics.com"
+ },
+ {
+  "name": "Winthrop University",
+  "division": "I",
+  "domain": "www.winthropeagles.com"
+ },
+ {
+  "name": "University of Wisconsin-Green Bay",
+  "division": "I",
+  "domain": "greenbayphoenix.com"
+ },
+ {
+  "name": "University of Wisconsin-Madison",
+  "division": "I",
+  "domain": "www.uwbadgers.com"
+ },
+ {
+  "name": "University of Wisconsin-Milwaukee",
+  "division": "I",
+  "domain": "www.mkepanthers.com"
+ },
+ {
+  "name": "Wofford College",
+  "division": "I",
+  "domain": "www.wofford.edu"
+ },
+ {
+  "name": "Wright State University",
+  "division": "I",
+  "domain": "www.wsuraiders.com"
+ },
+ {
+  "name": "University of Wyoming",
+  "division": "I",
+  "domain": "www.gowyo.com"
+ },
+ {
+  "name": "Xavier University",
+  "division": "I",
+  "domain": "www.goxavier.com"
+ },
+ {
+  "name": "Yale University",
+  "division": "I",
+  "domain": "www.yalebulldogs.com"
+ },
+ {
+  "name": "Youngstown State University",
+  "division": "I",
+  "domain": "www.ysusports.com"
+ },
+ {
+  "name": "Adams State University",
+  "division": "II",
+  "domain": "www.asugrizzlies.com"
+ },
+ {
+  "name": "Adelphi University",
+  "division": "II",
+  "domain": "www.aupanthers.com"
+ },
+ {
+  "name": "University of Alabama in Huntsville",
+  "division": "II",
+  "domain": "uahchargers.com"
+ },
+ {
+  "name": "University of Alaska Anchorage",
+  "division": "II",
+  "domain": "www.goseawolves.com"
+ },
+ {
+  "name": "University of Alaska Fairbanks",
+  "division": "II",
+  "domain": "www.alaskananooks.com"
+ },
+ {
+  "name": "Albany State University (Georgia)",
+  "division": "II",
+  "domain": "www.asugoldenrams.com"
+ },
+ {
+  "name": "Allen University",
+  "division": "II",
+  "domain": "auyellowjackets.com"
+ },
+ {
+  "name": "American International College",
+  "division": "II",
+  "domain": "aicyellowjackets.com"
+ },
+ {
+  "name": "Anderson University (South Carolina)",
+  "division": "II",
+  "domain": "www.autrojans.com"
+ },
+ {
+  "name": "Angelo State University",
+  "division": "II",
+  "domain": "www.angelosports.com"
+ },
+ {
+  "name": "Arkansas Tech University",
+  "division": "II",
+  "domain": "www.arkansastechsports.com"
+ },
+ {
+  "name": "University of Arkansas, Fort Smith",
+  "division": "II",
+  "domain": "www.uafortsmithlions.com"
+ },
+ {
+  "name": "University of Arkansas, Monticello",
+  "division": "II",
+  "domain": "www.uamsports.com"
+ },
+ {
+  "name": "Ashland University",
+  "division": "II",
+  "domain": "www.goashlandeagles.com"
+ },
+ {
+  "name": "Assumption University",
+  "division": "II",
+  "domain": "www.assumptiongreyhounds.com"
+ },
+ {
+  "name": "Auburn University at Montgomery",
+  "division": "II",
+  "domain": "www.aumathletics.com"
+ },
+ {
+  "name": "Augusta University",
+  "division": "II",
+  "domain": "www.augustajags.com"
+ },
+ {
+  "name": "Augustana University (South Dakota)",
+  "division": "II",
+  "domain": "www.goaugie.com"
+ },
+ {
+  "name": "Azusa Pacific University",
+  "division": "II",
+  "domain": "athletics.apu.edu"
+ },
+ {
+  "name": "Barry University",
+  "division": "II",
+  "domain": "www.gobarrybucs.com"
+ },
+ {
+  "name": "Barton College",
+  "division": "II",
+  "domain": "www.bartonbulldogs.com"
+ },
+ {
+  "name": "Belmont Abbey College",
+  "division": "II",
+  "domain": "www.abbeyathletics.com"
+ },
+ {
+  "name": "Bemidji State University",
+  "division": "II",
+  "domain": "www.bsubeavers.com"
+ },
+ {
+  "name": "Benedict College",
+  "division": "II",
+  "domain": "benedicttigers.com"
+ },
+ {
+  "name": "Bentley University",
+  "division": "II",
+  "domain": "www.bentley.edu"
+ },
+ {
+  "name": "Biola University",
+  "division": "II",
+  "domain": "athletics.biola.edu"
+ },
+ {
+  "name": "Black Hills State University",
+  "division": "II",
+  "domain": "bhsuathletics.com"
+ },
+ {
+  "name": "Bloomsburg University of Pennsylvania",
+  "division": "II",
+  "domain": "www.bloomsburgathletics.com"
+ },
+ {
+  "name": "Bluefield State University",
+  "division": "II",
+  "domain": "gobstate.com"
+ },
+ {
+  "name": "Bowie State University",
+  "division": "II",
+  "domain": "www.bsubulldogs.com"
+ },
+ {
+  "name": "University of Bridgeport",
+  "division": "II",
+  "domain": "www.ubknights.com"
+ },
+ {
+  "name": "California State Polytechnic University, Pomona",
+  "division": "II",
+  "domain": "www.broncoathletics.com"
+ },
+ {
+  "name": "Caldwell University",
+  "division": "II",
+  "domain": "www.caldwellathletics.com"
+ },
+ {
+  "name": "California State University, Monterey Bay",
+  "division": "II",
+  "domain": "www.otterathletics.com"
+ },
+ {
+  "name": "California State University, Chico",
+  "division": "II",
+  "domain": "www.chicowildcats.com"
+ },
+ {
+  "name": "California State University, Dominguez Hills",
+  "division": "II",
+  "domain": "www.gotoros.com"
+ },
+ {
+  "name": "California State University, East Bay",
+  "division": "II",
+  "domain": "www.eastbaypioneers.com"
+ },
+ {
+  "name": "California State University, San Bernardino",
+  "division": "II",
+  "domain": "www.csusbathletics.com"
+ },
+ {
+  "name": "California State University, Stanislaus",
+  "division": "II",
+  "domain": "www.warriorathletics.com"
+ },
+ {
+  "name": "California State University, Los Angeles",
+  "division": "II",
+  "domain": "www.lagoldeneagles.com"
+ },
+ {
+  "name": "California State Polytechnic University, Humboldt",
+  "division": "II",
+  "domain": "humboldtathletics.com"
+ },
+ {
+  "name": "California State University, San Marcos",
+  "division": "II",
+  "domain": "csusmcougars.com"
+ },
+ {
+  "name": "Pennsylvania Western University, California",
+  "division": "II",
+  "domain": "www.calvulcans.com"
+ },
+ {
+  "name": "University of California, Merced",
+  "division": "II",
+  "domain": "www.ucmercedbobcats.com"
+ },
+ {
+  "name": "Cameron University",
+  "division": "II",
+  "domain": "cameronaggies.com"
+ },
+ {
+  "name": "Carson-Newman University",
+  "division": "II",
+  "domain": "cneagles.com"
+ },
+ {
+  "name": "Catawba College",
+  "division": "II",
+  "domain": "www.catawbaathletics.com"
+ },
+ {
+  "name": "Cedarville University",
+  "division": "II",
+  "domain": "www.yellowjackets.cedarville.edu"
+ },
+ {
+  "name": "University of Central Missouri",
+  "division": "II",
+  "domain": "ucmathletics.com"
+ },
+ {
+  "name": "University of Central Oklahoma",
+  "division": "II",
+  "domain": "www.bronchosports.com"
+ },
+ {
+  "name": "Central State University",
+  "division": "II",
+  "domain": "www.maraudersports.com"
+ },
+ {
+  "name": "Central Washington University",
+  "division": "II",
+  "domain": "wildcatsports.com"
+ },
+ {
+  "name": "Chadron State College",
+  "division": "II",
+  "domain": "www.chadroneagles.com"
+ },
+ {
+  "name": "Chaminade University",
+  "division": "II",
+  "domain": "goswords.com"
+ },
+ {
+  "name": "University of Charleston (West Virginia)",
+  "division": "II",
+  "domain": "www.ucgoldeneagles.com"
+ },
+ {
+  "name": "Chestnut Hill College",
+  "division": "II",
+  "domain": "www.griffinathletics.com"
+ },
+ {
+  "name": "Chowan University",
+  "division": "II",
+  "domain": "www.gocuhawks.com"
+ },
+ {
+  "name": "Christian Brothers University",
+  "division": "II",
+  "domain": "www.cbubucs.com"
+ },
+ {
+  "name": "Claflin University",
+  "division": "II",
+  "domain": "athletics.claflin.edu"
+ },
+ {
+  "name": "Pennsylvania Western University, Clarion",
+  "division": "II",
+  "domain": "www.clariongoldeneagles.com"
+ },
+ {
+  "name": "Clark Atlanta University",
+  "division": "II",
+  "domain": "www.clarkatlantasports.com"
+ },
+ {
+  "name": "Clayton State University",
+  "division": "II",
+  "domain": "www.claytonstatesports.com"
+ },
+ {
+  "name": "Coker University",
+  "division": "II",
+  "domain": "www.cokercobras.com"
+ },
+ {
+  "name": "Colorado Christian University",
+  "division": "II",
+  "domain": "www.ccucougars.com"
+ },
+ {
+  "name": "University of Colorado Colorado Springs",
+  "division": "II",
+  "domain": "www.gomountainlions.com"
+ },
+ {
+  "name": "Colorado Mesa University",
+  "division": "II",
+  "domain": "cmumavericks.com"
+ },
+ {
+  "name": "Colorado School of Mines",
+  "division": "II",
+  "domain": "minesathletics.com"
+ },
+ {
+  "name": "Colorado State University Pueblo",
+  "division": "II",
+  "domain": "www.gothunderwolves.com"
+ },
+ {
+  "name": "Columbus State University",
+  "division": "II",
+  "domain": "csucougars.com"
+ },
+ {
+  "name": "Concord University",
+  "division": "II",
+  "domain": "www.cumountainlions.com"
+ },
+ {
+  "name": "Concordia University Irvine",
+  "division": "II",
+  "domain": "www.cuigoldeneagles.com"
+ },
+ {
+  "name": "Concordia University, St. Paul",
+  "division": "II",
+  "domain": "cspbears.com"
+ },
+ {
+  "name": "Converse University",
+  "division": "II",
+  "domain": "govalkyries.com"
+ },
+ {
+  "name": "D'Youville University",
+  "division": "II",
+  "domain": "athletics.dyc.edu"
+ },
+ {
+  "name": "Daemen University",
+  "division": "II",
+  "domain": "daemenwildcats.com"
+ },
+ {
+  "name": "Dallas Baptist University",
+  "division": "II",
+  "domain": "www.dbupatriots.com"
+ },
+ {
+  "name": "Davenport University",
+  "division": "II",
+  "domain": "dupanthers.com"
+ },
+ {
+  "name": "Davis & Elkins College",
+  "division": "II",
+  "domain": "www.senatornation.com"
+ },
+ {
+  "name": "Delta State University",
+  "division": "II",
+  "domain": "www.gostatesmen.com"
+ },
+ {
+  "name": "University of the District of Columbia",
+  "division": "II",
+  "domain": "www.udcfirebirds.com"
+ },
+ {
+  "name": "Dominican University of California",
+  "division": "II",
+  "domain": "www.dominicanathletics.com"
+ },
+ {
+  "name": "Dominican University New York",
+  "division": "II",
+  "domain": "www.chargerathletics.com"
+ },
+ {
+  "name": "Drury University",
+  "division": "II",
+  "domain": "www.drurypanthers.com"
+ },
+ {
+  "name": "East Central University",
+  "division": "II",
+  "domain": "ecutigers.com"
+ },
+ {
+  "name": "East Stroudsburg University of Pennsylvania",
+  "division": "II",
+  "domain": "esuwarriors.com"
+ },
+ {
+  "name": "Eastern New Mexico University",
+  "division": "II",
+  "domain": "www.goeasternathletics.com"
+ },
+ {
+  "name": "Eckerd College",
+  "division": "II",
+  "domain": "www.eckerdtritons.com"
+ },
+ {
+  "name": "Pennsylvania Western University, Edinboro",
+  "division": "II",
+  "domain": "www.gofightingscots.com"
+ },
+ {
+  "name": "Edward Waters University",
+  "division": "II",
+  "domain": "www.ewutigerpride.com"
+ },
+ {
+  "name": "Elizabeth City State University",
+  "division": "II",
+  "domain": "www.ecsuvikings.com"
+ },
+ {
+  "name": "Embry-Riddle Aeronautical University (Florida)",
+  "division": "II",
+  "domain": "www.erauathletics.com"
+ },
+ {
+  "name": "Emmanuel University (Georgia)",
+  "division": "II",
+  "domain": "www.goeclions.com"
+ },
+ {
+  "name": "Emory & Henry University",
+  "division": "II",
+  "domain": "www.gowasps.com"
+ },
+ {
+  "name": "Emporia State University",
+  "division": "II",
+  "domain": "www.esuhornets.com"
+ },
+ {
+  "name": "Erskine College",
+  "division": "II",
+  "domain": "www.erskinesports.com"
+ },
+ {
+  "name": "Fairmont State University",
+  "division": "II",
+  "domain": "www.fightingfalcons.com"
+ },
+ {
+  "name": "Fayetteville State University",
+  "division": "II",
+  "domain": "fsubroncos.com"
+ },
+ {
+  "name": "Felician University",
+  "division": "II",
+  "domain": "www.felicianuathletics.com"
+ },
+ {
+  "name": "Ferris State University",
+  "division": "II",
+  "domain": "www.ferrisstatebulldogs.com"
+ },
+ {
+  "name": "Ferrum College",
+  "division": "II",
+  "domain": "www.ferrumpanthers.com"
+ },
+ {
+  "name": "University of Findlay",
+  "division": "II",
+  "domain": "findlayoilers.com"
+ },
+ {
+  "name": "Flagler College",
+  "division": "II",
+  "domain": "www.flaglerathletics.com"
+ },
+ {
+  "name": "Florida Institute of Technology",
+  "division": "II",
+  "domain": "floridatechsports.com"
+ },
+ {
+  "name": "Florida Southern College",
+  "division": "II",
+  "domain": "www.fscmocs.com"
+ },
+ {
+  "name": "Fort Hays State University",
+  "division": "II",
+  "domain": "www.fhsuathletics.com"
+ },
+ {
+  "name": "Fort Lewis College",
+  "division": "II",
+  "domain": "www.goskyhawks.com"
+ },
+ {
+  "name": "Fort Valley State University",
+  "division": "II",
+  "domain": "fvsusports.com"
+ },
+ {
+  "name": "Francis Marion University",
+  "division": "II",
+  "domain": "www.fmupatriots.com"
+ },
+ {
+  "name": "Franklin Pierce University",
+  "division": "II",
+  "domain": "www.fpuravens.com"
+ },
+ {
+  "name": "Fresno Pacific University",
+  "division": "II",
+  "domain": "fpuathletics.com"
+ },
+ {
+  "name": "Frostburg State University",
+  "division": "II",
+  "domain": "www.frostburgsports.com"
+ },
+ {
+  "name": "Gannon University",
+  "division": "II",
+  "domain": "www.gannonsports.com"
+ },
+ {
+  "name": "Georgia College",
+  "division": "II",
+  "domain": "www.gcsubobcats.com"
+ },
+ {
+  "name": "Georgia Southwestern State University",
+  "division": "II",
+  "domain": "www.gswcanes.com"
+ },
+ {
+  "name": "Georgian Court University",
+  "division": "II",
+  "domain": "www.gculions.com"
+ },
+ {
+  "name": "Glenville State University",
+  "division": "II",
+  "domain": "www.gscpioneers.com"
+ },
+ {
+  "name": "Goldey-Beacom College",
+  "division": "II",
+  "domain": "www.gbcathletics.com"
+ },
+ {
+  "name": "Grand Valley State University",
+  "division": "II",
+  "domain": "gvsulakers.com"
+ },
+ {
+  "name": "Harding University",
+  "division": "II",
+  "domain": "www.hardingsports.com"
+ },
+ {
+  "name": "University of Hawaii at Hilo",
+  "division": "II",
+  "domain": "hiloathletics.com"
+ },
+ {
+  "name": "Hawaii Pacific University",
+  "division": "II",
+  "domain": "www.hpusharks.com"
+ },
+ {
+  "name": "Henderson State University",
+  "division": "II",
+  "domain": "hsusports.com"
+ },
+ {
+  "name": "Hillsdale College",
+  "division": "II",
+  "domain": "www.hillsdalechargers.com"
+ },
+ {
+  "name": "Holy Family University",
+  "division": "II",
+  "domain": "athletics.holyfamily.edu"
+ },
+ {
+  "name": "University of Illinois Springfield",
+  "division": "II",
+  "domain": "www.uisprairiestars.com"
+ },
+ {
+  "name": "Indiana University of Pennsylvania",
+  "division": "II",
+  "domain": "iupathletics.com"
+ },
+ {
+  "name": "University of Indianapolis",
+  "division": "II",
+  "domain": "uindyathletics.com"
+ },
+ {
+  "name": "University of Jamestown",
+  "division": "II",
+  "domain": "jimmiepride.com"
+ },
+ {
+  "name": "Jessup University",
+  "division": "II",
+  "domain": "jessupathletics.com"
+ },
+ {
+  "name": "Johnson C. Smith University",
+  "division": "II",
+  "domain": "www.goldenbullsports.com"
+ },
+ {
+  "name": "Kentucky State University",
+  "division": "II",
+  "domain": "ksuthorobreds.com"
+ },
+ {
+  "name": "Kentucky Wesleyan College",
+  "division": "II",
+  "domain": "kwcpanthers.com"
+ },
+ {
+  "name": "King University",
+  "division": "II",
+  "domain": "www.kingtornado.com"
+ },
+ {
+  "name": "Kutztown University of Pennsylvania",
+  "division": "II",
+  "domain": "www.kubears.com"
+ },
+ {
+  "name": "Lake Erie College",
+  "division": "II",
+  "domain": "www.lakeeriestorm.com"
+ },
+ {
+  "name": "Lake Superior State University",
+  "division": "II",
+  "domain": "lssulakers.com"
+ },
+ {
+  "name": "Lander University",
+  "division": "II",
+  "domain": "www.landerbearcats.com"
+ },
+ {
+  "name": "Lane College",
+  "division": "II",
+  "domain": "www.golcdragons.com"
+ },
+ {
+  "name": "Lee University",
+  "division": "II",
+  "domain": "www.leeuflames.com"
+ },
+ {
+  "name": "Lees-McRae College",
+  "division": "II",
+  "domain": "lmcbobcats.com"
+ },
+ {
+  "name": "LeMoyne-Owen College",
+  "division": "II",
+  "domain": "athletics.loc.edu"
+ },
+ {
+  "name": "Lenoir-Rhyne University",
+  "division": "II",
+  "domain": "www.lrbears.com"
+ },
+ {
+  "name": "Lewis University",
+  "division": "II",
+  "domain": "www.lewisflyers.com"
+ },
+ {
+  "name": "Lincoln Memorial University",
+  "division": "II",
+  "domain": "www.lmurailsplitters.com"
+ },
+ {
+  "name": "Lincoln University (Missouri)",
+  "division": "II",
+  "domain": "www.lubluetigers.com"
+ },
+ {
+  "name": "Lincoln University (Pennsylvania)",
+  "division": "II",
+  "domain": "www.lulions.com"
+ },
+ {
+  "name": "Livingstone College",
+  "division": "II",
+  "domain": "bluebearathletics.com"
+ },
+ {
+  "name": "Lock Haven University of Pennsylvania",
+  "division": "II",
+  "domain": "www.lockhavenathletics.com"
+ },
+ {
+  "name": "Lubbock Christian University",
+  "division": "II",
+  "domain": "www.lcuchaps.com"
+ },
+ {
+  "name": "Lynn University",
+  "division": "II",
+  "domain": "www.lynnfightingknights.com"
+ },
+ {
+  "name": "Malone University",
+  "division": "II",
+  "domain": "www.malonepioneers.com"
+ },
+ {
+  "name": "Mansfield University of Pennsylvania",
+  "division": "II",
+  "domain": "www.gomounties.com"
+ },
+ {
+  "name": "Mars Hill University",
+  "division": "II",
+  "domain": "www.marshilllions.com"
+ },
+ {
+  "name": "University of Mary",
+  "division": "II",
+  "domain": "www.goumary.com"
+ },
+ {
+  "name": "Maryville University of Saint Louis",
+  "division": "II",
+  "domain": "www.maryvillesaints.com"
+ },
+ {
+  "name": "McKendree University",
+  "division": "II",
+  "domain": "www.mckbearcats.com"
+ },
+ {
+  "name": "Menlo College",
+  "division": "II",
+  "domain": "menloathletics.com"
+ },
+ {
+  "name": "Mercy University",
+  "division": "II",
+  "domain": "www.mercyathletics.com"
+ },
+ {
+  "name": "Mercyhurst University",
+  "division": "II",
+  "domain": "www.hurstathletics.com"
+ },
+ {
+  "name": "Metropolitan State University of Denver",
+  "division": "II",
+  "domain": "www.roadrunnersathletics.com"
+ },
+ {
+  "name": "Michigan Technological University",
+  "division": "II",
+  "domain": "www.michigantechhuskies.com"
+ },
+ {
+  "name": "Midwestern State University",
+  "division": "II",
+  "domain": "msumustangs.com"
+ },
+ {
+  "name": "Miles College",
+  "division": "II",
+  "domain": "milesgoldenbears.com"
+ },
+ {
+  "name": "Millersville University of Pennsylvania",
+  "division": "II",
+  "domain": "www.millersvilleathletics.com"
+ },
+ {
+  "name": "Minnesota State University, Mankato",
+  "division": "II",
+  "domain": "www.msumavericks.com"
+ },
+ {
+  "name": "Minnesota State University Moorhead",
+  "division": "II",
+  "domain": "msumdragons.com"
+ },
+ {
+  "name": "University of Minnesota, Crookston",
+  "division": "II",
+  "domain": "www.goldeneaglesports.com"
+ },
+ {
+  "name": "University of Minnesota Duluth",
+  "division": "II",
+  "domain": "umdbulldogs.com"
+ },
+ {
+  "name": "Minot State University",
+  "division": "II",
+  "domain": "www.msubeavers.com"
+ },
+ {
+  "name": "Mississippi Christian University",
+  "division": "II",
+  "domain": "www.gochoctaws.com"
+ },
+ {
+  "name": "Missouri University of Science and Technology",
+  "division": "II",
+  "domain": "www.minerathletics.com"
+ },
+ {
+  "name": "Missouri Southern State University",
+  "division": "II",
+  "domain": "mssulions.com"
+ },
+ {
+  "name": "Missouri Western State University",
+  "division": "II",
+  "domain": "www.gogriffons.com"
+ },
+ {
+  "name": "University of Missouri-St. Louis",
+  "division": "II",
+  "domain": "umsltritons.com"
+ },
+ {
+  "name": "Molloy University",
+  "division": "II",
+  "domain": "www.molloylions.com"
+ },
+ {
+  "name": "Montana State University Billings",
+  "division": "II",
+  "domain": "www.msubsports.com"
+ },
+ {
+  "name": "University of Montevallo",
+  "division": "II",
+  "domain": "www.montevallofalcons.com"
+ },
+ {
+  "name": "Morehouse College",
+  "division": "II",
+  "domain": "www.morehouseathletics.com"
+ },
+ {
+  "name": "University of Mount Olive",
+  "division": "II",
+  "domain": "www.umotrojans.com"
+ },
+ {
+  "name": "University of Nebraska at Kearney",
+  "division": "II",
+  "domain": "www.lopers.com"
+ },
+ {
+  "name": "University of New Haven",
+  "division": "II",
+  "domain": "www.newhavenchargers.com"
+ },
+ {
+  "name": "New Mexico Highlands University",
+  "division": "II",
+  "domain": "www.nmhuathletics.com"
+ },
+ {
+  "name": "Newberry College",
+  "division": "II",
+  "domain": "www.newberrywolves.com"
+ },
+ {
+  "name": "Newman University",
+  "division": "II",
+  "domain": "www.newmanjets.com"
+ },
+ {
+  "name": "University of North Carolina at Pembroke",
+  "division": "II",
+  "domain": "www.uncpbraves.com"
+ },
+ {
+  "name": "University of North Georgia",
+  "division": "II",
+  "domain": "www.ungathletics.com"
+ },
+ {
+  "name": "North Greenville University",
+  "division": "II",
+  "domain": "www.nguathletics.com"
+ },
+ {
+  "name": "Northeastern State University",
+  "division": "II",
+  "domain": "www.goriverhawksgo.com"
+ },
+ {
+  "name": "Northern Michigan University",
+  "division": "II",
+  "domain": "www.nmuwildcats.com"
+ },
+ {
+  "name": "Northern State University",
+  "division": "II",
+  "domain": "nsuwolves.com"
+ },
+ {
+  "name": "Northwest Missouri State University",
+  "division": "II",
+  "domain": "bearcatsports.com"
+ },
+ {
+  "name": "Northwest Nazarene University",
+  "division": "II",
+  "domain": "nnusports.com"
+ },
+ {
+  "name": "Northwestern Oklahoma State University",
+  "division": "II",
+  "domain": "www.riderangersride.com"
+ },
+ {
+  "name": "Northwood University",
+  "division": "II",
+  "domain": "gonorthwood.com"
+ },
+ {
+  "name": "Nova Southeastern University",
+  "division": "II",
+  "domain": "nsusharks.com"
+ },
+ {
+  "name": "Ohio Dominican University",
+  "division": "II",
+  "domain": "www.ohiodominicanpanthers.com"
+ },
+ {
+  "name": "Oklahoma Baptist University",
+  "division": "II",
+  "domain": "www.obubison.com"
+ },
+ {
+  "name": "Oklahoma Christian University",
+  "division": "II",
+  "domain": "www.oceagles.com"
+ },
+ {
+  "name": "Ouachita Baptist University",
+  "division": "II",
+  "domain": "www.obutigers.com"
+ },
+ {
+  "name": "Pace University",
+  "division": "II",
+  "domain": "www.paceuathletics.com"
+ },
+ {
+  "name": "Palm Beach Atlantic University",
+  "division": "II",
+  "domain": "www.pbasailfish.com"
+ },
+ {
+  "name": "Pittsburg State University",
+  "division": "II",
+  "domain": "www.pittstategorillas.com"
+ },
+ {
+  "name": "University of Pittsburgh, Johnstown",
+  "division": "II",
+  "domain": "pittjohnstownathletics.com"
+ },
+ {
+  "name": "Point Loma Nazarene University",
+  "division": "II",
+  "domain": "www.plnusealions.com"
+ },
+ {
+  "name": "Point Park University",
+  "division": "II",
+  "domain": "pointparksports.com"
+ },
+ {
+  "name": "Post University",
+  "division": "II",
+  "domain": "www.posteagles.com"
+ },
+ {
+  "name": "University of Puerto Rico, Bayamon",
+  "division": "II",
+  "domain": "www.uprb.edu"
+ },
+ {
+  "name": "University of Puerto Rico, Mayaguez",
+  "division": "II",
+  "domain": "www.uprm.edu"
+ },
+ {
+  "name": "University of Puerto Rico, Rio Piedras",
+  "division": "II",
+  "domain": "estudiantes.uprrp.edu"
+ },
+ {
+  "name": "Purdue University Northwest",
+  "division": "II",
+  "domain": "www.pnwathletics.com"
+ },
+ {
+  "name": "Queens College (New York)",
+  "division": "II",
+  "domain": "www.queensknights.com"
+ },
+ {
+  "name": "Quincy University",
+  "division": "II",
+  "domain": "quhawks.com"
+ },
+ {
+  "name": "Regis University (Colorado)",
+  "division": "II",
+  "domain": "www.regisrangers.com"
+ },
+ {
+  "name": "Roberts Wesleyan University",
+  "division": "II",
+  "domain": "www.robertsredhawks.com"
+ },
+ {
+  "name": "Rockhurst University",
+  "division": "II",
+  "domain": "www.rockhursthawks.com"
+ },
+ {
+  "name": "Rogers State University",
+  "division": "II",
+  "domain": "www.rsuhillcats.com"
+ },
+ {
+  "name": "Rollins College",
+  "division": "II",
+  "domain": "rollinssports.com"
+ },
+ {
+  "name": "Roosevelt University",
+  "division": "II",
+  "domain": "www.rooseveltlakers.com"
+ },
+ {
+  "name": "Saginaw Valley State University",
+  "division": "II",
+  "domain": "www.svsucardinals.com"
+ },
+ {
+  "name": "Salem University (West Virginia)",
+  "division": "II",
+  "domain": "www.salemtigers.com"
+ },
+ {
+  "name": "San Francisco State University",
+  "division": "II",
+  "domain": "sfstategators.com"
+ },
+ {
+  "name": "Savannah State University",
+  "division": "II",
+  "domain": "ssuathletics.com"
+ },
+ {
+  "name": "Seattle Pacific University",
+  "division": "II",
+  "domain": "spufalcons.com"
+ },
+ {
+  "name": "Seton Hill University",
+  "division": "II",
+  "domain": "www.setonhill.edu"
+ },
+ {
+  "name": "Shaw University",
+  "division": "II",
+  "domain": "www.shawbears.com"
+ },
+ {
+  "name": "Shawnee State University ",
+  "division": "II",
+  "domain": "www.ssubears.com"
+ },
+ {
+  "name": "Shepherd University",
+  "division": "II",
+  "domain": "shepherdrams.com"
+ },
+ {
+  "name": "Shippensburg University of Pennsylvania",
+  "division": "II",
+  "domain": "www.shipraiders.com"
+ },
+ {
+  "name": "Shorter University",
+  "division": "II",
+  "domain": "www.goshorterhawks.com"
+ },
+ {
+  "name": "Simon Fraser University",
+  "division": "II",
+  "domain": "athletics.sfu.ca"
+ },
+ {
+  "name": "University of Sioux Falls",
+  "division": "II",
+  "domain": "www.usfcougars.com"
+ },
+ {
+  "name": "Slippery Rock University of Pennsylvania",
+  "division": "II",
+  "domain": "www.rockathletics.com"
+ },
+ {
+  "name": "Sonoma State University",
+  "division": "II",
+  "domain": "www.sonomaseawolves.com"
+ },
+ {
+  "name": "University of South Carolina Aiken",
+  "division": "II",
+  "domain": "www.pacersports.com"
+ },
+ {
+  "name": "University of South Carolina Beaufort",
+  "division": "II",
+  "domain": "uscbathletics.com"
+ },
+ {
+  "name": "South Dakota School of Mines & Technology",
+  "division": "II",
+  "domain": "gorockers.com"
+ },
+ {
+  "name": "Southeastern Oklahoma State University",
+  "division": "II",
+  "domain": "www.gosoutheastern.com"
+ },
+ {
+  "name": "Southern Arkansas University",
+  "division": "II",
+  "domain": "www.muleriderathletics.com"
+ },
+ {
+  "name": "Southern Connecticut State University",
+  "division": "II",
+  "domain": "scsuowls.com"
+ },
+ {
+  "name": "Southern Nazarene University",
+  "division": "II",
+  "domain": "snuathletics.com"
+ },
+ {
+  "name": "Southern New Hampshire University",
+  "division": "II",
+  "domain": "www.snhupenmen.com"
+ },
+ {
+  "name": "Southern Wesleyan University",
+  "division": "II",
+  "domain": "swuathletics.com"
+ },
+ {
+  "name": "Southwest Baptist University",
+  "division": "II",
+  "domain": "www.sbubearcats.com"
+ },
+ {
+  "name": "Southwest Minnesota State University",
+  "division": "II",
+  "domain": "www.smsumustangs.com"
+ },
+ {
+  "name": "Southwestern Oklahoma State University",
+  "division": "II",
+  "domain": "www.swosuathletics.com"
+ },
+ {
+  "name": "Spring Hill College",
+  "division": "II",
+  "domain": "www.shcbadgers.com"
+ },
+ {
+  "name": "Saint Anselm College",
+  "division": "II",
+  "domain": "www.saintanselmhawks.com"
+ },
+ {
+  "name": "St. Cloud State University",
+  "division": "II",
+  "domain": "www.stcloudstate.edu"
+ },
+ {
+  "name": "St. Edward's University",
+  "division": "II",
+  "domain": "gohilltoppers.com"
+ },
+ {
+  "name": "Saint Leo University",
+  "division": "II",
+  "domain": "www.saintleolions.com"
+ },
+ {
+  "name": "Saint Martin's University",
+  "division": "II",
+  "domain": "www.smusaints.com"
+ },
+ {
+  "name": "St. Mary's University (Texas)",
+  "division": "II",
+  "domain": "www.rattlerathletics.com"
+ },
+ {
+  "name": "Saint Michael's College",
+  "division": "II",
+  "domain": "www.smcathletics.com"
+ },
+ {
+  "name": "St. Thomas Aquinas College",
+  "division": "II",
+  "domain": "www.stacathletics.com"
+ },
+ {
+  "name": "College of Staten Island",
+  "division": "II",
+  "domain": "www.csidolphins.com"
+ },
+ {
+  "name": "Sul Ross State University",
+  "division": "II",
+  "domain": "www.srlobos.com"
+ },
+ {
+  "name": "University of Tampa",
+  "division": "II",
+  "domain": "tampaspartans.com"
+ },
+ {
+  "name": "Texas A&M International University",
+  "division": "II",
+  "domain": "godustdevils.com"
+ },
+ {
+  "name": "Texas A&M University-Kingsville",
+  "division": "II",
+  "domain": "www.javelinaathletics.com"
+ },
+ {
+  "name": "Texas Woman's University",
+  "division": "II",
+  "domain": "www.twuathletics.com"
+ },
+ {
+  "name": "The University of Texas at Tyler",
+  "division": "II",
+  "domain": "www.uttylerpatriots.com"
+ },
+ {
+  "name": "Thomas Jefferson University",
+  "division": "II",
+  "domain": "www.jeffersonrams.com"
+ },
+ {
+  "name": "Thomas More University",
+  "division": "II",
+  "domain": "www.thomasmoresaints.com"
+ },
+ {
+  "name": "Tiffin University",
+  "division": "II",
+  "domain": "www.gotiffindragons.com"
+ },
+ {
+  "name": "Trevecca Nazarene University",
+  "division": "II",
+  "domain": "www.tnutrojans.com"
+ },
+ {
+  "name": "Truman State University",
+  "division": "II",
+  "domain": "www.trumanbulldogs.com"
+ },
+ {
+  "name": "Tusculum University",
+  "division": "II",
+  "domain": "www.tusculumpioneers.com"
+ },
+ {
+  "name": "Tuskegee University",
+  "division": "II",
+  "domain": "www.goldentigersports.com"
+ },
+ {
+  "name": "Union University",
+  "division": "II",
+  "domain": "www.uuathletics.com"
+ },
+ {
+  "name": "Upper Iowa University",
+  "division": "II",
+  "domain": "uiupeacocks.com"
+ },
+ {
+  "name": "Ursuline College",
+  "division": "II",
+  "domain": "www.ursulinearrows.com"
+ },
+ {
+  "name": "The University of Texas Permian Basin",
+  "division": "II",
+  "domain": "www.utpbfalcons.com"
+ },
+ {
+  "name": "University of Texas at Dallas",
+  "division": "II",
+  "domain": "utdcomets.com"
+ },
+ {
+  "name": "Valdosta State University",
+  "division": "II",
+  "domain": "www.vstateblazers.com"
+ },
+ {
+  "name": "Vanguard University",
+  "division": "II",
+  "domain": "www.vanguardlions.com"
+ },
+ {
+  "name": "The University of Virginia's College at Wise",
+  "division": "II",
+  "domain": "www.uvawisecavs.com"
+ },
+ {
+  "name": "Virginia State University",
+  "division": "II",
+  "domain": "www.govsutrojans.com"
+ },
+ {
+  "name": "Virginia Union University",
+  "division": "II",
+  "domain": "vuusports.com"
+ },
+ {
+  "name": "Walsh University",
+  "division": "II",
+  "domain": "athletics.walsh.edu"
+ },
+ {
+  "name": "Washburn University",
+  "division": "II",
+  "domain": "www.wusports.com"
+ },
+ {
+  "name": "Wayne State University (Michigan)",
+  "division": "II",
+  "domain": "www.wsuathletics.com"
+ },
+ {
+  "name": "Wayne State College (Nebraska)",
+  "division": "II",
+  "domain": "www.wscwildcats.com"
+ },
+ {
+  "name": "University of West Alabama",
+  "division": "II",
+  "domain": "www.uwaathletics.com"
+ },
+ {
+  "name": "West Chester University of Pennsylvania",
+  "division": "II",
+  "domain": "www.wcupagoldenrams.com"
+ },
+ {
+  "name": "University of West Florida",
+  "division": "II",
+  "domain": "www.goargos.com"
+ },
+ {
+  "name": "University of West Georgia",
+  "division": "II",
+  "domain": "www.uwgathletics.com"
+ },
+ {
+  "name": "West Liberty University",
+  "division": "II",
+  "domain": "www.hilltoppersports.com"
+ },
+ {
+  "name": "West Texas A&M University",
+  "division": "II",
+  "domain": "www.gobuffsgo.com"
+ },
+ {
+  "name": "West Virginia State University",
+  "division": "II",
+  "domain": "www.wvsuyellowjackets.com"
+ },
+ {
+  "name": "West Virginia Wesleyan College",
+  "division": "II",
+  "domain": "wesleyanbobcats.com"
+ },
+ {
+  "name": "Western Colorado University",
+  "division": "II",
+  "domain": "www.gomountaineers.com"
+ },
+ {
+  "name": "Western New Mexico University",
+  "division": "II",
+  "domain": "www.wnmumustangs.com"
+ },
+ {
+  "name": "Western Oregon University",
+  "division": "II",
+  "domain": "www.wouwolves.com"
+ },
+ {
+  "name": "Western Washington University",
+  "division": "II",
+  "domain": "www.wwuvikings.com"
+ },
+ {
+  "name": "Westminster University (Utah)",
+  "division": "II",
+  "domain": "www.westminstergriffins.com"
+ },
+ {
+  "name": "Westmont College",
+  "division": "II",
+  "domain": "athletics.westmont.edu"
+ },
+ {
+  "name": "Wheeling University",
+  "division": "II",
+  "domain": "wucardinals.com"
+ },
+ {
+  "name": "William Jewell College",
+  "division": "II",
+  "domain": "www.jewellcardinals.com"
+ },
+ {
+  "name": "Wilmington University (Delaware)",
+  "division": "II",
+  "domain": "athletics.wilmu.edu"
+ },
+ {
+  "name": "Wingate University",
+  "division": "II",
+  "domain": "wingatebulldogs.com"
+ },
+ {
+  "name": "Winona State University",
+  "division": "II",
+  "domain": "www.winonastatewarriors.com"
+ },
+ {
+  "name": "Winston-Salem State University",
+  "division": "II",
+  "domain": "wssurams.com"
+ },
+ {
+  "name": "University of Wisconsin-Parkside",
+  "division": "II",
+  "domain": "www.parksiderangers.com"
+ },
+ {
+  "name": "Young Harris College",
+  "division": "II",
+  "domain": "www.yhcathletics.com"
+ },
+ {
+  "name": "Adrian College",
+  "division": "III",
+  "domain": "www.adrianbulldogs.com"
+ },
+ {
+  "name": "Agnes Scott College",
+  "division": "III",
+  "domain": "www.ascscotties.com"
+ },
+ {
+  "name": "Albertus Magnus College",
+  "division": "III",
+  "domain": "www.albertusfalcons.com"
+ },
+ {
+  "name": "Albion College",
+  "division": "III",
+  "domain": "www.gobrits.com"
+ },
+ {
+  "name": "Albright College",
+  "division": "III",
+  "domain": "www.albrightathletics.com"
+ },
+ {
+  "name": "Alfred State College",
+  "division": "III",
+  "domain": "www.alfredstateathletics.com"
+ },
+ {
+  "name": "Alfred University",
+  "division": "III",
+  "domain": "www.gosaxons.com"
+ },
+ {
+  "name": "Allegheny College",
+  "division": "III",
+  "domain": "www.alleghenygators.com"
+ },
+ {
+  "name": "Alma College",
+  "division": "III",
+  "domain": "www.almascots.com"
+ },
+ {
+  "name": "Alvernia University",
+  "division": "III",
+  "domain": "athletics.alvernia.edu"
+ },
+ {
+  "name": "Alverno College",
+  "division": "III",
+  "domain": "athletics.alverno.edu"
+ },
+ {
+  "name": "Amherst College",
+  "division": "III",
+  "domain": "athletics.amherst.edu"
+ },
+ {
+  "name": "Anderson University (Indiana)",
+  "division": "III",
+  "domain": "athletics.anderson.edu"
+ },
+ {
+  "name": "Arcadia University",
+  "division": "III",
+  "domain": "www.arcadiaknights.com"
+ },
+ {
+  "name": "Asbury University",
+  "division": "III",
+  "domain": "www.asburyeagles.com"
+ },
+ {
+  "name": "Augsburg University",
+  "division": "III",
+  "domain": "athletics.augsburg.edu"
+ },
+ {
+  "name": "Augustana College (Illinois)",
+  "division": "III",
+  "domain": "www.athletics.augustana.edu"
+ },
+ {
+  "name": "Aurora University",
+  "division": "III",
+  "domain": "athletics.aurora.edu"
+ },
+ {
+  "name": "Austin College",
+  "division": "III",
+  "domain": "www.acroos.com"
+ },
+ {
+  "name": "Averett University",
+  "division": "III",
+  "domain": "www.averettcougars.com"
+ },
+ {
+  "name": "Azusa Pacific University",
+  "division": "III",
+  "domain": "athletics.apu.edu"
+ },
+ {
+  "name": "Babson College",
+  "division": "III",
+  "domain": "www.babsonathletics.com"
+ },
+ {
+  "name": "Baldwin Wallace University",
+  "division": "III",
+  "domain": "www.bwyellowjackets.com"
+ },
+ {
+  "name": "Bard College",
+  "division": "III",
+  "domain": "www.bardathletics.com"
+ },
+ {
+  "name": "Baruch College",
+  "division": "III",
+  "domain": "www.baruchathletics.com"
+ },
+ {
+  "name": "Bates College",
+  "division": "III",
+  "domain": "www.gobatesbobcats.com"
+ },
+ {
+  "name": "Batten University",
+  "division": "III",
+  "domain": "vwuathletics.com"
+ },
+ {
+  "name": "Belhaven University",
+  "division": "III",
+  "domain": "blazers.belhaven.edu"
+ },
+ {
+  "name": "Beloit College",
+  "division": "III",
+  "domain": "www.beloit.edu"
+ },
+ {
+  "name": "Benedictine University (Illinois)",
+  "division": "III",
+  "domain": "www.benueagles.com"
+ },
+ {
+  "name": "Berea College",
+  "division": "III",
+  "domain": "www.bereaathletics.com"
+ },
+ {
+  "name": "Berry College",
+  "division": "III",
+  "domain": "www.berryvikings.com"
+ },
+ {
+  "name": "Bethany College (West Virginia)",
+  "division": "III",
+  "domain": "bethanybison.com"
+ },
+ {
+  "name": "Bethany Lutheran College",
+  "division": "III",
+  "domain": "www.blcvikings.com"
+ },
+ {
+  "name": "Bethel University (Minnesota)",
+  "division": "III",
+  "domain": "athletics.bethel.edu"
+ },
+ {
+  "name": "Blackburn College",
+  "division": "III",
+  "domain": "blackburnbeavers.com"
+ },
+ {
+  "name": "Bluffton University",
+  "division": "III",
+  "domain": "www.blufftonbeavers.com"
+ },
+ {
+  "name": "Bowdoin College",
+  "division": "III",
+  "domain": "www.bowdoin.edu"
+ },
+ {
+  "name": "Brandeis University",
+  "division": "III",
+  "domain": "www.brandeisjudges.com"
+ },
+ {
+  "name": "Brevard College",
+  "division": "III",
+  "domain": "www.bctornados.com"
+ },
+ {
+  "name": "Bridgewater College (Virginia)",
+  "division": "III",
+  "domain": "www.bridgewatereagles.com"
+ },
+ {
+  "name": "Bridgewater State University",
+  "division": "III",
+  "domain": "www.bsubears.com"
+ },
+ {
+  "name": "State University of New York at Brockport",
+  "division": "III",
+  "domain": "gobrockport.com"
+ },
+ {
+  "name": "Brooklyn College",
+  "division": "III",
+  "domain": "brooklyncollegeathletics.com"
+ },
+ {
+  "name": "Bryn Mawr College",
+  "division": "III",
+  "domain": "www.brynmawr.edu"
+ },
+ {
+  "name": "Buena Vista University",
+  "division": "III",
+  "domain": "www.bvuathletics.com"
+ },
+ {
+  "name": "Buffalo State, State University of New York",
+  "division": "III",
+  "domain": "www.buffalostateathletics.com"
+ },
+ {
+  "name": "Cairn University",
+  "division": "III",
+  "domain": "www.cairnhighlanders.com"
+ },
+ {
+  "name": "California Lutheran University",
+  "division": "III",
+  "domain": "www.clusports.com"
+ },
+ {
+  "name": "University of California, Santa Cruz",
+  "division": "III",
+  "domain": "www.goslugs.com"
+ },
+ {
+  "name": "California Institute of Technology",
+  "division": "III",
+  "domain": "www.gocaltech.com"
+ },
+ {
+  "name": "Calvin University",
+  "division": "III",
+  "domain": "calvinknights.com"
+ },
+ {
+  "name": "State University of New York at Canton",
+  "division": "III",
+  "domain": "www.rooathletics.com"
+ },
+ {
+  "name": "Capital University",
+  "division": "III",
+  "domain": "www.capital.edu"
+ },
+ {
+  "name": "Carleton College",
+  "division": "III",
+  "domain": "apps.carleton.edu"
+ },
+ {
+  "name": "Carlow University",
+  "division": "III",
+  "domain": "athletics.carlow.edu"
+ },
+ {
+  "name": "Carnegie Mellon University",
+  "division": "III",
+  "domain": "athletics.cmu.edu"
+ },
+ {
+  "name": "Carroll University (Wisconsin)",
+  "division": "III",
+  "domain": "www.gopios.com"
+ },
+ {
+  "name": "Carthage College",
+  "division": "III",
+  "domain": "athletics.carthage.edu"
+ },
+ {
+  "name": "Case Western Reserve University",
+  "division": "III",
+  "domain": "athletics.case.edu"
+ },
+ {
+  "name": "Catholic University",
+  "division": "III",
+  "domain": "www.catholicathletics.com"
+ },
+ {
+  "name": "Cedar Crest College",
+  "division": "III",
+  "domain": "www.cedarcrestathletics.com"
+ },
+ {
+  "name": "Centenary College (Louisiana)",
+  "division": "III",
+  "domain": "www.gocentenary.com"
+ },
+ {
+  "name": "Centenary University (New Jersey)",
+  "division": "III",
+  "domain": "www.centenarycyclones.com"
+ },
+ {
+  "name": "Central College (Iowa)",
+  "division": "III",
+  "domain": "www.central.edu"
+ },
+ {
+  "name": "Centre College",
+  "division": "III",
+  "domain": "www.centrecolonels.com"
+ },
+ {
+  "name": "Chapman University",
+  "division": "III",
+  "domain": "www.chapmanathletics.com"
+ },
+ {
+  "name": "Chatham University",
+  "division": "III",
+  "domain": "www.gochathamcougars.com"
+ },
+ {
+  "name": "University of Chicago",
+  "division": "III",
+  "domain": "athletics.uchicago.edu"
+ },
+ {
+  "name": "Christopher Newport University",
+  "division": "III",
+  "domain": "cnusports.com"
+ },
+ {
+  "name": "The City College of New York",
+  "division": "III",
+  "domain": "www.ccnyathletics.com"
+ },
+ {
+  "name": "Claremont McKenna-Harvey Mudd-Scripps Colleges",
+  "division": "III",
+  "domain": "www.cmsathletics.org"
+ },
+ {
+  "name": "Clark University (Massachusetts)",
+  "division": "III",
+  "domain": "clarkathletics.com"
+ },
+ {
+  "name": "Clarkson University",
+  "division": "III",
+  "domain": "www.clarksonathletics.com"
+ },
+ {
+  "name": "State University of New York at Cobleskill",
+  "division": "III",
+  "domain": "fightingtigers.cobleskill.edu"
+ },
+ {
+  "name": "Coe College",
+  "division": "III",
+  "domain": "www.kohawkathletics.com"
+ },
+ {
+  "name": "Colby College",
+  "division": "III",
+  "domain": "www.colby.edu"
+ },
+ {
+  "name": "Colby-Sawyer College",
+  "division": "III",
+  "domain": "www.colby-sawyerathletics.com"
+ },
+ {
+  "name": "Colorado College",
+  "division": "III",
+  "domain": "www.cctigers.com"
+ },
+ {
+  "name": "Concordia College, Moorhead",
+  "division": "III",
+  "domain": "www.gocobbers.com"
+ },
+ {
+  "name": "Concordia University Chicago",
+  "division": "III",
+  "domain": "www.cucougars.com"
+ },
+ {
+  "name": "Concordia University Texas",
+  "division": "III",
+  "domain": "athletics.concordia.edu"
+ },
+ {
+  "name": "Concordia University Wisconsin",
+  "division": "III",
+  "domain": "www.cuwfalcons.com"
+ },
+ {
+  "name": "Connecticut College",
+  "division": "III",
+  "domain": "camelathletics.com"
+ },
+ {
+  "name": "Cornell College",
+  "division": "III",
+  "domain": "www.cornellrams.com"
+ },
+ {
+  "name": "State University of New York at Cortland",
+  "division": "III",
+  "domain": "www.cortland.edu"
+ },
+ {
+  "name": "Covenant College",
+  "division": "III",
+  "domain": "athletics.covenant.edu"
+ },
+ {
+  "name": "Crown College (Minnesota)",
+  "division": "III",
+  "domain": "www.athletics.crown.edu"
+ },
+ {
+  "name": "Curry College",
+  "division": "III",
+  "domain": "www.curryathletics.com"
+ },
+ {
+  "name": "University of Dallas",
+  "division": "III",
+  "domain": "www.udallasathletics.com"
+ },
+ {
+  "name": "Dean College",
+  "division": "III",
+  "domain": "www.deanbulldogs.com"
+ },
+ {
+  "name": "Delaware Valley University",
+  "division": "III",
+  "domain": "www.delval.edu"
+ },
+ {
+  "name": "State University of New York at Delhi",
+  "division": "III",
+  "domain": "delhibroncos.com"
+ },
+ {
+  "name": "Denison University",
+  "division": "III",
+  "domain": "www.denisonbigred.com"
+ },
+ {
+  "name": "DePauw University",
+  "division": "III",
+  "domain": "depauwtigers.com"
+ },
+ {
+  "name": "DeSales University",
+  "division": "III",
+  "domain": "athletics.desales.edu"
+ },
+ {
+  "name": "Dickinson College",
+  "division": "III",
+  "domain": "www.dickinsonathletics.com"
+ },
+ {
+  "name": "Dominican University (Illinois)",
+  "division": "III",
+  "domain": "www.dustars.com"
+ },
+ {
+  "name": "Drew University",
+  "division": "III",
+  "domain": "www.drewrangers.com"
+ },
+ {
+  "name": "University of Dubuque",
+  "division": "III",
+  "domain": "www.dbq.edu"
+ },
+ {
+  "name": "Earlham College",
+  "division": "III",
+  "domain": "www.goearlham.com"
+ },
+ {
+  "name": "East Texas Baptist University",
+  "division": "III",
+  "domain": "www.goetbutigers.com"
+ },
+ {
+  "name": "Eastern Connecticut State University",
+  "division": "III",
+  "domain": "gowarriorathletics.com"
+ },
+ {
+  "name": "Eastern Mennonite University",
+  "division": "III",
+  "domain": "www.emuroyals.com"
+ },
+ {
+  "name": "Eastern University",
+  "division": "III",
+  "domain": "www.goeasterneagles.com"
+ },
+ {
+  "name": "Edgewood University",
+  "division": "III",
+  "domain": "www.edgewoodeagles.com"
+ },
+ {
+  "name": "Elizabethtown College",
+  "division": "III",
+  "domain": "www.etownbluejays.com"
+ },
+ {
+  "name": "Elmhurst University",
+  "division": "III",
+  "domain": "elmhurstbluejays.com"
+ },
+ {
+  "name": "Elmira College",
+  "division": "III",
+  "domain": "athletics.elmira.edu"
+ },
+ {
+  "name": "Elms College",
+  "division": "III",
+  "domain": "ecblazers.com"
+ },
+ {
+  "name": "Emerson College",
+  "division": "III",
+  "domain": "www.emersonlions.com"
+ },
+ {
+  "name": "Emmanuel College (Massachusetts)",
+  "division": "III",
+  "domain": "www.goecsaints.com"
+ },
+ {
+  "name": "Emory University",
+  "division": "III",
+  "domain": "www.emoryathletics.com"
+ },
+ {
+  "name": "Endicott College",
+  "division": "III",
+  "domain": "www.ecgulls.com"
+ },
+ {
+  "name": "Eureka College",
+  "division": "III",
+  "domain": "www.eurekareddevils.com"
+ },
+ {
+  "name": "Fairleigh Dickinson University, Florham",
+  "division": "III",
+  "domain": "www.fdudevils.com"
+ },
+ {
+  "name": "Farmingdale State College",
+  "division": "III",
+  "domain": "www.farmingdalesports.com"
+ },
+ {
+  "name": "Ferrum College",
+  "division": "III",
+  "domain": "www.ferrumpanthers.com"
+ },
+ {
+  "name": "Fitchburg State University",
+  "division": "III",
+  "domain": "www.fitchburgfalcons.com"
+ },
+ {
+  "name": "Framingham State University",
+  "division": "III",
+  "domain": "www.fsurams.com"
+ },
+ {
+  "name": "Franciscan University of Steubenville",
+  "division": "III",
+  "domain": "www.franciscanathletics.com"
+ },
+ {
+  "name": "Franklin & Marshall College",
+  "division": "III",
+  "domain": "www.godiplomats.com"
+ },
+ {
+  "name": "Franklin College",
+  "division": "III",
+  "domain": "franklingrizzlies.com"
+ },
+ {
+  "name": "The State University of New York at Fredonia",
+  "division": "III",
+  "domain": "www.fredoniabluedevils.com"
+ },
+ {
+  "name": "Gallaudet University",
+  "division": "III",
+  "domain": "www.gallaudetbison.com"
+ },
+ {
+  "name": "State University of New York at Geneseo",
+  "division": "III",
+  "domain": "www.geneseoknights.com"
+ },
+ {
+  "name": "Geneva College",
+  "division": "III",
+  "domain": "athletics.geneva.edu"
+ },
+ {
+  "name": "George Fox University",
+  "division": "III",
+  "domain": "www.gfubruins.com"
+ },
+ {
+  "name": "Gettysburg College",
+  "division": "III",
+  "domain": "www.gettysburgsports.com"
+ },
+ {
+  "name": "Gordon College",
+  "division": "III",
+  "domain": "athletics.gordon.edu"
+ },
+ {
+  "name": "Goucher College",
+  "division": "III",
+  "domain": "athletics.goucher.edu"
+ },
+ {
+  "name": "Greensboro College",
+  "division": "III",
+  "domain": "www.greensborocollegesports.com"
+ },
+ {
+  "name": "Greenville University",
+  "division": "III",
+  "domain": "www.greenville.edu"
+ },
+ {
+  "name": "Grinnell College",
+  "division": "III",
+  "domain": "pioneers.grinnell.edu"
+ },
+ {
+  "name": "Grove City College",
+  "division": "III",
+  "domain": "athletics.gcc.edu"
+ },
+ {
+  "name": "Guilford College",
+  "division": "III",
+  "domain": "www.guilford.edu"
+ },
+ {
+  "name": "Gustavus Adolphus College",
+  "division": "III",
+  "domain": "www.gustavus.edu"
+ },
+ {
+  "name": "Gwynedd Mercy University",
+  "division": "III",
+  "domain": "gwyneddathletics.com"
+ },
+ {
+  "name": "Hamilton College",
+  "division": "III",
+  "domain": "www.hamilton.edu"
+ },
+ {
+  "name": "Hamline University",
+  "division": "III",
+  "domain": "www.hamlineathletics.com"
+ },
+ {
+  "name": "Hampden-Sydney College",
+  "division": "III",
+  "domain": "www.hscathletics.com"
+ },
+ {
+  "name": "Hanover College",
+  "division": "III",
+  "domain": "athletics.hanover.edu"
+ },
+ {
+  "name": "Hardin-Simmons University",
+  "division": "III",
+  "domain": "hsuathletics.com"
+ },
+ {
+  "name": "University of Hartford",
+  "division": "III",
+  "domain": "hartfordhawks.com"
+ },
+ {
+  "name": "Hartwick College",
+  "division": "III",
+  "domain": "www.hartwickhawks.com"
+ },
+ {
+  "name": "Haverford College",
+  "division": "III",
+  "domain": "www.haverfordathletics.com"
+ },
+ {
+  "name": "Heidelberg University",
+  "division": "III",
+  "domain": "bergathletics.com"
+ },
+ {
+  "name": "Hendrix College",
+  "division": "III",
+  "domain": "www.hendrixwarriors.com"
+ },
+ {
+  "name": "Hilbert College",
+  "division": "III",
+  "domain": "www.hilberthawks.com"
+ },
+ {
+  "name": "Hiram College",
+  "division": "III",
+  "domain": "www.hiramterriers.com"
+ },
+ {
+  "name": "Hobart and William Smith Colleges",
+  "division": "III",
+  "domain": "www.hwsathletics.com"
+ },
+ {
+  "name": "Hollins University",
+  "division": "III",
+  "domain": "www.hollinssports.com"
+ },
+ {
+  "name": "Hood College",
+  "division": "III",
+  "domain": "www.hoodathletics.com"
+ },
+ {
+  "name": "Hope College",
+  "division": "III",
+  "domain": "athletics.hope.edu"
+ },
+ {
+  "name": "Houghton University",
+  "division": "III",
+  "domain": "athletics.houghton.edu"
+ },
+ {
+  "name": "Howard Payne University",
+  "division": "III",
+  "domain": "www.hpusports.com"
+ },
+ {
+  "name": "Hunter College",
+  "division": "III",
+  "domain": "www.huntercollegeathletics.com"
+ },
+ {
+  "name": "Huntingdon College",
+  "division": "III",
+  "domain": "www.huntingdonhawks.com"
+ },
+ {
+  "name": "Husson University",
+  "division": "III",
+  "domain": "www.hussoneagles.com"
+ },
+ {
+  "name": "Illinois College",
+  "division": "III",
+  "domain": "www.illinoiscollegeathletics.com"
+ },
+ {
+  "name": "Illinois Institute of Technology",
+  "division": "III",
+  "domain": "www.illinoistechathletics.com"
+ },
+ {
+  "name": "Illinois Wesleyan University",
+  "division": "III",
+  "domain": "www.iwusports.com"
+ },
+ {
+  "name": "Immaculata University",
+  "division": "III",
+  "domain": "www.gomightymacs.com"
+ },
+ {
+  "name": "Ithaca College",
+  "division": "III",
+  "domain": "athletics.ithaca.edu"
+ },
+ {
+  "name": "John Carroll University",
+  "division": "III",
+  "domain": "www.jcusports.com"
+ },
+ {
+  "name": "John Jay College of Criminal Justice",
+  "division": "III",
+  "domain": "www.johnjayathletics.com"
+ },
+ {
+  "name": "Johns Hopkins University",
+  "division": "III",
+  "domain": "www.hopkinssports.com"
+ },
+ {
+  "name": "Johnson & Wales University (Providence)",
+  "division": "III",
+  "domain": "providence.jwuathletics.com"
+ },
+ {
+  "name": "Johnson & Wales University Charlotte",
+  "division": "III",
+  "domain": "charlotte.jwuathletics.com"
+ },
+ {
+  "name": "Juniata College",
+  "division": "III",
+  "domain": "www.juniatasports.net"
+ },
+ {
+  "name": "Kalamazoo College",
+  "division": "III",
+  "domain": "hornets.kzoo.edu"
+ },
+ {
+  "name": "Kean University",
+  "division": "III",
+  "domain": "www.keanathletics.com"
+ },
+ {
+  "name": "Keene State College",
+  "division": "III",
+  "domain": "www.keeneowls.com"
+ },
+ {
+  "name": "Kenyon College",
+  "division": "III",
+  "domain": "athletics.kenyon.edu"
+ },
+ {
+  "name": "Keuka College",
+  "division": "III",
+  "domain": "www.keukaathletics.com"
+ },
+ {
+  "name": "Keystone College",
+  "division": "III",
+  "domain": "www.gokcgiants.com"
+ },
+ {
+  "name": "King's College (Pennsylvania)",
+  "division": "III",
+  "domain": "www.kings.edu"
+ },
+ {
+  "name": "Knox College",
+  "division": "III",
+  "domain": "prairiefire.knox.edu"
+ },
+ {
+  "name": "La Roche University",
+  "division": "III",
+  "domain": "larochesports.com"
+ },
+ {
+  "name": "University of La Verne",
+  "division": "III",
+  "domain": "www.leopardathletics.com"
+ },
+ {
+  "name": "LaGrange College",
+  "division": "III",
+  "domain": "www.lagrangepanthers.com"
+ },
+ {
+  "name": "Lake Forest College",
+  "division": "III",
+  "domain": "www.goforesters.com"
+ },
+ {
+  "name": "Lakeland University",
+  "division": "III",
+  "domain": "lakelandmuskies.com"
+ },
+ {
+  "name": "Lancaster Bible College",
+  "division": "III",
+  "domain": "www.lbcchargers.com"
+ },
+ {
+  "name": "Lasell University",
+  "division": "III",
+  "domain": "laserpride.lasell.edu"
+ },
+ {
+  "name": "Lawrence University",
+  "division": "III",
+  "domain": "vikings.lawrence.edu"
+ },
+ {
+  "name": "Lebanon Valley College",
+  "division": "III",
+  "domain": "www.godutchmen.com"
+ },
+ {
+  "name": "Lehman College",
+  "division": "III",
+  "domain": "www.lehmanathletics.com"
+ },
+ {
+  "name": "Lesley University",
+  "division": "III",
+  "domain": "lesleyathletics.com"
+ },
+ {
+  "name": "LeTourneau University",
+  "division": "III",
+  "domain": "www.letuathletics.com"
+ },
+ {
+  "name": "Lewis & Clark College",
+  "division": "III",
+  "domain": "www.golcathletics.com"
+ },
+ {
+  "name": "Linfield University",
+  "division": "III",
+  "domain": "golinfieldwildcats.com"
+ },
+ {
+  "name": "Loras College",
+  "division": "III",
+  "domain": "www.duhawks.com"
+ },
+ {
+  "name": "Luther College",
+  "division": "III",
+  "domain": "sports.luther.edu"
+ },
+ {
+  "name": "Lycoming College",
+  "division": "III",
+  "domain": "lycomingathletics.com"
+ },
+ {
+  "name": "University of Lynchburg",
+  "division": "III",
+  "domain": "www.lynchburgsports.com"
+ },
+ {
+  "name": "Lyon College",
+  "division": "III",
+  "domain": "lyonscots.com"
+ },
+ {
+  "name": "Macalester College",
+  "division": "III",
+  "domain": "www.macalester.edu"
+ },
+ {
+  "name": "Maine Maritime Academy",
+  "division": "III",
+  "domain": "www.marinersports.org"
+ },
+ {
+  "name": "University of Maine, Farmington",
+  "division": "III",
+  "domain": "www.goumfbeavers.com"
+ },
+ {
+  "name": "University of Maine at Presque Isle",
+  "division": "III",
+  "domain": "owls.umpi.edu"
+ },
+ {
+  "name": "Manchester University",
+  "division": "III",
+  "domain": "www.muspartans.com"
+ },
+ {
+  "name": "Manhattanville University",
+  "division": "III",
+  "domain": "www.govaliants.com"
+ },
+ {
+  "name": "Maranatha Baptist University",
+  "division": "III",
+  "domain": "mbusabercats.com"
+ },
+ {
+  "name": "Marian University (Wisconsin)",
+  "division": "III",
+  "domain": "www.sabreathletics.com"
+ },
+ {
+  "name": "Marietta College",
+  "division": "III",
+  "domain": "pioneers.marietta.edu"
+ },
+ {
+  "name": "State University of New York Maritime College",
+  "division": "III",
+  "domain": "www.maritimeathletics.com"
+ },
+ {
+  "name": "Martin Luther College",
+  "division": "III",
+  "domain": "www.mlcknights.com"
+ },
+ {
+  "name": "Mary Baldwin University",
+  "division": "III",
+  "domain": "www.marybaldwinathletics.com"
+ },
+ {
+  "name": "University of Mary Hardin-Baylor",
+  "division": "III",
+  "domain": "www.umhb.edu"
+ },
+ {
+  "name": "University of Mary Washington",
+  "division": "III",
+  "domain": "www.umweagles.com"
+ },
+ {
+  "name": "Marymount University (Virginia)",
+  "division": "III",
+  "domain": "www.marymountsaints.com"
+ },
+ {
+  "name": "Maryville College (Tennessee)",
+  "division": "III",
+  "domain": "www.mcscots.com"
+ },
+ {
+  "name": "Marywood University",
+  "division": "III",
+  "domain": "www.marywoodpacers.com"
+ },
+ {
+  "name": "Massachusetts College of Liberal Arts",
+  "division": "III",
+  "domain": "athletics.mcla.edu"
+ },
+ {
+  "name": "Massachusetts Institute of Technology",
+  "division": "III",
+  "domain": "www.mitathletics.com"
+ },
+ {
+  "name": "Massachusetts Maritime Academy",
+  "division": "III",
+  "domain": "www.mmabucs.com"
+ },
+ {
+  "name": "University of Massachusetts Boston",
+  "division": "III",
+  "domain": "www.beaconsathletics.com"
+ },
+ {
+  "name": "University of Massachusetts, Dartmouth",
+  "division": "III",
+  "domain": "www.corsairathletics.com"
+ },
+ {
+  "name": "McDaniel College",
+  "division": "III",
+  "domain": "www.mcdaniel.edu"
+ },
+ {
+  "name": "McMurry University",
+  "division": "III",
+  "domain": "www.mcmurrysports.com"
+ },
+ {
+  "name": "Medgar Evers College",
+  "division": "III",
+  "domain": "www.mecathletics.com"
+ },
+ {
+  "name": "Meredith College",
+  "division": "III",
+  "domain": "www.goavengingangels.com"
+ },
+ {
+  "name": "Messiah University",
+  "division": "III",
+  "domain": "www.gomessiah.com"
+ },
+ {
+  "name": "Methodist University",
+  "division": "III",
+  "domain": "www.mumonarchs.com"
+ },
+ {
+  "name": "Middlebury College",
+  "division": "III",
+  "domain": "www.middlebury.edu"
+ },
+ {
+  "name": "Millikin University",
+  "division": "III",
+  "domain": "athletics.millikin.edu"
+ },
+ {
+  "name": "Millsaps College",
+  "division": "III",
+  "domain": "www.gomajors.com"
+ },
+ {
+  "name": "Milwaukee School of Engineering",
+  "division": "III",
+  "domain": "go-raiders.com"
+ },
+ {
+  "name": "University of Minnesota, Morris",
+  "division": "III",
+  "domain": "www.morriscougars.com"
+ },
+ {
+  "name": "Misericordia University",
+  "division": "III",
+  "domain": "www.misericordia.edu"
+ },
+ {
+  "name": "Mississippi University for Women",
+  "division": "III",
+  "domain": "www.owlsathletics.com"
+ },
+ {
+  "name": "Mitchell College",
+  "division": "III",
+  "domain": "www.mitchellathletics.com"
+ },
+ {
+  "name": "Monmouth College (Illinois)",
+  "division": "III",
+  "domain": "monmouthscots.com"
+ },
+ {
+  "name": "Montclair State University",
+  "division": "III",
+  "domain": "www.montclairathletics.com"
+ },
+ {
+  "name": "Moravian University",
+  "division": "III",
+  "domain": "moraviansports.com"
+ },
+ {
+  "name": "State University of New York at Morrisville",
+  "division": "III",
+  "domain": "morrisvillemustangs.com"
+ },
+ {
+  "name": "Mount Aloysius College",
+  "division": "III",
+  "domain": "www.mountieathletics.com"
+ },
+ {
+  "name": "Mount Holyoke College",
+  "division": "III",
+  "domain": "www.mtholyoke.edu"
+ },
+ {
+  "name": "Mount St. Joseph University",
+  "division": "III",
+  "domain": "www.msjlions.com"
+ },
+ {
+  "name": "University of Mount Saint Vincent",
+  "division": "III",
+  "domain": "umsvathletics.com"
+ },
+ {
+  "name": "Mount Saint Mary College (New York)",
+  "division": "III",
+  "domain": "www.msmcknights.com"
+ },
+ {
+  "name": "University of Mount Union",
+  "division": "III",
+  "domain": "athletics.mountunion.edu"
+ },
+ {
+  "name": "Muhlenberg College",
+  "division": "III",
+  "domain": "www.muhlenbergsports.com"
+ },
+ {
+  "name": "Muskingum University",
+  "division": "III",
+  "domain": "www.fightingmuskies.com"
+ },
+ {
+  "name": "Nazareth University",
+  "division": "III",
+  "domain": "www.nazathletics.com"
+ },
+ {
+  "name": "Nebraska Wesleyan University",
+  "division": "III",
+  "domain": "www.nwusports.com"
+ },
+ {
+  "name": "Neumann University",
+  "division": "III",
+  "domain": "www.neumannathletics.com"
+ },
+ {
+  "name": "University of New England",
+  "division": "III",
+  "domain": "athletics.une.edu"
+ },
+ {
+  "name": "New England College",
+  "division": "III",
+  "domain": "athletics.nec.edu"
+ },
+ {
+  "name": "The College of New Jersey",
+  "division": "III",
+  "domain": "www.tcnjathletics.com"
+ },
+ {
+  "name": "State University of New York at New Paltz",
+  "division": "III",
+  "domain": "www.nphawks.com"
+ },
+ {
+  "name": "New York University",
+  "division": "III",
+  "domain": "www.gonyuathletics.com"
+ },
+ {
+  "name": "Nichols College",
+  "division": "III",
+  "domain": "www.nicholsathletics.com"
+ },
+ {
+  "name": "North Carolina Wesleyan University",
+  "division": "III",
+  "domain": "ncwsports.com"
+ },
+ {
+  "name": "North Central College",
+  "division": "III",
+  "domain": "northcentralcardinals.com"
+ },
+ {
+  "name": "North Central University",
+  "division": "III",
+  "domain": "www.ncurams.com"
+ },
+ {
+  "name": "North Park University",
+  "division": "III",
+  "domain": "www.northpark.edu"
+ },
+ {
+  "name": "University of Northwestern-St. Paul",
+  "division": "III",
+  "domain": "unweagles.com"
+ },
+ {
+  "name": "Norwich University",
+  "division": "III",
+  "domain": "www.norwichathletics.com"
+ },
+ {
+  "name": "Notre Dame of Maryland University",
+  "division": "III",
+  "domain": "www.notredamegators.com"
+ },
+ {
+  "name": "Oberlin College",
+  "division": "III",
+  "domain": "www.goyeo.com"
+ },
+ {
+  "name": "Occidental College",
+  "division": "III",
+  "domain": "www.oxyathletics.com"
+ },
+ {
+  "name": "Oglethorpe University",
+  "division": "III",
+  "domain": "www.gopetrels.com"
+ },
+ {
+  "name": "Ohio Northern University",
+  "division": "III",
+  "domain": "onusports.com"
+ },
+ {
+  "name": "Ohio Wesleyan University",
+  "division": "III",
+  "domain": "battlingbishops.com"
+ },
+ {
+  "name": "The University of Olivet ",
+  "division": "III",
+  "domain": "www.olivetcomets.com"
+ },
+ {
+  "name": "State University of New York at Oneonta",
+  "division": "III",
+  "domain": "www.oneontaathletics.com"
+ },
+ {
+  "name": "State University of New York at Oswego",
+  "division": "III",
+  "domain": "oswegolakers.com"
+ },
+ {
+  "name": "Otterbein University",
+  "division": "III",
+  "domain": "www.otterbeincardinals.com"
+ },
+ {
+  "name": "University of the Ozarks (Arkansas)",
+  "division": "III",
+  "domain": "www.uofoathletics.com"
+ },
+ {
+  "name": "Pacific Lutheran University",
+  "division": "III",
+  "domain": "www.golutes.com"
+ },
+ {
+  "name": "Pacific University (Oregon)",
+  "division": "III",
+  "domain": "www.goboxers.com"
+ },
+ {
+  "name": "Pennsylvania College of Technology",
+  "division": "III",
+  "domain": "athletics.pct.edu"
+ },
+ {
+  "name": "Penn State University, Altoona",
+  "division": "III",
+  "domain": "www.psaltoonalions.com"
+ },
+ {
+  "name": "Pennsylvania State Univ. Erie, the Behrend College",
+  "division": "III",
+  "domain": "psblions.com"
+ },
+ {
+  "name": "Penn State Harrisburg",
+  "division": "III",
+  "domain": "athletics.hbg.psu.edu"
+ },
+ {
+  "name": "Penn State Berks College",
+  "division": "III",
+  "domain": "www.psuberksathletics.com"
+ },
+ {
+  "name": "Penn State University, Abington",
+  "division": "III",
+  "domain": "www.abingtonsports.com"
+ },
+ {
+  "name": "Penn State Brandywine",
+  "division": "III",
+  "domain": "www.psubrandywineathletics.com"
+ },
+ {
+  "name": "Pfeiffer University",
+  "division": "III",
+  "domain": "www.gofalconsports.com"
+ },
+ {
+  "name": "Piedmont University",
+  "division": "III",
+  "domain": "www.piedmontlions.com"
+ },
+ {
+  "name": "University of Pittsburgh, Bradford",
+  "division": "III",
+  "domain": "athletics.pittbradford.org"
+ },
+ {
+  "name": "University of Pittsburgh, Greensburg",
+  "division": "III",
+  "domain": "pittgreensburgathletics.com"
+ },
+ {
+  "name": "Plattsburgh State University of New York",
+  "division": "III",
+  "domain": "www.gocardinalsports.com"
+ },
+ {
+  "name": "Plymouth State University",
+  "division": "III",
+  "domain": "athletics.plymouth.edu"
+ },
+ {
+  "name": "State University of New York Polytechnic Institute",
+  "division": "III",
+  "domain": "wildcats.sunypoly.edu"
+ },
+ {
+  "name": "Pomona-Pitzer Colleges",
+  "division": "III",
+  "domain": "www.sagehens.com"
+ },
+ {
+  "name": "State University of New York at Potsdam",
+  "division": "III",
+  "domain": "www.potsdambears.com"
+ },
+ {
+  "name": "Pratt Institute",
+  "division": "III",
+  "domain": "www.goprattgo.com"
+ },
+ {
+  "name": "Principia College",
+  "division": "III",
+  "domain": "www.principiaathletics.com"
+ },
+ {
+  "name": "University of Puget Sound",
+  "division": "III",
+  "domain": "www.loggerathletics.com"
+ },
+ {
+  "name": "Purchase College, State University of New York",
+  "division": "III",
+  "domain": "www.purchasecollegeathletics.com"
+ },
+ {
+  "name": "Ramapo College",
+  "division": "III",
+  "domain": "www.ramapoathletics.com"
+ },
+ {
+  "name": "Randolph College",
+  "division": "III",
+  "domain": "www.randolphwildcats.com"
+ },
+ {
+  "name": "Randolph-Macon College",
+  "division": "III",
+  "domain": "www.rmcathletics.com"
+ },
+ {
+  "name": "University of Redlands",
+  "division": "III",
+  "domain": "www.goredlands.com"
+ },
+ {
+  "name": "Regent University",
+  "division": "III",
+  "domain": "regentroyals.com"
+ },
+ {
+  "name": "Regis College (Massachusetts)",
+  "division": "III",
+  "domain": "www.goregispride.com"
+ },
+ {
+  "name": "Rensselaer Polytechnic Institute",
+  "division": "III",
+  "domain": "www.rpiathletics.com"
+ },
+ {
+  "name": "Rhode Island College",
+  "division": "III",
+  "domain": "www.goanchormen.com"
+ },
+ {
+  "name": "Rhodes College",
+  "division": "III",
+  "domain": "www.rhodeslynx.com"
+ },
+ {
+  "name": "Ripon College",
+  "division": "III",
+  "domain": "riponredhawks.com"
+ },
+ {
+  "name": "Rivier University",
+  "division": "III",
+  "domain": "www.rivierathletics.com"
+ },
+ {
+  "name": "Roanoke College",
+  "division": "III",
+  "domain": "maroons.roanoke.edu"
+ },
+ {
+  "name": "University of Rochester",
+  "division": "III",
+  "domain": "www.rochester.edu"
+ },
+ {
+  "name": "Rochester Institute of Technology",
+  "division": "III",
+  "domain": "www.ritathletics.com"
+ },
+ {
+  "name": "Rockford University",
+  "division": "III",
+  "domain": "www.rockfordregents.com"
+ },
+ {
+  "name": "Roger Williams University",
+  "division": "III",
+  "domain": "www.rwuhawks.com"
+ },
+ {
+  "name": "Rose-Hulman Institute of Technology",
+  "division": "III",
+  "domain": "www.rose-hulman.edu"
+ },
+ {
+  "name": "Rowan University",
+  "division": "III",
+  "domain": "www.rowanathletics.com"
+ },
+ {
+  "name": "Russell Sage College",
+  "division": "III",
+  "domain": "www.sagegators.com"
+ },
+ {
+  "name": "Rutgers, The State Univ. of New Jersey, Camden",
+  "division": "III",
+  "domain": "www.scarletraptors.com"
+ },
+ {
+  "name": "Rutgers, The State Univ. of New Jersey, Newark",
+  "division": "III",
+  "domain": "www.rutgersnewarkathletics.com"
+ },
+ {
+  "name": "College of Saint Benedict",
+  "division": "III",
+  "domain": "www.gobennies.com"
+ },
+ {
+  "name": "Saint Elizabeth University",
+  "division": "III",
+  "domain": "seueagles.com"
+ },
+ {
+  "name": "Saint Francis University ",
+  "division": "III",
+  "domain": "www.sfuathletics.com"
+ },
+ {
+  "name": "University of Saint Joseph (Connecticut)",
+  "division": "III",
+  "domain": "www.usjbluejays.com"
+ },
+ {
+  "name": "Saint Joseph's College (Maine)",
+  "division": "III",
+  "domain": "www.gomonks.com"
+ },
+ {
+  "name": "Salem College (North Carolina)",
+  "division": "III",
+  "domain": "www.salem.edu"
+ },
+ {
+  "name": "Salem State University",
+  "division": "III",
+  "domain": "www.salemstatevikings.com"
+ },
+ {
+  "name": "Salisbury University",
+  "division": "III",
+  "domain": "www.suseagulls.com"
+ },
+ {
+  "name": "Salve Regina University",
+  "division": "III",
+  "domain": "www.salveathletics.com"
+ },
+ {
+  "name": "Sarah Lawrence College",
+  "division": "III",
+  "domain": "www.gogryphons.com"
+ },
+ {
+  "name": "Schreiner University",
+  "division": "III",
+  "domain": "www.schreinermountaineers.com"
+ },
+ {
+  "name": "University of Scranton",
+  "division": "III",
+  "domain": "athletics.scranton.edu"
+ },
+ {
+  "name": "University of the South",
+  "division": "III",
+  "domain": "sewaneetigers.com"
+ },
+ {
+  "name": "Shenandoah University",
+  "division": "III",
+  "domain": "www.suhornets.com"
+ },
+ {
+  "name": "Simmons University",
+  "division": "III",
+  "domain": "athletics.simmons.edu"
+ },
+ {
+  "name": "Simpson College",
+  "division": "III",
+  "domain": "simpsonathletics.com"
+ },
+ {
+  "name": "Skidmore College",
+  "division": "III",
+  "domain": "skidmoreathletics.com"
+ },
+ {
+  "name": "Smith College",
+  "division": "III",
+  "domain": "www.gosmithbears.com"
+ },
+ {
+  "name": "University of Southern Maine",
+  "division": "III",
+  "domain": "www.southernmainehuskies.com"
+ },
+ {
+  "name": "Southern Virginia University",
+  "division": "III",
+  "domain": "knightathletics.com"
+ },
+ {
+  "name": "Southwestern University (Texas)",
+  "division": "III",
+  "domain": "www.southwesternpirates.com"
+ },
+ {
+  "name": "Spalding University",
+  "division": "III",
+  "domain": "www.spaldingathletics.com"
+ },
+ {
+  "name": "Springfield College",
+  "division": "III",
+  "domain": "springfield.edu"
+ },
+ {
+  "name": "St. Catherine University",
+  "division": "III",
+  "domain": "www.stkatesathletics.com"
+ },
+ {
+  "name": "St. John Fisher University",
+  "division": "III",
+  "domain": "www.sjfathletics.com"
+ },
+ {
+  "name": "Saint John's University (Minnesota)",
+  "division": "III",
+  "domain": "www.gojohnnies.com"
+ },
+ {
+  "name": "St. Joseph's University NY (Brooklyn)",
+  "division": "III",
+  "domain": "sjbkathletics.com"
+ },
+ {
+  "name": "St. Joseph's University, New York L.I.",
+  "division": "III",
+  "domain": "www.sjliathletics.com"
+ },
+ {
+  "name": "St. Lawrence University",
+  "division": "III",
+  "domain": "www.saintsathletics.com"
+ },
+ {
+  "name": "Saint Mary's University of Minnesota",
+  "division": "III",
+  "domain": "www.saintmaryssports.com"
+ },
+ {
+  "name": "Saint Mary's College (Indiana)",
+  "division": "III",
+  "domain": "belles.saintmarys.edu"
+ },
+ {
+  "name": "St. Mary's College of Maryland",
+  "division": "III",
+  "domain": "www.smcmathletics.com"
+ },
+ {
+  "name": "St. Norbert College",
+  "division": "III",
+  "domain": "athletics.snc.edu"
+ },
+ {
+  "name": "St. Olaf College",
+  "division": "III",
+  "domain": "athletics.stolaf.edu"
+ },
+ {
+  "name": "The College of St. Scholastica",
+  "division": "III",
+  "domain": "www.csssaints.com"
+ },
+ {
+  "name": "University of St. Thomas (Texas)",
+  "division": "III",
+  "domain": "www.ustcelts.com"
+ },
+ {
+  "name": "Saint Vincent College",
+  "division": "III",
+  "domain": "www.athletics.stvincent.edu"
+ },
+ {
+  "name": "Stevens Institute of Technology",
+  "division": "III",
+  "domain": "www.stevensducks.com"
+ },
+ {
+  "name": "Stevenson University",
+  "division": "III",
+  "domain": "www.gomustangsports.com"
+ },
+ {
+  "name": "Stockton University",
+  "division": "III",
+  "domain": "www.stocktonathletics.com"
+ },
+ {
+  "name": "Suffolk University",
+  "division": "III",
+  "domain": "www.gosuffolkrams.com"
+ },
+ {
+  "name": "State University of New York at Old Westbury",
+  "division": "III",
+  "domain": "www.oldwestburypanthers.com"
+ },
+ {
+  "name": "Susquehanna University",
+  "division": "III",
+  "domain": "www.gosusqu.com"
+ },
+ {
+  "name": "Swarthmore College",
+  "division": "III",
+  "domain": "swarthmoreathletics.com"
+ },
+ {
+  "name": "Sweet Briar College",
+  "division": "III",
+  "domain": "www.vixenathletics.com"
+ },
+ {
+  "name": "Texas Lutheran University",
+  "division": "III",
+  "domain": "tlubulldogs.com"
+ },
+ {
+  "name": "Thiel College",
+  "division": "III",
+  "domain": "www.thielathletics.com"
+ },
+ {
+  "name": "Thomas College",
+  "division": "III",
+  "domain": "www.thomasathletics.com"
+ },
+ {
+  "name": "Transylvania University",
+  "division": "III",
+  "domain": "www.transysports.com"
+ },
+ {
+  "name": "Trine University",
+  "division": "III",
+  "domain": "www.trinethunder.com"
+ },
+ {
+  "name": "Trinity College (Connecticut)",
+  "division": "III",
+  "domain": "www.bantamsports.com"
+ },
+ {
+  "name": "Trinity University (Texas)",
+  "division": "III",
+  "domain": "www.trinitytigers.com"
+ },
+ {
+  "name": "Tufts University",
+  "division": "III",
+  "domain": "www.gotuftsjumbos.com"
+ },
+ {
+  "name": "U.S. Coast Guard Academy",
+  "division": "III",
+  "domain": "coastguardathletics.com"
+ },
+ {
+  "name": "U.S. Merchant Marine Academy",
+  "division": "III",
+  "domain": "usmmasports.com"
+ },
+ {
+  "name": "Union College (New York)",
+  "division": "III",
+  "domain": "www.unionathletics.com"
+ },
+ {
+  "name": "Ursinus College",
+  "division": "III",
+  "domain": "www.ursinusathletics.com"
+ },
+ {
+  "name": "Utica University",
+  "division": "III",
+  "domain": "www.uticapioneers.com"
+ },
+ {
+  "name": "University of Valley Forge",
+  "division": "III",
+  "domain": "uvfpatriots.com"
+ },
+ {
+  "name": "Vassar College",
+  "division": "III",
+  "domain": "www.vassarathletics.com"
+ },
+ {
+  "name": "Vermont State University Castleton",
+  "division": "III",
+  "domain": "www.castletonsports.com"
+ },
+ {
+  "name": "Vermont State University Lyndon",
+  "division": "III",
+  "domain": "www.lyndonhornets.com"
+ },
+ {
+  "name": "Vermont State University-Johnson",
+  "division": "III",
+  "domain": "nvubadgers.com"
+ },
+ {
+  "name": "Wabash College",
+  "division": "III",
+  "domain": "sports.wabash.edu"
+ },
+ {
+  "name": "Warren Wilson College",
+  "division": "III",
+  "domain": "warrenwilsonowls.com"
+ },
+ {
+  "name": "Wartburg College",
+  "division": "III",
+  "domain": "www.go-knights.net"
+ },
+ {
+  "name": "Washington and Lee University",
+  "division": "III",
+  "domain": "generalssports.com"
+ },
+ {
+  "name": "Washington and Jefferson College",
+  "division": "III",
+  "domain": "www.gopresidents.com"
+ },
+ {
+  "name": "Washington College (Maryland)",
+  "division": "III",
+  "domain": "www.washingtoncollegesports.com"
+ },
+ {
+  "name": "Washington University in St. Louis",
+  "division": "III",
+  "domain": "washubears.com"
+ },
+ {
+  "name": "Waynesburg University",
+  "division": "III",
+  "domain": "www.waynesburgsports.com"
+ },
+ {
+  "name": "Webster University",
+  "division": "III",
+  "domain": "websterathletics.com"
+ },
+ {
+  "name": "Wellesley College",
+  "division": "III",
+  "domain": "www.wellesleyblue.com"
+ },
+ {
+  "name": "Wentworth Institute of Technology",
+  "division": "III",
+  "domain": "www.wentworthathletics.com"
+ },
+ {
+  "name": "Wesleyan University (Connecticut)",
+  "division": "III",
+  "domain": "www.wesleyan.edu"
+ },
+ {
+  "name": "Western Connecticut State University",
+  "division": "III",
+  "domain": "www.westconnathletics.com"
+ },
+ {
+  "name": "Western New England University",
+  "division": "III",
+  "domain": "www.wnegoldenbears.com"
+ },
+ {
+  "name": "Westfield State University",
+  "division": "III",
+  "domain": "www.westfieldstateowls.com"
+ },
+ {
+  "name": "Westminster College (Missouri)",
+  "division": "III",
+  "domain": "www.wcbluejays.com"
+ },
+ {
+  "name": "Westminster College (Pennsylvania)",
+  "division": "III",
+  "domain": "www.westminster.edu"
+ },
+ {
+  "name": "Wheaton College (Illinois)",
+  "division": "III",
+  "domain": "athletics.wheaton.edu"
+ },
+ {
+  "name": "Wheaton College (Massachusetts)",
+  "division": "III",
+  "domain": "wheatoncollegelyons.com"
+ },
+ {
+  "name": "Whitman College",
+  "division": "III",
+  "domain": "www.whitman.edu"
+ },
+ {
+  "name": "Whittier College",
+  "division": "III",
+  "domain": "www.wcpoets.com"
+ },
+ {
+  "name": "Whitworth University",
+  "division": "III",
+  "domain": "www.whitworthpirates.com"
+ },
+ {
+  "name": "Widener University",
+  "division": "III",
+  "domain": "www.widenerpride.com"
+ },
+ {
+  "name": "Wilkes University",
+  "division": "III",
+  "domain": "www.gowilkesu.com"
+ },
+ {
+  "name": "Willamette University",
+  "division": "III",
+  "domain": "willamette.prestosports.com"
+ },
+ {
+  "name": "William Paterson University of New Jersey",
+  "division": "III",
+  "domain": "www.wpupioneers.com"
+ },
+ {
+  "name": "William Peace University",
+  "division": "III",
+  "domain": "www.gopeacepacers.com"
+ },
+ {
+  "name": "Williams College",
+  "division": "III",
+  "domain": "ephsports.williams.edu"
+ },
+ {
+  "name": "Wilmington College (Ohio)",
+  "division": "III",
+  "domain": "www.wilmington.edu"
+ },
+ {
+  "name": "Wilson College",
+  "division": "III",
+  "domain": "www.wilsonphoenix.com"
+ },
+ {
+  "name": "Wisconsin Lutheran College",
+  "division": "III",
+  "domain": "www.wlcsports.com"
+ },
+ {
+  "name": "University of Wisconsin-Eau Claire",
+  "division": "III",
+  "domain": "www.blugolds.com"
+ },
+ {
+  "name": "University of Wisconsin-La Crosse",
+  "division": "III",
+  "domain": "www.uwlathletics.com"
+ },
+ {
+  "name": "University of Wisconsin-Oshkosh",
+  "division": "III",
+  "domain": "uwoshkoshtitans.com"
+ },
+ {
+  "name": "University of Wisconsin-Platteville",
+  "division": "III",
+  "domain": "www.letsgopioneers.com"
+ },
+ {
+  "name": "University of Wisconsin-River Falls",
+  "division": "III",
+  "domain": "www.uwrfsports.com"
+ },
+ {
+  "name": "University of Wisconsin-Stevens Point",
+  "division": "III",
+  "domain": "athletics.uwsp.edu"
+ },
+ {
+  "name": "University of Wisconsin-Stout Polytechnic",
+  "division": "III",
+  "domain": "stoutbluedevils.com"
+ },
+ {
+  "name": "University of Wisconsin-Superior",
+  "division": "III",
+  "domain": "www.uwsyellowjackets.com"
+ },
+ {
+  "name": "University of Wisconsin-Whitewater",
+  "division": "III",
+  "domain": "www.uwwsports.com"
+ },
+ {
+  "name": "Wittenberg University",
+  "division": "III",
+  "domain": "www.wittenbergtigers.com"
+ },
+ {
+  "name": "The College of Wooster",
+  "division": "III",
+  "domain": "www.woosterathletics.com"
+ },
+ {
+  "name": "Worcester Polytechnic Institute",
+  "division": "III",
+  "domain": "athletics.wpi.edu"
+ },
+ {
+  "name": "Worcester State University",
+  "division": "III",
+  "domain": "www.wsulancers.com"
+ },
+ {
+  "name": "Yeshiva University",
+  "division": "III",
+  "domain": "www.yumacs.com"
+ },
+ {
+  "name": "York College (Pennsylvania)",
+  "division": "III",
+  "domain": "www.ycpspartans.com"
+ },
+ {
+  "name": "York College (New York)",
+  "division": "III",
+  "domain": "www.yorkathletics.com"
+ }
+]

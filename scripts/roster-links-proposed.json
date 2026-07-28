@@ -1,0 +1,1680 @@
+{
+ "matched": [
+  {
+   "id": "6d59f51f-a6d8-4cf6-8b77-841a5ff2cd09",
+   "name": "Pablo Herrera",
+   "url": "https://www.aupanthers.com/sports/mens-soccer/roster/pablo-herrera/10613",
+   "uni": "Adephi"
+  },
+  {
+   "id": "9ab67a36-1430-4756-81d2-62f2e2f4ed2d",
+   "name": "Javier Solá",
+   "url": "https://aicyellowjackets.com/sports/mens-soccer/roster/javier-sol-mart-nez/12547",
+   "uni": "AIC"
+  },
+  {
+   "id": "11c13285-5285-41bf-9590-557bb169978c",
+   "name": "Sean Krause",
+   "url": "https://aicyellowjackets.com/sports/mens-soccer/roster/sean-krause-huckleberry/7269",
+   "uni": "AIC"
+  },
+  {
+   "id": "0bbe6fc0-4ca7-466c-a0f5-03c01fe8537c",
+   "name": "Joshua Spence",
+   "url": "https://www.goairforcefalcons.com/sports/mens-soccer/roster/josh-spence/19420",
+   "uni": "Air Force"
+  },
+  {
+   "id": "0977b46d-c0f5-4818-82c4-34d43e4ada7a",
+   "name": "Oliver Becker",
+   "url": "https://www.goairforcefalcons.com/sports/mens-soccer/roster/oliver-becker/22946",
+   "uni": "Air Force"
+  },
+  {
+   "id": "9b987166-6d57-48d8-8668-25a1c17cf67f",
+   "name": "Tucker Kern",
+   "url": "https://www.goairforcefalcons.com/sports/mens-soccer/roster/tucker-kern/23028",
+   "uni": "Air Force"
+  },
+  {
+   "id": "289fb085-2c89-4e72-a804-516d28527653",
+   "name": "Aidan Grubbs",
+   "url": "https://www.goairforcefalcons.com/sports/mens-soccer/roster/aidan-grubbs/19406",
+   "uni": "Air Force Academy"
+  },
+  {
+   "id": "54cac76a-ebfd-4a42-800d-2f8d4c82e82b",
+   "name": "Austin Ochande",
+   "url": "https://www.goairforcefalcons.com/sports/mens-soccer/roster/austin-ochander/12520",
+   "uni": "Air Force Academy"
+  },
+  {
+   "id": "6c39a720-e40b-4f26-a999-d7c89fdf0024",
+   "name": "Sean Flynn",
+   "url": "https://www.goairforcefalcons.com/sports/mens-soccer/roster/sean-flynn/19405",
+   "uni": "Air Force Academy"
+  },
+  {
+   "id": "728f4095-80de-4364-8533-5f907432de72",
+   "name": "Riley Liston",
+   "url": "https://www.ualbanysports.com/sports/mens-soccer/roster/riley-liston/10351",
+   "uni": "Albany University"
+  },
+  {
+   "id": "fcf0925b-8cf6-4b53-a2b7-401c0bf19e23",
+   "name": "Guillermo Terry",
+   "url": "https://www.gobarrybucs.com/sports/mens-soccer/roster/guillermo-de-terry/7770",
+   "uni": "BARRY"
+  },
+  {
+   "id": "cf8fab7c-524c-4080-b439-781c4f1e697b",
+   "name": "Peekay Stoffle",
+   "url": "https://www.gobarrybucs.com/sports/mens-soccer/roster/peekay-stoffle/6356",
+   "uni": "Barry University"
+  },
+  {
+   "id": "ca8bef14-2dc2-4da2-9e86-b2de1c7f3389",
+   "name": "Kellen Adams",
+   "url": "https://www.gobarrybucs.com/sports/mens-soccer/roster/kellen-adams/6343",
+   "uni": "Barry University"
+  },
+  {
+   "id": "0c43d7a2-28f8-474f-8206-2e7ebab21eb6",
+   "name": "Parker Pollay",
+   "url": "https://www.berryvikings.com/sports/mens-soccer/roster/parker-pollay/9548",
+   "uni": "Berry College"
+  },
+  {
+   "id": "da31f976-ffff-4489-87e3-b727859743fc",
+   "name": "Logan Bonn",
+   "url": "https://www.bubearcats.com/sports/mens-soccer/roster/logan-bonn/14709",
+   "uni": "Binghampton"
+  },
+  {
+   "id": "864d5979-7f8a-4ae3-9ca4-d7dd700e0892",
+   "name": "Yuto Shiraishi",
+   "url": "https://www.bubearcats.com/sports/mens-soccer/roster/yuto-shiraishi-/15769",
+   "uni": "Binghampton University"
+  },
+  {
+   "id": "04ea07cf-4fe2-4a1d-9493-e9da9bcaa01d",
+   "name": "Roberto Fernandez",
+   "url": "https://www.bgsufalcons.com/sports/mens-soccer/roster/roberto-fernandez-garrido/8793",
+   "uni": "BOWLING GREEN ST"
+  },
+  {
+   "id": "947c7f5b-aac6-463a-b498-6ebfc555bf73",
+   "name": "Javi Soler",
+   "url": "https://bryantbulldogs.com/sports/mens-soccer/roster/javier-soler-gandia/12063",
+   "uni": "BRYANT"
+  },
+  {
+   "id": "ecea46e6-cc75-44c0-b885-ba1b19a2566c",
+   "name": "Jonah Stekly",
+   "url": "https://bryantbulldogs.com/sports/mens-soccer/roster/jonah-stekly/12894",
+   "uni": "BRYANT"
+  },
+  {
+   "id": "bdbbf43a-50f5-440a-837a-8df4d385c6ca",
+   "name": "Marc Pitarch",
+   "url": "https://bryantbulldogs.com/sports/mens-soccer/roster/marc-pitarch-bayot/16423",
+   "uni": "BRYANT"
+  },
+  {
+   "id": "5df70cc3-372c-4dc0-8087-bf5c7d1b1efb",
+   "name": "Santi Blasco",
+   "url": "https://bryantbulldogs.com/sports/mens-soccer/roster/santiago-blasco-gomez/16135",
+   "uni": "BRYANT"
+  },
+  {
+   "id": "61b31d8f-a619-45db-83e5-48570b34caa2",
+   "name": "Jorge Veintimilla",
+   "url": "https://bryantbulldogs.com/sports/mens-soccer/roster/jorge-veintimilla/18504",
+   "uni": "BRYANT"
+  },
+  {
+   "id": "e4ca507c-2242-4108-913e-3b6698eac35e",
+   "name": "Paco Fernandez",
+   "url": "https://bryantbulldogs.com/sports/mens-soccer/roster/paco-fernandez/18498",
+   "uni": "BRYANT"
+  },
+  {
+   "id": "c01a10bc-a0bf-4887-9341-84066f9389ce",
+   "name": "Max Walsh",
+   "url": "https://bucknellbison.com/sports/mens-soccer/roster/max-walsh/14027",
+   "uni": "Bucknell University"
+  },
+  {
+   "id": "9d5f7f73-9704-47f1-aa2c-f821d45ccd7f",
+   "name": "Manolo Ferreres",
+   "url": "https://www.butlersports.com/sports/mens-soccer/roster/manolo-ferreres/13556",
+   "uni": "BUTLER"
+  },
+  {
+   "id": "8cc7c48d-54fd-4d88-832a-f9ffd4baea4d",
+   "name": "Nacho De Miguel",
+   "url": "https://www.butlersports.com/sports/mens-soccer/roster/nacho-de-miguel/13554",
+   "uni": "BUTLER"
+  },
+  {
+   "id": "ef25a7ed-0c0d-4a8b-9fb8-0f2b53ad25f7",
+   "name": "Alejandro Moroso",
+   "url": "https://www.butlersports.com/sports/mens-soccer/roster/alejandro-moroso-maza/11937",
+   "uni": "BUTLER"
+  },
+  {
+   "id": "5e783f60-c879-47eb-b0fe-f1968f331fb6",
+   "name": "Michael Oelberger",
+   "url": "https://www.butlersports.com/sports/mens-soccer/roster/michael-oelberger/12148",
+   "uni": "Butler"
+  },
+  {
+   "id": "b268f9b8-894c-4cb4-8850-ba786155c424",
+   "name": "Arik Duncan",
+   "url": "https://www.calbears.com/sports/mens-soccer/roster/arik-duncan/24653",
+   "uni": "CAL BERKLEY"
+  },
+  {
+   "id": "540680e1-9cd4-4d6c-84c2-ceff0b836475",
+   "name": "Eduardo Rodriguez",
+   "url": "https://www.gocamels.com/sports/mens-soccer/roster/edu-rodriguez/9230",
+   "uni": "CAMPBELL"
+  },
+  {
+   "id": "9604162c-a396-40e3-a533-cda131e980ba",
+   "name": "Max Uribe",
+   "url": "https://www.gogriffs.com/sports/mens-soccer/roster/max-uribe/9078",
+   "uni": "Canisius University"
+  },
+  {
+   "id": "ce325953-8b69-4c69-88ea-44fa8648cbc8",
+   "name": "Reeves Cates",
+   "url": "https://www.cofcsports.com/sports/mens-soccer/roster/reeves-cates/8420",
+   "uni": "College of Charleston"
+  },
+  {
+   "id": "962c6b25-c8e8-4044-a1ad-e8b700d2cf02",
+   "name": "Marc Torrado",
+   "url": "https://www.ucgoldeneagles.com/sports/mens-soccer/roster/marc-torrado/8451",
+   "uni": "CHARLESTON WV"
+  },
+  {
+   "id": "d6a001b0-51f0-4578-af95-2d527b433922",
+   "name": "Miguel Anton",
+   "url": "https://www.charlotte49ers.com/sports/mens-soccer/roster/miguel-anton/6333",
+   "uni": "CHARLOTTE"
+  },
+  {
+   "id": "5989c195-2371-4a9c-ba04-3e130eab57c4",
+   "name": "Jack Grace",
+   "url": "https://www.clarksonathletics.com/sports/mens-soccer/roster/jack-grace/9039",
+   "uni": "Clarkson University"
+  },
+  {
+   "id": "3ad2faa5-8563-46a3-9f61-2ff46386c2e3",
+   "name": "Ethan Hackenberg",
+   "url": "https://www.goccusports.com/sports/mens-soccer/roster/ethan-hackenberg/17422",
+   "uni": "Coastal Carolina"
+  },
+  {
+   "id": "832a4c17-68b0-43d6-aefa-def432ab6c58",
+   "name": "Jack Robertson",
+   "url": "https://www.goccusports.com/sports/mens-soccer/roster/jack-robertson/17452",
+   "uni": "Coastal Carolina"
+  },
+  {
+   "id": "69e048c5-05e2-4e0a-8ccd-8fc01b4bc221",
+   "name": "Héctor Blanco",
+   "url": "https://www.goccusports.com/sports/mens-soccer/roster/hector-blanco/22637",
+   "uni": "Coastal Carolina University"
+  },
+  {
+   "id": "62b67bb9-561e-422e-8975-1fe59ee86a6d",
+   "name": "Manuel Toledano",
+   "url": "https://gocreighton.com/sports/mens-soccer/roster/manu-toledano/7047",
+   "uni": "CREIGHTON UNIVERSITY"
+  },
+  {
+   "id": "645a86b3-32eb-465c-8954-1d900c943197",
+   "name": "Miguel Arilla",
+   "url": "https://gocreighton.com/sports/mens-soccer/roster/miguel-arilla/8524",
+   "uni": "CREIGHTON"
+  },
+  {
+   "id": "b0d33fd6-7c78-4b55-b239-bd2aea1cccad",
+   "name": "Pablo Andrade",
+   "url": "https://gocreighton.com/sports/mens-soccer/roster/pablo-andrade/8634",
+   "uni": "Creighton University"
+  },
+  {
+   "id": "39fe37b1-761a-486b-bb44-9610c78c9354",
+   "name": "Jose Peris",
+   "url": "https://www.gothunderwolves.com/sports/mens-soccer/roster/jose-peris-gimeno/9917",
+   "uni": "CSU PUEBLO"
+  },
+  {
+   "id": "0370de23-1479-4bb5-b2e7-14e84858e8ba",
+   "name": "Raul Perez",
+   "url": "https://www.gothunderwolves.com/sports/mens-soccer/roster/raul-perez-rodriguez/9918",
+   "uni": "CSU PUEBLO"
+  },
+  {
+   "id": "5341a2d8-c831-4f0b-bdfa-b989b9864f31",
+   "name": "Josh Axelrod",
+   "url": "https://www.gothunderwolves.com/sports/mens-soccer/roster/josh-axelrod/9938",
+   "uni": "CSU Pueblo"
+  },
+  {
+   "id": "eebdb155-0605-4842-96d5-685eff268c24",
+   "name": "Landon Paulson",
+   "url": "https://www.senatornation.com/sports/mens-soccer/roster/landon-paulson/5326",
+   "uni": "Davis & Elkins"
+  },
+  {
+   "id": "9f9ec542-7ae7-45d9-affb-f4f86b31d00d",
+   "name": "Sergio Martinez",
+   "url": "https://www.senatornation.com/sports/mens-soccer/roster/sergio-martinez-laborda/5792",
+   "uni": "DAVIS AND ELKINS"
+  },
+  {
+   "id": "d1493148-0de8-41e6-9786-b5659dc2a661",
+   "name": "Ian Jackson",
+   "url": "https://depauwtigers.com/sports/mens-soccer/roster/ian-jackson/18399",
+   "uni": "Depauw University"
+  },
+  {
+   "id": "678f687b-fa16-4aa8-9a0e-4bb9ac61b465",
+   "name": "Sami Ahmed",
+   "url": "https://depauwtigers.com/sports/mens-soccer/roster/sami-ahmed/18395",
+   "uni": "Depauw University"
+  },
+  {
+   "id": "5cb0ba2d-c262-469a-8f0c-56980430193e",
+   "name": "Tristen Banquil",
+   "url": "https://www.dustars.com/sports/mens-soccer/roster/tristen-banquil/4519",
+   "uni": "Dominican University"
+  },
+  {
+   "id": "e2cc264e-618a-4355-9d59-9e87dc2bd7ff",
+   "name": "Eddie Davis",
+   "url": "https://www.drexeldragons.com/sports/mens-soccer/roster/eddie-davis/11682",
+   "uni": "Drexel University"
+  },
+  {
+   "id": "4e7a336b-5ca1-4726-99da-cb5972b4d125",
+   "name": "Jaime Oliva",
+   "url": "https://www.goeasternathletics.com/sports/mens-soccer/roster/jaime-oliva/17185",
+   "uni": "Eastern New Mexico"
+  },
+  {
+   "id": "a5a965e5-0212-481d-a22a-4e194f512567",
+   "name": "Carlos Levy",
+   "url": "https://www.elonphoenix.com/sports/mens-soccer/roster/carlos-levy/11423",
+   "uni": "Elon University"
+  },
+  {
+   "id": "11691d33-9598-4642-8992-3d95ad5e3b4f",
+   "name": "Pau Nelo",
+   "url": "https://www.goeclions.com/sports/mens-soccer/roster/pau-nel-lo-recasens/7830",
+   "uni": "EMMANUEL COLLEGE"
+  },
+  {
+   "id": "4411d5c1-b48b-41bc-8fa8-7662602d96e7",
+   "name": "Sam Botwright",
+   "url": "https://www.goeclions.com/sports/mens-soccer/roster/samuel-botwright/6639",
+   "uni": "EMMANUEL COLLEGE"
+  },
+  {
+   "id": "4f198c31-6f87-4b00-90fa-93699530f1be",
+   "name": "Thomas Kamberidis",
+   "url": "https://www.goecsaints.com/sports/mens-soccer/roster/thomas-kamberidis/4735",
+   "uni": "Emmanuel College"
+  },
+  {
+   "id": "1acaf9c2-397e-44a8-bac6-0a471b827f64",
+   "name": "Carlos Iglesias",
+   "url": "https://gopurpleaces.com/sports/mens-soccer/roster/carlos-iglesias/7198",
+   "uni": "EVANSVILLE"
+  },
+  {
+   "id": "64049c7b-1db7-4149-bccd-0d6b12dd815b",
+   "name": "Nacho Garcia",
+   "url": "https://gopurpleaces.com/sports/mens-soccer/roster/nacho-garcia/6679",
+   "uni": "EVANSVILLE"
+  },
+  {
+   "id": "d93d0a7b-4d7c-49f7-b9fa-09e2a24d3d5a",
+   "name": "Kyle Penders",
+   "url": "https://gopurpleaces.com/sports/mens-soccer/roster/kyle-penders/6692",
+   "uni": "Evansville"
+  },
+  {
+   "id": "3a1353d1-2967-43f3-95fa-288f91ee6600",
+   "name": "Sean Hendrie",
+   "url": "https://gopurpleaces.com/sports/mens-soccer/roster/sean-hendrie/6683",
+   "uni": "Evansville"
+  },
+  {
+   "id": "d84ac7a7-1c90-4228-9a25-e6117925fff2",
+   "name": "David Hernandez",
+   "url": "https://www.gopurpleaces.com/sports/mens-soccer/roster/david-hernandez/6163",
+   "uni": "EVANSVILLLE"
+  },
+  {
+   "id": "287a316d-30be-4853-8b57-2a96d88bee07",
+   "name": "Viktor Nikolov",
+   "url": "https://fairfieldstags.com/sports/mens-soccer/roster/viktor-nikolov/7570",
+   "uni": "FAIRFIELD"
+  },
+  {
+   "id": "43236f6a-9744-419c-bbe5-e57052d4e478",
+   "name": "Tyler Reavis",
+   "url": "https://fairfieldstags.com/sports/mens-soccer/roster/tyler-reavis/7575",
+   "uni": "Fairfield University"
+  },
+  {
+   "id": "9118f92f-b546-4795-9a01-53a1c99df06e",
+   "name": "Jaime Barbero",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/jaime-barbero/7980",
+   "uni": "Fairleigh Dickinson University"
+  },
+  {
+   "id": "e9da9bbf-c382-4447-bea1-8ace5500b163",
+   "name": "Harrison Hew",
+   "url": "https://www.fduknights.com/sports/mens-soccer/roster/harrison-hew/7984",
+   "uni": "Farleigh Dickinson"
+  },
+  {
+   "id": "69f2805a-1281-4273-9aa5-a67dc7663ae1",
+   "name": "Ishaan Akhtar",
+   "url": "https://www.fduknights.com/sports/mens-soccer/roster/ishaan-akhtar/6900",
+   "uni": "Farleigh Dickinson"
+  },
+  {
+   "id": "90599dea-a3c2-4b7f-87f1-428726a89c51",
+   "name": "Alberto Herranz",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/alberto-herranz/6864",
+   "uni": "FDU"
+  },
+  {
+   "id": "70e1ccb2-c84a-4e33-82e4-95b49fe46934",
+   "name": "Jaime Barbero",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/jaime-barbero/7980",
+   "uni": "FDU"
+  },
+  {
+   "id": "cd6e3d1b-8e5a-47b8-a3f9-06b74d2d9faf",
+   "name": "Juan Martin",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/juan-mart-iacute-n-barahona/6561",
+   "uni": "FDU"
+  },
+  {
+   "id": "1600beb8-719f-4d84-ac39-b69412352d77",
+   "name": "Hugo Bacharach",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/hugo-bacharach/6282",
+   "uni": "FDU"
+  },
+  {
+   "id": "f93d1522-bc6a-46e1-ab78-222fb587faa9",
+   "name": "Alejandro Vento",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/alejandro-vento/7348",
+   "uni": "FDU"
+  },
+  {
+   "id": "ae7d53f2-4375-4203-ac99-347d091d4fc7",
+   "name": "Yugo Yamamoto",
+   "url": "https://fduknights.com/sports/mens-soccer/roster/yugo-yamamoto-hodges/8497",
+   "uni": "FDU"
+  },
+  {
+   "id": "7825167f-9dec-4464-800b-6afff9ef9f40",
+   "name": "Mario Bastante",
+   "url": "https://fgcuathletics.com/sports/mens-soccer/roster/mario-bastante/10177",
+   "uni": "FGCU"
+  },
+  {
+   "id": "895cb3f9-133c-4345-a859-bc4f3a4c282f",
+   "name": "Emerson Laorden",
+   "url": "https://fgcuathletics.com/sports/mens-soccer/roster/emerson-laorden/10621",
+   "uni": "FGCU"
+  },
+  {
+   "id": "9e27b072-fa5a-4949-ba60-b95d61045ecd",
+   "name": "Jaiden Paniagua",
+   "url": "https://www.fausports.com/sports/mens-soccer/roster/jaiden-paniagua/19341",
+   "uni": "Florida Atlantic University (FAU)"
+  },
+  {
+   "id": "62016011-2303-43a2-8864-02804591ff53",
+   "name": "Jai Sahni",
+   "url": "https://fgcuathletics.com/sports/mens-soccer/roster/jai-sahni/10588",
+   "uni": "Florida Gulf Coast University"
+  },
+  {
+   "id": "25006db1-9ea4-4c08-9979-e29f71599843",
+   "name": "Franco Sala",
+   "url": "https://floridatechsports.com/sports/mens-soccer/roster/franco-sala/16656",
+   "uni": "Florida tech University"
+  },
+  {
+   "id": "eede48b2-6e41-4d6e-9149-530ce5ce9df4",
+   "name": "Dani Garcia",
+   "url": "https://floridatechsports.com/sports/mens-soccer/roster/dani-garcia-martin/14648",
+   "uni": "FLORIDA TECH"
+  },
+  {
+   "id": "1e6813ad-3059-41f8-801e-de175e2fbcc8",
+   "name": "Alvaro Ivorra",
+   "url": "https://floridatechsports.com/sports/mens-soccer/roster/alvaro-ivorra-ronda/17946",
+   "uni": "FLORIDA TECH"
+  },
+  {
+   "id": "9555b6e9-b31f-458d-b99f-e0364bf91b2f",
+   "name": "Christian Lewis",
+   "url": "https://floridatechsports.com/sports/mens-soccer/roster/christian-lewis/18074",
+   "uni": "Florida Tech University"
+  },
+  {
+   "id": "450a46c3-2713-4d86-88db-e2f8b4e4fcb9",
+   "name": "Jorge Valentin",
+   "url": "https://www.fhsuathletics.com/sports/mens-soccer/roster/jorge-valentin/8378",
+   "uni": "FORT HAYS"
+  },
+  {
+   "id": "90626067-870d-44a9-a786-0cb0fbb05794",
+   "name": "Pablo Angulo",
+   "url": "https://www.fhsuathletics.com/sports/mens-soccer/roster/pablo-angulo/8966",
+   "uni": "FORT HAYS"
+  },
+  {
+   "id": "ba7bc531-3700-4303-8807-2256b17dffe8",
+   "name": "Jonas Cervera",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/jonas-cervera-anchel/3559",
+   "uni": "FPU"
+  },
+  {
+   "id": "e7b9f17e-0c6e-44b8-9468-291da68f6043",
+   "name": "Josep Silvestre",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/josep-silvestre-pitarch/3543",
+   "uni": "FPU"
+  },
+  {
+   "id": "a44c2080-759a-432d-a826-6c835f87974e",
+   "name": "Marc Lopez",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/marc-lopez/3575",
+   "uni": "FPU"
+  },
+  {
+   "id": "a0dbcabf-3cd1-4133-ba97-ae0c618a6b25",
+   "name": "Miguel Pasto",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/miguel-angel-pastor-gutierrez/3553",
+   "uni": "FPU"
+  },
+  {
+   "id": "cb2156e8-b49a-4a5b-8985-6255c5becf76",
+   "name": "Pedro Juan Vicente",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/pedro-juan-vicente/3530",
+   "uni": "FPU"
+  },
+  {
+   "id": "cc6a8e41-75ea-4dcd-93b3-cefa7a618068",
+   "name": "Borja Blazquez",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/borja-blazquez/8509",
+   "uni": "FPU"
+  },
+  {
+   "id": "6e6b96d0-0c66-4692-bee2-48dc5a6ebf25",
+   "name": "Julen Martin",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/julen-martin/8520",
+   "uni": "FPU"
+  },
+  {
+   "id": "443546bc-f886-4ccc-a89e-d6e6646f526b",
+   "name": "Aitor Falagan",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/aitor-falagan-yera/3523",
+   "uni": "FPU"
+  },
+  {
+   "id": "7908f4ed-76f3-4e6b-9b06-8c98d36d0b53",
+   "name": "Carlos Ferrando",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/carlos-ferrando-felis/3525",
+   "uni": "FPU"
+  },
+  {
+   "id": "55b4661a-28d4-40fe-87a3-be1c71075c2a",
+   "name": "Angel Cobo",
+   "url": "https://www.fmupatriots.com/sports/mens-soccer/roster/angel-cobo/7829",
+   "uni": "FRANCIS MARION"
+  },
+  {
+   "id": "1476edf4-cb80-4663-8464-99f44e553ae9",
+   "name": "Francisco Vergara",
+   "url": "https://www.fmupatriots.com/sports/mens-soccer/roster/francisco-vergara/8213",
+   "uni": "FRANCIS MARION"
+  },
+  {
+   "id": "30373be8-95fe-49b0-9d0b-16e3bb88e361",
+   "name": "Juan Antonio Tripero",
+   "url": "https://www.fmupatriots.com/sports/mens-soccer/roster/juan-antonio-tripero-sanchez/8207",
+   "uni": "FRANCIS MARION"
+  },
+  {
+   "id": "eb5db8f4-d512-4bd8-8b25-bd3c10176b75",
+   "name": "Alberto Aragoneses",
+   "url": "https://www.fmupatriots.com/sports/mens-soccer/roster/alberto-aragoneses-lablanca/8068",
+   "uni": "FRANCIS MARION"
+  },
+  {
+   "id": "73fdf9aa-c712-4f37-8fb5-eba8137dcc51",
+   "name": "Evan Cota",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/evan-cota/3560",
+   "uni": "Franklin Pierce"
+  },
+  {
+   "id": "a33623a0-2332-466e-b89c-138f4cf07924",
+   "name": "Nicolas Karaja",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/nico-karaja/3622",
+   "uni": "Franklin Pierce"
+  },
+  {
+   "id": "4041322b-58b2-41d1-a4c4-a695205db313",
+   "name": "Tristan Ruble",
+   "url": "https://www.frostburgsports.com/sports/mens-soccer/roster/tristan-ruble/14366",
+   "uni": "Frostburg State university"
+  },
+  {
+   "id": "8d5329a4-f54b-4aa3-b40f-cb7ed6c34f73",
+   "name": "Matias Mestre",
+   "url": "https://www.fullertontitans.com/sports/mens-soccer/roster/mati-mestre/5581",
+   "uni": "FULLERTON"
+  },
+  {
+   "id": "4595cd58-f609-4afe-98d1-b2479e21fe77",
+   "name": "Pau Ferrer",
+   "url": "https://www.gannonsports.com/sports/mens-soccer/roster/pau-ferrer/11117",
+   "uni": "GANNON"
+  },
+  {
+   "id": "dab520c9-ee6a-4a3f-bdf3-a660e07553da",
+   "name": "Javier Ramirez",
+   "url": "https://gwusports.com/sports/mens-soccer/roster/javier-ramirez/8974",
+   "uni": "Gardner-Webb"
+  },
+  {
+   "id": "0e6301e0-5fdb-41fe-9cfb-efe1ad60e020",
+   "name": "Yago Torres",
+   "url": "https://www.gwsports.com/sports/mens-soccer/roster/yago-torres/10277",
+   "uni": "GEORGE WASHINGTON"
+  },
+  {
+   "id": "c7d2aee0-e2ae-47ae-8c14-92a979878946",
+   "name": "Jaden Dubon",
+   "url": "https://www.gwsports.com/sports/mens-soccer/roster/jaden-dubon/10259",
+   "uni": "George Washington"
+  },
+  {
+   "id": "d7927c21-bfa7-45f5-b1c5-83eb8ce09f76",
+   "name": "Jordan Regis",
+   "url": "https://gseagles.com/sports/mens-soccer/roster/jordan-regis/5473",
+   "uni": "Georgia Southern"
+  },
+  {
+   "id": "81e57b6d-ed91-471f-98bf-dbf934c7c922",
+   "name": "Jorge Aspas",
+   "url": "https://www.gozags.com/sports/mens-soccer/roster/jorge-aspas/4866",
+   "uni": "GONZAGA UNIVERSITY"
+  },
+  {
+   "id": "ecf7720c-a6c8-408f-b39b-08f43c605ef5",
+   "name": "Victor Gadea",
+   "url": "https://www.gozags.com/sports/mens-soccer/roster/victor-gadea/5778",
+   "uni": "GONZAGA UNIVERSITY"
+  },
+  {
+   "id": "ab042fc1-83c1-4877-aa5e-abf5f1c7c18f",
+   "name": "Diego Domenech",
+   "url": "https://www.gozags.com/sports/mens-soccer/roster/diego-domenech/5255",
+   "uni": "GONZAGA UNIVERSITY"
+  },
+  {
+   "id": "fb332f06-d133-43c0-8718-2bcd9f09da0e",
+   "name": "Sebastian Rangel",
+   "url": "https://www.gozags.com/sports/mens-soccer/roster/sebastian-rangel/5270",
+   "uni": "Gonzaga"
+  },
+  {
+   "id": "75c715b1-25a4-4143-b504-2601a4277047",
+   "name": "Will Ficek",
+   "url": "https://www.gculopes.com/sports/mens-soccer/roster/willem-ficek/14088",
+   "uni": "Grand Canyon University"
+  },
+  {
+   "id": "22a8e610-4b4d-457f-a590-7d72a3a8371e",
+   "name": "Mateo Murillo",
+   "url": "https://hiloathletics.com/sports/mens-soccer/roster/mateo-murillo/6353",
+   "uni": "University of Hawaii at Hilo"
+  },
+  {
+   "id": "ae40c0c6-766d-48b5-b785-754d2b4ee335",
+   "name": "Xavi Jul",
+   "url": "https://hiloathletics.com/sports/mens-soccer/roster/xavi-jul/5969",
+   "uni": "Hawaii Hilo"
+  },
+  {
+   "id": "e8eb94c6-c1bc-4f91-9619-3c997b5e0781",
+   "name": "Paul Weidow",
+   "url": "https://bergathletics.com/sports/mens-soccer/roster/paul-weidow/10477",
+   "uni": "Heidelberg University"
+  },
+  {
+   "id": "cf787cf5-73e7-40ee-8a49-0ca724a67f06",
+   "name": "Tyler Purtle",
+   "url": "https://uiwcardinals.com/sports/mens-soccer/roster/tyler-purtle/11125",
+   "uni": "Incarnate Word"
+  },
+  {
+   "id": "05067281-4841-4176-ae30-7fd595d16bfd",
+   "name": "Grant Yeagley",
+   "url": "https://www.iuhoosiers.com/sports/mens-soccer/roster/grant-yeagley/18883",
+   "uni": "Indiana"
+  },
+  {
+   "id": "2b62dd0b-8fd0-4967-8f43-117079c3c6d4",
+   "name": "Ricardo Senen",
+   "url": "https://www.ionagaels.com/sports/mens-soccer/roster/ricardo-senen-pinillos/7629",
+   "uni": "IONA COLLEGE"
+  },
+  {
+   "id": "1d32a74b-7cb6-4b15-a8d6-a429240fb986",
+   "name": "Jahiem Campbell",
+   "url": "https://www.ionagaels.com/sports/mens-soccer/roster/jahiem-campbell/7985",
+   "uni": "IONA"
+  },
+  {
+   "id": "00fdb969-acd8-4852-9258-b0ad920a259c",
+   "name": "Kevin Santana",
+   "url": "https://www.ionagaels.com/sports/mens-soccer/roster/kevin-santana/8179",
+   "uni": "IONA"
+  },
+  {
+   "id": "763bf8e2-801c-4776-ab7c-620a1e43bb2e",
+   "name": "Joshua Cox",
+   "url": "https://www.ionagaels.com/sports/mens-soccer/roster/joshua-cox/8463",
+   "uni": "Iona Gaels"
+  },
+  {
+   "id": "796c4fa6-aec3-47ac-a6a0-838033c76416",
+   "name": "Sean Krause",
+   "url": "https://www.ionagaels.com/sports/mens-soccer/roster/sean-krause-huckleberry/8465",
+   "uni": "Iona Gaels"
+  },
+  {
+   "id": "4cc02c37-54e3-40b3-9631-a353f9b985f0",
+   "name": "Rodrigo Robles",
+   "url": "https://www.jmusports.com/sports/mens-soccer/roster/rodrigo-robles/20221",
+   "uni": "JMU"
+  },
+  {
+   "id": "96ea860d-2931-4e56-bf82-565428701b60",
+   "name": "Ryan Aiken",
+   "url": "https://www.hopkinssports.com/sports/mens-soccer/roster/ryan-aiken/22431",
+   "uni": "John Hopkins University"
+  },
+  {
+   "id": "662ce608-0a02-46ac-974e-dacd7dcdd21e",
+   "name": "David Grifell",
+   "url": "https://www.lrbears.com/sports/mens-soccer/roster/david-grifell/8617",
+   "uni": "LENOIR"
+  },
+  {
+   "id": "d5b4fecd-7070-42ad-bbf3-2bc85148e579",
+   "name": "Voro Rivera",
+   "url": "https://www.lrbears.com/sports/mens-soccer/roster/voro-rivera-peris/8622",
+   "uni": "LENOIR"
+  },
+  {
+   "id": "46ba45e2-4014-40b7-947e-66f1c0df9245",
+   "name": "Nico Bohigues",
+   "url": "https://www.lrbears.com/sports/mens-soccer/roster/nicolas-bohigues/5740",
+   "uni": "LENOIR RHYNE"
+  },
+  {
+   "id": "80e55103-c462-4d35-ac8a-b22d0f60bbb8",
+   "name": "Omar Jimenez",
+   "url": "https://www.lrbears.com/sports/mens-soccer/roster/omar-jimenez/8634",
+   "uni": "Leron Rhyne"
+  },
+  {
+   "id": "dbaf20a5-c5ed-456f-944a-584c09b9d95a",
+   "name": "James Pidutti",
+   "url": "https://www.lipscombsports.com/sports/mens-soccer/roster/james-pidutti/7012",
+   "uni": "Limpscomb"
+  },
+  {
+   "id": "752c903d-db2f-459b-a5f9-8f3a400b83bd",
+   "name": "Sergio Aguilera",
+   "url": "https://www.lubluetigers.com/sports/mens-soccer/roster/sergio-aguilera/4567",
+   "uni": "LINCOLN"
+  },
+  {
+   "id": "ffc73e98-822d-47e7-bc36-069201905a71",
+   "name": "James Pidutti",
+   "url": "https://www.lipscombsports.com/sports/mens-soccer/roster/james-pidutti/7012",
+   "uni": "Lipscomb University"
+  },
+  {
+   "id": "01597523-a576-405f-8f84-4e2a9a4641c9",
+   "name": "Juan Carlos",
+   "url": "https://www.lipscombsports.com/sports/mens-soccer/roster/juan-carlos-rodriguez/5982",
+   "uni": "LIPSCOMB"
+  },
+  {
+   "id": "c9cc2d99-2fb1-43ba-a04a-21514d2f8be4",
+   "name": "Miles Courtney",
+   "url": "https://www.liuathletics.com/sports/mens-soccer/roster/miles-courtney/6311",
+   "uni": "Long Island University"
+  },
+  {
+   "id": "c522667f-7fa8-4d98-a0ad-a6ba58f23a6c",
+   "name": "Jose Carlos",
+   "url": "https://longwoodlancers.com/sports/mens-soccer/roster/jos-carlos/4815",
+   "uni": "LONGWOOD"
+  },
+  {
+   "id": "d775a81d-6adc-4326-9439-2b7a5a6a1dfa",
+   "name": "Jesus Macaya",
+   "url": "https://longwoodlancers.com/sports/mens-soccer/roster/jesus-macaya/6188",
+   "uni": "LONGWOOD"
+  },
+  {
+   "id": "a5c47bb3-fe4c-4f4b-a452-aa00d480e5ec",
+   "name": "Mateo Nance",
+   "url": "https://longwoodlancers.com/sports/mens-soccer/roster/mateo-nance/6190",
+   "uni": "LONGWOOD"
+  },
+  {
+   "id": "8759c481-eba5-4108-be23-d339ad339fbb",
+   "name": "Iago Rodriguez",
+   "url": "https://longwoodlancers.com/sports/mens-soccer/roster/iago-rodriguez/5946",
+   "uni": "LONGWOOD"
+  },
+  {
+   "id": "68ca4110-64da-4b86-bb46-8341385df5ba",
+   "name": "Hugo Urdiales",
+   "url": "https://www.loyolaramblers.com/sports/mens-soccer/roster/hugo-urdiales/3007",
+   "uni": "LOYOLA CHICAGO"
+  },
+  {
+   "id": "392e532b-9f4d-4568-986c-815528204ac4",
+   "name": "Joaquin Rodriguez",
+   "url": "https://www.loyolaramblers.com/sports/mens-soccer/roster/joaquin-rodr-guez/3114",
+   "uni": "LOYOLA CHICAGO"
+  },
+  {
+   "id": "35db7580-5502-4115-ba8d-a224d0eb73c4",
+   "name": "Kike Morales",
+   "url": "https://www.loyolaramblers.com/sports/mens-soccer/roster/kike-morales-bilbao/3113",
+   "uni": "LOYOLA CHICAGO"
+  },
+  {
+   "id": "40d99fe7-1085-4c85-ae49-f68f65beb472",
+   "name": "Foster Hayes",
+   "url": "https://www.loyolaramblers.com/sports/mens-soccer/roster/foster-hayes/3230",
+   "uni": "Loyola Chicago"
+  },
+  {
+   "id": "f9a370c1-0559-482a-b3bb-b75476794525",
+   "name": "Javier Jose Ibañez",
+   "url": "https://www.lynnfightingknights.com/sports/mens-soccer/roster/javier-ibanez/5483",
+   "uni": "LYNN"
+  },
+  {
+   "id": "bff02d16-7d3f-47c6-a8ad-6721c2351e6c",
+   "name": "Manuel Morales",
+   "url": "https://www.govaliants.com/sports/mens-soccer/roster/manuel-morales/7860",
+   "uni": "MANHATANVILLE"
+  },
+  {
+   "id": "9138f57f-4518-46f2-8e10-a78bcf9ea0a8",
+   "name": "Alvaro García Pascual",
+   "url": "https://www.herdzone.com/sports/mens-soccer/roster/alvaro-garciapascual/7554",
+   "uni": "MARSHALL"
+  },
+  {
+   "id": "c583e366-c8af-47bb-87bf-5341de0b67d3",
+   "name": "Eric Primo",
+   "url": "https://www.gotigersgo.com/sports/mens-soccer/roster/eric-primo/10955",
+   "uni": "MEMPHIS UNIVERSITY"
+  },
+  {
+   "id": "b28c2d66-1793-4d73-8ae7-39c1bf3128b1",
+   "name": "Anthony Martinez",
+   "url": "https://www.gotigersgo.com/sports/mens-soccer/roster/anthony-martinez/10532",
+   "uni": "Memphis"
+  },
+  {
+   "id": "ec73afd3-0d82-43c7-af22-5a06f023721b",
+   "name": "Alberto Cruz",
+   "url": "https://www.gotigersgo.com/sports/mens-soccer/roster/alberto-cruz/10948",
+   "uni": "MEMPHIS"
+  },
+  {
+   "id": "fc76fbe7-de54-49f5-91e1-22e18500f2d9",
+   "name": "David Tirado",
+   "url": "https://www.mercerbears.com/sports/mens-soccer/roster/david-tirado/12563",
+   "uni": "Mercer University"
+  },
+  {
+   "id": "cf520643-e20a-4ce7-897e-8d7f362a2811",
+   "name": "Ryder Bishop",
+   "url": "https://www.mercerbears.com/sports/mens-soccer/roster/ryder-bishop/12570",
+   "uni": "Mercer University"
+  },
+  {
+   "id": "03368dde-6a18-42f8-ab38-b168adb9b904",
+   "name": "Cullen Freeman",
+   "url": "https://www.roadrunnersathletics.com/sports/mens-soccer/roster/cullen-freeman/6294",
+   "uni": "Metro State"
+  },
+  {
+   "id": "86fdd1aa-083c-4ce4-adb6-36d9175b10b7",
+   "name": "Santi Dominguez",
+   "url": "https://www.gochoctaws.com/sports/mens-soccer/roster/santiago-dominguez-ochoa/10740",
+   "uni": "MISSISIPI COLLEGE"
+  },
+  {
+   "id": "545caf46-13bf-4ffc-a074-8fd7ebaaef31",
+   "name": "Angel Carceles",
+   "url": "https://www.gochoctaws.com/sports/mens-soccer/roster/angel-carceles/10213",
+   "uni": "MISSISIPI COLLEGE"
+  },
+  {
+   "id": "aebcb003-70f9-4222-9dc3-1b4097130c40",
+   "name": "John Tapia",
+   "url": "https://www.missouristatebears.com/sports/mens-soccer/roster/john-tapia/9691",
+   "uni": "Missouri State University"
+  },
+  {
+   "id": "45b7f8f1-87a0-4ce8-b3e5-7913f0cd1bf3",
+   "name": "Gavin Weidman",
+   "url": "https://www.missouristatebears.com/sports/mens-soccer/roster/gavin-weidman/9689",
+   "uni": "Missouri State"
+  },
+  {
+   "id": "d3eacfba-57e7-40ed-b3e4-dd053a96eba9",
+   "name": "Benjamin Bern",
+   "url": "https://www.molloylions.com/sports/mens-soccer/roster/benjamin-bern/7505",
+   "uni": "Molloy"
+  },
+  {
+   "id": "052ae11c-4c03-4429-a363-12c419084b70",
+   "name": "Narcis Bou",
+   "url": "https://www.montevallofalcons.com/sports/mens-soccer/roster/narcis-bou-dalmau/4997",
+   "uni": "MONTEVALLO"
+  },
+  {
+   "id": "31bc2356-f61b-42e8-8649-a28a6142eb24",
+   "name": "Marc Velasco",
+   "url": "https://www.montevallofalcons.com/sports/mens-soccer/roster/marc-velasco-montoya/7141",
+   "uni": "University of Montevallo"
+  },
+  {
+   "id": "51a9d53f-e3fa-44a3-b3e7-3fe30aad6193",
+   "name": "Cameron Tedesco",
+   "url": "https://www.mountathletics.com/sports/mens-soccer/roster/cameron-tedesco/10380",
+   "uni": "Mount St. Mary's University"
+  },
+  {
+   "id": "09712692-1bac-42ff-aec2-71bf71ccfa66",
+   "name": "Pepe Garcia",
+   "url": "https://www.gopack.com/sports/mens-soccer/roster/pepe-garcia/11064",
+   "uni": "NC STATE"
+  },
+  {
+   "id": "397e4f89-ed6e-435b-8067-b92574504b6f",
+   "name": "Pablo Pedregosa",
+   "url": "https://www.gopack.com/sports/mens-soccer/roster/pablo-pedregosa/11448",
+   "uni": "NC STATE"
+  },
+  {
+   "id": "897a5ef5-5f4c-48b1-b0d1-6eae4483bb74",
+   "name": "Ferran Macian",
+   "url": "https://www.newberrywolves.com/sports/mens-soccer/roster/ferran-macian/9311",
+   "uni": "NEWBERRY"
+  },
+  {
+   "id": "bbf203e0-474c-4207-91ec-679adddfa0e8",
+   "name": "Gerard López",
+   "url": "https://www.purpleeagles.com/sports/mens-soccer/roster/gerard-lopez-forner/8644",
+   "uni": "NIAGARA"
+  },
+  {
+   "id": "929c2af2-911d-44e3-9fe2-3ba60c251ef0",
+   "name": "Alberto Sanchez",
+   "url": "https://www.purpleeagles.com/sports/mens-soccer/roster/alberto-sanchez-cervera/9069",
+   "uni": "Niagara"
+  },
+  {
+   "id": "7bd35b72-0e8a-4fff-9496-b45564700298",
+   "name": "Sergio Martinez",
+   "url": "https://njithighlanders.com/sports/mens-soccer/roster/sergio-martinez-cubel/9039",
+   "uni": "NJIT"
+  },
+  {
+   "id": "55be8b3b-73f1-428e-babb-fc6feb25e706",
+   "name": "Arrio Rusnak",
+   "url": "https://njithighlanders.com/sports/mens-soccer/roster/arrio-rusnak/7579",
+   "uni": "NJIT"
+  },
+  {
+   "id": "f3f0a692-2b30-4269-ad76-6c1e1a0a167c",
+   "name": "Odei Arrieta",
+   "url": "https://nsusharks.com/sports/mens-soccer/roster/odei-arrieta/6170",
+   "uni": "NOVA"
+  },
+  {
+   "id": "d62e6486-c5d0-4e8d-a63b-f634958df446",
+   "name": "Rentero Alberto",
+   "url": "https://nsusharks.com/sports/mens-soccer/roster/alberto-rentero/6506",
+   "uni": "NOVA"
+  },
+  {
+   "id": "cea699c9-9c56-41b6-8598-eeadd5af5ef1",
+   "name": "Alberto Solaeta",
+   "url": "https://nsusharks.com/sports/mens-soccer/roster/alberto-solaeta/6845",
+   "uni": "NOVA"
+  },
+  {
+   "id": "8073c988-c26d-4f4f-b663-f9c9500c47ca",
+   "name": "Salva Cotaina",
+   "url": "https://www.oceagles.com/sports/mens-soccer/roster/salva-cotaina/8642",
+   "uni": "OCU"
+  },
+  {
+   "id": "a29b0604-108e-449e-b029-cdd4de5fcd3c",
+   "name": "Diego Casero",
+   "url": "https://www.oceagles.com/sports/mens-soccer/roster/diego-casero-comeche/8185",
+   "uni": "Oklahoma Christian"
+  },
+  {
+   "id": "b6697dbf-d93b-4b41-84dc-7e0b811c9bdf",
+   "name": "David Ezerzer",
+   "url": "https://www.omavs.com/sports/mens-soccer/roster/david-ezerzer/16606",
+   "uni": "OMAHA: offer"
+  },
+  {
+   "id": "6c0ca6db-d58e-4960-b91b-bbe2a0c2336a",
+   "name": "Samuel Villalta",
+   "url": "https://www.pacifictigers.com/sports/mens-soccer/roster/samuel-villalta/4870",
+   "uni": "PACIFIC"
+  },
+  {
+   "id": "67ae6429-2dc6-459b-9006-8b6ccbdcb08d",
+   "name": "Marco Martinez",
+   "url": "https://www.pacifictigers.com/sports/mens-soccer/roster/marco-martinez/4863",
+   "uni": "PACIFIC"
+  },
+  {
+   "id": "93ace1c8-8d4d-4cf8-a98b-e1a0d0c970a0",
+   "name": "Rodrigo Fernandez",
+   "url": "https://www.pacifictigers.com/sports/mens-soccer/roster/rodrigo-fernandez-martinez/5999",
+   "uni": "PACIFIC"
+  },
+  {
+   "id": "84e41b47-6841-4a3e-a7da-7dd082a03fef",
+   "name": "Tanner Johnson",
+   "url": "https://www.pacifictigers.com/sports/mens-soccer/roster/tanner-johnson/4860",
+   "uni": "Pacific"
+  },
+  {
+   "id": "2a160c7e-a4c3-4110-b540-2c0ad4386c43",
+   "name": "Alex Benitez",
+   "url": "https://www.pbasailfish.com/sports/mens-soccer/roster/alex-benitez/7639",
+   "uni": "PBA"
+  },
+  {
+   "id": "e42b48b3-5041-4bef-8c78-87449c163502",
+   "name": "Jose Lado",
+   "url": "https://gobluehose.com/sports/mens-soccer/roster/jose-lado/5801",
+   "uni": "PC"
+  },
+  {
+   "id": "521e9700-7b88-477c-89f9-b0c1b824ea0b",
+   "name": "Nacho Gallego",
+   "url": "https://gobluehose.com/sports/mens-soccer/roster/nacho-gallego/5794",
+   "uni": "PC"
+  },
+  {
+   "id": "f9e97fc8-d13f-4667-b20f-a29b9bf0b2ee",
+   "name": "Gerard Lopez",
+   "url": "https://gobluehose.com/sports/mens-soccer/roster/gerard-lopez/5802",
+   "uni": "PC"
+  },
+  {
+   "id": "02ec2c70-e499-47c1-8fad-b629350a4272",
+   "name": "Jaume Rubio",
+   "url": "https://gobluehose.com/sports/mens-soccer/roster/jaume-rubio/5105",
+   "uni": "PC"
+  },
+  {
+   "id": "10b9605f-53cd-4d3c-90c3-aa40a8ac3eae",
+   "name": "Dani Gamboa",
+   "url": "https://www.pittsburghpanthers.com/sports/mens-soccer/roster/daniel-gamboa-gonzalez/13843",
+   "uni": "PITT:"
+  },
+  {
+   "id": "bc7ecb19-5244-4485-a6d3-1e695dcd4726",
+   "name": "Santi Palacios",
+   "url": "https://www.posteagles.com/sports/mens-soccer/roster/santiago-palacios/13091",
+   "uni": "POST UNIVERSITY"
+  },
+  {
+   "id": "0ac1ec78-3aaa-480d-83b6-b962b0f41ac9",
+   "name": "Cesar Sancho",
+   "url": "https://gobluehose.com/sports/mens-soccer/roster/cesar-sancho/5106",
+   "uni": "PRESBYTERIAN"
+  },
+  {
+   "id": "d0fb8590-eff4-4661-9840-f46ea0e75e34",
+   "name": "Cameron Zamudio",
+   "url": "https://gobluehose.com/sports/mens-soccer/roster/cameron-zamudio/5809",
+   "uni": "Presbyterian"
+  },
+  {
+   "id": "0f26bbfb-34b4-4455-8f10-81d8e49b14d5",
+   "name": "Luis Garcia",
+   "url": "https://www.friars.com/sports/mens-soccer/roster/luis-garcia/10076",
+   "uni": "PROVIDENCE"
+  },
+  {
+   "id": "a26561a4-0d41-4257-848d-a8fa080575b6",
+   "name": "Mario Vazquez",
+   "url": "https://www.friars.com/sports/mens-soccer/roster/mario-vazquez-pina/9040",
+   "uni": "Providence"
+  },
+  {
+   "id": "bf60f6ac-9dbe-4520-91f1-65a8e3b30243",
+   "name": "Pepe Lora",
+   "url": "https://www.friars.com/sports/mens-soccer/roster/pepe-lora/10535",
+   "uni": "PROVIDENCE COLLEGE"
+  },
+  {
+   "id": "37868bfc-e5c4-442b-be0e-19f3f063f90b",
+   "name": "Colton Madeira",
+   "url": "https://www.friars.com/sports/mens-soccer/roster/colton-madeira/8518",
+   "uni": "Providence"
+  },
+  {
+   "id": "fdacc064-d55f-40b7-9706-97e52a92368d",
+   "name": "Eduardo Rodriguez",
+   "url": "https://www.gorhody.com/sports/mens-soccer/roster/edu-rodriguez/8279",
+   "uni": "RHODE ISLAND"
+  },
+  {
+   "id": "2d909b34-0cd0-4c07-9f59-abbf9f39f2b3",
+   "name": "Joel Bona",
+   "url": "https://www.gorhody.com/sports/mens-soccer/roster/joel-bona/9231",
+   "uni": "RHODE ISLAND"
+  },
+  {
+   "id": "e5ff50fe-ab9c-47b3-a0f5-d64a6bdc7874",
+   "name": "Kai Carroll",
+   "url": "https://www.gorhody.com/sports/mens-soccer/roster/kai-carroll/9198",
+   "uni": "Rhode Island"
+  },
+  {
+   "id": "a5e46ae9-222c-4efe-a913-ed5ace19ce17",
+   "name": "Kai Carroll",
+   "url": "https://www.gorhody.com/sports/mens-soccer/roster/kai-carroll/9198",
+   "uni": "Rhode Island"
+  },
+  {
+   "id": "6fc291d2-7227-46bf-9cdb-cf3f68553ee5",
+   "name": "Lou Forster",
+   "url": "https://www.gorhody.com/sports/mens-soccer/roster/lou-forster/9225",
+   "uni": "Rhode Island"
+  },
+  {
+   "id": "95d345e0-4524-4638-8106-d89f10b3533a",
+   "name": "Gio Polizzi",
+   "url": "https://www.gobroncs.com/sports/mens-soccer/roster/gio-polizzi/8510",
+   "uni": "Rider University"
+  },
+  {
+   "id": "55afa24e-c9dd-43fc-92ad-71b5e39a78ad",
+   "name": "Alan Olmos",
+   "url": "https://www.rivierathletics.com/sports/mens-soccer/roster/alan-olmos/4414",
+   "uni": "Rivier"
+  },
+  {
+   "id": "2eb8165b-8478-4831-96f6-c7dbb5f5b6b5",
+   "name": "Victor Thompson",
+   "url": "https://www.rmucolonials.com/sports/mens-soccer/roster/victor-thompson/10355",
+   "uni": "Robert Morris"
+  },
+  {
+   "id": "7a4a2cd9-bea1-4bb1-b41f-59752bf20671",
+   "name": "Lucca Carvalho",
+   "url": "https://rollinssports.com/sports/mens-soccer/roster/lucca-carvalho/7316",
+   "uni": "Rollins"
+  },
+  {
+   "id": "10935ffb-6c14-48ac-ab37-eff7c9d15dab",
+   "name": "Rafael Matta",
+   "url": "https://sacredheartpioneers.com/sports/mens-soccer/roster/rafa-matta/18863",
+   "uni": "Sacred Heart University"
+  },
+  {
+   "id": "1e636739-41c2-4d52-9ad9-550395420e08",
+   "name": "Sean Kelly",
+   "url": "https://www.saintanselmhawks.com/sports/mens-soccer/roster/sean-kelly/15335",
+   "uni": "Saint Anselm"
+  },
+  {
+   "id": "ab70c5d2-0b0e-4200-b625-b2e350f81226",
+   "name": "Ivan Henwood",
+   "url": "https://www.smcathletics.com/sports/mens-soccer/roster/ivan-henwood/11408",
+   "uni": "Saint Michael's College"
+  },
+  {
+   "id": "38142aad-448c-4af0-af89-854197c724c8",
+   "name": "Mikel Penin",
+   "url": "https://www.smcathletics.com/sports/mens-soccer/roster/mikel-penin/10823",
+   "uni": "SAINT MICHAELS"
+  },
+  {
+   "id": "fd25145a-40a6-415e-ae32-b3729d9d0891",
+   "name": "Ian McGee",
+   "url": "https://www.smcathletics.com/sports/mens-soccer/roster/ian-mcgee/11405",
+   "uni": "Saint Michaels"
+  },
+  {
+   "id": "222d9530-18c3-4544-8c36-8ad83512dc63",
+   "name": "Pablo Sanchez",
+   "url": "https://www.salemtigers.com/sports/mens-soccer/roster/pablo-sanchez/3676",
+   "uni": "SALEM UNIVERSITY"
+  },
+  {
+   "id": "bd0e47c2-7c39-497a-b0b7-c32314a54053",
+   "name": "Kevin Lee",
+   "url": "https://usfdons.com/sports/mens-soccer/roster/kevin-lee/4495",
+   "uni": "San Francisco"
+  },
+  {
+   "id": "6d4e44e2-476d-49cf-93d9-2bdf2b337517",
+   "name": "Kian Jones",
+   "url": "https://usfdons.com/sports/mens-soccer/roster/kian-jones/6089",
+   "uni": "San Francisco"
+  },
+  {
+   "id": "c39873ea-312a-4f21-92f8-8e38184f4962",
+   "name": "Guillem Badenes",
+   "url": "https://santaclarabroncos.com/sports/mens-soccer/roster/guillem-badenes-mecho/3714",
+   "uni": "SANTA CLARA"
+  },
+  {
+   "id": "f7d5ee10-1918-4d47-ac1d-5c71723e2a88",
+   "name": "Alvaro Gironda",
+   "url": "https://santaclarabroncos.com/sports/mens-soccer/roster/alvaro-gironda/8725",
+   "uni": "SANTA CLARA"
+  },
+  {
+   "id": "9f0947a0-684a-4749-908c-3e1d294248c5",
+   "name": "Sebastian Rangel",
+   "url": "https://spufalcons.com/sports/mens-soccer/roster/sebastian-rangel/4200",
+   "uni": "Seattle Pacific"
+  },
+  {
+   "id": "4b71af00-7c57-4e86-aac4-f97f8cdac0b0",
+   "name": "Pablo Bas",
+   "url": "https://www.shawbears.com/sports/mens-soccer/roster/pablo-bas-colomer/3088",
+   "uni": "Shaw"
+  },
+  {
+   "id": "e4b88dfb-142a-4fbc-ba6a-37f59d326471",
+   "name": "Noah Finley",
+   "url": "https://www.suhornets.com/sports/mens-soccer/roster/noah-finley/11494",
+   "uni": "Shenandoah University"
+  },
+  {
+   "id": "44d73ee4-4f86-4c6e-b8d5-ba4b3eae11ae",
+   "name": "Aleja Perez",
+   "url": "https://www.sienasaints.com/sports/mens-soccer/roster/alejandro-perez-jorda/10730",
+   "uni": "SIENNA"
+  },
+  {
+   "id": "9222c3a7-b241-44e2-82e5-98210e151392",
+   "name": "Mario Navarro",
+   "url": "https://www.sienasaints.com/sports/mens-soccer/roster/mario-navarro-perez/10729",
+   "uni": "SIENNA"
+  },
+  {
+   "id": "c943f6f5-a846-4081-805e-5b27abbd4c68",
+   "name": "Carles Zomeño",
+   "url": "https://siuecougars.com/sports/mens-soccer/roster/carles-zome-o/12892",
+   "uni": "SIUE"
+  },
+  {
+   "id": "465a38e3-235b-4aff-9c86-6093d36940a5",
+   "name": "Zachary Renz",
+   "url": "https://siuecougars.com/sports/mens-soccer/roster/zach-renz/12890",
+   "uni": "SIUE"
+  },
+  {
+   "id": "dda41b72-4044-42a8-8794-3e8541c1a27f",
+   "name": "Chus Ortega",
+   "url": "https://www.snhupenmen.com/sports/mens-soccer/roster/chus-ortega/6697",
+   "uni": "SNHU"
+  },
+  {
+   "id": "027824dd-ae1d-4153-ac0a-d2b12b0c2a6f",
+   "name": "Alex Pons",
+   "url": "https://www.snhupenmen.com/sports/mens-soccer/roster/alex-pons/6698",
+   "uni": "SNHU"
+  },
+  {
+   "id": "74b4c9fe-4f21-4af5-9315-4d09228df755",
+   "name": "Hector Diez",
+   "url": "https://scsuowls.com/sports/mens-soccer/roster/hector-diez-viota/11619",
+   "uni": "SOUTHERN CONNECTICUT"
+  },
+  {
+   "id": "4fd44c80-0ce8-40ea-ac7e-99c9ebf8be3e",
+   "name": "Oscar Alenda",
+   "url": "https://www.smumustangs.com/sports/mens-soccer/roster/oscar-alenda/13143",
+   "uni": "Southern Methodist"
+  },
+  {
+   "id": "fc3d2e89-9bb2-48b2-9dc8-a579245585bf",
+   "name": "Julian Ramirez",
+   "url": "https://www.snhupenmen.com/sports/mens-soccer/roster/julian-ramirez/6712",
+   "uni": "Southern New Hampshire"
+  },
+  {
+   "id": "5de36f64-27d2-4ae5-98f1-340fef4c43b9",
+   "name": "Luis Sanchez-Barbudo Cruz",
+   "url": "https://www.sbubearcats.com/sports/mens-soccer/roster/luis-sanchez-barbudo-cruz/8475",
+   "uni": "SOUTHWEST BAPTIST"
+  },
+  {
+   "id": "6a4666b5-d53c-42e2-a9bd-d3e3a26c5431",
+   "name": "Bryce Strumeier",
+   "url": "https://www.gobonnies.com/sports/mens-soccer/roster/bryce-strumeier/7004",
+   "uni": "St. Bonaventure"
+  },
+  {
+   "id": "2540bf9c-27fd-4398-99e3-9a609cba7bab",
+   "name": "Lucas Mastro",
+   "url": "https://saintleolions.com/sports/mens-soccer/roster/lucas-mastroguiseppe/6583",
+   "uni": "ST LEO"
+  },
+  {
+   "id": "d789b500-de3c-4271-b1ff-0bd817ad06c0",
+   "name": "Javier Haro",
+   "url": "https://saintleolions.com/sports/mens-soccer/roster/javier-haro/7549",
+   "uni": "ST LEO"
+  },
+  {
+   "id": "1c500485-ebbf-496f-b17e-11b1ffa35d23",
+   "name": "Erik Holmen",
+   "url": "https://saintleolions.com/sports/mens-soccer/roster/erik-holmen/8197",
+   "uni": "St. Leo"
+  },
+  {
+   "id": "a7a190d6-8f34-4592-8f41-d20fb7836753",
+   "name": "Matt Donascimento",
+   "url": "https://saintleolions.com/sports/mens-soccer/roster/matt-donascimento/8204",
+   "uni": "St. Leo"
+  },
+  {
+   "id": "ece2255e-f130-43a7-9b69-90478da96c1f",
+   "name": "Jake Johnston",
+   "url": "https://athletics.stolaf.edu/sports/mens-soccer/roster/jake-johnston/13796",
+   "uni": "St. Olaf College"
+  },
+  {
+   "id": "acb6d96f-787a-4991-bb5a-cc3ade9fe2a9",
+   "name": "Luke Marshall",
+   "url": "https://www.tommiesports.com/sports/msoc/roster/luke-marshall/11876",
+   "uni": "St. Thomas University"
+  },
+  {
+   "id": "4caa2e07-7d66-4846-8dbb-636731d2aacf",
+   "name": "Ethan O'Connor",
+   "url": "https://www.stonehillskyhawks.com/sports/mens-soccer/roster/ethan-o-connor/10550",
+   "uni": "Stonehill"
+  },
+  {
+   "id": "5abb1b81-1f0e-4e6c-a9a7-09ca1e858a98",
+   "name": "Tiago Lima",
+   "url": "https://www.stonehillskyhawks.com/sports/mens-soccer/roster/tiago-lima-bittencourt/9178",
+   "uni": "Stonehill"
+  },
+  {
+   "id": "20a842e7-827b-4dac-8775-1f85b08c4635",
+   "name": "James Forrest-Hay",
+   "url": "https://www.stonehillskyhawks.com/sports/mens-soccer/roster/james-forrest-hay/10538",
+   "uni": "Stonehill"
+  },
+  {
+   "id": "082552dd-9e14-4ad7-9e4a-456d82bef5de",
+   "name": "Jackson Gould",
+   "url": "https://stonybrookathletics.com/sports/mens-soccer/roster/jackson-gould/10225",
+   "uni": "Stony Brook"
+  },
+  {
+   "id": "df6e9fc1-aaf4-429a-98a7-7f80dafd8621",
+   "name": "Narcis Gavalda",
+   "url": "https://www.svsucardinals.com/sports/mens-soccer/roster/narcis-gavalda/8956",
+   "uni": "SVSU"
+  },
+  {
+   "id": "f98a57fd-bedb-4029-bcdb-8d50f88524b5",
+   "name": "Erick Hernandez",
+   "url": "https://www.owlsports.com/sports/mens-soccer/roster/erick-hernandez/18063",
+   "uni": "Temple University"
+  },
+  {
+   "id": "a9f1668a-f07b-4dae-ba15-a5088dc666da",
+   "name": "Yago Monteagudo",
+   "url": "https://www.gotiffindragons.com/sports/mens-soccer/roster/yago-monteagudo/10859",
+   "uni": "TIFFIN"
+  },
+  {
+   "id": "a0207831-1ff4-443c-bf88-033dd781aecb",
+   "name": "Hagan Ward",
+   "url": "https://www.trinitytigers.com/sports/mens-soccer/roster/hagan-ward/8711",
+   "uni": "Trinity University"
+  },
+  {
+   "id": "2ce4630b-e493-4a0e-9e01-e696f75fb13f",
+   "name": "Jackson Grant",
+   "url": "https://www.tulsahurricane.com/sports/mens-soccer/roster/jackson-grant/10777",
+   "uni": "Tulsa"
+  },
+  {
+   "id": "bfb87e40-7909-491d-9dc8-ce890e4bf328",
+   "name": "Alex Lopez",
+   "url": "https://www.tulsahurricane.com/sports/mens-soccer/roster/alex-lopez/11790",
+   "uni": "TULSA"
+  },
+  {
+   "id": "e8df5a0f-75fc-4c8c-bde6-bab5de62d3fd",
+   "name": "Santiago Pastor",
+   "url": "https://www.tulsahurricane.com/sports/mens-soccer/roster/santiago-pastor/10765",
+   "uni": "Tulsa"
+  },
+  {
+   "id": "cab60509-4602-4c3c-863f-45be87252e53",
+   "name": "Ryan Firestone",
+   "url": "https://usfdons.com/sports/mens-soccer/roster/ryan-firestone/6087",
+   "uni": "U San Francisco"
+  },
+  {
+   "id": "cms2ziag5000hjt040tyh5zgh",
+   "name": "Diego Quevedo",
+   "url": "https://www.uabsports.com/sports/mens-soccer/roster/diego-quevedo/12233",
+   "uni": "UAB"
+  },
+  {
+   "id": "dcfe5ef7-2f5a-4263-bdf4-4f7a34ccfab1",
+   "name": "Javier Ramirez",
+   "url": "https://www.ucasports.com/sports/mens-soccer/roster/javier-ramirez/10272",
+   "uni": "UCA"
+  },
+  {
+   "id": "eb5cd52e-afbd-45f6-b2be-1383b3cf18aa",
+   "name": "Maxim Sheenkov",
+   "url": "https://www.ucasports.com/sports/mens-soccer/roster/maxim-sheenkov/10275",
+   "uni": "UCA"
+  },
+  {
+   "id": "8701842b-f50c-4446-9347-c3ebfd8c4e80",
+   "name": "Vicent Abaso",
+   "url": "https://www.ucasports.com/sports/mens-soccer/roster/vicent-abaso/8207",
+   "uni": "UCA"
+  },
+  {
+   "id": "3ca0fb88-5027-404d-81de-e32ceb2116bf",
+   "name": "Izan Martinez",
+   "url": "https://www.ucfknights.com/sports/mens-soccer/roster/player/izan-martinez",
+   "uni": "UCF"
+  },
+  {
+   "id": "ed3f4da7-7b51-4ad3-a6d1-121039c25595",
+   "name": "Eduardo Iranzo",
+   "url": "https://www.ucgoldeneagles.com/sports/mens-soccer/roster/eduardo-iranzo/7908",
+   "uni": "UCWV"
+  },
+  {
+   "id": "123729ae-7159-4fe9-8632-81bc50ac37e2",
+   "name": "Javier Sanchez",
+   "url": "https://www.ucgoldeneagles.com/sports/mens-soccer/roster/javier-sanchez/7931",
+   "uni": "UCWV"
+  },
+  {
+   "id": "1cd57d21-f201-4a89-937f-2c6bf8969632",
+   "name": "Hugo Prats",
+   "url": "https://www.ucgoldeneagles.com/sports/mens-soccer/roster/hugo-prats-deusdad/9434",
+   "uni": "UCWV"
+  },
+  {
+   "id": "6998695b-5c9b-40c1-b11b-8032cbf8d8ef",
+   "name": "Edu Iranzo",
+   "url": "https://www.ucgoldeneagles.com/sports/mens-soccer/roster/eduardo-iranzo/7908",
+   "uni": "UCWV"
+  },
+  {
+   "id": "7e45d6f4-e894-4fd1-ac14-69376486d5ad",
+   "name": "Hector Gil",
+   "url": "https://www.uicflames.com/sports/mens-soccer/roster/hector-gil/11741",
+   "uni": "UIC"
+  },
+  {
+   "id": "8cf65e47-ef84-43ad-980a-90bd5f632f88",
+   "name": "Oscar Perez",
+   "url": "https://www.goriverhawks.com/sports/mens-soccer/roster/oscar-perez/9814",
+   "uni": "UMASS LOWELL"
+  },
+  {
+   "id": "4aea7400-e593-47d9-9380-3297327c8435",
+   "name": "Hugo Lemos",
+   "url": "https://unlvrebels.com/sports/mens-soccer/roster/hugo-lemos/17718",
+   "uni": "UNLV"
+  },
+  {
+   "id": "680c1b4b-beac-47a0-9648-0dc4960e65df",
+   "name": "Claudio Lopez",
+   "url": "https://unlvrebels.com/sports/mens-soccer/roster/claudio-lopez-al-s/17719",
+   "uni": "UNLV"
+  },
+  {
+   "id": "fda2e625-77b6-42f7-bf8c-8725fa13538a",
+   "name": "Manolo Vazquez",
+   "url": "https://unlvrebels.com/sports/mens-soccer/roster/manolo-vazquez/17725",
+   "uni": "UNLV"
+  },
+  {
+   "id": "06726478-e98d-4994-be33-e2f10aae4c72",
+   "name": "Alex Matin",
+   "url": "https://www.upstatespartans.com/sports/mens-soccer/roster/alex-matin/6378",
+   "uni": "Upstate"
+  },
+  {
+   "id": "70148a30-7638-4c52-9ded-d7bc01156ee8",
+   "name": "Joan Sanchís",
+   "url": "https://www.gorhody.com/sports/mens-soccer/roster/joan-sanchis/9205",
+   "uni": "URI"
+  },
+  {
+   "id": "2584d87a-ef66-4e9e-9641-2135fb58522a",
+   "name": "Sergio Aspas",
+   "url": "https://www.pacersports.com/sports/mens-soccer/roster/sergio-aspas/10007",
+   "uni": "USC Aiken"
+  },
+  {
+   "id": "4662f796-8cc6-436b-88be-14817ab454a6",
+   "name": "Caleb Pak",
+   "url": "https://www.vcuathletics.com/sports/mens-soccer/roster/caleb-pak/7057",
+   "uni": "VCU"
+  },
+  {
+   "id": "206173bb-7e98-4478-a27e-d43e7ede59f4",
+   "name": "Pedro Salmon",
+   "url": "https://www.vcuathletics.com/sports/mens-soccer/roster/pedro-salmon/7047",
+   "uni": "VCU"
+  },
+  {
+   "id": "e17d78e4-2802-44a3-b5e3-f45409a72397",
+   "name": "Marcos Blasco",
+   "url": "https://www.uvmathletics.com/sports/mens-soccer/roster/marcos-blasco/11866",
+   "uni": "VERMONT"
+  },
+  {
+   "id": "fdb4b372-dd59-4fb7-b727-8d2fe4a9ab5f",
+   "name": "Mitch Ringman",
+   "url": "https://www.uvmathletics.com/sports/mens-soccer/roster/mitchell-ringman/11257",
+   "uni": "Vermont"
+  },
+  {
+   "id": "b068a15d-7e07-4453-b7c5-89cae3152d97",
+   "name": "Shane Williams",
+   "url": "https://www.uvmathletics.com/sports/mens-soccer/roster/shane-williams/11845",
+   "uni": "University of Vermont"
+  },
+  {
+   "id": "c2e4c837-4456-4ec3-a158-856ccd081446",
+   "name": "Landan Grange",
+   "url": "https://www.hokiesports.com/sports/mens-soccer/roster/player/landan-grange",
+   "uni": "Virginia Tech University"
+  },
+  {
+   "id": "352ba6cb-1bbf-4cfb-8130-6901d6f0fec7",
+   "name": "Nate Chandler",
+   "url": "https://www.gohuskies.com/sports/mens-soccer/roster/nate-chandler/18079",
+   "uni": "University of Washington"
+  },
+  {
+   "id": "d1827e03-0c0e-40e7-9916-358ec21eee94",
+   "name": "Manu Bernabeu",
+   "url": "https://www.goargos.com/sports/mens-soccer/roster/manu-bernabeu/8377",
+   "uni": "WEST FLORIDA"
+  },
+  {
+   "id": "1a6331aa-d923-428f-a7ac-b9a8a1062dd5",
+   "name": "Lorenzo Nunez",
+   "url": "https://www.wvusports.com/sports/mens-soccer/roster/lorenzo-nunez/17910",
+   "uni": "West Virginia"
+  },
+  {
+   "id": "e9cc2fa2-1fe8-4656-a659-5697a0722e50",
+   "name": "Barrett Saul",
+   "url": "https://www.wvusports.com/sports/mens-soccer/roster/barrett-saul/17916",
+   "uni": "West Virginia"
+  },
+  {
+   "id": "c742e688-9b89-45b6-86d6-bbd67abbcff1",
+   "name": "Joey Angelo",
+   "url": "https://athletics.westmont.edu/sports/mens-soccer/roster/joey-angelo/9820",
+   "uni": "Westmont College"
+  },
+  {
+   "id": "71cf895e-c056-4dd9-8813-08512468b27e",
+   "name": "Ethan Marks",
+   "url": "https://www.winthropeagles.com/sports/mens-soccer/roster/ethan-marks/8075",
+   "uni": "Winthrop"
+  },
+  {
+   "id": "dd34baa1-4595-4290-95b3-3b270ac84566",
+   "name": "Lucas Contestabile",
+   "url": "https://greenbayphoenix.com/sports/mens-soccer/roster/luca-contestabile/3945",
+   "uni": "Wiscon Green Bay"
+  },
+  {
+   "id": "5393c2c8-9840-42c6-bd90-2d0050412ed0",
+   "name": "Shirzaad Ghadially",
+   "url": "https://www.uwbadgers.com/sports/mens-soccer/roster/shirzaad-ghadially/11973",
+   "uni": "Wisconsin Madison"
+  },
+  {
+   "id": "22870302-59fa-4aac-b1d3-8080d8e78af3",
+   "name": "Rodrigo Robles",
+   "url": "https://www.wvusports.com/sports/mens-soccer/roster/rodrigo-robles-grajera/9411",
+   "uni": "WVU"
+  },
+  {
+   "id": "9a5a1e28-bbbe-4b4e-b57b-e7437dc22640",
+   "name": "Álvaro Heredia",
+   "url": "https://www.goxavier.com/sports/mens-soccer/roster/alvaro-heredia/10924",
+   "uni": "Xavier"
+  },
+  {
+   "id": "0976ae6d-794d-42ab-8a8a-6b6bc65c1386",
+   "name": "Owen Siewert",
+   "url": "https://www.goxavier.com/sports/mens-soccer/roster/owen-siewert/11261",
+   "uni": "Xavier University"
+  }
+ ],
+ "weak": [
+  {
+   "id": "995ad121-2c41-46ea-ba47-44824f269f7f",
+   "name": "J Mossholder",
+   "url": "https://www.bgsufalcons.com/sports/mens-soccer/roster/j-mossholder/20107",
+   "uni": "Bowling Green State University"
+  },
+  {
+   "id": "928b51d9-3af0-4b59-b457-b9b3e3fe46a1",
+   "name": "Carra",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/javier-gonzalez-carraminana/3486",
+   "uni": "FPU"
+  },
+  {
+   "id": "08b5cfd2-8a73-4caf-bba4-b22d28beb5e6",
+   "name": "Cristobal",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/cristobal-andreu/3449",
+   "uni": "FPU"
+  },
+  {
+   "id": "b140231c-ea24-41d5-900f-b94359864e8a",
+   "name": "Nemesio",
+   "url": "https://fpuravens.com/sports/mens-soccer/roster/javier-nemesio-garc-iacute-a/3527",
+   "uni": "FPU"
+  },
+  {
+   "id": "fb6cd246-c8b1-4bd6-aefc-88ad5469786e",
+   "name": "Francois",
+   "url": "https://warrenwilsonowls.com/sports/mens-soccer/roster/malik-francois/2800",
+   "uni": "LINDSEY WILSON"
+  },
+  {
+   "id": "66352835-3ee1-45b4-b276-a9e9955c7415",
+   "name": "Denis",
+   "url": "https://www.gochoctaws.com/sports/mens-soccer/roster/denis-o-john/9985",
+   "uni": "MISSISIPI COLLEGE"
+  },
+  {
+   "id": "6f3be997-5c95-446d-a81b-40f2007d027f",
+   "name": "Palacin",
+   "url": "https://www.gopack.com/sports/mens-soccer/roster/pau-palacin/9596",
+   "uni": "NC STATE"
+  },
+  {
+   "id": "26f20f92-0131-49f1-8a2e-35d2ca773c7c",
+   "name": "Iago",
+   "url": "https://www.snhupenmen.com/sports/mens-soccer/roster/iago-perez/6350",
+   "uni": "SNHU"
+  },
+  {
+   "id": "4808e71c-11a6-4210-aa7a-b3e562f7cbfd",
+   "name": "Lute",
+   "url": "https://www.gohatters.com/sports/mens-soccer/roster/lute-lillo-portero/6028",
+   "uni": "STETSON, UP"
+  },
+  {
+   "id": "422bac6c-1ae7-4083-94d9-8d1da04c9bbf",
+   "name": "Ismail",
+   "url": "https://www.uncgspartans.com/sports/mens-soccer/roster/ismail-el-harchi/4738",
+   "uni": "USC Greensboro"
+  }
+ ]
+}

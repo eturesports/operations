@@ -98,6 +98,13 @@ export function PlayersClient({
   const [editing, setEditing] = useState<PlayerRow | null>(null);
   const [importOpen, setImportOpen] = useState(false);
   const [bulkEditOpen, setBulkEditOpen] = useState(false);
+  const [statsRun, setStatsRun] = useState<{
+    busy: boolean;
+    done: number;
+    total: number;
+    ok: number;
+    note: string | null;
+  }>({ busy: false, done: 0, total: 0, ok: 0, note: null });
   const [detail, setDetail] = useState<PlayerRow | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
@@ -445,6 +452,73 @@ export function PlayersClient({
     router.refresh();
   }
 
+  // Pulls each selected player's figures from their college roster page. The
+  // server allows itself up to a minute per player, so this runs a few at a
+  // time and reports as it goes rather than freezing behind one request.
+  async function bulkRefreshStats() {
+    await refreshStatsFor([...selected]);
+  }
+
+  // From the toolbar: whoever the filters are showing, since that is the
+  // selection the screen is already about.
+  async function refreshFilteredStats() {
+    const ids = filtered.filter((p) => p.ncaaUrl).map((p) => p.id);
+    if (ids.length === 0) {
+      alert("None of these players has a college link yet. Add links first.");
+      return;
+    }
+    if (
+      ids.length > 20 &&
+      !confirm(
+        `Pull stats for ${ids.length} players? Each one is read from their college site, so this takes a few minutes.`
+      )
+    ) {
+      return;
+    }
+    await refreshStatsFor(ids);
+  }
+
+  async function refreshStatsFor(ids: string[]) {
+    if (ids.length === 0) return;
+    setStatsRun({ busy: true, done: 0, total: ids.length, ok: 0, note: null });
+
+    let done = 0;
+    let ok = 0;
+    let photos = 0;
+    const CONCURRENCY = 3;
+
+    async function worker(queue: string[]) {
+      for (const id of queue) {
+        try {
+          const res = await fetch(`/api/players/${id}/refresh-stats`, { method: "POST" });
+          const j = await res.json().catch(() => ({}));
+          if (res.ok && j.matched) ok += 1;
+          if (j.photoAdded) photos += 1;
+        } catch {
+          // A player we could not reach is reported in the count, not thrown.
+        }
+        done += 1;
+        setStatsRun((prev) => ({ ...prev, done, ok }));
+      }
+    }
+
+    const lanes: string[][] = Array.from({ length: CONCURRENCY }, () => []);
+    ids.forEach((id, i) => lanes[i % CONCURRENCY].push(id));
+    await Promise.all(lanes.map(worker));
+
+    setStatsRun({
+      busy: false,
+      done,
+      total: ids.length,
+      ok,
+      note:
+        `${ok} of ${ids.length} updated` +
+        (photos > 0 ? ` · ${photos} photo${photos === 1 ? "" : "s"} added` : "") +
+        (ok < ids.length ? " — the rest have no usable college link yet." : "."),
+    });
+    router.refresh();
+  }
+
   async function bulkDelete() {
     const ids = [...selected];
     if (ids.length === 0) return;
@@ -570,8 +644,23 @@ export function PlayersClient({
             <span className="text-accent">{formatUSD(totalScholarship)}</span> in scholarships
             {activeFilters ? " (filtered)" : ""}
           </p>
+          {statsRun.note && !statsRun.busy && (
+            <p className="mt-1 text-xs text-muted">{statsRun.note}</p>
+          )}
         </div>
         <div className="flex flex-wrap gap-2">
+          {editable && (
+            <button
+              onClick={refreshFilteredStats}
+              disabled={busy || statsRun.busy}
+              className="btn-ghost"
+              title="Pull stats and photos from every college roster page in this selection"
+            >
+              {statsRun.busy
+                ? `Refreshing ${statsRun.done}/${statsRun.total}…`
+                : "Refresh college stats"}
+            </button>
+          )}
           <button onClick={exportCSV} className="btn-ghost">
             Export CSV
           </button>
@@ -688,6 +777,16 @@ export function PlayersClient({
             {selectedCount} selected
           </span>
           <div className="ml-auto flex flex-wrap gap-2">
+            <button
+              onClick={bulkRefreshStats}
+              disabled={busy || statsRun.busy}
+              className="btn-ghost px-3 py-1.5 text-xs"
+              title="Pull stats and photos from each player's college roster page"
+            >
+              {statsRun.busy
+                ? `Refreshing ${statsRun.done}/${statsRun.total}…`
+                : "Refresh college stats"}
+            </button>
             <button onClick={() => setBulkEditOpen(true)} className="btn-ghost px-3 py-1.5 text-xs">
               Bulk edit
             </button>
