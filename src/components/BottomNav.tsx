@@ -15,6 +15,8 @@ export function BottomNav({ role }: { role: Role }) {
     { href: "/showcase", label: "Showcase", icon: <TrophyIcon /> },
     { href: "/claims", label: "Claims", icon: <QuoteIcon /> },
   ];
+  if (role === "ADMIN" || role === "EDITOR")
+    items.splice(2, 0, { href: "/links", label: "Links", icon: <LinkIcon /> });
   if (role === "ADMIN")
     items.push({ href: "/users", label: "Access", icon: <ShieldIcon /> });
 
@@ -63,6 +65,15 @@ function UsersIcon() {
     </svg>
   );
 }
+function LinkIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
+}
+
 function ShieldIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
