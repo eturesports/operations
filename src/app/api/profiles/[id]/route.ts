@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
-import { ncaaDivisionFor, syncPlayerDivision } from "@/lib/divisions";
+import { ncaaDivisionFor, syncPlayerFromProfiles } from "@/lib/divisions";
 
 export async function PATCH(
   req: Request,
@@ -61,7 +61,7 @@ export async function PATCH(
     });
   });
 
-  await syncPlayerDivision(existing.playerId);
+  await syncPlayerFromProfiles(existing.playerId);
 
   const changes = diffFields(
     existing as unknown as Record<string, unknown>,
@@ -103,7 +103,7 @@ export async function DELETE(
   }
 
   await prisma.playerProfile.delete({ where: { id: params.id } });
-  await syncPlayerDivision(existing.playerId);
+  await syncPlayerFromProfiles(existing.playerId);
 
   await logAudit(session.user, {
     entity: "PlayerProfile",

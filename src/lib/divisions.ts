@@ -1,13 +1,15 @@
-// Where a player's division lives.
+// Where the facts of a stint live.
 //
-// It used to be typed in four places — the player form, bulk edit, the table
-// cell and the college profile — which meant four chances to disagree about
-// the same fact. A division belongs to the college a player went to, so the
-// college profile owns it and everything else follows from there.
+// A player's division, the money a university agreed to, and the link to
+// their roster page are all facts about *a college they went to*, not about
+// the person or even about the operation in the abstract. So they are typed
+// once, on the college profile, and the player record mirrors whichever
+// profile speaks for them today.
 //
-// Player.division stays as a mirror of that answer. Filters, the dashboards,
-// the CSV export and the public API all read it, and keeping it in step is
-// far cheaper than teaching every one of them to join through profiles.
+// The mirror is not laziness. Every filter, dashboard, CSV export and public
+// endpoint reads those columns on Player; keeping them in step costs one
+// update on save, while teaching each of them to join through profiles would
+// cost a rewrite and buy nothing.
 
 import { prisma } from "@/lib/prisma";
 import { seasonSortKey } from "@/lib/format";
@@ -20,30 +22,84 @@ export function ncaaDivisionFor(division: string | null | undefined): string {
   return "d1";
 }
 
+type Speaking = {
+  division: string | null;
+  season: string | null;
+  current: boolean;
+  scholarship: number | null;
+  fullRide: boolean;
+  rosterUrl: string | null;
+  profileImageUrl: string | null;
+  actionImageUrl: string | null;
+  createdAt: Date;
+};
+
 /**
- * Copies the division from the profile that best represents the player right
- * now — the one they are playing for, else their most recent — onto the
- * player record. Silent when they have no profile: there is nothing to copy,
- * and wiping what is already there would lose data rather than tidy it.
+ * The profile that speaks for the player: the one they are playing for, else
+ * the most recent season, else the one added last. That last tiebreak matters
+ * — a profile added without a season is usually the one just created.
  */
-export async function syncPlayerDivision(playerId: string): Promise<string | null> {
+function speaksFor(profiles: Speaking[]): Speaking | null {
+  if (profiles.length === 0) return null;
+  return (
+    profiles.find((p) => p.current) ??
+    [...profiles].sort((a, b) => {
+      const bySeason = seasonSortKey(b.season) - seasonSortKey(a.season);
+      if (bySeason !== 0) return bySeason;
+      return b.createdAt.getTime() - a.createdAt.getTime();
+    })[0]
+  );
+}
+
+/**
+ * Refreshes the player record from their college profiles. Silent when they
+ * have none: there is nothing to copy, and blanking what is already there
+ * would lose data rather than tidy it.
+ */
+export async function syncPlayerFromProfiles(playerId: string): Promise<void> {
   const profiles = await prisma.playerProfile.findMany({
     where: { playerId },
-    select: { division: true, season: true, current: true },
+    select: {
+      division: true,
+      season: true,
+      current: true,
+      scholarship: true,
+      fullRide: true,
+      rosterUrl: true,
+      profileImageUrl: true,
+      actionImageUrl: true,
+      createdAt: true,
+    },
   });
-  if (profiles.length === 0) return null;
 
-  const best =
-    profiles.find((p) => p.current && p.division) ??
-    [...profiles]
-      .filter((p) => p.division)
-      .sort((a, b) => seasonSortKey(b.season) - seasonSortKey(a.season))[0];
+  const best = speaksFor(profiles);
+  if (!best) return;
 
-  if (!best?.division) return null;
+  // Each field falls back to any profile that has one, so a stint entered
+  // without an amount does not erase the amount recorded on another.
+  const withMoney = profiles.find((p) => p.scholarship != null);
+  const withLink = profiles.find((p) => p.rosterUrl);
+  const withPhoto = profiles.find((p) => p.profileImageUrl);
+  const withAction = profiles.find((p) => p.actionImageUrl);
 
   await prisma.player.update({
     where: { id: playerId },
-    data: { division: best.division },
+    data: {
+      ...(best.division ? { division: best.division } : {}),
+      scholarship: best.scholarship ?? withMoney?.scholarship ?? null,
+      fullRide: best.fullRide || profiles.some((p) => p.fullRide),
+      ...(best.rosterUrl || withLink?.rosterUrl
+        ? { ncaaUrl: best.rosterUrl ?? withLink?.rosterUrl }
+        : {}),
+      ...(best.profileImageUrl || withPhoto?.profileImageUrl
+        ? { profileImageUrl: best.profileImageUrl ?? withPhoto?.profileImageUrl }
+        : {}),
+      ...(best.actionImageUrl || withAction?.actionImageUrl
+        ? { actionImageUrl: best.actionImageUrl ?? withAction?.actionImageUrl }
+        : {}),
+    },
   });
-  return best.division;
 }
+
+/** @deprecated kept so older call sites keep compiling */
+export const syncPlayerDivision = syncPlayerFromProfiles;

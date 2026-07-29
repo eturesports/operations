@@ -10,6 +10,9 @@ export type Profile = {
   season: string | null;
   current: boolean;
   jersey: string | null;
+  scholarship: number | null;
+  fullRide: boolean;
+  profileImageUrl: string | null;
   ncaaSport: string | null;
   ncaaDivision: string | null;
   rosterUrl: string | null;
@@ -31,6 +34,9 @@ type Draft = {
   season: string;
   current: boolean;
   jersey: string;
+  scholarship: string;
+  fullRide: boolean;
+  profileImageUrl: string;
   ncaaSport: string;
   ncaaDivision: string;
   rosterUrl: string;
@@ -49,6 +55,9 @@ const empty: Draft = {
   season: "",
   current: false,
   jersey: "",
+  scholarship: "",
+  fullRide: false,
+  profileImageUrl: "",
   ncaaSport: "soccer-men",
   ncaaDivision: "d1",
   rosterUrl: "",
@@ -70,6 +79,9 @@ function toDraft(p: Profile): Draft {
     season: p.season ?? "",
     current: p.current,
     jersey: p.jersey ?? "",
+    scholarship: p.scholarship != null ? String(p.scholarship) : "",
+    fullRide: p.fullRide ?? false,
+    profileImageUrl: p.profileImageUrl ?? "",
     ncaaSport: p.ncaaSport ?? "soccer-men",
     ncaaDivision: p.ncaaDivision ?? "d1",
     rosterUrl: p.rosterUrl ?? "",
@@ -248,6 +260,9 @@ export function ProfilesSection({
       season: draft.season.trim() || null,
       current: draft.current,
       jersey: draft.jersey.trim() || null,
+      scholarship: draft.scholarship.trim() === "" ? null : Number(draft.scholarship),
+      fullRide: draft.fullRide,
+      profileImageUrl: draft.profileImageUrl.trim() || null,
       ncaaSport: draft.ncaaSport,
       ncaaDivision: draft.ncaaDivision,
       rosterUrl: draft.rosterUrl.trim() || null,
@@ -622,6 +637,36 @@ function ProfileForm({
               <option key={s} value={s} />
             ))}
           </datalist>
+        </div>
+        <div>
+          {/* Each university agrees its own figure, so it is asked for here
+              rather than once on the player. */}
+          <label className="label">Scholarship at this university (USD)</label>
+          <input
+            className="input"
+            inputMode="numeric"
+            placeholder="120000"
+            value={draft.scholarship}
+            onChange={(e) => onChange("scholarship", e.target.value)}
+          />
+          <label className="mt-1.5 flex cursor-pointer items-center gap-2 text-xs text-fg">
+            <input
+              type="checkbox"
+              className="h-4 w-4 accent-accent"
+              checked={draft.fullRide}
+              onChange={(e) => onChange("fullRide", e.target.checked)}
+            />
+            Full ride
+          </label>
+        </div>
+        <div>
+          <label className="label">Photo in this shirt</label>
+          <input
+            className="input"
+            placeholder="https://…"
+            value={draft.profileImageUrl}
+            onChange={(e) => onChange("profileImageUrl", e.target.value)}
+          />
         </div>
         <div>
           <label className="label">Jersey #</label>

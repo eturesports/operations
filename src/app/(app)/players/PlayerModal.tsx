@@ -272,24 +272,20 @@ export function PlayerModal({
 
             <div>
               <label className="label">Scholarship (USD)</label>
-              <input
-                className="input"
-                inputMode="numeric"
-                placeholder="120000"
-                value={form.scholarship}
-                onChange={(e) => set("scholarship", e.target.value)}
-              />
-              {/* Beside the amount, because it qualifies it: the same figure
-                  means something different when it covers everything. */}
-              <label className="mt-1.5 flex cursor-pointer items-center gap-2 text-xs text-fg">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 accent-accent"
-                  checked={form.fullRide}
-                  onChange={(e) => set("fullRide", e.target.checked)}
-                />
-                Full ride
-              </label>
+              {/* Read-only: a university agrees an amount with the player, so
+                  it is set on their college profile below and mirrored here.
+                  A transfer means a new offer, not the old one carried over. */}
+              <div className="input flex items-center justify-between gap-2 text-muted">
+                <span>
+                  {form.scholarship
+                    ? `$${Number(form.scholarship).toLocaleString("en-US")}`
+                    : "—"}
+                  {form.fullRide ? " · Full ride" : ""}
+                </span>
+                <span className="text-[10px] uppercase tracking-wide">
+                  From college profile
+                </span>
+              </div>
             </div>
 
             <div>

@@ -219,6 +219,16 @@ model PlayerProfile {
   ncaaDivision String? @default("d1") // d1 | d2 | d3
   rosterUrl    String? // roster / profile page
 
+  // What this university agreed to fund. A player is offered a different
+  // amount by each college, so the figure belongs here and the player record
+  // mirrors whichever stint is current.
+  scholarship Int?
+  fullRide    Boolean @default(false)
+
+  // Taken in this university's shirt, so it belongs to this stint
+  profileImageUrl String?
+  actionImageUrl  String?
+
   // Season stats (outfield + goalkeeper)
   matchesPlayed  Int?
   matchesStarted Int?

@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
-import { ncaaDivisionFor, syncPlayerDivision } from "@/lib/divisions";
+import { ncaaDivisionFor, syncPlayerFromProfiles } from "@/lib/divisions";
 
 export async function GET(
   _req: Request,
@@ -44,17 +44,69 @@ export async function POST(
     return NextResponse.json({ error: error ?? "Invalid data" }, { status: 400 });
   }
 
+  // The same university in the same season is not a second stint, it is a
+  // second copy — and copies double the money on every count that adds
+  // profiles up. One was created by hand this morning and cost $160,000 of
+  // phantom scholarship before it was spotted.
+  const clash = await prisma.playerProfile.findFirst({
+    where: {
+      player: player.personId ? { personId: player.personId } : { id: params.id },
+      university: { equals: data.university!, mode: "insensitive" },
+      season: (data.season as string | null) ?? null,
+    },
+    select: { id: true, university: true, season: true },
+  });
+  if (clash) {
+    return NextResponse.json(
+      {
+        error: `${player.name} already has a profile for ${clash.university}${
+          clash.season ? ` in ${clash.season}` : ""
+        }. Edit that one instead.`,
+      },
+      { status: 409 }
+    );
+  }
+
+  // A second college is a second operation. Rather than hiding it inside the
+  // first record — where no count would ever see it — the profile is attached
+  // to a new record for the same person, dated to the season it was assigned.
+  // The money is never carried across: each university agrees its own.
+  const existing = await prisma.playerProfile.count({ where: { playerId: params.id } });
+  const target =
+    existing === 0
+      ? player
+      : await prisma.player.create({
+          data: {
+            sportId: player.sportId,
+            personId: player.personId,
+            name: player.name,
+            university: data.university!,
+            season: (data.season as string | null) ?? player.season,
+            division: (data.division as string | null) ?? player.division,
+            program: player.program,
+            nationality: player.nationality,
+            position: player.position,
+            previousClub: player.previousClub,
+            instagramUrl: player.instagramUrl,
+            graduated: player.graduated,
+            graduationYear: player.graduationYear,
+            createdById: session.user.id,
+            updatedById: session.user.id,
+          },
+        });
+
   const profile = await prisma.$transaction(async (tx) => {
     if (data.current) {
+      // Playing now is true of the person, so it clears across their records.
       await tx.playerProfile.updateMany({
-        where: { playerId: params.id, current: true },
+        where: { player: { personId: player.personId }, current: true },
         data: { current: false },
       });
     }
     return tx.playerProfile.create({
       data: {
         ...(data as object),
-        playerId: params.id,
+        playerId: target.id,
         university: data.university!,
         // Derived from the division rather than asked for a second time.
         ncaaDivision: ncaaDivisionFor(data.division as string | null),
@@ -62,7 +114,7 @@ export async function POST(
     });
   });
 
-  await syncPlayerDivision(params.id);
+  await syncPlayerFromProfiles(target.id);
 
   await logAudit(session.user, {
     entity: "PlayerProfile",
@@ -72,5 +124,9 @@ export async function POST(
     summary: `Added university profile “${profile.university}” to ${player.name}`,
   });
 
-  return NextResponse.json({ profile });
+  return NextResponse.json({
+    profile,
+    // The screen needs to know a new operation appeared, not just a profile.
+    newOperation: target.id === player.id ? null : { id: target.id, name: target.name },
+  });
 }

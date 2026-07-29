@@ -88,6 +88,8 @@ export function parsePlayerInput(
   if ("graduated" in body) data.graduated = boolish(body.graduated);
   if ("nationalChampion" in body) data.nationalChampion = boolish(body.nationalChampion);
   if ("fullRide" in body) data.fullRide = boolish(body.fullRide);
+  if ("profileImageUrl" in body) data.profileImageUrl = str(body.profileImageUrl);
+  if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
   if ("graduationYear" in body) {
     const y = intOrNull(body.graduationYear);
     if (y != null && (y < 1950 || y > 2100)) {
@@ -118,6 +120,10 @@ export type ProfileInput = {
   points?: number | null;
   saves?: number | null;
   goalsAgainst?: number | null;
+  scholarship?: number | null;
+  fullRide?: boolean;
+  profileImageUrl?: string | null;
+  actionImageUrl?: string | null;
 };
 
 const NUMERIC_PROFILE_FIELDS = [
@@ -149,6 +155,10 @@ export function parseProfileInput(
   if ("ncaaSport" in body) data.ncaaSport = str(body.ncaaSport);
   if ("ncaaDivision" in body) data.ncaaDivision = str(body.ncaaDivision);
   if ("rosterUrl" in body) data.rosterUrl = str(body.rosterUrl);
+  if ("scholarship" in body) data.scholarship = intOrNull(body.scholarship);
+  if ("fullRide" in body) data.fullRide = boolish(body.fullRide);
+  if ("profileImageUrl" in body) data.profileImageUrl = str(body.profileImageUrl);
+  if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
   for (const f of NUMERIC_PROFILE_FIELDS) {
     if (f in body) data[f] = intOrNull(body[f]);
   }

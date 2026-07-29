@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
 import { adoptRosterPhoto, NO_STORAGE } from "@/lib/playerPhoto";
+import { syncPlayerFromProfiles } from "@/lib/divisions";
 import { logAudit } from "@/lib/audit";
 
 // POST /api/players/[id]/refresh-stats
@@ -131,6 +132,10 @@ export async function POST(
     }${existing ? "" : " and created their university profile"}`,
     changes: result.patch,
   });
+
+  // The link, the money and the photo now live on the profile, so the record
+  // is refreshed from it rather than drifting.
+  await syncPlayerFromProfiles(player.id);
 
   return NextResponse.json({
     matched: true,
