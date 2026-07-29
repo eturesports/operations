@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Select } from "@/components/Select";
+import { MultiSelect } from "@/components/MultiSelect";
 import { canonicalizeUniversity, preferDisplay, uniKey } from "@/lib/universities";
 import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
 
@@ -79,9 +79,11 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
   const [showAll, setShowAll] = useState(false);
   const [q, setQ] = useState("");
 
-  const [season, setSeason] = useState("All seasons");
-  const [division, setDivision] = useState("All divisions");
-  const [program, setProgram] = useState("All programs");
+  // Several at once: "what did Division II and III take last two seasons"
+  // is one question, not four searches.
+  const [season, setSeason] = useState<string[]>([]);
+  const [division, setDivision] = useState<string[]>([]);
+  const [program, setProgram] = useState<string[]>([]);
   const [fundedOnly, setFundedOnly] = useState(false);
 
   const seasons = useMemo(
@@ -97,9 +99,9 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
   const selected = useMemo(
     () =>
       rows.filter((r) => {
-        if (season !== "All seasons" && r.season !== season) return false;
-        if (division !== "All divisions" && r.division !== division) return false;
-        if (program !== "All programs" && r.program !== program) return false;
+        if (season.length && !season.includes(r.season ?? "")) return false;
+        if (division.length && !division.includes(r.division ?? "")) return false;
+        if (program.length && !program.includes(r.program ?? "")) return false;
         if (fundedOnly && r.scholarship == null) return false;
         return true;
       }),
@@ -242,10 +244,7 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
 
   const visible = showAll ? sorted : sorted.slice(0, PAGE);
   const narrowed =
-    season !== "All seasons" ||
-    division !== "All divisions" ||
-    program !== "All programs" ||
-    fundedOnly;
+    season.length > 0 || division.length > 0 || program.length > 0 || fundedOnly;
 
   return (
     <div className="space-y-4">
@@ -259,22 +258,25 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
-          <Select
-            value={season}
-            options={["All seasons", ...seasons]}
+          <MultiSelect
+            values={season}
+            options={seasons}
             onChange={setSeason}
+            placeholder={season.length ? "Seasons" : "All seasons"}
             ariaLabel="Filter by season"
           />
-          <Select
-            value={division}
-            options={["All divisions", ...divisions]}
+          <MultiSelect
+            values={division}
+            options={divisions}
             onChange={setDivision}
+            placeholder={division.length ? "Divisions" : "All divisions"}
             ariaLabel="Filter by division"
           />
-          <Select
-            value={program}
-            options={["All programs", ...programs]}
+          <MultiSelect
+            values={program}
+            options={programs}
             onChange={setProgram}
+            placeholder={program.length ? "Programs" : "All programs"}
             ariaLabel="Filter by program"
           />
         </div>
@@ -292,9 +294,9 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
             <button
               type="button"
               onClick={() => {
-                setSeason("All seasons");
-                setDivision("All divisions");
-                setProgram("All programs");
+                setSeason([]);
+                setDivision([]);
+                setProgram([]);
                 setFundedOnly(false);
                 setQ("");
               }}

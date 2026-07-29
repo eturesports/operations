@@ -9,6 +9,7 @@ import { ImportModal } from "./ImportModal";
 import { BulkEditModal, type BulkPatch } from "./BulkEditModal";
 import { PlayerDetail } from "./PlayerDetail";
 import { Select } from "@/components/Select";
+import { MultiSelect } from "@/components/MultiSelect";
 import { PlayerCard } from "./PlayerCard";
 import { FilterStats } from "./FilterStats";
 
@@ -73,9 +74,12 @@ export function PlayersClient({
   const [players, setPlayers] = useState<PlayerRow[]>(initialPlayers);
   const [q, setQ] = useState("");
   const [fSport, setFSport] = useState("");
-  const [fSeason, setFSeason] = useState("");
-  const [fDivision, setFDivision] = useState("");
-  const [fProgram, setFProgram] = useState("");
+  // Several values at once, because the questions worth asking are
+  // combinations: how much of the database competes in D1 *and* D2, what the
+  // last three seasons look like together.
+  const [fSeason, setFSeason] = useState<string[]>([]);
+  const [fDivision, setFDivision] = useState<string[]>([]);
+  const [fProgram, setFProgram] = useState<string[]>([]);
   const [fActiveOnly, setFActiveOnly] = useState(false);
   // Inline editing: which cell is open, and the value being typed.
   type CellField = "name" | "university" | "season" | "division" | "program" | "scholarship";
@@ -141,9 +145,9 @@ export function PlayersClient({
     const needle = q.trim().toLowerCase();
     const rows = players.filter((p) => {
       if (fSport && p.sportCode !== fSport) return false;
-      if (fSeason && p.season !== fSeason) return false;
-      if (fDivision && p.division !== fDivision) return false;
-      if (fProgram && p.program !== fProgram) return false;
+      if (fSeason.length && !fSeason.includes(p.season ?? "")) return false;
+      if (fDivision.length && !fDivision.includes(p.division ?? "")) return false;
+      if (fProgram.length && !fProgram.includes(p.program ?? "")) return false;
       if (fActiveOnly && !p.activeProfile) return false;
       if (fGraduated === "yes" && !p.graduated) return false;
       if (fGraduated === "no" && p.graduated) return false;
@@ -186,7 +190,14 @@ export function PlayersClient({
 
   const totalScholarship = filtered.reduce((a, p) => a + (p.scholarship ?? 0), 0);
   const activeFilters =
-    fSport || fSeason || fDivision || fProgram || fActiveOnly || fGraduated || fStatus || q;
+    fSport ||
+    fSeason.length ||
+    fDivision.length ||
+    fProgram.length ||
+    fActiveOnly ||
+    fGraduated ||
+    fStatus ||
+    q;
   const activeNcaaCount = useMemo(
     () => players.filter((p) => p.activeProfile).length,
     [players]
@@ -709,22 +720,25 @@ export function PlayersClient({
               ariaLabel="Filter by sport"
             />
           )}
-          <Select
-            value={fSeason || "All seasons"}
-            options={["All seasons", ...seasonOptions]}
-            onChange={(v) => setFSeason(v === "All seasons" ? "" : v)}
+          <MultiSelect
+            values={fSeason}
+            options={seasonOptions}
+            onChange={setFSeason}
+            placeholder={fSeason.length ? "Seasons" : "All seasons"}
             ariaLabel="Filter by season"
           />
-          <Select
-            value={fDivision || "All divisions"}
-            options={["All divisions", ...divisionOptions]}
-            onChange={(v) => setFDivision(v === "All divisions" ? "" : v)}
+          <MultiSelect
+            values={fDivision}
+            options={divisionOptions}
+            onChange={setFDivision}
+            placeholder={fDivision.length ? "Divisions" : "All divisions"}
             ariaLabel="Filter by division"
           />
-          <Select
-            value={fProgram || "All programs"}
-            options={["All programs", ...programOptions]}
-            onChange={(v) => setFProgram(v === "All programs" ? "" : v)}
+          <MultiSelect
+            values={fProgram}
+            options={programOptions}
+            onChange={setFProgram}
+            placeholder={fProgram.length ? "Programs" : "All programs"}
             ariaLabel="Filter by program"
           />
           <Select
@@ -762,9 +776,9 @@ export function PlayersClient({
               onClick={() => {
                 setQ("");
                 setFSport("");
-                setFSeason("");
-                setFDivision("");
-                setFProgram("");
+                setFSeason([]);
+                setFDivision([]);
+                setFProgram([]);
                 setFActiveOnly(false);
                 setFGraduated("");
                 setFStatus("");

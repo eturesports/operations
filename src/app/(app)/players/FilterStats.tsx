@@ -89,6 +89,12 @@ export function FilterStats({
   }, [filtered]);
 
   const narrowed = filtered.length !== rows.length;
+  // With several divisions picked at once, the question is usually "how much
+  // of everything is this?" — and every percentage inside the panel is
+  // measured against the selection, not against the database.
+  const shareOfAll = rows.length
+    ? Math.round((filtered.length / rows.length) * 1000) / 10
+    : 0;
 
   return (
     <section className="card p-4">
@@ -98,7 +104,8 @@ export function FilterStats({
         </h2>
         {narrowed && (
           <span className="text-[11px] text-muted">
-            {formatNumber(s.ops)} of {formatNumber(rows.length)} operations
+            {formatNumber(s.ops)} of {formatNumber(rows.length)} operations ·{" "}
+            <b className="text-fg">{shareOfAll}%</b> of the database
           </span>
         )}
       </div>
