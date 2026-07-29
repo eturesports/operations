@@ -18,6 +18,8 @@ type IncomingRow = {
   position?: string;
   previousClub?: string;
   graduated?: string;
+  fullRide?: string;
+  nationalChampion?: string;
   graduationYear?: string;
   active?: string;
 };
@@ -91,6 +93,10 @@ export async function POST(req: Request) {
         previousClub: raw.previousClub,
         graduated: raw.graduated,
         graduationYear: raw.graduationYear,
+        ...(raw.fullRide !== undefined ? { fullRide: raw.fullRide } : {}),
+        ...(raw.nationalChampion !== undefined
+          ? { nationalChampion: raw.nationalChampion }
+          : {}),
         ...(raw.active !== undefined ? { active: raw.active } : {}),
       },
       { partial: false }
@@ -134,6 +140,8 @@ export async function POST(req: Request) {
         previousClub: data.previousClub ?? null,
         graduated: data.graduated ?? false,
         graduationYear: data.graduationYear ?? null,
+        fullRide: data.fullRide ?? false,
+        nationalChampion: data.nationalChampion ?? false,
         active: data.active ?? true,
         createdById: session.user.id,
         updatedById: session.user.id,

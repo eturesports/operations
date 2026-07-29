@@ -147,6 +147,9 @@ model Player {
   // Won an NCAA national championship with their university
   nationalChampion Boolean @default(false)
 
+  // A scholarship covering the full cost of attendance, not a part of it
+  fullRide Boolean @default(false)
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   createdById String?

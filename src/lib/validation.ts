@@ -23,6 +23,7 @@ export type PlayerInput = {
   graduated?: boolean;
   graduationYear?: number | null;
   nationalChampion?: boolean;
+  fullRide?: boolean;
 };
 
 function str(v: unknown): string | null {
@@ -86,6 +87,7 @@ export function parsePlayerInput(
   if ("previousClub" in body) data.previousClub = str(body.previousClub);
   if ("graduated" in body) data.graduated = boolish(body.graduated);
   if ("nationalChampion" in body) data.nationalChampion = boolish(body.nationalChampion);
+  if ("fullRide" in body) data.fullRide = boolish(body.fullRide);
   if ("graduationYear" in body) {
     const y = intOrNull(body.graduationYear);
     if (y != null && (y < 1950 || y > 2100)) {

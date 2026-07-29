@@ -30,6 +30,7 @@ export type PlayerForm = {
   graduated: boolean;
   graduationYear: string;
   nationalChampion: boolean;
+  fullRide: boolean;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -154,6 +155,7 @@ export function PlayerModal({
     playingNow: initial?.activeProfile != null,
     graduated: initial?.graduated ?? false,
     nationalChampion: initial?.nationalChampion ?? false,
+    fullRide: initial?.fullRide ?? false,
     graduationYear:
       initial?.graduationYear != null ? String(initial.graduationYear) : "",
   });
@@ -277,6 +279,17 @@ export function PlayerModal({
                 value={form.scholarship}
                 onChange={(e) => set("scholarship", e.target.value)}
               />
+              {/* Beside the amount, because it qualifies it: the same figure
+                  means something different when it covers everything. */}
+              <label className="mt-1.5 flex cursor-pointer items-center gap-2 text-xs text-fg">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4 accent-accent"
+                  checked={form.fullRide}
+                  onChange={(e) => set("fullRide", e.target.checked)}
+                />
+                Full ride
+              </label>
             </div>
 
             <div>

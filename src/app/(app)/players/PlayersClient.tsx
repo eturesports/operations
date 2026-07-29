@@ -43,6 +43,7 @@ export type PlayerRow = {
   graduated: boolean;
   graduationYear: number | null;
   nationalChampion: boolean;
+  fullRide: boolean;
   // set when the player has a profile marked as their current NCAA roster
   activeProfile: {
     university: string;
@@ -394,6 +395,7 @@ export function PlayersClient({
       graduated: form.graduated,
       graduationYear: form.graduationYear,
       nationalChampion: form.nationalChampion,
+      fullRide: form.fullRide,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {
@@ -434,6 +436,7 @@ export function PlayersClient({
       graduated: player.graduated,
       graduationYear: player.graduationYear,
       nationalChampion: player.nationalChampion,
+      fullRide: player.fullRide,
       // reflect the playing-now toggle immediately; router.refresh() then
       // replaces this with the authoritative profile from the server
       activeProfile: form.playingNow
@@ -633,10 +636,10 @@ export function PlayersClient({
   }
 
   function exportCSV() {
-    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Graduated", "Graduation year", "National champion", "Status", "Notes"];
+    const headers = ["Name", "University", "Season", "Division", "Program", "Scholarship USD", "Sport", "Position", "Nationality", "Previous club", "Graduated", "Graduation year", "National champion", "Full ride", "Status", "Notes"];
     const rows = (selectedCount > 0 ? filtered.filter((p) => selected.has(p.id)) : filtered);
     const lines = rows.map((p) =>
-      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", p.graduated ? "Yes" : "No", p.graduationYear ?? "", p.nationalChampion ? "Yes" : "No", p.active ? "Active" : "Inactive", (p.notes ?? "").replace(/\n/g, " ")]
+      [p.name, p.university ?? "", p.season ?? "", p.division ?? "", p.program ?? "", p.scholarship ?? "", p.sportCode, p.position ?? "", p.nationality ?? "", p.previousClub ?? "", p.graduated ? "Yes" : "No", p.graduationYear ?? "", p.nationalChampion ? "Yes" : "No", p.fullRide ? "Yes" : "No", p.active ? "Active" : "Inactive", (p.notes ?? "").replace(/\n/g, " ")]
         .map((c) => `"${String(c).replace(/"/g, '""')}"`)
         .join(",")
     );
@@ -1078,8 +1081,18 @@ export function PlayersClient({
                           }}
                           aria-label={`Scholarship for ${p.name}`}
                         />
-                      ) : p.scholarship != null ? (
-                        formatUSD(p.scholarship)
+                      ) : p.scholarship != null || p.fullRide ? (
+                        <span className="inline-flex items-center justify-end gap-1.5">
+                          {p.fullRide && (
+                            <span
+                              className="badge bg-accent/20 text-accent"
+                              title="Full ride — covers the whole cost"
+                            >
+                              Full
+                            </span>
+                          )}
+                          {p.scholarship != null && formatUSD(p.scholarship)}
+                        </span>
                       ) : (
                         <span className={editable ? "text-muted" : ""}>—</span>
                       )}

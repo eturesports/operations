@@ -137,9 +137,12 @@ export function PlayerCard({
             {player.position && (
               <span className="badge bg-ink-700 text-muted">{player.position}</span>
             )}
-            {player.scholarship != null && (
-              <span className="ml-auto text-xs font-medium text-accent">
-                {formatUSD(player.scholarship)}
+            {(player.scholarship != null || player.fullRide) && (
+              <span className="ml-auto flex items-center gap-1 text-xs font-medium text-accent">
+                {player.fullRide && (
+                  <span className="badge bg-accent/20 text-accent">Full ride</span>
+                )}
+                {player.scholarship != null && formatUSD(player.scholarship)}
               </span>
             )}
           </div>

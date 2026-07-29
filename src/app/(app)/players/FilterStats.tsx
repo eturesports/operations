@@ -54,6 +54,7 @@ export function FilterStats({
     const playing = filtered.filter((p) => p.activeProfile).length;
 
     const withMoney = filtered.filter((p) => p.scholarship != null);
+    const fullRides = filtered.filter((p) => p.fullRide).length;
     const scholarship = withMoney.reduce((a, p) => a + (p.scholarship ?? 0), 0);
 
     // Every college profile counts, not just the one flagged as playing now:
@@ -76,6 +77,7 @@ export function FilterStats({
       playing,
       scholarship,
       coveragePct: pct(withMoney.length),
+      fullRides,
       minutes,
       goals,
       assists,
@@ -136,7 +138,13 @@ export function FilterStats({
         <Tile
           label="Scholarships"
           value={formatUSDCompact(s.scholarship)}
-          sub={`${s.coveragePct}% have an amount`}
+          sub={
+            s.fullRides > 0
+              ? `${formatNumber(s.fullRides)} full ride${s.fullRides === 1 ? "" : "s"} · ${
+                  s.coveragePct
+                }% have an amount`
+              : `${s.coveragePct}% have an amount`
+          }
           accent="accent"
         />
         <Tile

@@ -96,7 +96,13 @@ export function PlayerDetail({
           <Info label="Program" value={player.program} />
           <Info
             label="Scholarship"
-            value={player.scholarship != null ? formatUSD(player.scholarship) : null}
+            value={
+              player.scholarship != null
+                ? `${formatUSD(player.scholarship)}${player.fullRide ? " · Full ride" : ""}`
+                : player.fullRide
+                  ? "Full ride"
+                  : null
+            }
           />
           <Info label="Position" value={player.position} />
           <Info label="Nationality" value={player.nationality} />
