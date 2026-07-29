@@ -1,82 +1,22 @@
 {
  "matched": [
   {
-   "id": "4120b2ce-42d1-469a-a73e-cc386e239065",
-   "name": "Johannes Gikas",
-   "url": "https://ccsubluedevils.com/sports/msoc/2024-25/bios/gikas_johannes_kyzg",
-   "uni": "Central Connecticut"
+   "id": "0277fb60-437e-40e4-a025-f5d1b03c71c8",
+   "name": "Aimar Bañuls",
+   "url": "https://www.gochoctaws.com/sports/mens-soccer/roster/aimar-ba-uls/10472",
+   "uni": "MISSISIPI COLLEGE"
   },
   {
-   "id": "a29adfbd-c1c4-43b3-a76f-b9756d43eecb",
-   "name": "Parker Bowman",
-   "url": "https://ccsubluedevils.com/sports/msoc/2024-25/bios/bowman_parker_gxys",
-   "uni": "Central Connecticut"
+   "id": "36d0fdb1-aa59-406c-bc79-59a9224ed252",
+   "name": "Isaac Rosenthal",
+   "url": "https://www.nusports.com/sports/mens-soccer/roster/player/isaac-rosenthal",
+   "uni": "Northwestern University"
   },
   {
-   "id": "dc1ea379-b0f6-428e-bc97-15b2dd01c5ea",
-   "name": "Julian Dubash",
-   "url": "https://ccsubluedevils.com/sports/msoc/2025-26/bios/dubash_julian_tfxg",
-   "uni": "Central Connecticut"
-  },
-  {
-   "id": "53496a37-d514-4f89-9644-a8532492e7ee",
-   "name": "Brandon Chacon",
-   "url": "https://www.chargerathletics.com/sports/msoc/2024-25/bios/chacon_brandon_1tga",
-   "uni": "Dominican University"
-  },
-  {
-   "id": "93b01e15-67b9-4cd1-8003-0ba2d19f7f5e",
-   "name": "Marcos Baez",
-   "url": "https://www.gowasps.com/sports/msoc/2025-26/bios/baez_juarez_marcos_43cy",
-   "uni": "EMORY & HENRY"
-  },
-  {
-   "id": "cba55237-4bfe-40ba-a0c5-f29b12c483b2",
-   "name": "David Fernandez",
-   "url": "https://www.marshilllions.com/sports/msoc/2025-26/bios/fernandez_david_pxg4",
-   "uni": "MARS HILL"
-  },
-  {
-   "id": "325719c3-e0c5-43c8-9367-7d393350e22f",
-   "name": "Jorge Perez",
-   "url": "https://www.marshilllions.com/sports/msoc/2022-23/bios/perez_prada_jorge_xc1k",
-   "uni": "MARSH HILL"
-  },
-  {
-   "id": "176e9157-1ce0-4ab5-afdf-e395eeb487ce",
-   "name": "Angel Ballesteros",
-   "url": "https://www.marshilllions.com/sports/msoc/2023-24/bios/ballesteros_angel_gk1m",
-   "uni": "MARSH HILL"
-  },
-  {
-   "id": "8fe16670-f7f8-483b-9cda-80618b579985",
-   "name": "Diego Fernandez",
-   "url": "https://www.marshilllions.com/sports/msoc/2024-25/bios/fernandez_diego_heqc",
-   "uni": "MARSH HILL"
-  },
-  {
-   "id": "cf85e656-f991-46a2-8a79-65c37993e04f",
-   "name": "Muhammad Bilal",
-   "url": "https://www.marshilllions.com/sports/msoc/2022-23/bios/bilal_muhammad_uksa",
-   "uni": "Marsh Hill"
-  },
-  {
-   "id": "550a677e-5d40-445c-8340-edebc8151916",
-   "name": "Jan Forsterling",
-   "url": "https://www.stacathletics.com/sports/msoc/2021-22/bios/Forsterling_Beltran_Jan",
-   "uni": "SAINT THOMAS AQUINAS"
-  },
-  {
-   "id": "dd99feff-32e3-41fa-935a-e5404b4124f0",
-   "name": "Mateu Farré",
-   "url": "https://www.gosuffolkrams.com/sports/msoc/2024-25/bios/farre-torres_mateu_sqo5",
-   "uni": "SUFFOLK D3"
-  },
-  {
-   "id": "34021c02-eb9c-446b-ac4e-d859d2fd7d3d",
-   "name": "Akram Abbas",
-   "url": "https://tampaspartans.com/sports/msoc/2023-24/bios/abbas_akram_7alv",
-   "uni": "Tampa University"
+   "id": "87229aef-b9f1-426c-9183-52e9964a4f7d",
+   "name": "Zach Nelson",
+   "url": "https://www.wsulancers.com/sports/msoc/2025-26/bios/nelson_zach_o6s6",
+   "uni": "Worcester State"
   }
  ],
  "weak": [
@@ -85,12 +25,6 @@
    "name": "J Mossholder",
    "url": "https://www.bgsufalcons.com/sports/mens-soccer/roster/j-mossholder/20107",
    "uni": "Bowling Green State University"
-  },
-  {
-   "id": "928b51d9-3af0-4b59-b457-b9b3e3fe46a1",
-   "name": "Carra",
-   "url": "https://fpuravens.com/sports/mens-soccer/roster/javier-gonzalez-carraminana/3486",
-   "uni": "FPU"
   },
   {
    "id": "08b5cfd2-8a73-4caf-bba4-b22d28beb5e6",
@@ -113,7 +47,7 @@
   {
    "id": "b889251e-e9b4-4a0d-be0e-0acd02609aee",
    "name": "Faus",
-   "url": "https://www.marshilllions.com/sports/msoc/2025-26/bios/faus_adrian_jlfq",
+   "url": "https://www.marshilllions.com/sports/msoc/2024-25/bios/faus_adrian_3ayy",
    "uni": "MARS HILL"
   },
   {

@@ -39,13 +39,21 @@ const tokens = (s) =>
 const rawTokens = (s) => s.split(/[^\p{L}]+/u).filter((w) => deaccent(w).length > 1);
 
 // Athletics sites mangle accents into their slugs: "Javier Solá Martínez"
-// becomes "javier-sol-mart-nez". Only a part that carried an accent can lose
-// letters that way; for a plain part the slug is exact, and requiring that
-// keeps a roster's Marco from matching our Marc.
-const sameWord = (fromSlug, ours) => {
+// becomes "javier-sol-mart-nez". Our own records mostly lost their accents
+// years ago, so whether to allow a clipped part cannot be decided from our
+// side — it is decided from the slug, which carries the damage: a stray dash
+// where a letter was removed, or more parts than the name has.
+//
+// Only where that damage shows does a clipped part count, and only in the
+// direction the damage runs, so a roster's "marco" never matches our Marc.
+const looksClipped = (slug, ourTokenCount) =>
+  /(^-|--|-[a-z]-|-[a-z]$)/.test(slug) ||
+  slug.split("-").filter((w) => w.length > 1).length > ourTokenCount;
+
+const sameWord = (fromSlug, ours, clipped) => {
   const plain = deaccent(ours);
   if (plain === fromSlug) return true;
-  if (plain === ours.toLowerCase()) return false;
+  if (!clipped) return false;
   if (fromSlug.length < 3 || fromSlug.length >= plain.length) return false;
   return plain.startsWith(fromSlug) || plain.endsWith(fromSlug);
 };
@@ -54,12 +62,13 @@ const sameWord = (fromSlug, ours) => {
 // many parts matched, because one shared part is far weaker evidence than two:
 // a record holding only "Cristobal" would otherwise match any Cristobal on the
 // roster, and a wrong link would credit someone else's stats to our player.
-// @param a the name as it appears in the roster URL, b ours
-function nameMatch(a, b) {
-  const A = tokens(a);
+// @param slug the name as it appears in the roster URL, b ours
+function nameMatch(slug, b) {
+  const A = tokens(slug.replace(/-/g, " "));
   const B = rawTokens(b);
   if (!A.size || !B.length) return 0;
-  const shared = B.filter((ours) => [...A].some((x) => sameWord(x, ours))).length;
+  const clipped = looksClipped(slug, B.length);
+  const shared = B.filter((ours) => [...A].some((x) => sameWord(x, ours, clipped))).length;
   return shared === Math.min(A.size, B.length) ? shared : 0;
 }
 
@@ -249,7 +258,7 @@ for (const [key, entry] of Object.entries(DOMAINS)) {
   let hits = 0;
   for (const p of ours) {
     const scored = roster
-      .map((r) => ({ r, score: nameMatch(r.slug.replace(/-/g, " "), p.name) }))
+      .map((r) => ({ r, score: nameMatch(r.slug, p.name) }))
       .filter((x) => x.score > 0);
     if (!scored.length) continue;
     // The same player has one page per season, each with its own id. Those
