@@ -96,6 +96,22 @@ export default async function DashboardPage() {
         />
       </div>
 
+      {/* The Gap Year / Eture FC claim, counted in people. */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <StatCard
+          label="Domestic DI committed players"
+          value={formatNumber(a.domesticD1.players)}
+          sub={`Gap Year / Eture FC · ${a.domesticD1.pct}% of the programme's ${formatNumber(
+            a.domesticD1.ofProgrammePlayers
+          )} players`}
+        />
+        <StatCard
+          label="Their Division I destinations"
+          value={formatNumber(a.domesticD1.universities)}
+          sub={`${formatNumber(a.domesticD1.operations)} commitments`}
+        />
+      </div>
+
       {/* Level — D1 with explicit denominators */}
       <section className="space-y-3">
         <h2 className="text-lg font-semibold text-fg">Level · NCAA Division I</h2>

@@ -30,6 +30,20 @@ export type AuthorityData = {
     average: number | null;
     median: number | null;
   };
+  /**
+   * Players who came through the Gap Year / Eture FC programme — already in
+   * the United States when they committed — and signed for a Division I
+   * college. It is the claim the programme is sold on, so it is counted in
+   * people rather than operations: a player who transfers D1 to D1 committed
+   * once.
+   */
+  domesticD1: {
+    players: number;
+    ofProgrammePlayers: number;
+    pct: number;
+    operations: number;
+    universities: number;
+  };
   d1: {
     d1Ops: number;
     ncaaOps: number;
@@ -117,6 +131,12 @@ export async function getAuthorityData(): Promise<AuthorityData> {
   const ncaaOps = rows.filter((r) => isNCAA(r.division)).length;
   const playersReachedD1 = new Set(rows.filter((r) => isD1(r.division)).map((r) => norm(r.name))).size;
 
+  // The Gap Year / Eture FC programme's own D1 record.
+  const domestic = rows.filter((r) => /gap year|eture fc/i.test(r.program ?? ""));
+  const domesticD1Rows = domestic.filter((r) => isD1(r.division));
+  const domesticD1Players = new Set(domesticD1Rows.map((r) => norm(r.name))).size;
+  const domesticPlayers = new Set(domestic.map((r) => norm(r.name))).size;
+
   // Season buckets
   const bySeason = bucketize(rows.map((r) => ({ key: r.season, scholarship: r.scholarship })), {
     sortBySeason: true,
@@ -139,6 +159,17 @@ export async function getAuthorityData(): Promise<AuthorityData> {
       coveragePct: operations ? Math.round((withAmount.length / operations) * 1000) / 10 : 0,
       average,
       median,
+    },
+    domesticD1: {
+      players: domesticD1Players,
+      ofProgrammePlayers: domesticPlayers,
+      pct: domesticPlayers
+        ? Math.round((domesticD1Players / domesticPlayers) * 1000) / 10
+        : 0,
+      operations: domesticD1Rows.length,
+      universities: new Set(
+        domesticD1Rows.map((r) => (r.university ?? "").trim().toLowerCase()).filter(Boolean)
+      ).size,
     },
     d1: {
       d1Ops,
