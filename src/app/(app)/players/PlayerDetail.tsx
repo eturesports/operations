@@ -3,6 +3,7 @@
 import { formatUSD } from "@/lib/format";
 import type { PlayerRow } from "./PlayersClient";
 import { ProfilesSection } from "./ProfilesSection";
+import { AchievementsSection } from "./AchievementsSection";
 import { ShareLinkPanel } from "./ShareLinkPanel";
 import { uniKey } from "@/lib/universities";
 
@@ -117,6 +118,10 @@ export function PlayerDetail({
           editable={false}
           playerNcaaUrl={player.ncaaUrl}
         />
+
+        <div className="mt-6 border-t border-ink-600 pt-4">
+          <AchievementsSection playerId={player.id} editable={false} />
+        </div>
 
         {related.length > 0 && (
           <div className="mt-6 border-t border-ink-600 pt-4">

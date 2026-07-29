@@ -61,8 +61,8 @@ model User {
 
   accounts       Account[]
   sessions       Session[]
-  createdPlayers Player[]  @relation("PlayerCreatedBy")
-  updatedPlayers Player[]  @relation("PlayerUpdatedBy")
+  createdPlayers Player[]          @relation("PlayerCreatedBy")
+  updatedPlayers Player[]          @relation("PlayerUpdatedBy")
   shareLinks     PlayerShareLink[] @relation("ShareLinkCreatedBy")
 }
 
@@ -116,18 +116,18 @@ model Sport {
 }
 
 model Player {
-  id           String   @id @default(cuid())
+  id           String  @id @default(cuid())
   sportId      String
-  sport        Sport    @relation(fields: [sportId], references: [id], onDelete: Restrict)
+  sport        Sport   @relation(fields: [sportId], references: [id], onDelete: Restrict)
   name         String
   university   String?
   season       String? // temporada, ej. "24/25"
   division     String? // Division I/II/III, JUCO, NAIA III, MLS NEXT PRO…
   program      String? // "Becas EEUU", "Gap Year / Eture FC"…
   scholarship  Int? // beca total en USD
-  notes        String?  @db.Text
+  notes        String? @db.Text
   legacyNumber Int? // número original (#) en el Excel
-  active       Boolean  @default(true)
+  active       Boolean @default(true)
 
   // Media & links
   profileImageUrl String? // headshot / profile photo
@@ -154,8 +154,9 @@ model Player {
   updatedById String?
   updatedBy   User?    @relation("PlayerUpdatedBy", fields: [updatedById], references: [id])
 
-  profiles   PlayerProfile[]
-  shareLinks PlayerShareLink[]
+  profiles     PlayerProfile[]
+  shareLinks   PlayerShareLink[]
+  achievements Achievement[]
 
   @@index([sportId])
   @@index([season])
@@ -165,6 +166,26 @@ model Player {
 
 // A player's stint at a university (a player may have several — transfers).
 // Stats can be edited by hand or refreshed from the public NCAA stats API.
+// Something a player did that a number does not capture: a conference award,
+// a school record, an academic honour. Free text on purpose — these come from
+// college bios written in prose, and forcing them into fields would lose most
+// of what makes them worth keeping.
+model Achievement {
+  id       String @id @default(cuid())
+  playerId String
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  season String? // "2019" or "19/20" — whatever the source used
+  kind   String? // Award | Record | Academic | Milestone | Other
+  text   String  @db.Text
+  source String? // where it was read, usually their college bio
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([playerId])
+}
+
 model PlayerProfile {
   id       String @id @default(cuid())
   playerId String

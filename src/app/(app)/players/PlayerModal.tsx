@@ -5,6 +5,7 @@ import type { PlayerRow } from "./PlayersClient";
 import { normalizePersonName } from "@/lib/names";
 import { Select } from "@/components/Select";
 import { ProfilesSection } from "./ProfilesSection";
+import { AchievementsSection } from "./AchievementsSection";
 import { MultiSelect } from "@/components/MultiSelect";
 import { COUNTRIES, flagOf, parseNationalities } from "@/lib/countries";
 
@@ -504,6 +505,12 @@ export function PlayerModal({
                 division: form.division || initial.division,
               }}
             />
+          )}
+
+          {initial && (
+            <div className="border-t border-ink-600 pt-4">
+              <AchievementsSection playerId={initial.id} editable />
+            </div>
           )}
 
           <div className="flex justify-end gap-2 pt-2">
