@@ -95,6 +95,7 @@ export function FilterStats({
   const shareOfAll = rows.length
     ? Math.round((filtered.length / rows.length) * 1000) / 10
     : 0;
+  const d1OverAll = rows.length ? Math.round((s.d1 / rows.length) * 1000) / 10 : 0;
 
   return (
     <section className="card p-4">
@@ -121,10 +122,13 @@ export function FilterStats({
           value={formatNumber(s.universities)}
           sub="Distinct destinations"
         />
+        {/* Measured against the whole database, not the selection: filtering
+            to Division I and II would otherwise report 69% Division I, which
+            is true of the selection and useless as a claim. */}
         <Tile
           label="Division I"
-          value={`${s.d1Pct}%`}
-          sub={`${formatNumber(s.d1)} of ${formatNumber(s.ops)}`}
+          value={`${d1OverAll}%`}
+          sub={`${formatNumber(s.d1)} of all ${formatNumber(rows.length)}`}
         />
         <Tile
           label="National champions"
@@ -162,8 +166,10 @@ export function FilterStats({
       </div>
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted">
-        Percentages are measured against the {formatNumber(s.ops)} operation
-        {s.ops === 1 ? "" : "s"} in this selection. Scholarship totals cover only the
+        <b className="text-fg">Division I</b> is measured against all{" "}
+        {formatNumber(rows.length)} operations in the database; the other percentages
+        are measured against the {formatNumber(s.ops)} in this selection. Scholarship
+        totals cover only the
         operations with a recorded amount ({s.coveragePct}%). Minutes, goals and assists are
         career totals across every college profile we have pulled, for the{" "}
         {formatNumber(s.withStats)} operation{s.withStats === 1 ? "" : "s"} with stats —
