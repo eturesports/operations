@@ -44,6 +44,8 @@ export type PlayerRow = {
   graduationYear: number | null;
   nationalChampion: boolean;
   fullRide: boolean;
+  /** the human being behind this operation; records sharing it are one career */
+  personId: string | null;
   // set when the player has a profile marked as their current NCAA roster
   activeProfile: {
     university: string;
@@ -412,9 +414,10 @@ export function PlayersClient({
       const j = await res.json().catch(() => ({}));
       throw new Error(j.error ?? "Failed to save");
     }
-    const { player, warning } = await res.json();
+    const { player, warning, syncedTo, syncedFields } = await res.json();
     const row: PlayerRow = {
       id: player.id,
+      personId: player.personId ?? null,
       name: player.name,
       university: player.university,
       season: player.season,
@@ -454,6 +457,19 @@ export function PlayersClient({
     setPlayers((prev) => (editing ? prev.map((p) => (p.id === row.id ? row : p)) : [row, ...prev]));
     setModalOpen(false);
     if (warning) alert(warning);
+    // Editing one record can change several: say so rather than letting the
+    // editor discover it later.
+    if (syncedTo > 0) {
+      setStatsRun({
+        busy: false,
+        done: 0,
+        total: 0,
+        ok: 0,
+        note: `${syncedFields.join(", ")} also applied to ${syncedTo} other record${
+          syncedTo === 1 ? "" : "s"
+        } of ${row.name}.`,
+      });
+    }
     router.refresh();
   }
 
@@ -1167,10 +1183,14 @@ export function PlayersClient({
           player={detail}
           editable={editable}
           seasonOptions={seasonOptions}
-          related={players.filter(
-            (x) =>
-              x.id !== detail.id &&
-              x.name.trim().toLowerCase() === detail.name.trim().toLowerCase()
+          related={players.filter((x) =>
+            x.id === detail.id
+              ? false
+              : detail.personId
+                ? x.personId === detail.personId
+                : // Only records saved before people existed fall back to the
+                  // name, which is what used to lose a player to a nickname.
+                  x.name.trim().toLowerCase() === detail.name.trim().toLowerCase()
           )}
           onOpenRelated={(p) => setDetail(p)}
           onClose={() => setDetail(null)}

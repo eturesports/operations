@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
+import { personIdFor } from "@/lib/person";
 import type { Prisma } from "@prisma/client";
 
 // GET /api/players?sport=MSOC&season=24/25&division=Division I&program=...&q=texto
@@ -67,6 +68,9 @@ export async function POST(req: Request) {
     data: {
       sportId: data.sportId!,
       name: data.name!,
+      // A second operation for someone already in the database joins them
+      // rather than starting a stranger with the same name.
+      personId: await personIdFor(data.name!),
       university: data.university ?? null,
       season: data.season ?? null,
       division: data.division ?? null,

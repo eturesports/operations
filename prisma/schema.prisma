@@ -115,10 +115,24 @@ model Sport {
   players Player[]
 }
 
+/// One human being. Operations are what Eture did; a Person is who it was
+/// done for, and the only thing that survives a change of university.
+model Person {
+  id      String   @id @default(cuid())
+  name    String
+  players Player[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Player {
   id           String  @id @default(cuid())
   sportId      String
   sport        Sport   @relation(fields: [sportId], references: [id], onDelete: Restrict)
+  /// Who this operation was for. Records sharing a person are one career.
+  personId     String?
+  person       Person? @relation(fields: [personId], references: [id])
   name         String
   university   String?
   season       String? // temporada, ej. "24/25"

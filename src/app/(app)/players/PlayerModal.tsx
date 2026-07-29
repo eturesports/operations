@@ -330,7 +330,12 @@ export function PlayerModal({
           {/* Segmentation */}
           <div className="grid grid-cols-1 gap-4 border-t border-ink-600 pt-4 sm:grid-cols-3">
             <div>
-              <label className="label">Position</label>
+              <label className="label">
+                Position
+                <span className="ml-1 text-[9px] uppercase tracking-wide text-muted">
+                  · shared
+                </span>
+              </label>
               <input
                 className="input"
                 list="position-list"
@@ -346,7 +351,18 @@ export function PlayerModal({
               </datalist>
             </div>
             <div>
-              <label className="label">Nationality</label>
+              <p className="col-span-full -mb-1 text-[11px] text-muted">
+                Fields marked <b className="text-fg">shared</b> describe the player, so
+                editing them here updates their records at every university. Everything
+                else — university, season, money, photos — belongs to this operation
+                alone.
+              </p>
+              <label className="label">
+                Nationality
+                <span className="ml-1 text-[9px] uppercase tracking-wide text-muted">
+                  · shared
+                </span>
+              </label>
               <MultiSelect
                 values={parseNationalities(form.nationality)}
                 options={COUNTRIES.map((c) => c.name)}
@@ -357,7 +373,12 @@ export function PlayerModal({
               />
             </div>
             <div>
-              <label className="label">Previous club</label>
+              <label className="label">
+                Previous club
+                <span className="ml-1 text-[9px] uppercase tracking-wide text-muted">
+                  · shared
+                </span>
+              </label>
               <input
                 className="input"
                 value={form.previousClub}
@@ -491,7 +512,12 @@ export function PlayerModal({
                 </p>
               </div>
               <div>
-                <label className="label">Instagram</label>
+                <label className="label">
+                Instagram
+                <span className="ml-1 text-[9px] uppercase tracking-wide text-muted">
+                  · shared
+                </span>
+              </label>
                 <input
                   className="input"
                   placeholder="https://instagram.com/…"

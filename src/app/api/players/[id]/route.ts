@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
+import { syncPersonFields } from "@/lib/person";
 import { setPlayingNow } from "@/lib/profiles";
 
 export async function GET(
@@ -53,6 +54,23 @@ export async function PATCH(
     include: { sport: { select: { code: true, name: true } } },
   });
 
+  // Nationality, position and the rest of what describes the human being are
+  // the same at every university, so an edit here reaches their other
+  // operations rather than leaving the database disagreeing with itself.
+  const spread = await syncPersonFields(params.id, data as Record<string, unknown>);
+  if (spread.siblings > 0) {
+    await logAudit(session.user, {
+      entity: "Player",
+      entityId: player.id,
+      entityName: player.name,
+      action: "person_fields_synced",
+      summary: `Applied ${spread.fields.join(", ")} to ${player.name}'s other ${
+        spread.siblings === 1 ? "operation" : `${spread.siblings} operations`
+      }`,
+      changes: { fields: spread.fields, siblings: spread.siblings },
+    });
+  }
+
   // "Playing now" is stored on the player's university profiles, not on the
   // player row, so it is applied separately when the form sends it.
   let playingWarning: string | undefined;
@@ -91,7 +109,13 @@ export async function PATCH(
     });
   }
 
-  return NextResponse.json({ player, warning: playingWarning });
+  return NextResponse.json({
+    player,
+    warning: playingWarning,
+    // So the screen can say that an edit reached more than one record.
+    syncedTo: spread.siblings,
+    syncedFields: spread.fields,
+  });
 }
 
 export async function DELETE(

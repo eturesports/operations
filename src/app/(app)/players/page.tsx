@@ -105,6 +105,7 @@ export default async function PlayersPage() {
         graduationYear: p.graduationYear,
         nationalChampion: p.nationalChampion,
         fullRide: p.fullRide,
+        personId: p.personId,
         activeProfile: p.profiles.find((x) => x.current) ?? null,
         career: careerOf(p.profiles),
         nationality: p.nationality,
