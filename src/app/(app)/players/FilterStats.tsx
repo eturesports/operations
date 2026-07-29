@@ -49,9 +49,6 @@ export function FilterStats({
     for (const p of filtered)
       for (const u of canonicalizeUniversity(p.university)) unis.add(uniKey(u));
 
-    const d1 = filtered.filter(
-      (p) => (p.division ?? "").trim().toLowerCase() === "division i"
-    ).length;
     const champions = filtered.filter((p) => p.nationalChampion).length;
     const graduated = filtered.filter((p) => p.graduated).length;
     const playing = filtered.filter((p) => p.activeProfile).length;
@@ -72,8 +69,6 @@ export function FilterStats({
       ops,
       players,
       universities: unis.size,
-      d1,
-      d1Pct: pct(d1),
       champions,
       championsPct: pct(champions),
       graduated,
@@ -95,7 +90,6 @@ export function FilterStats({
   const shareOfAll = rows.length
     ? Math.round((filtered.length / rows.length) * 1000) / 10
     : 0;
-  const d1OverAll = rows.length ? Math.round((s.d1 / rows.length) * 1000) / 10 : 0;
 
   return (
     <section className="card p-4">
@@ -105,8 +99,7 @@ export function FilterStats({
         </h2>
         {narrowed && (
           <span className="text-[11px] text-muted">
-            {formatNumber(s.ops)} of {formatNumber(rows.length)} operations ·{" "}
-            <b className="text-fg">{shareOfAll}%</b> of the database
+            {formatNumber(s.ops)} of {formatNumber(rows.length)} operations
           </span>
         )}
       </div>
@@ -122,13 +115,14 @@ export function FilterStats({
           value={formatNumber(s.universities)}
           sub="Distinct destinations"
         />
-        {/* Measured against the whole database, not the selection: filtering
-            to Division I and II would otherwise report 69% Division I, which
-            is true of the selection and useless as a claim. */}
+        {/* How much of everything this selection is. The panel does not
+            second-guess which subset you care about: filter to Division I and
+            this reads the Division I share, filter to a season and it reads
+            that season's. */}
         <Tile
-          label="Division I"
-          value={`${d1OverAll}%`}
-          sub={`${formatNumber(s.d1)} of all ${formatNumber(rows.length)}`}
+          label="Share of database"
+          value={`${shareOfAll}%`}
+          sub={`${formatNumber(s.ops)} of all ${formatNumber(rows.length)}`}
         />
         <Tile
           label="National champions"
@@ -166,9 +160,9 @@ export function FilterStats({
       </div>
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted">
-        <b className="text-fg">Division I</b> is measured against all{" "}
-        {formatNumber(rows.length)} operations in the database; the other percentages
-        are measured against the {formatNumber(s.ops)} in this selection. Scholarship
+        <b className="text-fg">Share of database</b> is this selection over all{" "}
+        {formatNumber(rows.length)} operations; the other percentages are measured
+        against the {formatNumber(s.ops)} in this selection. Scholarship
         totals cover only the
         operations with a recorded amount ({s.coveragePct}%). Minutes, goals and assists are
         career totals across every college profile we have pulled, for the{" "}
