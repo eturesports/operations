@@ -121,7 +121,6 @@ function ImageField({
 
 export function PlayerModal({
   sports,
-  divisionOptions,
   programOptions,
   seasonOptions = [],
   initial,
@@ -129,7 +128,6 @@ export function PlayerModal({
   onSave,
 }: {
   sports: SportOpt[];
-  divisionOptions: string[];
   programOptions: string[];
   seasonOptions?: string[];
   initial: PlayerRow | null;
@@ -283,14 +281,15 @@ export function PlayerModal({
 
             <div>
               <label className="label">Division</label>
-              <Select
-                value={form.division}
-                options={divisionOptions}
-                onChange={(v) => set("division", v)}
-                placeholder="Select a division"
-                allowCustom
-                ariaLabel="Division"
-              />
+              {/* Read-only on purpose: the division belongs to the college the
+                  player went to, so it is set on their college profile below
+                  and mirrored here. One fact, one place to change it. */}
+              <div className="input flex items-center justify-between gap-2 text-muted">
+                <span>{form.division || "—"}</span>
+                <span className="text-[10px] uppercase tracking-wide">
+                  From college profile
+                </span>
+              </div>
             </div>
 
             <div>

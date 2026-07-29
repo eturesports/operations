@@ -95,6 +95,16 @@ function Stat({ label, value }: { label: string; value: number | null }) {
   );
 }
 
+const DIVISIONS = [
+  "Division I",
+  "Division II",
+  "Division III",
+  "NAIA",
+  "NJCAA",
+  "JUCO",
+  "MLS Next Pro",
+];
+
 export function ProfilesSection({
   playerId,
   seasonOptions,
@@ -585,10 +595,18 @@ function ProfileForm({
           <label className="label">Division</label>
           <input
             className="input"
+            list="profile-division-list"
             placeholder="Division I"
             value={draft.division}
             onChange={(e) => onChange("division", e.target.value)}
           />
+          {/* The divisions already in the database, so the same competition is
+              not typed three different ways across the years. */}
+          <datalist id="profile-division-list">
+            {DIVISIONS.map((d) => (
+              <option key={d} value={d} />
+            ))}
+          </datalist>
         </div>
         <div>
           <label className="label">Season</label>
@@ -638,18 +656,6 @@ function ProfileForm({
           >
             <option value="soccer-men">Men&apos;s Soccer (MSOC)</option>
             <option value="soccer-women">Women&apos;s Soccer (WSOC)</option>
-          </select>
-        </div>
-        <div>
-          <label className="label">NCAA division</label>
-          <select
-            className="input"
-            value={draft.ncaaDivision}
-            onChange={(e) => onChange("ncaaDivision", e.target.value)}
-          >
-            <option value="d1">D1</option>
-            <option value="d2">D2</option>
-            <option value="d3">D3</option>
           </select>
         </div>
         <div className="col-span-2">

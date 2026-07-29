@@ -1019,11 +1019,15 @@ export function PlayersClient({
                     </td>
                     {cell(p, "university", "text-fg")}
                     {cell(p, "season", "text-muted", { list: "cell-season-list" })}
-                    {cell(p, "division", "", {
-                      list: "cell-division-list",
-                      render: (v) =>
-                        v ? <span className="badge bg-ink-700 text-fg">{v}</span> : <>—</>,
-                    })}
+                    {/* Not editable here: the division comes from the player's
+                        college profile, which is the one place it is set. */}
+                    <td className="px-4 py-3">
+                      {p.division ? (
+                        <span className="badge bg-ink-700 text-fg">{p.division}</span>
+                      ) : (
+                        "—"
+                      )}
+                    </td>
                     {cell(p, "program", "text-muted", { list: "cell-program-list" })}
                     <td
                       className={`px-4 py-3 text-right tabular-nums text-accent ${
@@ -1102,7 +1106,6 @@ export function PlayersClient({
       {modalOpen && (
         <PlayerModal
           sports={sports}
-          divisionOptions={divisionOptions}
           programOptions={programOptions}
           seasonOptions={seasonOptions}
           initial={editing}
@@ -1126,7 +1129,6 @@ export function PlayersClient({
       {bulkEditOpen && (
         <BulkEditModal
           count={selectedCount}
-          divisionOptions={divisionOptions}
           programOptions={programOptions}
           onClose={() => setBulkEditOpen(false)}
           onApply={bulkUpdate}

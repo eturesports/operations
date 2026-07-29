@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
+import { ncaaDivisionFor, syncPlayerDivision } from "@/lib/divisions";
 
 export async function PATCH(
   req: Request,
@@ -49,12 +50,18 @@ export async function PATCH(
       where: { id: params.id },
       data: {
         ...(data as object),
+        // Derived from the division rather than asked for a second time.
+        ...(data.division !== undefined
+          ? { ncaaDivision: ncaaDivisionFor(data.division as string | null) }
+          : {}),
         ...(touchedStats
           ? { statsSource: "manual", statsUpdatedAt: new Date() }
           : {}),
       },
     });
   });
+
+  await syncPlayerDivision(existing.playerId);
 
   const changes = diffFields(
     existing as unknown as Record<string, unknown>,
@@ -96,6 +103,7 @@ export async function DELETE(
   }
 
   await prisma.playerProfile.delete({ where: { id: params.id } });
+  await syncPlayerDivision(existing.playerId);
 
   await logAudit(session.user, {
     entity: "PlayerProfile",

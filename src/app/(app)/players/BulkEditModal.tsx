@@ -5,7 +5,6 @@ import { Select } from "@/components/Select";
 
 export type BulkPatch = {
   season?: string;
-  division?: string;
   program?: string;
   university?: string;
   active?: boolean;
@@ -45,19 +44,16 @@ const LABEL_GRAD: Record<string, TriState> = {
 
 export function BulkEditModal({
   count,
-  divisionOptions,
   programOptions,
   onClose,
   onApply,
 }: {
   count: number;
-  divisionOptions: string[];
   programOptions: string[];
   onClose: () => void;
   onApply: (patch: BulkPatch) => Promise<void>;
 }) {
   const [season, setSeason] = useState("");
-  const [division, setDivision] = useState("");
   const [program, setProgram] = useState("");
   const [university, setUniversity] = useState("");
   const [status, setStatus] = useState<TriState>("");
@@ -71,7 +67,6 @@ export function BulkEditModal({
   async function apply() {
     const patch: BulkPatch = {};
     if (season.trim()) patch.season = season.trim();
-    if (division.trim()) patch.division = division.trim();
     if (program.trim()) patch.program = program.trim();
     if (university.trim()) patch.university = university.trim();
     if (status) patch.active = status === "yes";
@@ -128,17 +123,6 @@ export function BulkEditModal({
           <div>
             <label className="label">Season</label>
             <input className="input" placeholder="24/25" value={season} onChange={(e) => setSeason(e.target.value)} />
-          </div>
-          <div>
-            <label className="label">Division</label>
-            <Select
-              value={division}
-              options={divisionOptions}
-              onChange={setDivision}
-              placeholder="Keep unchanged"
-              allowCustom
-              ariaLabel="Division"
-            />
           </div>
           <div>
             <label className="label">Program</label>

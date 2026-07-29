@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
+import { ncaaDivisionFor, syncPlayerDivision } from "@/lib/divisions";
 
 export async function GET(
   _req: Request,
@@ -51,9 +52,17 @@ export async function POST(
       });
     }
     return tx.playerProfile.create({
-      data: { ...(data as object), playerId: params.id, university: data.university! },
+      data: {
+        ...(data as object),
+        playerId: params.id,
+        university: data.university!,
+        // Derived from the division rather than asked for a second time.
+        ncaaDivision: ncaaDivisionFor(data.division as string | null),
+      },
     });
   });
+
+  await syncPlayerDivision(params.id);
 
   await logAudit(session.user, {
     entity: "PlayerProfile",
