@@ -36,8 +36,9 @@ export function BottomNav({ role }: { role: Role }) {
             aria-hidden
             className="nav-pill"
             style={{
-              transform: `translateX(${pill.x}px)`,
+              transform: `translate(${pill.x}px, ${pill.y}px)`,
               width: pill.w,
+              height: pill.h,
               transitionDuration: settled ? undefined : "0ms",
             }}
           />

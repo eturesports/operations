@@ -30,10 +30,9 @@ export function AnalyticsTabs() {
           aria-hidden
           className="nav-pill"
           style={{
-            top: "0.25rem",
-            bottom: "0.25rem",
-            transform: `translateX(${pill.x}px)`,
+            transform: `translate(${pill.x}px, ${pill.y}px)`,
             width: pill.w,
+            height: pill.h,
             transitionDuration: settled ? undefined : "0ms",
           }}
         />

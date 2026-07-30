@@ -15,14 +15,25 @@ export function useTravellingPill<T extends HTMLElement = HTMLDivElement>(
 ) {
   const container = useRef<T>(null);
   const items = useRef<(HTMLElement | null)[]>([]);
-  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
+  const [pill, setPill] = useState<{ x: number; y: number; w: number; h: number } | null>(
+    null
+  );
   // The first paint places the pill without animating it; only later moves
   // should travel, or every page load would begin with it sliding in.
   const [settled, setSettled] = useState(false);
 
+  // All four numbers come from the item itself, and the pill is anchored at
+  // the container's top-left corner so they are read in the same frame of
+  // reference. Anything else drifts: an absolutely positioned flex child
+  // starts at the content box, so a pill offset by the item's own offsetLeft
+  // counted the container's padding twice and sat to the right of its icon.
   const place = useCallback(() => {
     const el = activeIndex >= 0 ? items.current[activeIndex] : null;
-    setPill(el ? { x: el.offsetLeft, w: el.offsetWidth } : null);
+    setPill(
+      el
+        ? { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight }
+        : null
+    );
   }, [activeIndex]);
 
   useLayoutEffect(place, [place]);
