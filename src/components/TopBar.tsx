@@ -39,7 +39,7 @@ export function TopBar({
             height={26}
             className="h-6 w-auto"
           />
-          <span className="font-display text-lg font-black leading-none tracking-[0.12em] text-fg">
+          <span className="font-display text-base font-black leading-none tracking-[0.08em] text-fg sm:text-lg sm:tracking-[0.12em]">
             ETURE SPORTS
           </span>
           <span className="hidden text-[10px] font-semibold uppercase tracking-[0.28em] text-muted sm:inline">

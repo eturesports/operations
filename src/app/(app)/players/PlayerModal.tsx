@@ -7,6 +7,7 @@ import { Select } from "@/components/Select";
 import { ProfilesSection } from "./ProfilesSection";
 import { AchievementsSection } from "./AchievementsSection";
 import { MultiSelect } from "@/components/MultiSelect";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
 import { COUNTRIES, flagOf, parseNationalities } from "@/lib/countries";
 
 export type PlayerForm = {
@@ -162,13 +163,7 @@ export function PlayerModal({
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  useModal(onClose);
 
   function set<K extends keyof PlayerForm>(k: K, v: PlayerForm[K]) {
     setForm((f) => ({ ...f, [k]: v }));
@@ -192,12 +187,11 @@ export function PlayerModal({
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-      onMouseDown={onClose}
-    >
+    <div className={MODAL_BACKDROP} onMouseDown={onClose}>
       <div
-        className="card max-h-[90vh] w-full max-w-lg overflow-y-auto p-6"
+        role="dialog"
+        aria-modal="true"
+        className={`${MODAL_PANEL} sm:max-w-lg`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
@@ -272,20 +266,48 @@ export function PlayerModal({
 
             <div>
               <label className="label">Scholarship (USD)</label>
-              {/* Read-only: a university agrees an amount with the player, so
-                  it is set on their college profile below and mirrored here.
-                  A transfer means a new offer, not the old one carried over. */}
-              <div className="input flex items-center justify-between gap-2 text-muted">
-                <span>
-                  {form.scholarship
-                    ? `$${Number(form.scholarship).toLocaleString("en-US")}`
-                    : "—"}
-                  {form.fullRide ? " · Full ride" : ""}
-                </span>
-                <span className="text-[10px] uppercase tracking-wide">
-                  From college profile
-                </span>
-              </div>
+              {/* A university agrees an amount with the player, so the figure
+                  belongs to that stint and is edited on the college profile —
+                  a transfer means a new offer, not the old one carried over.
+                  On a new player there is no profile yet to hold it: the
+                  amount is agreed the day they sign, months before any roster
+                  page exists, so it is typed here and the profile created
+                  underneath it carries it from the start. */}
+              {initial ? (
+                <div className="input flex items-center justify-between gap-2 text-muted">
+                  <span>
+                    {form.scholarship
+                      ? `$${Number(form.scholarship).toLocaleString("en-US")}`
+                      : "—"}
+                    {form.fullRide ? " · Full ride" : ""}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-wide">
+                    From college profile
+                  </span>
+                </div>
+              ) : (
+                <>
+                  <input
+                    className="input"
+                    inputMode="numeric"
+                    placeholder="25000"
+                    value={form.scholarship}
+                    onChange={(e) =>
+                      set("scholarship", e.target.value.replace(/[^\d]/g, ""))
+                    }
+                    aria-label="Scholarship in US dollars"
+                  />
+                  <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-fg">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 accent-accent"
+                      checked={form.fullRide}
+                      onChange={(e) => set("fullRide", e.target.checked)}
+                    />
+                    Full ride
+                  </label>
+                </>
+              )}
             </div>
 
             <div>
@@ -296,7 +318,7 @@ export function PlayerModal({
               <div className="input flex items-center justify-between gap-2 text-muted">
                 <span>{form.division || "—"}</span>
                 <span className="text-[10px] uppercase tracking-wide">
-                  From college profile
+                  {initial ? "From college profile" : "Set on the profile after saving"}
                 </span>
               </div>
             </div>
@@ -523,6 +545,29 @@ export function PlayerModal({
               </div>
             </div>
           </div>
+
+          {/* A new player has no profile to show yet, so the form says what it
+              is about to do rather than leaving a gap where the college
+              profiles will appear. */}
+          {!initial && (
+            <div className="rounded-xl border border-ink-600 bg-ink-900/40 p-3 text-[11px] leading-relaxed text-muted">
+              {form.university ? (
+                <>
+                  Saving opens{" "}
+                  <b className="text-fg">{form.university}</b>&apos;s college profile for
+                  this player, carrying the season and the scholarship. Add the roster
+                  link there whenever the university publishes it — the stats and the
+                  photo follow from it.
+                </>
+              ) : (
+                <>
+                  Add a university and saving will open its college profile for this
+                  player, carrying the season and the scholarship. The roster link goes
+                  in later, whenever the university publishes it.
+                </>
+              )}
+            </div>
+          )}
 
           {/* University profiles & NCAA stats — the same form, so there is one
               place to edit a player. Only for saved players: a profile needs an

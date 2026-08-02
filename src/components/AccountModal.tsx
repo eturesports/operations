@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { trackPointer } from "./useTravellingPill";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "./useModal";
 
 export function AccountModal({
   initialName,
@@ -17,6 +17,8 @@ export function AccountModal({
 }) {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
+  useModal(onClose);
+
   const [name, setName] = useState(initialName);
   const [image, setImage] = useState(initialImage);
   const [busy, setBusy] = useState(false);
@@ -66,13 +68,14 @@ export function AccountModal({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4"
+      className={`${MODAL_BACKDROP} z-[60]`}
       onMouseDown={onClose}
     >
       <div
-        className="liquid-glass w-full max-w-md rounded-2xl p-6"
+        role="dialog"
+        aria-modal="true"
+        className={`${MODAL_PANEL} sm:max-w-md`}
         onMouseDown={(e) => e.stopPropagation()}
-        onPointerMove={trackPointer}
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-fg">Account settings</h2>

@@ -25,11 +25,15 @@ export function BottomNav({ role }: { role: Role }) {
   const { container, items: tabs, pill, settled } = useTravellingPill<HTMLDivElement>(activeIndex);
 
   return (
-    <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+    <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
       <div
         ref={container}
         onPointerMove={trackPointer}
-        className="liquid-glass pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 shadow-glow"
+        // An admin has five destinations, and five labelled items are wider
+        // than an iPhone once the padding is counted. They are tightened to
+        // fit; the scroll is the safety valve, so a narrower phone or a sixth
+        // destination becomes a swipe rather than a bar hanging off the edge.
+        className="liquid-glass no-scrollbar pointer-events-auto flex max-w-full items-center gap-1 overflow-x-auto rounded-full px-2 py-2 shadow-glow"
       >
         {pill && (
           <span
@@ -53,7 +57,7 @@ export function BottomNav({ role }: { role: Role }) {
               }}
               href={it.href}
               aria-current={active ? "page" : undefined}
-              className={`relative z-[2] flex min-w-[60px] flex-col items-center gap-0.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-colors duration-300 sm:min-w-[72px] sm:px-4 ${
+              className={`relative z-[2] flex min-w-[52px] shrink-0 flex-col items-center gap-0.5 rounded-full px-2 py-1.5 text-[10px] font-medium leading-tight transition-colors duration-300 sm:min-w-[72px] sm:px-4 sm:text-[11px] ${
                 active ? "text-white" : "text-muted hover:text-fg"
               }`}
             >
@@ -69,7 +73,7 @@ export function BottomNav({ role }: { role: Role }) {
 
 function GridIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="7" height="7" rx="1.5" />
       <rect x="14" y="3" width="7" height="7" rx="1.5" />
       <rect x="3" y="14" width="7" height="7" rx="1.5" />
@@ -79,7 +83,7 @@ function GridIcon() {
 }
 function UsersIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
       <circle cx="9" cy="7" r="4" />
       <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" />
@@ -97,14 +101,14 @@ function LinkIcon() {
 
 function ShieldIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   );
 }
 function TrophyIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
       <path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3" />
     </svg>

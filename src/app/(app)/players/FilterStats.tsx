@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import type { PlayerRow } from "./PlayersClient";
 import { formatNumber, formatUSD, formatUSDCompact } from "@/lib/format";
 import { canonicalizeUniversity, uniKey } from "@/lib/universities";
+import { NCAA_DI_MENS_SOCCER_PROGRAMS, isDivisionOne } from "@/lib/ncaaPrograms";
 
 // Everything here is computed from the rows currently on screen, so applying a
 // filter re-reads the whole picture for that selection rather than the database.
@@ -49,6 +50,17 @@ export function FilterStats({
     for (const p of filtered)
       for (const u of canonicalizeUniversity(p.university)) unis.add(uniKey(u));
 
+    // How much of Division I Eture has actually reached. Distinct universities,
+    // because ten players at one college is still one programme — and measured
+    // against the number of Division I programmes that exist, not against our
+    // own operations, so it answers "where could we be" rather than "where are
+    // we busiest".
+    const diUnis = new Set<string>();
+    for (const p of filtered) {
+      if (!isDivisionOne(p.division)) continue;
+      for (const u of canonicalizeUniversity(p.university)) diUnis.add(uniKey(u));
+    }
+
     const champions = filtered.filter((p) => p.nationalChampion).length;
     const graduated = filtered.filter((p) => p.graduated).length;
     const playing = filtered.filter((p) => p.activeProfile).length;
@@ -70,6 +82,9 @@ export function FilterStats({
       ops,
       players,
       universities: unis.size,
+      diUniversities: diUnis.size,
+      diPresencePct:
+        Math.round((diUnis.size / NCAA_DI_MENS_SOCCER_PROGRAMS) * 1000) / 10,
       champions,
       championsPct: pct(champions),
       graduated,
@@ -126,6 +141,16 @@ export function FilterStats({
           value={`${shareOfAll}%`}
           sub={`${formatNumber(s.ops)} of all ${formatNumber(rows.length)}`}
         />
+        {/* Reach, not volume: the share of Division I programmes that have had
+            an Eture player, for whatever the filters are showing. */}
+        <Tile
+          label="Division I presence"
+          value={`${s.diPresencePct}%`}
+          sub={`${formatNumber(s.diUniversities)} of ${formatNumber(
+            NCAA_DI_MENS_SOCCER_PROGRAMS
+          )} DI programmes`}
+          accent="green"
+        />
         <Tile
           label="National champions"
           value={`${s.championsPct}%`}
@@ -168,6 +193,11 @@ export function FilterStats({
       </div>
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted">
+        <b className="text-fg">Division I presence</b> is how many different
+        Division I programmes this selection reached, over the{" "}
+        {formatNumber(NCAA_DI_MENS_SOCCER_PROGRAMS)} that exist &mdash; not the
+        366 Division I institutions, most of which field no men&rsquo;s soccer
+        team.{" "}
         <b className="text-fg">Share of database</b> is this selection over all{" "}
         {formatNumber(rows.length)} operations; the other percentages are measured
         against the {formatNumber(s.ops)} in this selection. Scholarship

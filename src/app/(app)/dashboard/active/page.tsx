@@ -48,6 +48,7 @@ function LeaderTable({
           No stats yet. Open a player, add their current university profile and press ↻ NCAA.
         </p>
       ) : (
+        <div className="scroll-area overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead className="bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
             <tr>
@@ -71,6 +72,7 @@ function LeaderTable({
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </section>
   );
@@ -143,7 +145,7 @@ export default async function ActivePlayersPage() {
             <div className="border-b border-ink-600 px-4 py-3">
               <h2 className="text-sm font-semibold text-fg">All active players</h2>
             </div>
-            <div className="overflow-x-auto">
+            <div className="scroll-area overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead className="bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
                   <tr>

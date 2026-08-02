@@ -145,6 +145,24 @@ export async function POST(req: Request) {
         active: data.active ?? true,
         createdById: session.user.id,
         updatedById: session.user.id,
+        // An imported row is an operation like any other, so it opens its
+        // college profile too — the same rule the New player form follows.
+        // Created alongside the record rather than in a second pass, so a
+        // five-thousand-row import costs no extra queries.
+        ...(data.university
+          ? {
+              profiles: {
+                create: {
+                  university: data.university,
+                  season: data.season ?? null,
+                  division: data.division ?? null,
+                  scholarship: data.scholarship ?? null,
+                  fullRide: data.fullRide ?? false,
+                  current: false,
+                },
+              },
+            }
+          : {}),
       },
     });
     created++;

@@ -49,11 +49,19 @@ const hostOf = (url) => {
 
 const apply = process.argv.includes("--apply");
 
+// Both tables carry the name, and they are typed independently: Isaac Briner's
+// record said "UNC Greensbhoro" while his college profile said "UNC
+// Greensboro". Reading only one of them leaves the other spelling behind.
 const rows = await sql`
   SELECT university, "ncaaUrl", COUNT(*)::int ops
   FROM "Player"
   WHERE active AND university IS NOT NULL AND university <> ''
-  GROUP BY university, "ncaaUrl"`;
+  GROUP BY university, "ncaaUrl"
+  UNION ALL
+  SELECT pr.university, pr."rosterUrl", COUNT(*)::int
+  FROM "PlayerProfile" pr JOIN "Player" p ON p.id = pr."playerId"
+  WHERE p.active AND pr.university IS NOT NULL AND pr.university <> ''
+  GROUP BY pr.university, pr."rosterUrl"`;
 
 // Two sources of the same evidence. The link a record carries is the stronger
 // one; for records with no link, the athletics domain the NCAA directory
@@ -65,9 +73,31 @@ const domainForName = (name) => {
   return first ? first.replace(/^www\./, "") : null;
 };
 
+// A name that some record has linked is already settled: "Marian" is the
+// Indianapolis one because Álvaro Rueda's link says muknights.com, whatever
+// the directory guesses from the word alone. Only a name nobody has linked
+// falls back to that guess — otherwise one linkless row is enough to file a
+// name under a school it has nothing to do with.
+const linkedHosts = new Map();
+for (const r of rows) {
+  const host = hostOf(r.ncaaUrl);
+  if (!host) continue;
+  const seen = linkedHosts.get(r.university) ?? new Set();
+  seen.add(host);
+  linkedHosts.set(r.university, seen);
+}
+const hostFor = (r) => {
+  const own = hostOf(r.ncaaUrl);
+  if (own) return own;
+  const linked = linkedHosts.get(r.university);
+  if (!linked) return domainForName(r.university);
+  // Linked to more than one school under one spelling: no single answer.
+  return linked.size === 1 ? [...linked][0] : null;
+};
+
 const byHost = new Map();
 for (const r of rows) {
-  const host = hostOf(r.ncaaUrl) ?? domainForName(r.university);
+  const host = hostFor(r);
   if (!host) continue;
   const seen = byHost.get(host) ?? new Map();
   seen.set(r.university, (seen.get(r.university) ?? 0) + r.ops);
@@ -103,26 +133,41 @@ function distance(a, b) {
   return prev[b.length];
 }
 
+// Every way a name gets written down. "UNCG" and "URI" put a U for University
+// in front of the initials; "Fairleigh Dickinson University, Metropolitan
+// Campus" is FDU, because the campus after the comma is not part of how anyone
+// abbreviates it; "NC State" drops to "NC" once the filler words go.
+function formsOf(name) {
+  const out = new Set();
+  for (const n of [name, name.split(",")[0]]) {
+    out.add(words(n).join(""));
+    out.add(meaningful(n).join(""));
+    // Only a name of several words has initials worth comparing: reduce a
+    // one-word name and "Niagara University" becomes "n", which matches
+    // anything else that happens to start with one.
+    if (words(n).length > 1) out.add(acronym(n));
+    if (meaningful(n).length > 1) {
+      out.add(acronymNoFiller(n));
+      out.add("u" + acronymNoFiller(n));
+    }
+  }
+  out.delete("");
+  return out;
+}
+
 function sameSchool(variant, official) {
-  const v = words(variant).join("");
-  // "UNCG" and "URI" put a U for University in front of the initials.
-  // "Fairleigh Dickinson University, Metropolitan Campus" is FDU: the campus
-  // after the comma is not part of how anyone abbreviates it.
-  const short = official.split(",")[0];
-  const forms = new Set([
-    acronym(official),
-    acronymNoFiller(official),
-    "u" + acronymNoFiller(official),
-    acronym(short),
-    acronymNoFiller(short),
-    "u" + acronymNoFiller(short),
-  ]);
-  if (forms.has(v)) return true;
+  const ours = formsOf(variant);
+  for (const f of formsOf(official)) if (ours.has(f)) return true;
+
   const theirs = meaningful(official);
-  const ours = meaningful(variant);
-  if (ours.some((w) => theirs.includes(w))) return true;
+  const mine = meaningful(variant);
+  if (mine.some((w) => theirs.includes(w))) return true;
+  // "Metro State" for Metropolitan, "Mass" for Massachusetts: the everyday
+  // short form of a word the official name spells out.
+  if (mine.some((w) => w.length >= 4 && theirs.some((t) => t.startsWith(w) || w.startsWith(t))))
+    return true;
   // "EVANSVILLLE", "Limpscomb": typed from memory, one letter out.
-  return ours.some((w) => theirs.some((t) => w.length > 4 && distance(w, t) <= 2));
+  return mine.some((w) => theirs.some((t) => w.length > 4 && distance(w, t) <= 2));
 }
 
 const merges = [];
@@ -130,14 +175,23 @@ const suspicious = [];
 for (const [host, variants] of byHost) {
   if (variants.size < 2) continue;
   const official = officialByHost.get(host);
-  // Without an official name, keep the spelling most operations used.
-  const ranked = [...variants.entries()].sort((a, b) => b[1] - a[1]);
+  // Without an official name, keep the spelling most operations used — but
+  // never a shouted one over a written one. "INDIANA TECH" is a spreadsheet
+  // artefact; "Indiana Tech" is the school's name.
+  const shouted = (n) => n === n.toUpperCase() && /[A-Z]/.test(n);
+  const ranked = [...variants.entries()].sort(
+    (a, b) => Number(shouted(a[0])) - Number(shouted(b[0])) || b[1] - a[1]
+  );
   const target = official ?? ranked[0][0];
 
   const from = [];
   for (const [name, ops] of ranked) {
     if (name === target) continue;
-    if (sameSchool(name, target) || sameSchool(name, ranked[0][0])) from.push(name);
+    // The dominant spelling is only a yardstick when the directory gave us no
+    // official name to measure against — otherwise a variant would be waved
+    // through for resembling itself.
+    if (sameSchool(name, target) || (!official && sameSchool(name, ranked[0][0])))
+      from.push(name);
     else suspicious.push({ host, name, ops, target });
   }
   if (from.length === 0) continue;
@@ -165,6 +219,7 @@ if (!apply) {
 }
 
 let renamed = 0;
+let profiles = 0;
 for (const m of merges) {
   for (const name of m.from) {
     const r = await sql`
@@ -174,18 +229,22 @@ for (const m of merges) {
       RETURNING id`;
     renamed += r.length;
     // The college profiles carry the name too.
-    await sql`
-      UPDATE "PlayerProfile" SET university = ${name === m.target ? name : m.target}
+    const p = await sql`
+      UPDATE "PlayerProfile" SET university = ${m.target}
       WHERE university = ${name}
-        AND ("rosterUrl" LIKE ${"%" + m.host + "%"} OR "rosterUrl" IS NULL)`;
+        AND ("rosterUrl" LIKE ${"%" + m.host + "%"} OR "rosterUrl" IS NULL)
+      RETURNING id`;
+    profiles += p.length;
   }
 }
 
 await sql`
   INSERT INTO "AuditLog" (id, entity, action, summary, changes, "userEmail", "userName", "createdAt")
   VALUES (gen_random_uuid()::text, 'Player', 'university_names_merged',
-    ${`Merged ${merges.length} universities typed more than one way, renaming ${renamed} operations`},
+    ${`Merged ${merges.length} universities typed more than one way, renaming ${renamed} operations and ${profiles} college profiles`},
     ${JSON.stringify(merges)}::jsonb,
     'marketing@eturesports.com', 'System maintenance', now())`;
 
-console.log(`\nRenamed ${renamed} operations across ${merges.length} universities.`);
+console.log(
+  `\nRenamed ${renamed} operations and ${profiles} college profiles across ${merges.length} universities.`
+);

@@ -6,6 +6,7 @@ import { ProfilesSection } from "./ProfilesSection";
 import { AchievementsSection } from "./AchievementsSection";
 import { ShareLinkPanel } from "./ShareLinkPanel";
 import { uniKey } from "@/lib/universities";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
 
 function Photo({ url, label }: { url: string | null; label: string }) {
   return (
@@ -50,13 +51,17 @@ export function PlayerDetail({
   onClose: () => void;
   onEdit: () => void;
 }) {
+  useModal(onClose);
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      className={MODAL_BACKDROP}
       onMouseDown={onClose}
     >
       <div
-        className="card max-h-[90vh] w-full max-w-lg overflow-y-auto p-6"
+        role="dialog"
+        aria-modal="true"
+        className={`${MODAL_PANEL} sm:max-w-lg`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-start justify-between gap-3">

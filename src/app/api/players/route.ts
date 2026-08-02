@@ -5,6 +5,8 @@ import { canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
 import { personIdFor } from "@/lib/person";
+import { setPlayingNow } from "@/lib/profiles";
+import { syncPlayerFromProfiles } from "@/lib/divisions";
 import type { Prisma } from "@prisma/client";
 
 // GET /api/players?sport=MSOC&season=24/25&division=Division I&program=...&q=texto
@@ -76,9 +78,13 @@ export async function POST(req: Request) {
       division: data.division ?? null,
       program: data.program ?? null,
       scholarship: data.scholarship ?? null,
+      fullRide: data.fullRide ?? false,
       notes: data.notes ?? null,
       legacyNumber: data.legacyNumber ?? null,
       active: data.active ?? true,
+      graduated: data.graduated ?? false,
+      graduationYear: data.graduationYear ?? null,
+      nationalChampion: data.nationalChampion ?? false,
       profileImageUrl: data.profileImageUrl ?? null,
       actionImageUrl: data.actionImageUrl ?? null,
       ncaaUrl: data.ncaaUrl ?? null,
@@ -100,5 +106,50 @@ export async function POST(req: Request) {
     summary: `Created player “${player.name}”`,
   });
 
-  return NextResponse.json({ player }, { status: 201 });
+  // The college profile is where a stint's facts live — the money agreed, the
+  // division, the photos taken in that shirt — so an operation is not complete
+  // without one. Signing a player is exactly when none of that exists yet: no
+  // roster page has been published, so the link is deliberately left empty and
+  // added later, and the profile is created from what is known today.
+  if (data.university) {
+    const profile = await prisma.playerProfile.create({
+      data: {
+        playerId: player.id,
+        university: data.university,
+        season: data.season ?? null,
+        division: data.division ?? null,
+        scholarship: data.scholarship ?? null,
+        fullRide: data.fullRide ?? false,
+        // Being signed is not the same as being on a roster; "playing now" is
+        // its own deliberate choice, applied just below when it was made.
+        current: false,
+      },
+    });
+
+    await logAudit(session.user, {
+      entity: "PlayerProfile",
+      entityId: profile.id,
+      entityName: `${player.name} — ${profile.university}`,
+      action: "create",
+      summary: `Opened ${player.name}'s ${profile.university} profile with the new operation`,
+      changes: {
+        university: profile.university,
+        season: profile.season,
+        scholarship: profile.scholarship,
+        fullRide: profile.fullRide,
+      },
+    });
+  }
+
+  if (body.playingNow) await setPlayingNow(player.id, true);
+
+  // The record mirrors its profiles, so it is refreshed from the one just
+  // created rather than left holding a separate copy that could drift.
+  await syncPlayerFromProfiles(player.id);
+  const saved = await prisma.player.findUnique({
+    where: { id: player.id },
+    include: { sport: { select: { code: true, name: true } } },
+  });
+
+  return NextResponse.json({ player: saved ?? player }, { status: 201 });
 }

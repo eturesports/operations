@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Select } from "@/components/Select";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
 
 export type BulkPatch = {
   season?: string;
@@ -53,6 +54,8 @@ export function BulkEditModal({
   onClose: () => void;
   onApply: (patch: BulkPatch) => Promise<void>;
 }) {
+  useModal(onClose);
+
   const [season, setSeason] = useState("");
   const [program, setProgram] = useState("");
   const [university, setUniversity] = useState("");
@@ -98,10 +101,15 @@ export function BulkEditModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      className={MODAL_BACKDROP}
       onMouseDown={onClose}
     >
-      <div className="card w-full max-w-md p-6" onMouseDown={(e) => e.stopPropagation()}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        className={`${MODAL_PANEL} sm:max-w-md`}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
         <div className="mb-1 flex items-center justify-between">
           <h2 className="text-lg font-bold text-fg">Bulk edit</h2>
           <button onClick={onClose} className="text-muted hover:text-fg">

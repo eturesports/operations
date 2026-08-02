@@ -1,9 +1,9 @@
 "use client";
 
-import { trackPointer } from "@/components/useTravellingPill";
 
 import { useState } from "react";
 import { parseCSV, rowsToPlayers, type CsvPlayer } from "@/lib/csv";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
 
 type SportOpt = { id: string; code: string; name: string };
 
@@ -25,6 +25,8 @@ export function ImportModal({
   onClose: () => void;
   onDone: () => void;
 }) {
+  useModal(onClose);
+
   const [sportId, setSportId] = useState(defaultSportId);
   const [skipDuplicates, setSkipDuplicates] = useState(true);
   const [players, setPlayers] = useState<CsvPlayer[]>([]);
@@ -79,13 +81,14 @@ export function ImportModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      className={MODAL_BACKDROP}
       onMouseDown={onClose}
     >
       <div
-        className="liquid-glass w-full max-w-lg rounded-2xl p-6"
+        role="dialog"
+        aria-modal="true"
+        className={`${MODAL_PANEL} sm:max-w-lg`}
         onMouseDown={(e) => e.stopPropagation()}
-        onPointerMove={trackPointer}
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-fg">Import players (CSV)</h2>

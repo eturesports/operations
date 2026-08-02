@@ -67,19 +67,49 @@ body {
   color: rgb(var(--fg));
 }
 
+html {
+  /* iPhones enlarge text in landscape unless told not to. */
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   min-height: 100vh;
-  /* Very faint, calm wash — minimalist */
+  min-height: 100dvh;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The calm wash behind everything. It lives on its own fixed layer rather
+   than on the body as a fixed background: `background-attachment: fixed`
+   makes Safari re-rasterise the gradient on every scroll frame, which is
+   felt on a phone as the whole page stuttering. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image: radial-gradient(
       1200px 620px at 92% -18%,
       var(--page-grad-1),
       transparent 62%
     ),
     radial-gradient(900px 520px at -12% 116%, var(--page-grad-2), transparent 62%);
-  background-attachment: fixed;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
+}
+
+/* Safari zooms the page when a field smaller than 16px takes focus, and never
+   zooms back out — the most disorienting thing that can happen on a phone.
+   Deliberately outside every @layer: unlayered rules outrank layered ones, so
+   this holds even on a field a utility class has sized down (the embed's
+   filters are text-xs). Desktop sizing is untouched. */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea,
+  .input {
+    font-size: 16px;
+  }
 }
 
 /* Discreet scrollbars */
@@ -97,27 +127,61 @@ body {
 }
 
 @layer base {
-  h1,
+  /* Tracking is size-specific, never one value for everything. Letters read
+     further apart as they grow, so large text is tightened and small text is
+     left alone — a single letter-spacing is wrong at one end or the other.
+     Leading moves the opposite way: tight on headings, comfortable on body.
+     The old rule opened headings up by 0.01em, which is the wrong direction
+     for the size they are actually rendered at. */
+  h1 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
   h2 {
     font-family: var(--font-display);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  h3 {
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  /* Small print is the one place tracking opens up: it is what keeps a
+     10px label legible. */
+  .label,
+  .kicker,
+  .badge {
+    font-optical-sizing: auto;
   }
 }
 
 @layer components {
-  /* Minimalist Liquid Glass surface (Apple-style): translucent, hairline border,
-     soft layered shadow, neutral (low-saturation) blur. */
-  .glass {
+  /* The Liquid Glass look without the blur: translucent fill, hairline
+     border, the same soft layered shadow. Everything a panel sitting on the
+     page needs. */
+  .surface {
     background: rgb(var(--glass-bg) / var(--glass-alpha));
-    -webkit-backdrop-filter: blur(24px) saturate(135%);
-    backdrop-filter: blur(24px) saturate(135%);
     border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
     box-shadow: 0 1px 2px rgb(0 0 0 / 0.04),
       0 12px 32px -14px rgb(0 0 0 / 0.2),
       inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
   }
+
+  /* The surface plus a real backdrop blur. Reserved for chrome that floats
+     over moving content — the bar, the nav, dropdowns, modals — because that
+     is the only place the blur has anything to show.
+     It is not free: each one is a compositing layer whose backdrop is
+     re-sampled as things move underneath. A gallery of cards using it meant
+     hundreds of those layers over a flat page, which is what made scrolling
+     stutter on a phone for an effect nobody could see. */
+  .glass {
+    @apply surface;
+    -webkit-backdrop-filter: blur(24px) saturate(135%);
+    backdrop-filter: blur(24px) saturate(135%);
+  }
   .card {
-    @apply glass glass-rim rounded-2xl;
+    @apply surface glass-rim rounded-2xl;
   }
 
   /* The refracting edge. A gradient drawn only on the border box, brightest
@@ -202,7 +266,82 @@ body {
       width 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
       height 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
       opacity 200ms ease;
+    will-change: transform;
     z-index: 1;
+  }
+
+  /* Vibrancy. Flat grey text sitting on a blurred surface loses contrast as
+     whatever is behind it moves, so on translucent chrome the secondary text
+     is carried by weight and a touch of tracking rather than by colour
+     alone. Only on the chrome — body copy on a solid panel is fine as is. */
+  .liquid-glass .text-muted {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  /* A surface arriving, rather than a rectangle fading in: the blur, the
+     scale and the opacity move together, so it reads as a real material
+     coming into focus. It leaves along the path it came by — a sheet that
+     rises from the bottom edge dismisses back to it. */
+  .sheet-in {
+    animation: sheet-in 320ms cubic-bezier(0.32, 1.12, 0.5, 1) both;
+  }
+  .scrim-in {
+    animation: scrim-in 240ms ease-out both;
+  }
+
+  @keyframes sheet-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.97);
+      -webkit-backdrop-filter: blur(0) saturate(100%);
+      backdrop-filter: blur(0) saturate(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes scrim-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* A menu belongs to the control that opened it, so it grows out of that
+     control's edge rather than appearing at its own centre. The spatial
+     relationship between the two is then obvious without thinking about it. */
+  .popover-in {
+    transform-origin: top center;
+    animation: popover-in 160ms cubic-bezier(0.32, 1.12, 0.5, 1) both;
+  }
+  @keyframes popover-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* On a phone the panel is a sheet against the bottom edge, so it comes up
+     from that edge — the direction it will leave by. */
+  @media (max-width: 639px) {
+    @keyframes sheet-in {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -212,10 +351,56 @@ body {
     .liquid-glass::after {
       transition: none;
     }
+    /* Reduced motion is not no feedback: the surface still arrives, it just
+       does it by fading rather than travelling. */
+    .sheet-in {
+      animation: scrim-in 180ms ease-out both;
+    }
+    .popover-in {
+      animation: scrim-in 120ms ease-out both;
+    }
   }
 
+  /* Translucency is a preference, not a given. Asked to reduce it, the
+     materials become frosted solids and the blur goes — cheaper to render
+     and far easier to read. */
+  @media (prefers-reduced-transparency: reduce) {
+    .glass,
+    .surface,
+    .liquid-glass {
+      background: rgb(var(--ink-900));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  @media (prefers-contrast: more) {
+    .glass,
+    .surface,
+    .liquid-glass {
+      background: rgb(var(--ink-900));
+      border-color: rgb(var(--fg) / 0.35);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .glass-rim::before,
+    .liquid-glass::after {
+      display: none;
+    }
+  }
+
+  /* The press is the feedback, and it has to be immediate — the moment there
+     is lag between finger and response, directness falls off a cliff. So the
+     transform answers in 100ms on pointer-down, while colour is free to take
+     its time. `transition-all` used to animate both at 150ms, which put a
+     visible delay on the one property the hand is watching. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-150 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50;
+    transition:
+      transform 100ms ease-out,
+      background-color 150ms ease,
+      border-color 150ms ease,
+      opacity 150ms ease;
   }
   .btn-primary {
     @apply btn text-white;
@@ -265,5 +450,22 @@ body {
   .kicker {
     @apply text-xs font-bold uppercase text-brand;
     letter-spacing: 0.3em;
+  }
+}
+
+@layer utilities {
+  /* A strip you swipe rather than a scrollbar you aim at. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Anything that scrolls inside something else: momentum on iOS, and the
+     page underneath stays put when you reach the end. */
+  .scroll-area {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 }

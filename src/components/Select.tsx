@@ -45,11 +45,11 @@ export function Select({
 
   useEffect(() => {
     if (!open) return;
-    function onDocMouseDown(e: MouseEvent) {
+    function onDocMouseDown(e: Event) {
       if (!wrapRef.current?.contains(e.target as Node)) close();
     }
-    document.addEventListener("mousedown", onDocMouseDown);
-    return () => document.removeEventListener("mousedown", onDocMouseDown);
+    document.addEventListener("pointerdown", onDocMouseDown);
+    return () => document.removeEventListener("pointerdown", onDocMouseDown);
   }, [open]);
 
   function close() {
@@ -128,7 +128,7 @@ export function Select({
         <ul
           id={listId}
           role="listbox"
-          className="glass glass-rim absolute z-50 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl p-1"
+          className="glass glass-rim scroll-area popover-in absolute z-50 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl p-1"
         >
           {shown.map((o, i) => {
             const selected = o === value;

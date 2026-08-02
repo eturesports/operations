@@ -61,12 +61,14 @@ export function PlayerCard({
 
   return (
     <div
-      className={`card group relative overflow-hidden transition-all hover:-translate-y-0.5 ${
+      className={`card group relative overflow-hidden transition-transform hover:-translate-y-0.5 ${
         selected ? "ring-2 ring-brand" : ""
       }`}
     >
+      {/* The padding is the point: a 16px checkbox is not a target you can hit
+          with a thumb, so the label carries the tap area around it. */}
       {selectable && (
-        <label className="absolute left-3 top-3 z-20 cursor-pointer">
+        <label className="absolute left-1 top-1 z-20 cursor-pointer p-2">
           <input
             type="checkbox"
             className="h-4 w-4 accent-brand"

@@ -22,7 +22,7 @@ function SegTable({
         <h2 className="text-sm font-semibold text-fg">{title}</h2>
         <span className="text-xs text-muted">{coverage}% coverage</span>
       </div>
-      <div className="overflow-x-auto">
+      <div className="scroll-area overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead className="bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
             <tr>

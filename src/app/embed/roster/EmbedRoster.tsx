@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { PublicPlayer, PublicSeason } from "@/lib/publicRoster";
+import { usePagedList } from "@/components/usePagedList";
 
 // This widget lives inside somebody else's page, so it owns a fixed slice of
 // it: the filters stay put and the grid scrolls beneath them, never growing
@@ -160,8 +161,12 @@ export function EmbedRoster({
     [players]
   );
 
+  // The field stays responsive while the grid catches up — the widget runs
+  // inside somebody else's page on a phone, where it gets the least CPU.
+  const deferredQ = useDeferredValue(q);
+
   const visible = useMemo(() => {
-    const needle = q.trim().toLowerCase();
+    const needle = deferredQ.trim().toLowerCase();
     return players.filter((p) => {
       if (season && p.season !== season) return false;
       if (division && p.division !== division) return false;
@@ -170,7 +175,14 @@ export function EmbedRoster({
       if (!needle) return true;
       return `${p.name} ${p.university ?? ""}`.toLowerCase().includes(needle);
     });
-  }, [players, season, division, university, onlyPlaying, q]);
+  }, [players, season, division, university, onlyPlaying, deferredQ]);
+
+  // Hundreds of cards with photos inside an iframe is what makes an embedded
+  // widget feel broken on a phone. Only a couple of screens are drawn, and
+  // the rest arrive as the visitor scrolls; the figures above still count
+  // everything the filters matched.
+  const { count: shownCount, sentinel, done: allShown } = usePagedList(visible.length, 40);
+  const drawn = useMemo(() => visible.slice(0, shownCount), [visible, shownCount]);
 
   const totals = useMemo(
     () => ({
@@ -298,14 +310,15 @@ export function EmbedRoster({
       </div>
 
       {/* Only this scrolls, so the figures and filters stay in view */}
-      <div className="min-h-0 flex-1 overflow-y-auto pr-0.5">
+      <div className="scroll-area min-h-0 flex-1 overflow-y-auto pr-0.5">
         {visible.length === 0 ? (
           <p className="py-16 text-center text-sm text-muted">No players to show here.</p>
         ) : (
           <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {visible.map((p) => (
+            {drawn.map((p) => (
               <Card key={p.slug} p={p} />
             ))}
+            {!allShown && <div ref={sentinel} className="col-span-full h-px" aria-hidden />}
           </div>
         )}
       </div>

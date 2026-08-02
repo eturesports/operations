@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { usePagedList } from "@/components/usePagedList";
 import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
 import { DIVISIONS, PROGRAMS } from "@/lib/permissions";
 import { PlayerModal, type PlayerForm } from "./PlayerModal";
@@ -124,10 +125,13 @@ export function PlayersClient({
   const [busy, setBusy] = useState(false);
   const [view, setView] = useState<"table" | "gallery">("table");
 
-  // remember the chosen view between visits
+  // Remember the chosen view between visits. With no choice on record, the
+  // screen decides: a nine-column table on a phone is a table you read
+  // through a letterbox, so a phone starts on the cards.
   useEffect(() => {
     const saved = localStorage.getItem("eture-players-view");
     if (saved === "gallery" || saved === "table") setView(saved);
+    else if (window.matchMedia("(max-width: 640px)").matches) setView("gallery");
   }, []);
   function chooseView(v: "table" | "gallery") {
     setView(v);
@@ -144,8 +148,14 @@ export function PlayersClient({
     [facets.programs]
   );
 
+  // The field keeps up with the typing; the list is allowed to arrive a beat
+  // later. Without this, every character re-filters and re-sorts the whole
+  // database before the letter appears, and the search box feels broken on a
+  // phone even though nothing is wrong.
+  const deferredQ = useDeferredValue(q);
+
   const filtered = useMemo(() => {
-    const needle = q.trim().toLowerCase();
+    const needle = deferredQ.trim().toLowerCase();
     const rows = players.filter((p) => {
       if (fSport && p.sportCode !== fSport) return false;
       if (fSeason.length && !fSeason.includes(p.season ?? "")) return false;
@@ -187,9 +197,14 @@ export function PlayersClient({
       return cmp * dir;
     });
   }, [
-    players, q, fSport, fSeason, fDivision, fProgram, fActiveOnly, fGraduated,
+    players, deferredQ, fSport, fSeason, fDivision, fProgram, fActiveOnly, fGraduated,
     fStatus, sortKey, sortAsc,
   ]);
+
+  // Everything below counts, exports and selects the whole filtered list;
+  // only the rows on screen are paged in as you scroll.
+  const { count: shownCount, sentinel, done: allShown } = usePagedList(filtered.length);
+  const visible = useMemo(() => filtered.slice(0, shownCount), [filtered, shownCount]);
 
   const totalScholarship = filtered.reduce((a, p) => a + (p.scholarship ?? 0), 0);
   const activeFilters =
@@ -685,7 +700,9 @@ export function PlayersClient({
             <p className="mt-1 text-xs text-muted">{statsRun.note}</p>
           )}
         </div>
-        <div className="flex flex-wrap gap-2">
+        {/* Two even columns on a phone, where five buttons of different
+            widths otherwise wrap into a ragged stack. */}
+        <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap">
           {editable && (
             <button
               onClick={refreshFilteredStats}
@@ -816,24 +833,36 @@ export function PlayersClient({
           <span className="text-sm font-medium text-fg">
             {selectedCount} selected
           </span>
-          <div className="ml-auto flex flex-wrap gap-2">
+          {/* Full width and a finger-sized target on a phone; a tidy row on
+              the right at desk width. */}
+          <div className="grid w-full grid-cols-2 gap-2 sm:ml-auto sm:flex sm:w-auto sm:flex-wrap">
             <button
               onClick={bulkRefreshStats}
               disabled={busy || statsRun.busy}
-              className="btn-ghost px-3 py-1.5 text-xs"
+              className="btn-ghost px-3 py-2.5 text-xs sm:py-1.5"
               title="Pull stats and photos from each player's college roster page"
             >
               {statsRun.busy
                 ? `Refreshing ${statsRun.done}/${statsRun.total}…`
                 : "Refresh college stats"}
             </button>
-            <button onClick={() => setBulkEditOpen(true)} className="btn-ghost px-3 py-1.5 text-xs">
+            <button
+              onClick={() => setBulkEditOpen(true)}
+              className="btn-ghost px-3 py-2.5 text-xs sm:py-1.5"
+            >
               Bulk edit
             </button>
-            <button onClick={bulkDelete} disabled={busy} className="btn-danger px-3 py-1.5 text-xs">
+            <button
+              onClick={bulkDelete}
+              disabled={busy}
+              className="btn-danger px-3 py-2.5 text-xs sm:py-1.5"
+            >
               Delete selected
             </button>
-            <button onClick={clearSelection} className="btn-ghost px-3 py-1.5 text-xs">
+            <button
+              onClick={clearSelection}
+              className="btn-ghost px-3 py-2.5 text-xs sm:py-1.5"
+            >
               Clear
             </button>
           </div>
@@ -862,7 +891,9 @@ export function PlayersClient({
       {/* View switch */}
       <div className="flex items-center justify-between gap-3">
         <span className="text-xs text-muted">
-          {filtered.length} player{filtered.length === 1 ? "" : "s"}
+          {allShown
+            ? `${filtered.length} player${filtered.length === 1 ? "" : "s"}`
+            : `${shownCount} of ${filtered.length} shown`}
         </span>
         <div className="flex gap-1 rounded-full border border-ink-600 p-1">
           {([
@@ -885,7 +916,7 @@ export function PlayersClient({
 
       {view === "gallery" ? (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((p) => (
+          {visible.map((p) => (
             <PlayerCard
               key={p.id}
               player={p}
@@ -900,11 +931,12 @@ export function PlayersClient({
               No players match the current filters.
             </div>
           )}
+          {!allShown && <div ref={sentinel} className="col-span-full h-px" aria-hidden />}
         </div>
       ) : (
       /* Table */
       <div className="card overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="scroll-area overflow-x-auto">
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
@@ -935,7 +967,7 @@ export function PlayersClient({
               </tr>
             </thead>
             <tbody>
-              {filtered.map((p) => {
+              {visible.map((p) => {
                 const isSel = selected.has(p.id);
                 return (
                   <tr
@@ -1143,6 +1175,7 @@ export function PlayersClient({
             </tbody>
           </table>
         </div>
+        {!allShown && <div ref={sentinel} className="h-px" aria-hidden />}
       </div>
       )}
 

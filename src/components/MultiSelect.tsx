@@ -36,14 +36,14 @@ export function MultiSelect({
 
   useEffect(() => {
     if (!open) return;
-    function onDown(e: MouseEvent) {
+    function onDown(e: Event) {
       if (!wrapRef.current?.contains(e.target as Node)) {
         setOpen(false);
         setQuery("");
       }
     }
-    document.addEventListener("mousedown", onDown);
-    return () => document.removeEventListener("mousedown", onDown);
+    document.addEventListener("pointerdown", onDown);
+    return () => document.removeEventListener("pointerdown", onDown);
   }, [open]);
 
   function add(v: string) {
@@ -115,7 +115,7 @@ export function MultiSelect({
         <ul
           id={listId}
           role="listbox"
-          className="glass glass-rim absolute z-50 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl p-1"
+          className="glass glass-rim scroll-area popover-in absolute z-50 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl p-1"
         >
           {shown.slice(0, 80).map((o, i) => (
             <li key={o} role="option" aria-selected={false}>

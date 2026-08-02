@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { trackPointer, useTravellingPill } from "./useTravellingPill";
 
 const TABS = [
@@ -19,11 +20,24 @@ export function AnalyticsTabs() {
   const activeIndex = TABS.findIndex((t) => t.href === pathname);
   const { container, items, pill, settled } = useTravellingPill<HTMLDivElement>(activeIndex);
 
+  // Seven tabs do not fit a phone, so the one you are on has to be brought
+  // into view — otherwise the bar looks like it starts at "Authority" no
+  // matter which page you opened.
+  useEffect(() => {
+    const el = items.current[activeIndex];
+    const box = container.current;
+    if (!el || !box || box.scrollWidth <= box.clientWidth) return;
+    box.scrollTo({
+      left: el.offsetLeft - (box.clientWidth - el.offsetWidth) / 2,
+      behavior: "smooth",
+    });
+  }, [activeIndex, container, items]);
+
   return (
     <div
       ref={container}
       onPointerMove={trackPointer}
-      className="liquid-glass relative flex gap-1 overflow-x-auto rounded-full p-1"
+      className="liquid-glass no-scrollbar relative flex gap-1 overflow-x-auto rounded-full p-1"
     >
       {pill && (
         <span

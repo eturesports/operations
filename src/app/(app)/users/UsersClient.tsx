@@ -131,7 +131,7 @@ export function UsersClient({
 
       {/* Members */}
       <div className="card overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="scroll-area overflow-x-auto">
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>

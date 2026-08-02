@@ -16,10 +16,13 @@ export default async function AppLayout({
   }
 
   return (
-    <div className="min-h-screen">
-      <div className="mx-auto max-w-6xl px-3 sm:px-4">
+    <div className="min-h-[100dvh]">
+      {/* Held clear of the notch in landscape, now that the page is allowed
+          to reach the edges of the screen. */}
+      <div className="mx-auto max-w-6xl px-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:px-4">
         <TopBar user={session.user} signOutAction={signOutAction} />
-        <main className="py-6 pb-28">{children}</main>
+        {/* Room for the floating navigation and the home indicator beneath it. */}
+        <main className="py-6 pb-[calc(7rem+env(safe-area-inset-bottom))]">{children}</main>
       </div>
       <BottomNav role={session.user.role} />
     </div>
