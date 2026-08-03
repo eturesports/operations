@@ -24,6 +24,10 @@ export type PlayerInput = {
   graduationYear?: number | null;
   nationalChampion?: boolean;
   fullRide?: boolean;
+  mlsDraftYear?: number | null;
+  mlsDraftClub?: string | null;
+  mlsDraftRound?: number | null;
+  mlsDraftPick?: number | null;
 };
 
 function str(v: unknown): string | null {
@@ -88,6 +92,10 @@ export function parsePlayerInput(
   if ("graduated" in body) data.graduated = boolish(body.graduated);
   if ("nationalChampion" in body) data.nationalChampion = boolish(body.nationalChampion);
   if ("fullRide" in body) data.fullRide = boolish(body.fullRide);
+  if ("mlsDraftYear" in body) data.mlsDraftYear = intOrNull(body.mlsDraftYear);
+  if ("mlsDraftClub" in body) data.mlsDraftClub = str(body.mlsDraftClub);
+  if ("mlsDraftRound" in body) data.mlsDraftRound = intOrNull(body.mlsDraftRound);
+  if ("mlsDraftPick" in body) data.mlsDraftPick = intOrNull(body.mlsDraftPick);
   if ("profileImageUrl" in body) data.profileImageUrl = str(body.profileImageUrl);
   if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
   if ("graduationYear" in body) {

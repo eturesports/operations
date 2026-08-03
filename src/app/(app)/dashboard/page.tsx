@@ -90,6 +90,18 @@ export default async function DashboardPage() {
         />
         <StatCard label="Universities reached" value={formatNumber(a.universities)} sub="Distinct destinations" />
         <StatCard
+          label="MLS Draft picks"
+          value={formatNumber(a.mlsDraft.players)}
+          sub={
+            a.mlsDraft.players === 0
+              ? "None recorded yet"
+              : a.mlsDraft.picks
+                  .slice(0, 2)
+                  .map((d) => `${d.name}${d.club ? ` · ${d.club}` : ""}`)
+                  .join(" · ")
+          }
+        />
+        <StatCard
           label="Editions"
           value={a.seasonFrom && a.seasonTo ? `${a.seasonFrom}–${a.seasonTo}` : "—"}
           sub={`${a.seasonsCount} seasons · ~${formatNumber(a.avgPerSeason)}/yr`}

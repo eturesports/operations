@@ -121,6 +121,22 @@ export function PlayerDetail({
           </div>
         )}
 
+        {/* Drafted once, at the end of the college years, so it sits with the
+            player rather than with any one university. */}
+        {(player.mlsDraftYear != null || player.mlsDraftClub) && (
+          <div className="mt-4 rounded-xl border border-accent/30 bg-accent/5 p-3">
+            <div className="text-[10px] uppercase tracking-wide text-accent">
+              MLS Draft pick
+            </div>
+            <p className="mt-1 text-sm text-fg">
+              {player.mlsDraftClub ?? "MLS"}
+              {player.mlsDraftYear ? ` · ${player.mlsDraftYear}` : ""}
+              {player.mlsDraftRound ? ` · Round ${player.mlsDraftRound}` : ""}
+              {player.mlsDraftPick ? ` · Pick ${player.mlsDraftPick}` : ""}
+            </p>
+          </div>
+        )}
+
         {/* Read-only here — university profiles and NCAA stats are edited in
             the single Edit form, so there is only one place to change things. */}
         <ProfilesSection

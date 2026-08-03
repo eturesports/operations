@@ -21,6 +21,11 @@ export const PERSON_FIELDS = [
   "instagramUrl",
   "graduated",
   "graduationYear",
+  // Drafted once, at the end of the college years — not at any one of them.
+  "mlsDraftYear",
+  "mlsDraftClub",
+  "mlsDraftRound",
+  "mlsDraftPick",
 ] as const;
 
 /** True of this operation only. */

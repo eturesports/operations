@@ -33,6 +33,10 @@ export type PlayerForm = {
   graduationYear: string;
   nationalChampion: boolean;
   fullRide: boolean;
+  mlsDraftYear: string;
+  mlsDraftClub: string;
+  mlsDraftRound: string;
+  mlsDraftPick: string;
 };
 
 type SportOpt = { id: string; code: string; name: string };
@@ -158,6 +162,10 @@ export function PlayerModal({
     graduated: initial?.graduated ?? false,
     nationalChampion: initial?.nationalChampion ?? false,
     fullRide: initial?.fullRide ?? false,
+    mlsDraftYear: initial?.mlsDraftYear != null ? String(initial.mlsDraftYear) : "",
+    mlsDraftClub: initial?.mlsDraftClub ?? "",
+    mlsDraftRound: initial?.mlsDraftRound != null ? String(initial.mlsDraftRound) : "",
+    mlsDraftPick: initial?.mlsDraftPick != null ? String(initial.mlsDraftPick) : "",
     graduationYear:
       initial?.graduationYear != null ? String(initial.graduationYear) : "",
   });
@@ -500,6 +508,45 @@ export function PlayerModal({
                   />
                   🏆 Won an NCAA national championship
                 </label>
+              </div>
+              {/* Drafted once, at the end of the college years — a fact about
+                  the person, so it follows them to every operation they have.
+                  Leave the year empty and they simply were not drafted. */}
+              <div className="rounded-lg border border-ink-600 bg-ink-900/40 p-3 sm:col-span-2">
+                <p className="label mb-2">MLS Draft</p>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  <input
+                    className="input"
+                    inputMode="numeric"
+                    placeholder="Year"
+                    value={form.mlsDraftYear}
+                    onChange={(e) => set("mlsDraftYear", e.target.value.replace(/[^\d]/g, ""))}
+                    aria-label="MLS draft year"
+                  />
+                  <input
+                    className="input col-span-2"
+                    placeholder="Club — e.g. Atlanta United FC"
+                    value={form.mlsDraftClub}
+                    onChange={(e) => set("mlsDraftClub", e.target.value)}
+                    aria-label="MLS draft club"
+                  />
+                  <input
+                    className="input"
+                    inputMode="numeric"
+                    placeholder="Round"
+                    value={form.mlsDraftRound}
+                    onChange={(e) => set("mlsDraftRound", e.target.value.replace(/[^\d]/g, ""))}
+                    aria-label="MLS draft round"
+                  />
+                </div>
+                <input
+                  className="input mt-2"
+                  inputMode="numeric"
+                  placeholder="Overall pick number (optional)"
+                  value={form.mlsDraftPick}
+                  onChange={(e) => set("mlsDraftPick", e.target.value.replace(/[^\d]/g, ""))}
+                  aria-label="MLS draft overall pick"
+                />
               </div>
               <div>
                 <label className="label">Graduation year</label>

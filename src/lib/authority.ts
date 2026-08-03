@@ -44,6 +44,12 @@ export type AuthorityData = {
     operations: number;
     universities: number;
   };
+  /** Drafted into MLS. People, never records: the draft field is mirrored
+   *  across a person's operations, so counting rows would multiply them. */
+  mlsDraft: {
+    players: number;
+    picks: { name: string; year: number | null; club: string | null; round: number | null; pick: number | null }[];
+  };
   d1: {
     d1Ops: number;
     ncaaOps: number;
@@ -92,7 +98,8 @@ export async function getAuthorityData(): Promise<AuthorityData> {
   const [rows, playing] = await Promise.all([
     prisma.player.findMany({
       where: { active: true },
-      select: { name: true, university: true, season: true, division: true, program: true, scholarship: true },
+      select: { name: true, university: true, season: true, division: true, program: true, scholarship: true,
+               mlsDraftYear: true, mlsDraftClub: true, mlsDraftRound: true, mlsDraftPick: true },
     }),
     prisma.playerProfile.findMany({
       where: { current: true, player: { active: true } },
@@ -131,6 +138,19 @@ export async function getAuthorityData(): Promise<AuthorityData> {
   const ncaaOps = rows.filter((r) => isNCAA(r.division)).length;
   const playersReachedD1 = new Set(rows.filter((r) => isD1(r.division)).map((r) => norm(r.name))).size;
 
+  // Draft picks, one row per person. The field lives on every operation of
+  // theirs, so the first row seen for a name is the whole story.
+  const draftBy = new Map<string, { name: string; year: number | null; club: string | null; round: number | null; pick: number | null }>();
+  for (const r of rows) {
+    if (r.mlsDraftYear == null && !r.mlsDraftClub) continue;
+    const k = norm(r.name);
+    if (!draftBy.has(k))
+      draftBy.set(k, { name: r.name, year: r.mlsDraftYear, club: r.mlsDraftClub, round: r.mlsDraftRound, pick: r.mlsDraftPick });
+  }
+  const draftPicks = [...draftBy.values()].sort(
+    (a, b) => (b.year ?? 0) - (a.year ?? 0) || (a.round ?? 99) - (b.round ?? 99)
+  );
+
   // The Gap Year / Eture FC programme's own D1 record.
   const domestic = rows.filter((r) => /gap year|eture fc/i.test(r.program ?? ""));
   const domesticD1Rows = domestic.filter((r) => isD1(r.division));
@@ -144,6 +164,7 @@ export async function getAuthorityData(): Promise<AuthorityData> {
   const bestSeason = [...bySeason].sort((a, b) => b.ops - a.ops)[0] ?? null;
 
   return {
+    mlsDraft: { players: draftPicks.length, picks: draftPicks },
     operations,
     uniquePlayers,
     transfers,

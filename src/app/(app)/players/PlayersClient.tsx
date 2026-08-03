@@ -45,6 +45,11 @@ export type PlayerRow = {
   graduationYear: number | null;
   nationalChampion: boolean;
   fullRide: boolean;
+  /** drafted once, at the end of the college years — a fact about the person */
+  mlsDraftYear: number | null;
+  mlsDraftClub: string | null;
+  mlsDraftRound: number | null;
+  mlsDraftPick: number | null;
   /** the human being behind this operation; records sharing it are one career */
   personId: string | null;
   // set when the player has a profile marked as their current NCAA roster
@@ -413,6 +418,10 @@ export function PlayersClient({
       graduationYear: form.graduationYear,
       nationalChampion: form.nationalChampion,
       fullRide: form.fullRide,
+      mlsDraftYear: form.mlsDraftYear,
+      mlsDraftClub: form.mlsDraftClub,
+      mlsDraftRound: form.mlsDraftRound,
+      mlsDraftPick: form.mlsDraftPick,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {
@@ -455,6 +464,10 @@ export function PlayersClient({
       graduationYear: player.graduationYear,
       nationalChampion: player.nationalChampion,
       fullRide: player.fullRide,
+      mlsDraftYear: player.mlsDraftYear,
+      mlsDraftClub: player.mlsDraftClub,
+      mlsDraftRound: player.mlsDraftRound,
+      mlsDraftPick: player.mlsDraftPick,
       // reflect the playing-now toggle immediately; router.refresh() then
       // replaces this with the authoritative profile from the server
       activeProfile: form.playingNow

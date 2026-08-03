@@ -161,6 +161,14 @@ model Player {
   // Won an NCAA national championship with their university
   nationalChampion Boolean @default(false)
 
+  // Drafted into MLS: once, to the person, at the end of their college years.
+  // Mirrored across their operations like nationality, so every count of it
+  // must count people rather than records.
+  mlsDraftYear  Int?
+  mlsDraftClub  String?
+  mlsDraftRound Int?
+  mlsDraftPick  Int?
+
   // A scholarship covering the full cost of attendance, not a part of it
   fullRide Boolean @default(false)
 
