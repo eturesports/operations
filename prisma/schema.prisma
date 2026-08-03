@@ -225,6 +225,12 @@ model PlayerProfile {
   scholarship Int?
   fullRide    Boolean @default(false)
 
+  // Won with this team, in this season. The conference name is kept rather
+  // than derived: a school's soccer conference can differ from its primary
+  // one, and conferences realign — the record should keep saying what was won.
+  conferenceChampion Boolean @default(false)
+  conferenceName     String?
+
   // Taken in this university's shirt, so it belongs to this stint
   profileImageUrl String?
   actionImageUrl  String?

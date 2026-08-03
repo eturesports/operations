@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Select } from "@/components/Select";
+import { NCAA_UNIVERSITIES, conferenceFor } from "@/lib/conferences";
 
 export type Profile = {
   id: string;
@@ -12,6 +14,8 @@ export type Profile = {
   jersey: string | null;
   scholarship: number | null;
   fullRide: boolean;
+  conferenceChampion: boolean;
+  conferenceName: string | null;
   profileImageUrl: string | null;
   ncaaSport: string | null;
   ncaaDivision: string | null;
@@ -36,6 +40,8 @@ type Draft = {
   jersey: string;
   scholarship: string;
   fullRide: boolean;
+  conferenceChampion: boolean;
+  conferenceName: string;
   profileImageUrl: string;
   ncaaSport: string;
   ncaaDivision: string;
@@ -57,6 +63,8 @@ const empty: Draft = {
   jersey: "",
   scholarship: "",
   fullRide: false,
+  conferenceChampion: false,
+  conferenceName: "",
   profileImageUrl: "",
   ncaaSport: "soccer-men",
   ncaaDivision: "d1",
@@ -81,6 +89,8 @@ function toDraft(p: Profile): Draft {
     jersey: p.jersey ?? "",
     scholarship: p.scholarship != null ? String(p.scholarship) : "",
     fullRide: p.fullRide ?? false,
+    conferenceChampion: p.conferenceChampion ?? false,
+    conferenceName: p.conferenceName ?? "",
     profileImageUrl: p.profileImageUrl ?? "",
     ncaaSport: p.ncaaSport ?? "soccer-men",
     ncaaDivision: p.ncaaDivision ?? "d1",
@@ -358,8 +368,29 @@ export function ProfilesSection({
     }
   }
 
+  // Titles won across every stint, gathered where the profiles already are.
+  const titles = profiles.filter((p) => p.conferenceChampion);
+
   return (
     <div className="mt-6 border-t border-ink-600 pt-4">
+      {titles.length > 0 && (
+        <div className="mb-4 rounded-xl border border-accent/30 bg-accent/5 p-3">
+          <div className="text-[10px] uppercase tracking-wide text-accent">
+            Conference champion{titles.length === 1 ? "" : "s"}
+          </div>
+          <ul className="mt-1.5 space-y-1">
+            {titles.map((t) => (
+              <li key={t.id} className="text-sm text-fg">
+                🏆 {t.conferenceName || conferenceFor(t.university) || "Conference"}
+                <span className="text-muted">
+                  {" "}&middot; {t.university}
+                  {t.season ? ` · ${t.season}` : ""}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <div className="mb-3 flex items-center justify-between gap-3">
         <div>
           <h3 className="text-sm font-semibold text-fg">College profiles &amp; stats</h3>
@@ -599,11 +630,13 @@ function ProfileForm({
       <div className="grid grid-cols-2 gap-3">
         <div className="col-span-2">
           <label className="label">University</label>
-          <input
-            className="input"
+          <Select
             value={draft.university}
-            onChange={(e) => onChange("university", e.target.value)}
-            autoFocus
+            options={NCAA_UNIVERSITIES}
+            onChange={(v) => onChange("university", v)}
+            placeholder="Search a university, or type one"
+            allowCustom
+            ariaLabel="University"
           />
         </div>
         <div>
@@ -658,6 +691,36 @@ function ProfileForm({
             />
             Full ride
           </label>
+        </div>
+        {/* A conference title is won with this team, in this season, so it is
+            recorded here rather than on the person. The conference is filled
+            in from the university but stays editable: a school's soccer
+            conference can differ from its primary one, and they realign. */}
+        <div className="col-span-2 rounded-lg border border-ink-600 bg-ink-900/40 px-3 py-2">
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
+            <input
+              type="checkbox"
+              className="h-4 w-4 accent-accent"
+              checked={draft.conferenceChampion}
+              onChange={(e) => {
+                onChange("conferenceChampion", e.target.checked);
+                if (e.target.checked && !draft.conferenceName) {
+                  const c = conferenceFor(draft.university);
+                  if (c) onChange("conferenceName", c);
+                }
+              }}
+            />
+            🏆 Conference champion
+          </label>
+          {draft.conferenceChampion && (
+            <input
+              className="input mt-2"
+              placeholder={conferenceFor(draft.university) ?? "Conference name"}
+              value={draft.conferenceName}
+              onChange={(e) => onChange("conferenceName", e.target.value)}
+              aria-label="Conference"
+            />
+          )}
         </div>
         <div>
           <label className="label">Photo in this shirt</label>

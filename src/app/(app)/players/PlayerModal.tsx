@@ -9,6 +9,7 @@ import { AchievementsSection } from "./AchievementsSection";
 import { MultiSelect } from "@/components/MultiSelect";
 import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
 import { COUNTRIES, flagOf, parseNationalities } from "@/lib/countries";
+import { NCAA_UNIVERSITIES, conferenceFor } from "@/lib/conferences";
 
 export type PlayerForm = {
   sportId: string;
@@ -245,11 +246,23 @@ export function PlayerModal({
 
             <div>
               <label className="label">University</label>
-              <input
-                className="input"
+              {/* Every NCAA institution, searchable, but still typeable: JUCO
+                  and NAIA schools are not in the directory and have to be
+                  entered by hand. Picking from the list is what keeps a name
+                  from arriving as "St. Micheals" and never matching again. */}
+              <Select
                 value={form.university}
-                onChange={(e) => set("university", e.target.value)}
+                options={NCAA_UNIVERSITIES}
+                onChange={(v) => set("university", v)}
+                placeholder="Search a university, or type one"
+                allowCustom
+                ariaLabel="University"
               />
+              {conferenceFor(form.university) && (
+                <p className="mt-1 text-[11px] text-muted">
+                  {conferenceFor(form.university)}
+                </p>
+              )}
             </div>
 
             <div>

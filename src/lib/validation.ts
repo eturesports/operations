@@ -122,6 +122,8 @@ export type ProfileInput = {
   goalsAgainst?: number | null;
   scholarship?: number | null;
   fullRide?: boolean;
+  conferenceChampion?: boolean;
+  conferenceName?: string | null;
   profileImageUrl?: string | null;
   actionImageUrl?: string | null;
 };

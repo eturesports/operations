@@ -1,0 +1,5453 @@
+{
+ "source": "https://web3.ncaa.org/directory/api/directory/memberList (type=12, divisions I/II/III)",
+ "retrieved": "2026-08-03",
+ "note": "Each institution's NCAA conference. This is the institution's primary conference: a handful of schools play men's soccer in a different one, so a championship recorded against a school whose soccer conference differs should be checked by hand.",
+ "count": 1089,
+ "institutions": {
+  "Abilene Christian University": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "acusports.com"
+  },
+  "Adams State University": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "asugrizzlies.com"
+  },
+  "Adelphi University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "aupanthers.com"
+  },
+  "Adrian College": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "adrianbulldogs.com"
+  },
+  "Agnes Scott College": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "ascscotties.com"
+  },
+  "Alabama A&M University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "aamusports.com"
+  },
+  "Alabama State University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "bamastatesports.com"
+  },
+  "Albany State University (Georgia)": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "asugoldenrams.com"
+  },
+  "Albertus Magnus College": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "albertusfalcons.com"
+  },
+  "Albion College": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "gobrits.com"
+  },
+  "Albright College": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "albrightathletics.com"
+  },
+  "Alcorn State University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "alcornsports.com"
+  },
+  "Alfred State College": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "alfredstateathletics.com"
+  },
+  "Alfred University": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "gosaxons.com"
+  },
+  "Allegheny College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "alleghenygators.com"
+  },
+  "Allen University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "auyellowjackets.com"
+  },
+  "Alma College": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "almascots.com"
+  },
+  "Alvernia University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "athletics.alvernia.edu"
+  },
+  "Alverno College": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "athletics.alverno.edu/"
+  },
+  "American International College": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "aicyellowjackets.com"
+  },
+  "American University": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "aueagles.com"
+  },
+  "Amherst College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "athletics.amherst.edu/landing/index"
+  },
+  "Anderson University (Indiana)": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.anderson.edu"
+  },
+  "Anderson University (South Carolina)": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "autrojans.com"
+  },
+  "Angelo State University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "angelosports.com"
+  },
+  "Appalachian State University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "appstatesports.com"
+  },
+  "Arcadia University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "arcadiaknights.com/"
+  },
+  "Arizona State University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "sundevils.com"
+  },
+  "Arkansas State University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "astateredwolves.com"
+  },
+  "Arkansas Tech University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "arkansastechsports.com/"
+  },
+  "Asbury University": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "asburyeagles.com"
+  },
+  "Ashland University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "goashlandeagles.com"
+  },
+  "Assumption University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "assumptiongreyhounds.com"
+  },
+  "Auburn University": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "auburntigers.com"
+  },
+  "Auburn University at Montgomery": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "aumathletics.com"
+  },
+  "Augsburg University": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.augsburg.edu"
+  },
+  "Augusta University": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "augustajags.com"
+  },
+  "Augustana College (Illinois)": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "athletics.augustana.edu/"
+  },
+  "Augustana University (South Dakota)": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "goaugie.com"
+  },
+  "Aurora University": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "athletics.aurora.edu"
+  },
+  "Austin College": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "acroos.com"
+  },
+  "Austin Peay State University": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "letsgopeay.com"
+  },
+  "Averett University": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "averettcougars.com"
+  },
+  "Azusa Pacific University": {
+   "conference": "Pacific West Conference",
+   "division": "III",
+   "domain": "athletics.apu.edu"
+  },
+  "Babson College": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "babsonathletics.com"
+  },
+  "Baldwin Wallace University": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "bwyellowjackets.com/landing/index"
+  },
+  "Ball State University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "ballstatesports.com"
+  },
+  "Bard College": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "bardathletics.com"
+  },
+  "Barry University": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "Www.GoBarryBucs.com"
+  },
+  "Barton College": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "bartonbulldogs.com"
+  },
+  "Baruch College": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "baruchathletics.com"
+  },
+  "Bates College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "gobatesbobcats.com"
+  },
+  "Batten University": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "vwuathletics.com"
+  },
+  "Baylor University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "baylorbears.com"
+  },
+  "Belhaven University": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "blazers.belhaven.edu"
+  },
+  "Bellarmine University": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "athletics.bellarmine.edu"
+  },
+  "Belmont Abbey College": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "abbeyathletics.com"
+  },
+  "Belmont University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "belmontbruins.com"
+  },
+  "Beloit College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "beloit.edu/bucs/"
+  },
+  "Bemidji State University": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "bsubeavers.com/"
+  },
+  "Benedict College": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "benedicttigers.com"
+  },
+  "Benedictine University (Illinois)": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "benueagles.com"
+  },
+  "Bentley University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "bentley.edu/athletics"
+  },
+  "Berea College": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "bereaathletics.com"
+  },
+  "Berry College": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "berryvikings.com"
+  },
+  "Bethany College (West Virginia)": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "bethanybison.com"
+  },
+  "Bethany Lutheran College": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "blcvikings.com"
+  },
+  "Bethel University (Minnesota)": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.bethel.edu/"
+  },
+  "Bethune-Cookman University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "bcuathletics.com"
+  },
+  "Binghamton University": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "bubearcats.com"
+  },
+  "Biola University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "athletics.biola.edu"
+  },
+  "Black Hills State University": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "bhsuathletics.com"
+  },
+  "Blackburn College": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "blackburnbeavers.com"
+  },
+  "Bloomsburg University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "bloomsburgathletics.com"
+  },
+  "Bluefield State University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "gobstate.com"
+  },
+  "Bluffton University": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "blufftonbeavers.com"
+  },
+  "Boise State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "broncosports.com"
+  },
+  "Boston College": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "bceagles.com"
+  },
+  "Boston University": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "goterriers.com"
+  },
+  "Bowdoin College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "bowdoin.edu/athletics/"
+  },
+  "Bowie State University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "bsubulldogs.com"
+  },
+  "Bowling Green State University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "bgsufalcons.com"
+  },
+  "Bradley University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "bradleybraves.com"
+  },
+  "Brandeis University": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "brandeisjudges.com"
+  },
+  "Brevard College": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "bctornados.com"
+  },
+  "Bridgewater College (Virginia)": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "bridgewatereagles.com"
+  },
+  "Bridgewater State University": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "bsubears.com"
+  },
+  "Brigham Young University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "byucougars.com"
+  },
+  "Brooklyn College": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "brooklyncollegeathletics.com"
+  },
+  "Brown University": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "brownbears.com"
+  },
+  "Bryant University": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "bryantbulldogs.com"
+  },
+  "Bryn Mawr College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "brynmawr.edu/athletics/"
+  },
+  "Bucknell University": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "bucknellbison.com"
+  },
+  "Buena Vista University": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "bvuathletics.com"
+  },
+  "Buffalo State, State University of New York": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "buffalostateathletics.com"
+  },
+  "Butler University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "butlersports.com"
+  },
+  "Cairn University": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "cairnhighlanders.com"
+  },
+  "Caldwell University": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "caldwellathletics.com"
+  },
+  "California Baptist University": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "cbulancers.com"
+  },
+  "California Institute of Technology": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "gocaltech.com"
+  },
+  "California Lutheran University": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "clusports.com"
+  },
+  "California Polytechnic State University": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "gopoly.com"
+  },
+  "California State Polytechnic University, Humboldt": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "humboldtathletics.com"
+  },
+  "California State Polytechnic University, Pomona": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "broncoathletics.com"
+  },
+  "California State University, Bakersfield": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "gorunners.com"
+  },
+  "California State University, Chico": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "chicowildcats.com"
+  },
+  "California State University, Dominguez Hills": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "gotoros.com"
+  },
+  "California State University, East Bay": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "eastbaypioneers.com"
+  },
+  "California State University, Fresno": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "gobulldogs.com"
+  },
+  "California State University, Fullerton": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "fullertontitans.com"
+  },
+  "California State University, Los Angeles": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "lagoldeneagles.com"
+  },
+  "California State University, Monterey Bay": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "otterathletics.com"
+  },
+  "California State University, Northridge": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "GoMatadors.com"
+  },
+  "California State University, Sacramento": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "hornetsports.com"
+  },
+  "California State University, San Bernardino": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "csusbathletics.com"
+  },
+  "California State University, San Marcos": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "csusmcougars.com"
+  },
+  "California State University, Stanislaus": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "warriorathletics.com"
+  },
+  "Calvin University": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "calvinknights.com"
+  },
+  "Cameron University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "cameronaggies.com"
+  },
+  "Campbell University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "gocamels.com"
+  },
+  "Canisius University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "gogriffs.com"
+  },
+  "Capital University": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "capital.edu/athletics"
+  },
+  "Carleton College": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "apps.carleton.edu/athletics/"
+  },
+  "Carlow University": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "https://athletics.carlow.edu/landing/index"
+  },
+  "Carnegie Mellon University": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "athletics.cmu.edu"
+  },
+  "Carroll University (Wisconsin)": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "gopios.com"
+  },
+  "Carson-Newman University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "cneagles.com"
+  },
+  "Carthage College": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "athletics.carthage.edu"
+  },
+  "Case Western Reserve University": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "athletics.case.edu"
+  },
+  "Catawba College": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "catawbaathletics.com"
+  },
+  "Catholic University": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "catholicathletics.com/"
+  },
+  "Cedar Crest College": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "cedarcrestathletics.com"
+  },
+  "Cedarville University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "yellowjackets.cedarville.edu"
+  },
+  "Centenary College (Louisiana)": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "GoCentenary.com"
+  },
+  "Centenary University (New Jersey)": {
+   "conference": "Atlantic East Conference",
+   "division": "III",
+   "domain": "centenarycyclones.com"
+  },
+  "Central College (Iowa)": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "central.edu/athletics"
+  },
+  "Central Connecticut State University": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "ccsubluedevils.com"
+  },
+  "Central Michigan University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "cmuchippewas.com"
+  },
+  "Central State University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "maraudersports.com"
+  },
+  "Central Washington University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "wildcatsports.com"
+  },
+  "Centre College": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "centrecolonels.com"
+  },
+  "Chadron State College": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "chadroneagles.com"
+  },
+  "Chaminade University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "goswords.com/"
+  },
+  "Chapman University": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "chapmanathletics.com"
+  },
+  "Charleston Southern University": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "csusports.com/"
+  },
+  "Chatham University": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "gochathamcougars.com"
+  },
+  "Chestnut Hill College": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "griffinathletics.com"
+  },
+  "Chicago State University": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "gocsucougars.com"
+  },
+  "Chowan University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "gocuhawks.com"
+  },
+  "Christian Brothers University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "cbubucs.com"
+  },
+  "Christopher Newport University": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "CNUsports.com"
+  },
+  "Claflin University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "athletics.claflin.edu"
+  },
+  "Claremont McKenna-Harvey Mudd-Scripps Colleges": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "cmsathletics.org"
+  },
+  "Clark Atlanta University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "clarkatlantasports.com"
+  },
+  "Clark University (Massachusetts)": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "clarkathletics.com"
+  },
+  "Clarkson University": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "clarksonathletics.com"
+  },
+  "Clayton State University": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "claytonstatesports.com"
+  },
+  "Clemson University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "clemsontigers.com"
+  },
+  "Cleveland State University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "csuvikings.com"
+  },
+  "Coastal Carolina University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "goccusports.com"
+  },
+  "Coe College": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "kohawkathletics.com"
+  },
+  "Coker University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "cokercobras.com/"
+  },
+  "Colby College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "colby.edu/athletics"
+  },
+  "Colby-Sawyer College": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "colby-sawyerathletics.com/"
+  },
+  "Colgate University": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "gocolgateraiders.com"
+  },
+  "College of Charleston (South Carolina)": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "cofcsports.com"
+  },
+  "College of Saint Benedict": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "gobennies.com"
+  },
+  "College of Staten Island": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "csidolphins.com"
+  },
+  "College of the Holy Cross": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "goholycross.com/"
+  },
+  "Colorado Christian University": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "ccucougars.com"
+  },
+  "Colorado College": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "cctigers.com"
+  },
+  "Colorado Mesa University": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "cmumavericks.com"
+  },
+  "Colorado School of Mines": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "minesathletics.com"
+  },
+  "Colorado State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "csurams.com"
+  },
+  "Colorado State University Pueblo": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "gothunderwolves.com"
+  },
+  "Columbia University-Barnard College": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "gocolumbialions.com/"
+  },
+  "Columbus State University": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "csucougars.com"
+  },
+  "Concord University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "cumountainlions.com"
+  },
+  "Concordia College, Moorhead": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "gocobbers.com"
+  },
+  "Concordia University Chicago": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "CUCougars.com"
+  },
+  "Concordia University Irvine": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "cuigoldeneagles.com"
+  },
+  "Concordia University Texas": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.concordia.edu/index.aspx"
+  },
+  "Concordia University Wisconsin": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "cuwfalcons.com"
+  },
+  "Concordia University, St. Paul": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "cspbears.com/index.aspx"
+  },
+  "Connecticut College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "camelathletics.com/"
+  },
+  "Converse University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "govalkyries.com"
+  },
+  "Coppin State University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "coppinstatesports.com"
+  },
+  "Cornell College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "cornellrams.com"
+  },
+  "Cornell University": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "cornellbigred.com"
+  },
+  "Covenant College": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "athletics.covenant.edu/"
+  },
+  "Creighton University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "gocreighton.com/"
+  },
+  "Crown College (Minnesota)": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "athletics.crown.edu"
+  },
+  "Curry College": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "curryathletics.com"
+  },
+  "D'Youville University": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "athletics.dyc.edu"
+  },
+  "Daemen University": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "daemenwildcats.com/"
+  },
+  "Dallas Baptist University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "dbupatriots.com"
+  },
+  "Dartmouth College": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "dartmouthsports.com"
+  },
+  "Davenport University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "dupanthers.com"
+  },
+  "Davidson College": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "davidsonwildcats.com"
+  },
+  "Davis & Elkins College": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "senatornation.com"
+  },
+  "DePaul University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "depaulbluedemons.com"
+  },
+  "DePauw University": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "depauwtigers.com/landing/index"
+  },
+  "DeSales University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "athletics.desales.edu"
+  },
+  "Dean College": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "deanbulldogs.com/landing/index"
+  },
+  "Delaware State University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "dsuhornets.com/"
+  },
+  "Delaware Valley University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "delval.edu/athletics"
+  },
+  "Delta State University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "gostatesmen.com"
+  },
+  "Denison University": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "denisonbigred.com"
+  },
+  "Dickinson College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "dickinsonathletics.com"
+  },
+  "Dominican University (Illinois)": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "dustars.com"
+  },
+  "Dominican University New York": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "chargerathletics.com"
+  },
+  "Dominican University of California": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "dominicanathletics.com"
+  },
+  "Drake University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "godrakebulldogs.com/"
+  },
+  "Drew University": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "drewrangers.com"
+  },
+  "Drexel University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "drexeldragons.com"
+  },
+  "Drury University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "drurypanthers.com/"
+  },
+  "Duke University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "goduke.com"
+  },
+  "Duquesne University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "GoDuquesne.com"
+  },
+  "EC University": {
+   "conference": null,
+   "division": "I",
+   "domain": null
+  },
+  "Earlham College": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "goearlham.com"
+  },
+  "East Carolina University": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "ecupirates.com"
+  },
+  "East Central University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "ecutigers.com"
+  },
+  "East Stroudsburg University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "esuwarriors.com"
+  },
+  "East Tennessee State University": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "etsubucs.com"
+  },
+  "East Texas A&M University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "lionathletics.com"
+  },
+  "East Texas Baptist University": {
+   "conference": "American Southwest Conference",
+   "division": "III",
+   "domain": "goetbutigers.com"
+  },
+  "Eastern Connecticut State University": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "gowarriorathletics.com"
+  },
+  "Eastern Illinois University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "eiupanthers.com"
+  },
+  "Eastern Kentucky University": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "ekusports.com"
+  },
+  "Eastern Mennonite University": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "emuroyals.com"
+  },
+  "Eastern Michigan University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "emueagles.com"
+  },
+  "Eastern New Mexico University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "goeasternathletics.com"
+  },
+  "Eastern University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "goeasterneagles.com"
+  },
+  "Eastern Washington University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "goeags.com"
+  },
+  "Eckerd College": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "eckerdtritons.com"
+  },
+  "Edgewood University": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "EdgewoodEagles.com"
+  },
+  "Edward Waters University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "ewutigerpride.com"
+  },
+  "Elizabeth City State University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "ecsuvikings.com"
+  },
+  "Elizabethtown College": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "etownbluejays.com"
+  },
+  "Elmhurst University": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "elmhurstbluejays.com/"
+  },
+  "Elmira College": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "athletics.elmira.edu"
+  },
+  "Elms College": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "ecblazers.com"
+  },
+  "Elon University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "elonphoenix.com"
+  },
+  "Embry-Riddle Aeronautical University (Florida)": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "erauathletics.com"
+  },
+  "Emerson College": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "emersonlions.com"
+  },
+  "Emmanuel College (Massachusetts)": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "goecsaints.com"
+  },
+  "Emmanuel University (Georgia)": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "goeclions.com"
+  },
+  "Emory & Henry University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "gowasps.com"
+  },
+  "Emory University": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "emoryathletics.com"
+  },
+  "Emporia State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "esuhornets.com"
+  },
+  "Endicott College": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "ecgulls.com"
+  },
+  "Erskine College": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "erskinesports.com"
+  },
+  "Eureka College": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "eurekareddevils.com"
+  },
+  "Fairfield University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "fairfieldstags.com"
+  },
+  "Fairleigh Dickinson University, Florham": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "fdudevils.com"
+  },
+  "Fairleigh Dickinson University, Metropolitan Campus": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "fduknights.com"
+  },
+  "Fairmont State University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "fightingfalcons.com"
+  },
+  "Farmingdale State College": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "farmingdalesports.com"
+  },
+  "Fayetteville State University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "fsubroncos.com"
+  },
+  "Felician University": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "felicianuathletics.com"
+  },
+  "Ferris State University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "ferrisstatebulldogs.com"
+  },
+  "Ferrum College": {
+   "conference": "Conference Carolinas",
+   "division": "III",
+   "domain": "ferrumpanthers.com"
+  },
+  "Fitchburg State University": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "fitchburgfalcons.com"
+  },
+  "Flagler College": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "flaglerathletics.com/"
+  },
+  "Florida A&M University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "famuathletics.com/"
+  },
+  "Florida Atlantic University": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "fausports.com"
+  },
+  "Florida Gulf Coast University": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "fgcuathletics.com/"
+  },
+  "Florida Institute of Technology": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "floridatechsports.com/"
+  },
+  "Florida International University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "fiusports.com"
+  },
+  "Florida Southern College": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "fscmocs.com"
+  },
+  "Florida State University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "seminoles.com"
+  },
+  "Fordham University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "fordhamsports.com"
+  },
+  "Fort Hays State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "fhsuathletics.com"
+  },
+  "Fort Lewis College": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "goskyhawks.com"
+  },
+  "Fort Valley State University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "fvsusports.com/index.aspx"
+  },
+  "Framingham State University": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "fsurams.com"
+  },
+  "Francis Marion University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "fmupatriots.com"
+  },
+  "Franciscan University of Steubenville": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "franciscanathletics.com"
+  },
+  "Franklin & Marshall College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "godiplomats.com"
+  },
+  "Franklin College": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "franklingrizzlies.com/landing/index"
+  },
+  "Franklin Pierce University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "fpuravens.com/landing/index"
+  },
+  "Fresno Pacific University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "fpuathletics.com/"
+  },
+  "Frostburg State University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "frostburgsports.com"
+  },
+  "Furman University": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "furmanpaladins.com"
+  },
+  "Gallaudet University": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "gallaudetbison.com"
+  },
+  "Gannon University": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "gannonsports.com"
+  },
+  "Gardner-Webb University": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "gwusports.com/"
+  },
+  "Geneva College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "athletics.geneva.edu"
+  },
+  "George Fox University": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "gfubruins.com"
+  },
+  "George Mason University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "gomason.com"
+  },
+  "George Washington University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "gwsports.com/index.html"
+  },
+  "Georgetown University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "guhoyas.com"
+  },
+  "Georgia College": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "gcsubobcats.com"
+  },
+  "Georgia Institute of Technology": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "ramblinwreck.com"
+  },
+  "Georgia Southern University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "gseagles.com"
+  },
+  "Georgia Southwestern State University": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "gswcanes.com"
+  },
+  "Georgia State University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "georgiastatesports.com"
+  },
+  "Georgian Court University": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "gculions.com"
+  },
+  "Gettysburg College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "gettysburgsports.com"
+  },
+  "Glenville State University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "gscpioneers.com"
+  },
+  "Goldey-Beacom College": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "gbcathletics.com"
+  },
+  "Gonzaga University": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "gozags.com"
+  },
+  "Gordon College": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "athletics.gordon.edu/index.aspx"
+  },
+  "Goucher College": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "athletics.goucher.edu/landing/index"
+  },
+  "Grambling State University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "gsutigers.com"
+  },
+  "Grand Canyon University": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "gculopes.com"
+  },
+  "Grand Valley State University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "gvsulakers.com"
+  },
+  "Greensboro College": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "greensborocollegesports.com"
+  },
+  "Greenville University": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "greenville.edu/athletics"
+  },
+  "Grinnell College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "pioneers.grinnell.edu/"
+  },
+  "Grove City College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "athletics.gcc.edu"
+  },
+  "Guilford College": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "guilford.edu/athletics"
+  },
+  "Gustavus Adolphus College": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "gustavus.edu/athletics/"
+  },
+  "Gwynedd Mercy University": {
+   "conference": "Atlantic East Conference",
+   "division": "III",
+   "domain": "gwyneddathletics.com/"
+  },
+  "Hamilton College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "hamilton.edu/athletics"
+  },
+  "Hamline University": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "hamlineathletics.com"
+  },
+  "Hampden-Sydney College": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "hscathletics.com"
+  },
+  "Hampton University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "hamptonpirates.com"
+  },
+  "Hanover College": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "https://athletics.hanover.edu/landing/index"
+  },
+  "Hardin-Simmons University": {
+   "conference": "American Southwest Conference",
+   "division": "III",
+   "domain": "hsuathletics.com"
+  },
+  "Harding University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "hardingsports.com"
+  },
+  "Hartwick College": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "hartwickhawks.com"
+  },
+  "Harvard University": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "https://gocrimson.com/"
+  },
+  "Haverford College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "haverfordathletics.com"
+  },
+  "Hawaii Pacific University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "hpusharks.com/"
+  },
+  "Heidelberg University": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "bergathletics.com"
+  },
+  "Henderson State University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "hsusports.com"
+  },
+  "Hendrix College": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "hendrixwarriors.com"
+  },
+  "High Point University": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "highpointpanthers.com"
+  },
+  "Hilbert College": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "hilberthawks.com"
+  },
+  "Hillsdale College": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "hillsdalechargers.com"
+  },
+  "Hiram College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "hiramterriers.com"
+  },
+  "Hobart and William Smith Colleges": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "hwsathletics.com"
+  },
+  "Hofstra University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "gohofstra.com"
+  },
+  "Hollins University": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "hollinssports.com"
+  },
+  "Holy Family University": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "athletics.holyfamily.edu"
+  },
+  "Hood College": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "hoodathletics.com"
+  },
+  "Hope College": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "athletics.hope.edu"
+  },
+  "Houghton University": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "athletics.houghton.edu"
+  },
+  "Houston Christian University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "hcuhuskies.com"
+  },
+  "Howard Payne University": {
+   "conference": "American Southwest Conference",
+   "division": "III",
+   "domain": "hpusports.com"
+  },
+  "Howard University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "hubison.com"
+  },
+  "Hunter College": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "https://huntercollegeathletics.com"
+  },
+  "Huntingdon College": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "huntingdonhawks.com"
+  },
+  "Husson University": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "hussoneagles.com"
+  },
+  "Idaho State University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "isubengals.com"
+  },
+  "Illinois College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "illinoiscollegeathletics.com/"
+  },
+  "Illinois Institute of Technology": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "illinoistechathletics.com"
+  },
+  "Illinois State University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "GoRedbirds.com"
+  },
+  "Illinois Wesleyan University": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "iwusports.com"
+  },
+  "Immaculata University": {
+   "conference": "Atlantic East Conference",
+   "division": "III",
+   "domain": "gomightymacs.com"
+  },
+  "Indiana State University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "gosycamores.com"
+  },
+  "Indiana University Indianapolis": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "iuindyjags.com/"
+  },
+  "Indiana University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "iupathletics.com"
+  },
+  "Indiana University, Bloomington": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "iuhoosiers.com"
+  },
+  "Iona University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "ionagaels.com"
+  },
+  "Iowa State University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "cyclones.com"
+  },
+  "Ithaca College": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "athletics.ithaca.edu"
+  },
+  "Jackson State University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "gojsutigers.com"
+  },
+  "Jacksonville State University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "jaxstatesports.com"
+  },
+  "Jacksonville University": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "judolphins.com"
+  },
+  "James Madison University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "jmusports.com"
+  },
+  "Jessup University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "jessupathletics.com"
+  },
+  "John Carroll University": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "jcusports.com"
+  },
+  "John Jay College of Criminal Justice": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "johnjayathletics.com"
+  },
+  "Johns Hopkins University": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "hopkinssports.com"
+  },
+  "Johnson & Wales University (Providence)": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "providence.jwuathletics.com"
+  },
+  "Johnson & Wales University Charlotte": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "charlotte.jwuathletics.com/"
+  },
+  "Johnson C. Smith University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "goldenbullsports.com"
+  },
+  "Juniata College": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "juniatasports.net"
+  },
+  "Kalamazoo College": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "hornets.kzoo.edu/landing/index/"
+  },
+  "Kansas State University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "kstatesports.com"
+  },
+  "Kean University": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "keanathletics.com"
+  },
+  "Keene State College": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "keeneowls.com"
+  },
+  "Kennesaw State University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "ksuowls.com"
+  },
+  "Kent State University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "kentstatesports.com"
+  },
+  "Kentucky State University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "ksuthorobreds.com"
+  },
+  "Kentucky Wesleyan College": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "kwcpanthers.com"
+  },
+  "Kenyon College": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "athletics.kenyon.edu"
+  },
+  "Keuka College": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "keukaathletics.com"
+  },
+  "Keystone College": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "gokcgiants.com"
+  },
+  "King University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "kingtornado.com/"
+  },
+  "King's College (Pennsylvania)": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "kings.edu/athletics"
+  },
+  "Knox College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "prairiefire.knox.edu"
+  },
+  "Kutztown University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "kubears.com"
+  },
+  "LSU New Orleans": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "unoprivateers.com"
+  },
+  "La Roche University": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "larochesports.com"
+  },
+  "La Salle University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "goexplorers.com/"
+  },
+  "LaGrange College": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "lagrangepanthers.com"
+  },
+  "Lafayette College": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "goleopards.com"
+  },
+  "Lake Erie College": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "lakeeriestorm.com"
+  },
+  "Lake Forest College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "goforesters.com"
+  },
+  "Lake Superior State University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "lssulakers.com"
+  },
+  "Lakeland University": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "lakelandmuskies.com/"
+  },
+  "Lamar University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "lamarcardinals.com"
+  },
+  "Lancaster Bible College": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "lbcchargers.com"
+  },
+  "Lander University": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "landerbearcats.com"
+  },
+  "Lane College": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "golcdragons.com/"
+  },
+  "Lasell University": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "laserpride.lasell.edu"
+  },
+  "Lawrence University": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "vikings.lawrence.edu/index.aspx"
+  },
+  "Le Moyne College": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "lemoynedolphins.com"
+  },
+  "LeMoyne-Owen College": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "athletics.loc.edu/"
+  },
+  "LeTourneau University": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "letuathletics.com"
+  },
+  "Lebanon Valley College": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "godutchmen.com"
+  },
+  "Lee University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "leeuflames.com"
+  },
+  "Lees-McRae College": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "lmcbobcats.com"
+  },
+  "Lehigh University": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "lehighsports.com"
+  },
+  "Lehman College": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "lehmanathletics.com"
+  },
+  "Lenoir-Rhyne University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "lrbears.com"
+  },
+  "Lesley University": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "lesleyathletics.com"
+  },
+  "Lewis & Clark College": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "golcathletics.com"
+  },
+  "Lewis University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "lewisflyers.com"
+  },
+  "Liberty University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "LibertyFlames.com"
+  },
+  "Lincoln Memorial University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "lmurailsplitters.com"
+  },
+  "Lincoln University (Missouri)": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "lubluetigers.com"
+  },
+  "Lincoln University (Pennsylvania)": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "lulions.com"
+  },
+  "Lindenwood University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "lindenwoodlions.com"
+  },
+  "Linfield University": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "golinfieldwildcats.com/"
+  },
+  "Lipscomb University": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "lipscombsports.com"
+  },
+  "Livingstone College": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "https://bluebearathletics.com/"
+  },
+  "Lock Haven University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "https://lockhavenathletics.com/"
+  },
+  "Long Beach State University": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "longbeachstate.com"
+  },
+  "Long Island University": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "liuathletics.com"
+  },
+  "Longwood University": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "longwoodlancers.com"
+  },
+  "Loras College": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "duhawks.com"
+  },
+  "Louisiana State University": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "lsusports.net"
+  },
+  "Louisiana Tech University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "latechsports.com/"
+  },
+  "Loyola Marymount University": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "LMULions.com"
+  },
+  "Loyola University Chicago": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "loyolaramblers.com"
+  },
+  "Loyola University Maryland": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "loyolagreyhounds.com"
+  },
+  "Lubbock Christian University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "lcuchaps.com"
+  },
+  "Luther College": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "sports.luther.edu"
+  },
+  "Lycoming College": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "lycomingathletics.com"
+  },
+  "Lynn University": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "lynnfightingknights.com"
+  },
+  "Lyon College": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "lyonscots.com/"
+  },
+  "Macalester College": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "macalester.edu/athletics"
+  },
+  "Maine Maritime Academy": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "marinersports.org"
+  },
+  "Malone University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "malonepioneers.com"
+  },
+  "Manchester University": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "muspartans.com"
+  },
+  "Manhattan University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "gojaspers.com"
+  },
+  "Manhattanville University": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "govaliants.com"
+  },
+  "Mansfield University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "gomounties.com"
+  },
+  "Maranatha Baptist University": {
+   "conference": "Independent",
+   "division": "III",
+   "domain": "mbusabercats.com"
+  },
+  "Marian University (Wisconsin)": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "sabreathletics.com"
+  },
+  "Marietta College": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "pioneers.marietta.edu/"
+  },
+  "Marist University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "goredfoxes.com"
+  },
+  "Marquette University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "gomarquette.com"
+  },
+  "Mars Hill University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "marshilllions.com"
+  },
+  "Marshall University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "herdzone.com"
+  },
+  "Martin Luther College": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "mlcknights.com"
+  },
+  "Mary Baldwin University": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "marybaldwinathletics.com"
+  },
+  "Marymount University (Virginia)": {
+   "conference": "Atlantic East Conference",
+   "division": "III",
+   "domain": "marymountsaints.com"
+  },
+  "Maryville College (Tennessee)": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "mcscots.com/landing/index"
+  },
+  "Maryville University of Saint Louis": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "maryvillesaints.com"
+  },
+  "Marywood University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "marywoodpacers.com"
+  },
+  "Massachusetts College of Liberal Arts": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.mcla.edu/"
+  },
+  "Massachusetts Institute of Technology": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "mitathletics.com"
+  },
+  "Massachusetts Maritime Academy": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "mmabucs.com"
+  },
+  "McDaniel College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "mcdaniel.edu/athletics"
+  },
+  "McKendree University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "mckbearcats.com"
+  },
+  "McMurry University": {
+   "conference": "American Southwest Conference",
+   "division": "III",
+   "domain": "mcmurrysports.com"
+  },
+  "McNeese State University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "mcneesesports.com"
+  },
+  "Medgar Evers College": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "mecathletics.com"
+  },
+  "Menlo College": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "menloathletics.com/"
+  },
+  "Mercer University": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "mercerbears.com"
+  },
+  "Mercy University": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "mercyathletics.com"
+  },
+  "Mercyhurst University": {
+   "conference": "Northeast Conference",
+   "division": "II",
+   "domain": "hurstathletics.com"
+  },
+  "Meredith College": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "goavengingangels.com"
+  },
+  "Merrimack College": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "merrimackathletics.com"
+  },
+  "Messiah University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "gomessiah.com"
+  },
+  "Methodist University": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "mumonarchs.com"
+  },
+  "Metropolitan State University of Denver": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "RoadrunnersAthletics.com"
+  },
+  "Miami University (Ohio)": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "miamiredhawks.com"
+  },
+  "Michigan State University": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "msuspartans.com/"
+  },
+  "Michigan Technological University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "michigantechhuskies.com"
+  },
+  "Middle Georgia State University": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": null
+  },
+  "Middle Tennessee State University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "goblueraiders.com"
+  },
+  "Middlebury College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "middlebury.edu/athletics"
+  },
+  "Midwestern State University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "msumustangs.com"
+  },
+  "Miles College": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "milesgoldenbears.com/"
+  },
+  "Millersville University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "millersvilleathletics.com"
+  },
+  "Millikin University": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "athletics.millikin.edu"
+  },
+  "Millsaps College": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "gomajors.com"
+  },
+  "Milwaukee School of Engineering": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "go-raiders.com"
+  },
+  "Minnesota State University Moorhead": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "msumdragons.com/"
+  },
+  "Minnesota State University, Mankato": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "msumavericks.com"
+  },
+  "Minot State University": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "msubeavers.com"
+  },
+  "Misericordia University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "misericordia.edu/athletics"
+  },
+  "Mississippi Christian University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "gochoctaws.com"
+  },
+  "Mississippi State University": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "hailstate.com"
+  },
+  "Mississippi University for Women": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "owlsathletics.com"
+  },
+  "Mississippi Valley State University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "mvsusports.com"
+  },
+  "Missouri Southern State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "mssulions.com"
+  },
+  "Missouri State University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "missouristatebears.com"
+  },
+  "Missouri University of Science and Technology": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "minerathletics.com"
+  },
+  "Missouri Western State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "gogriffons.com"
+  },
+  "Mitchell College": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "mitchellathletics.com"
+  },
+  "Molloy University": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "molloylions.com"
+  },
+  "Monmouth College (Illinois)": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "monmouthscots.com"
+  },
+  "Monmouth University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "monmouthhawks.com"
+  },
+  "Montana State University Billings": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "msubsports.com"
+  },
+  "Montana State University-Bozeman": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "msubobcats.com"
+  },
+  "Montclair State University": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "montclairathletics.com"
+  },
+  "Moravian University": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "moraviansports.com/landing/index"
+  },
+  "Morehead State University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "msueagles.com"
+  },
+  "Morehouse College": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "morehouseathletics.com"
+  },
+  "Morgan State University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "morganstatebears.com"
+  },
+  "Mount Aloysius College": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "mountieathletics.com"
+  },
+  "Mount Holyoke College": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "mtholyoke.edu/athletics"
+  },
+  "Mount Saint Mary College (New York)": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "msmcknights.com/"
+  },
+  "Mount St. Joseph University": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "msjlions.com"
+  },
+  "Mount St. Mary's University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "mountathletics.com"
+  },
+  "Muhlenberg College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "muhlenbergsports.com"
+  },
+  "Murray State University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "goracers.com"
+  },
+  "Muskingum University": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "fightingmuskies.com/landing/index"
+  },
+  "Nazareth University": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "nazathletics.com"
+  },
+  "Nebraska Wesleyan University": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "nwusports.com/"
+  },
+  "Neumann University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "neumannathletics.com"
+  },
+  "New England College": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "athletics.nec.edu/"
+  },
+  "New Jersey Institute of Technology": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "njithighlanders.com"
+  },
+  "New Mexico Highlands University": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "nmhuathletics.com"
+  },
+  "New Mexico State University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "nmstatesports.com"
+  },
+  "New York University": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "gonyuathletics.com"
+  },
+  "Newberry College": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "newberrywolves.com"
+  },
+  "Newman University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "newmanjets.com"
+  },
+  "Niagara University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "purpleeagles.com"
+  },
+  "Nicholls State University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "geauxcolonels.com"
+  },
+  "Nichols College": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "nicholsathletics.com"
+  },
+  "Norfolk State University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "nsuspartans.com"
+  },
+  "North Carolina A&T State University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "ncataggies.com"
+  },
+  "North Carolina Central University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "nccueaglepride.com"
+  },
+  "North Carolina State University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "gopack.com"
+  },
+  "North Carolina Wesleyan University": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "https://ncwsports.com/"
+  },
+  "North Central College": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "northcentralcardinals.com"
+  },
+  "North Central University": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "ncurams.com"
+  },
+  "North Dakota State University": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "GoBison.com"
+  },
+  "North Greenville University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "nguathletics.com"
+  },
+  "North Park University": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "northpark.edu/athletics/"
+  },
+  "Northeastern State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "goriverhawksgo.com"
+  },
+  "Northeastern University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "nuhuskies.com"
+  },
+  "Northern Arizona University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "nauathletics.com"
+  },
+  "Northern Illinois University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "niuhuskies.com"
+  },
+  "Northern Kentucky University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "nkunorse.com"
+  },
+  "Northern Michigan University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "nmuwildcats.com"
+  },
+  "Northern State University": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "nsuwolves.com"
+  },
+  "Northwest Missouri State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "bearcatsports.com"
+  },
+  "Northwest Nazarene University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "nnusports.com"
+  },
+  "Northwestern Oklahoma State University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "riderangersride.com"
+  },
+  "Northwestern State University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "nsudemons.com"
+  },
+  "Northwestern University": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "nusports.com"
+  },
+  "Northwood University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "gonorthwood.com"
+  },
+  "Norwich University": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "norwichathletics.com"
+  },
+  "Notre Dame of Maryland University": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "notredamegators.com"
+  },
+  "Nova Southeastern University": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "nsusharks.com"
+  },
+  "Oakland University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "goldengrizzlies.com"
+  },
+  "Oberlin College": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "goyeo.com"
+  },
+  "Occidental College": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "oxyathletics.com"
+  },
+  "Oglethorpe University": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "gopetrels.com"
+  },
+  "Ohio Dominican University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "ohiodominicanpanthers.com"
+  },
+  "Ohio Northern University": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "onusports.com/landing/index"
+  },
+  "Ohio University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "ohiobobcats.com"
+  },
+  "Ohio Wesleyan University": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "battlingbishops.com"
+  },
+  "Oklahoma Baptist University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "obubison.com"
+  },
+  "Oklahoma Christian University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "oceagles.com"
+  },
+  "Oklahoma State University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "okstate.com"
+  },
+  "Old Dominion University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "odusports.com"
+  },
+  "Oral Roberts University": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "oruathletics.com"
+  },
+  "Oregon State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "osubeavers.com/"
+  },
+  "Otterbein University": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "otterbeincardinals.com"
+  },
+  "Ouachita Baptist University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "obutigers.com"
+  },
+  "Pace University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "paceuathletics.com"
+  },
+  "Pacific Lutheran University": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "golutes.com"
+  },
+  "Pacific University (Oregon)": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "goboxers.com"
+  },
+  "Palm Beach Atlantic University": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "pbasailfish.com"
+  },
+  "Penn State Berks College": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "psuberksathletics.com"
+  },
+  "Penn State Brandywine": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "https://psubrandywineathletics.com/landing/index"
+  },
+  "Penn State Harrisburg": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "athletics.hbg.psu.edu/landing/index"
+  },
+  "Penn State University, Abington": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "abingtonsports.com"
+  },
+  "Penn State University, Altoona": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "psaltoonalions.com"
+  },
+  "Pennsylvania College of Technology": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "athletics.pct.edu"
+  },
+  "Pennsylvania State Univ. Erie, the Behrend College": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "PSBLions.com"
+  },
+  "Pennsylvania State University": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "goPSUsports.com"
+  },
+  "Pennsylvania Western University, California": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "calvulcans.com"
+  },
+  "Pennsylvania Western University, Clarion": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "clariongoldeneagles.com"
+  },
+  "Pennsylvania Western University, Edinboro": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "gofightingscots.com"
+  },
+  "Pepperdine University": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "pepperdinewaves.com"
+  },
+  "Pfeiffer University": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "gofalconsports.com"
+  },
+  "Piedmont University": {
+   "conference": "Collegiate Conference of the South",
+   "division": "III",
+   "domain": "piedmontlions.com"
+  },
+  "Pittsburg State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "pittstategorillas.com"
+  },
+  "Plattsburgh State University of New York": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "gocardinalsports.com/"
+  },
+  "Plymouth State University": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "athletics.plymouth.edu/"
+  },
+  "Point Loma Nazarene University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "plnusealions.com"
+  },
+  "Point Park University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "pointparksports.com"
+  },
+  "Pomona-Pitzer Colleges": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "sagehens.com"
+  },
+  "Portland State University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "goviks.com"
+  },
+  "Post University": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "posteagles.com"
+  },
+  "Prairie View A&M University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "pvpanthers.com"
+  },
+  "Pratt Institute": {
+   "conference": "Atlantic East Conference",
+   "division": "III",
+   "domain": "goprattgo.com"
+  },
+  "Presbyterian College": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "gobluehose.com"
+  },
+  "Princeton University": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "goprincetontigers.com"
+  },
+  "Principia College": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "principiaathletics.com"
+  },
+  "Providence College": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "friars.com"
+  },
+  "Purchase College, State University of New York": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "purchasecollegeathletics.com"
+  },
+  "Purdue University": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "purduesports.com"
+  },
+  "Purdue University Fort Wayne": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "gomastodons.com/"
+  },
+  "Purdue University Northwest": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "pnwathletics.com"
+  },
+  "Queens College (New York)": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "queensknights.com"
+  },
+  "Queens University of Charlotte": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "queensathletics.com"
+  },
+  "Quincy University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "quhawks.com"
+  },
+  "Quinnipiac University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "gobobcats.com"
+  },
+  "Radford University": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "radfordathletics.com"
+  },
+  "Ramapo College": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "ramapoathletics.com"
+  },
+  "Randolph College": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "randolphwildcats.com"
+  },
+  "Randolph-Macon College": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "rmcathletics.com"
+  },
+  "Regent University": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "regentroyals.com"
+  },
+  "Regis College (Massachusetts)": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "goregispride.com"
+  },
+  "Regis University (Colorado)": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "regisrangers.com"
+  },
+  "Rensselaer Polytechnic Institute": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "rpiathletics.com"
+  },
+  "Rhode Island College": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "goanchormen.com"
+  },
+  "Rhodes College": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "rhodeslynx.com"
+  },
+  "Rice University": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "riceowls.com"
+  },
+  "Rider University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "gobroncs.com"
+  },
+  "Ripon College": {
+   "conference": "Midwest Conference",
+   "division": "III",
+   "domain": "riponredhawks.com/"
+  },
+  "Rivier University": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "rivierathletics.com"
+  },
+  "Roanoke College": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "maroons.roanoke.edu/"
+  },
+  "Robert Morris University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "rmucolonials.com"
+  },
+  "Roberts Wesleyan University": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "robertsredhawks.com"
+  },
+  "Rochester Institute of Technology": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "ritathletics.com"
+  },
+  "Rockford University": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "rockfordregents.com"
+  },
+  "Rockhurst University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "rockhursthawks.com/"
+  },
+  "Roger Williams University": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "rwuhawks.com"
+  },
+  "Rogers State University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "rsuhillcats.com"
+  },
+  "Rollins College": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "RollinsSports.com"
+  },
+  "Roosevelt University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "rooseveltlakers.com"
+  },
+  "Rose-Hulman Institute of Technology": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "rose-hulman.edu/athletics"
+  },
+  "Rowan University": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "rowanathletics.com"
+  },
+  "Russell Sage College": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "sagegators.com"
+  },
+  "Rutgers, The State Univ. of New Jersey, Camden": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "scarletraptors.com"
+  },
+  "Rutgers, The State Univ. of New Jersey, Newark": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "rutgersnewarkathletics.com"
+  },
+  "Rutgers, The State University of New Jersey, New Brunswick": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "scarletknights.com"
+  },
+  "Sacred Heart University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "sacredheartpioneers.com"
+  },
+  "Saginaw Valley State University": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "svsucardinals.com"
+  },
+  "Saint Anselm College": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "saintanselmhawks.com"
+  },
+  "Saint Elizabeth University": {
+   "conference": "Atlantic East Conference",
+   "division": "III",
+   "domain": "seueagles.com"
+  },
+  "Saint Francis University": {
+   "conference": "Northeast Conference",
+   "division": "III",
+   "domain": "sfuathletics.com"
+  },
+  "Saint John's University (Minnesota)": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "gojohnnies.com"
+  },
+  "Saint Joseph's College (Maine)": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "gomonks.com"
+  },
+  "Saint Joseph's University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "sjuhawks.com"
+  },
+  "Saint Leo University": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "saintleolions.com"
+  },
+  "Saint Louis University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "slubillikens.com"
+  },
+  "Saint Martin's University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "smusaints.com"
+  },
+  "Saint Mary's College (Indiana)": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "belles.saintmarys.edu"
+  },
+  "Saint Mary's College of California": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "SMCGaels.com"
+  },
+  "Saint Mary's University of Minnesota": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "saintmaryssports.com"
+  },
+  "Saint Michael's College": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "smcathletics.com"
+  },
+  "Saint Peter's University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "saintpeterspeacocks.com"
+  },
+  "Saint Vincent College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "athletics.stvincent.edu"
+  },
+  "Salem College (North Carolina)": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "salem.edu/athletics"
+  },
+  "Salem State University": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "salemstatevikings.com"
+  },
+  "Salem University (West Virginia)": {
+   "conference": "Independent",
+   "division": "II",
+   "domain": "salemtigers.com"
+  },
+  "Salisbury University": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "suseagulls.com"
+  },
+  "Salve Regina University": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "salveathletics.com"
+  },
+  "Sam Houston State University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "gobearkats.com"
+  },
+  "Samford University": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "samfordsports.com"
+  },
+  "San Diego State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "goaztecs.com"
+  },
+  "San Francisco State University": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "sfstategators.com"
+  },
+  "San Jose State University": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "sjsuspartans.com"
+  },
+  "Santa Clara University": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "santaclarabroncos.com"
+  },
+  "Sarah Lawrence College": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "gogryphons.com"
+  },
+  "Savannah State University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "ssuathletics.com/"
+  },
+  "Schreiner University": {
+   "conference": "American Southwest Conference",
+   "division": "III",
+   "domain": "schreinermountaineers.com"
+  },
+  "Seattle Pacific University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "spufalcons.com/index.aspx"
+  },
+  "Seattle University": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "goseattleu.com"
+  },
+  "Seton Hall University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "shupirates.com"
+  },
+  "Seton Hill University": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "setonhill.edu/athletics"
+  },
+  "Shaw University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "shawbears.com"
+  },
+  "Shawnee State University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "ssubears.com"
+  },
+  "Shenandoah University": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "suhornets.com"
+  },
+  "Shepherd University": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "shepherdrams.com"
+  },
+  "Shippensburg University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "shipraiders.com"
+  },
+  "Shorter University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "goshorterhawks.com"
+  },
+  "Siena University": {
+   "conference": "Metro Conference",
+   "division": "I",
+   "domain": "sienasaints.com"
+  },
+  "Simmons University": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "athletics.simmons.edu"
+  },
+  "Simon Fraser University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "athletics.sfu.ca/"
+  },
+  "Simpson College": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "simpsonathletics.com"
+  },
+  "Skidmore College": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "skidmoreathletics.com/"
+  },
+  "Slippery Rock University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "rockathletics.com"
+  },
+  "Smith College": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "gosmithbears.com"
+  },
+  "Sonoma State University": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "sonomaseawolves.com"
+  },
+  "South Carolina State University": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "scsuathletics.com/index.aspx"
+  },
+  "South Dakota School of Mines & Technology": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "gorockers.com"
+  },
+  "South Dakota State University": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "gojacks.com"
+  },
+  "Southeast Missouri State University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "semoredhawks.com"
+  },
+  "Southeastern Louisiana University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "lionsports.net"
+  },
+  "Southeastern Oklahoma State University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "gosoutheastern.com"
+  },
+  "Southern Arkansas University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "muleriderathletics.com"
+  },
+  "Southern Connecticut State University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "scsuowls.com"
+  },
+  "Southern Illinois University Edwardsville": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "siuecougars.com"
+  },
+  "Southern Illinois University at Carbondale": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "siusalukis.com/"
+  },
+  "Southern Methodist University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "smumustangs.com"
+  },
+  "Southern Nazarene University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "snuathletics.com"
+  },
+  "Southern New Hampshire University": {
+   "conference": "Northeast 10 Conference",
+   "division": "II",
+   "domain": "snhupenmen.com"
+  },
+  "Southern University, Baton Rouge": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "gojagsports.com"
+  },
+  "Southern Utah University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "suutbirds.com"
+  },
+  "Southern Virginia University": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "knightathletics.com"
+  },
+  "Southern Wesleyan University": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "swuathletics.com"
+  },
+  "Southwest Baptist University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "sbubearcats.com"
+  },
+  "Southwest Minnesota State University": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "smsumustangs.com"
+  },
+  "Southwestern Oklahoma State University": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "swosuathletics.com"
+  },
+  "Southwestern University (Texas)": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "southwesternpirates.com"
+  },
+  "Spalding University": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "spaldingathletics.com"
+  },
+  "Spring Hill College": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "shcbadgers.com"
+  },
+  "Springfield College": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "springfield.edu/directory/athletics"
+  },
+  "St. Bonaventure University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "gobonnies.com"
+  },
+  "St. Catherine University": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "stkatesathletics.com/index.aspx"
+  },
+  "St. Cloud State University": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "stcloudstate.edu/athletics"
+  },
+  "St. Edward's University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "gohilltoppers.com"
+  },
+  "St. John Fisher University": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "sjfathletics.com"
+  },
+  "St. John's University (New York)": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "redstormsports.com"
+  },
+  "St. Joseph's University NY (Brooklyn)": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "sjbkathletics.com/landing/index"
+  },
+  "St. Joseph's University, New York L.I.": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "sjliathletics.com"
+  },
+  "St. Lawrence University": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "saintsathletics.com"
+  },
+  "St. Mary's College of Maryland": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "smcmathletics.com"
+  },
+  "St. Mary's University (Texas)": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "rattlerathletics.com"
+  },
+  "St. Norbert College": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "athletics.snc.edu"
+  },
+  "St. Olaf College": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.stolaf.edu"
+  },
+  "St. Thomas Aquinas College": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "https://stacathletics.com/landing/index"
+  },
+  "Stanford University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "gostanford.com/"
+  },
+  "State University of New York Maritime College": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "maritimeathletics.com"
+  },
+  "State University of New York Polytechnic Institute": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "wildcats.sunypoly.edu/landing/index"
+  },
+  "State University of New York at Brockport": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "gobrockport.com"
+  },
+  "State University of New York at Canton": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "rooathletics.com"
+  },
+  "State University of New York at Cobleskill": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "fightingtigers.cobleskill.edu/"
+  },
+  "State University of New York at Cortland": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "cortland.edu/athletics"
+  },
+  "State University of New York at Delhi": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "delhibroncos.com/landing/index"
+  },
+  "State University of New York at Geneseo": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "geneseoknights.com"
+  },
+  "State University of New York at Morrisville": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "morrisvillemustangs.com/"
+  },
+  "State University of New York at New Paltz": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "nphawks.com"
+  },
+  "State University of New York at Old Westbury": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "oldwestburypanthers.com"
+  },
+  "State University of New York at Oneonta": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "oneontaathletics.com"
+  },
+  "State University of New York at Oswego": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "oswegolakers.com"
+  },
+  "State University of New York at Potsdam": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "potsdambears.com"
+  },
+  "Stephen F. Austin State University": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "SFAjacks.com"
+  },
+  "Stetson University": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "gohatters.com"
+  },
+  "Stevens Institute of Technology": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "stevensducks.com"
+  },
+  "Stevenson University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "gomustangsports.com"
+  },
+  "Stockton University": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "stocktonathletics.com"
+  },
+  "Stonehill College": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "stonehillskyhawks.com"
+  },
+  "Stony Brook University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "stonybrookathletics.com"
+  },
+  "Suffolk University": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "gosuffolkrams.com"
+  },
+  "Sul Ross State University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "srlobos.com"
+  },
+  "Susquehanna University": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "gosusqu.com"
+  },
+  "Swarthmore College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "https://swarthmoreathletics.com/"
+  },
+  "Sweet Briar College": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "vixenathletics.com"
+  },
+  "Syracuse University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "cuse.com"
+  },
+  "Tarleton State University": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "tarletonsports.com"
+  },
+  "Temple University": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "owlsports.com"
+  },
+  "Tennessee State University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "tsutigers.com"
+  },
+  "Tennessee Technological University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "TTUsports.com/"
+  },
+  "Texas A&M International University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "godustdevils.com"
+  },
+  "Texas A&M University, College Station": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "12thman.com"
+  },
+  "Texas A&M University-Corpus Christi": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "goislanders.com"
+  },
+  "Texas A&M University-Kingsville": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "javelinaathletics.com"
+  },
+  "Texas A&M University-Texarkana": {
+   "conference": "Independent",
+   "division": "II",
+   "domain": null
+  },
+  "Texas Christian University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "gofrogs.com"
+  },
+  "Texas Lutheran University": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "tlubulldogs.com"
+  },
+  "Texas Southern University": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "tsusports.com"
+  },
+  "Texas State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "txstatebobcats.com"
+  },
+  "Texas Tech University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "texastech.com"
+  },
+  "Texas Woman's University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "twuathletics.com"
+  },
+  "The Citadel": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "citadelsports.com"
+  },
+  "The City College of New York": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "ccnyathletics.com"
+  },
+  "The College of New Jersey": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "tcnjathletics.com"
+  },
+  "The College of St. Scholastica": {
+   "conference": "Minnesota Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "csssaints.com"
+  },
+  "The College of Wooster": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "woosterathletics.com"
+  },
+  "The Ohio State University": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "ohiostatebuckeyes.com/"
+  },
+  "The State University of New York at Fredonia": {
+   "conference": "State University of New York Athletic Conference",
+   "division": "III",
+   "domain": "fredoniabluedevils.com"
+  },
+  "The University of North Carolina at Charlotte": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "charlotte49ers.com"
+  },
+  "The University of North Carolina at Greensboro": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "uncgspartans.com"
+  },
+  "The University of Olivet": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "olivetcomets.com"
+  },
+  "The University of Southern Mississippi": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "southernmiss.com"
+  },
+  "The University of Texas Permian Basin": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "utpbfalcons.com"
+  },
+  "The University of Texas Rio Grande Valley": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "goutrgv.com"
+  },
+  "The University of Texas at Tyler": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "uttylerpatriots.com"
+  },
+  "The University of Tulsa": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "tulsahurricane.com"
+  },
+  "The University of Virginia's College at Wise": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "uvawisecavs.com"
+  },
+  "Thiel College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "thielathletics.com"
+  },
+  "Thomas College": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "thomasathletics.com"
+  },
+  "Thomas Jefferson University": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "jeffersonrams.com"
+  },
+  "Thomas More University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "thomasmoresaints.com"
+  },
+  "Tiffin University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "gotiffindragons.com"
+  },
+  "Towson University": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "towsontigers.com"
+  },
+  "Transylvania University": {
+   "conference": "Heartland Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "transysports.com"
+  },
+  "Trevecca Nazarene University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "tnutrojans.com"
+  },
+  "Trine University": {
+   "conference": "Michigan Intercollegiate Athletic Association",
+   "division": "III",
+   "domain": "trinethunder.com"
+  },
+  "Trinity College (Connecticut)": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "bantamsports.com"
+  },
+  "Trinity University (Texas)": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "trinitytigers.com"
+  },
+  "Troy University": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "troytrojans.com"
+  },
+  "Truman State University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "trumanbulldogs.com"
+  },
+  "Tufts University": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "gotuftsjumbos.com/landing/index"
+  },
+  "Tulane University": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "tulanegreenwave.com"
+  },
+  "Tusculum University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "tusculumpioneers.com"
+  },
+  "Tuskegee University": {
+   "conference": "Southern Intercol. Ath. Conf.",
+   "division": "II",
+   "domain": "goldentigersports.com/"
+  },
+  "U.S. Air Force Academy": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "goairforcefalcons.com/"
+  },
+  "U.S. Coast Guard Academy": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "https://coastguardathletics.com/index.aspx"
+  },
+  "U.S. Merchant Marine Academy": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "usmmasports.com"
+  },
+  "U.S. Military Academy": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "goarmywestpoint.com/index.aspx"
+  },
+  "U.S. Naval Academy": {
+   "conference": "Patriot League",
+   "division": "I",
+   "domain": "navysports.com"
+  },
+  "Union College (New York)": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "unionathletics.com/"
+  },
+  "Union University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "uuathletics.com"
+  },
+  "University at Albany": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "ualbanysports.com"
+  },
+  "University at Buffalo, the State University of New York": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "ubbulls.com"
+  },
+  "University of Akron": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "gozips.com"
+  },
+  "University of Alabama": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "rolltide.com"
+  },
+  "University of Alabama at Birmingham": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "uabsports.com"
+  },
+  "University of Alabama in Huntsville": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "uahchargers.com"
+  },
+  "University of Alaska Anchorage": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "goseawolves.com"
+  },
+  "University of Alaska Fairbanks": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "AlaskaNanooks.com"
+  },
+  "University of Arizona": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "arizonawildcats.com"
+  },
+  "University of Arkansas at Little Rock": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "//lrtrojans.com"
+  },
+  "University of Arkansas, Fayetteville": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "arkansasrazorbacks.com/"
+  },
+  "University of Arkansas, Fort Smith": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "uafortsmithlions.com"
+  },
+  "University of Arkansas, Monticello": {
+   "conference": "Great American Conference",
+   "division": "II",
+   "domain": "uamsports.com"
+  },
+  "University of Arkansas, Pine Bluff": {
+   "conference": "Southwestern Athletic Conf.",
+   "division": "I",
+   "domain": "uapblionsroar.com/"
+  },
+  "University of Bridgeport": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "ubknights.com"
+  },
+  "University of California, Berkeley": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "calbears.com"
+  },
+  "University of California, Davis": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "ucdavisaggies.com"
+  },
+  "University of California, Irvine": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "https://ucirvinesports.com/"
+  },
+  "University of California, Los Angeles": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "uclabruins.com"
+  },
+  "University of California, Merced": {
+   "conference": "California Collegiate Athletic Association",
+   "division": "II",
+   "domain": "ucmercedbobcats.com"
+  },
+  "University of California, Riverside": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "gohighlanders.com/"
+  },
+  "University of California, San Diego": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "ucsdtritons.com"
+  },
+  "University of California, Santa Barbara": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "ucsbgauchos.com"
+  },
+  "University of California, Santa Cruz": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "goslugs.com/"
+  },
+  "University of Central Arkansas": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "ucasports.com"
+  },
+  "University of Central Florida": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "ucfknights.com/"
+  },
+  "University of Central Missouri": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "ucmathletics.com"
+  },
+  "University of Central Oklahoma": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "bronchosports.com"
+  },
+  "University of Charleston (West Virginia)": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "ucgoldeneagles.com"
+  },
+  "University of Chicago": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "athletics.uchicago.edu/landing/index"
+  },
+  "University of Cincinnati": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "gobearcats.com/"
+  },
+  "University of Colorado Boulder": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "cubuffs.com/"
+  },
+  "University of Colorado Colorado Springs": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "gomountainlions.com"
+  },
+  "University of Connecticut": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "uconnhuskies.com"
+  },
+  "University of Dallas": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "udallasathletics.com"
+  },
+  "University of Dayton": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "daytonflyers.com"
+  },
+  "University of Delaware": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "bluehens.com"
+  },
+  "University of Denver": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "denverpioneers.com"
+  },
+  "University of Detroit Mercy": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "detroittitans.com"
+  },
+  "University of Dubuque": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "dbq.edu/Athletics/"
+  },
+  "University of Evansville": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "gopurpleaces.com"
+  },
+  "University of Findlay": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "findlayoilers.com"
+  },
+  "University of Florida": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "floridagators.com"
+  },
+  "University of Georgia": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "georgiadogs.com"
+  },
+  "University of Hartford": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "hartfordhawks.com"
+  },
+  "University of Hawaii at Hilo": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "hiloathletics.com"
+  },
+  "University of Hawaii, Manoa": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "hawaiiathletics.com"
+  },
+  "University of Houston": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "uhcougars.com"
+  },
+  "University of Idaho": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "govandals.com"
+  },
+  "University of Illinois Chicago": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "uicflames.com"
+  },
+  "University of Illinois Springfield": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "uisprairiestars.com"
+  },
+  "University of Illinois Urbana-Champaign": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "fightingillini.com"
+  },
+  "University of Indianapolis": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "uindyathletics.com"
+  },
+  "University of Iowa": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "hawkeyesports.com"
+  },
+  "University of Jamestown": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "jimmiepride.com"
+  },
+  "University of Kansas": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "kuathletics.com"
+  },
+  "University of Kentucky": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "ukathletics.com"
+  },
+  "University of La Verne": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "leopardathletics.com"
+  },
+  "University of Louisiana Monroe": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "ulmwarhawks.com"
+  },
+  "University of Louisiana at Lafayette": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "ragincajuns.com"
+  },
+  "University of Louisville": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "gocards.com"
+  },
+  "University of Lynchburg": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "lynchburgsports.com/landing/index"
+  },
+  "University of Maine": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "goblackbears.com"
+  },
+  "University of Maine at Presque Isle": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "owls.umpi.edu/landing/index"
+  },
+  "University of Maine, Farmington": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "goUMFbeavers.com"
+  },
+  "University of Mary": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "goumary.com"
+  },
+  "University of Mary Hardin-Baylor": {
+   "conference": "American Southwest Conference",
+   "division": "III",
+   "domain": "umhb.edu/athletics"
+  },
+  "University of Mary Washington": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "umweagles.com"
+  },
+  "University of Maryland Eastern Shore": {
+   "conference": "Mid-Eastern Athletic Conf.",
+   "division": "I",
+   "domain": "https://umeshawksports.com/"
+  },
+  "University of Maryland, Baltimore County": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "UMBCRetrievers.com"
+  },
+  "University of Maryland, College Park": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "umterps.com"
+  },
+  "University of Massachusetts Boston": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "beaconsathletics.com"
+  },
+  "University of Massachusetts Lowell": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "goriverhawks.com"
+  },
+  "University of Massachusetts, Amherst": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "umassathletics.com"
+  },
+  "University of Massachusetts, Dartmouth": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "corsairathletics.com"
+  },
+  "University of Memphis": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "gotigersgo.com"
+  },
+  "University of Miami (Florida)": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "miamihurricanes.com"
+  },
+  "University of Michigan": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "mgoblue.com"
+  },
+  "University of Minnesota Duluth": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "umdbulldogs.com/"
+  },
+  "University of Minnesota, Crookston": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "goldeneaglesports.com/"
+  },
+  "University of Minnesota, Morris": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "morriscougars.com"
+  },
+  "University of Minnesota, Twin Cities": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "gophersports.com"
+  },
+  "University of Mississippi": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "olemisssports.com"
+  },
+  "University of Missouri, Columbia": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "mutigers.com"
+  },
+  "University of Missouri-Kansas City": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "kcroos.com"
+  },
+  "University of Missouri-St. Louis": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "umsltritons.com"
+  },
+  "University of Montana": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "gogriz.com"
+  },
+  "University of Montevallo": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "montevallofalcons.com"
+  },
+  "University of Mount Olive": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "umotrojans.com"
+  },
+  "University of Mount Saint Vincent": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "umsvathletics.com/"
+  },
+  "University of Mount Union": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "athletics.mountunion.edu"
+  },
+  "University of Nebraska at Kearney": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "lopers.com"
+  },
+  "University of Nebraska at Omaha": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "omavs.com"
+  },
+  "University of Nebraska-Lincoln": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "huskers.com"
+  },
+  "University of Nevada, Las Vegas": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "unlvrebels.com"
+  },
+  "University of Nevada, Reno": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "nevadawolfpack.com"
+  },
+  "University of New England": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "athletics.une.edu"
+  },
+  "University of New Hampshire": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "unhwildcats.com"
+  },
+  "University of New Haven": {
+   "conference": "Northeast Conference",
+   "division": "II",
+   "domain": "newhavenchargers.com"
+  },
+  "University of New Mexico": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "golobos.com"
+  },
+  "University of North Alabama": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "roarlions.com"
+  },
+  "University of North Carolina Asheville": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "uncabulldogs.com"
+  },
+  "University of North Carolina Wilmington": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "uncwsports.com"
+  },
+  "University of North Carolina at Pembroke": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "uncpbraves.com"
+  },
+  "University of North Carolina, Chapel Hill": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "goheels.com"
+  },
+  "University of North Dakota": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "fightinghawks.com"
+  },
+  "University of North Florida": {
+   "conference": "Atlantic Sun Conference",
+   "division": "I",
+   "domain": "unfospreys.com"
+  },
+  "University of North Georgia": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "ungathletics.com"
+  },
+  "University of North Texas": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "meangreensports.com"
+  },
+  "University of Northern Colorado": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "uncbears.com"
+  },
+  "University of Northern Iowa": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "unipanthers.com"
+  },
+  "University of Northwestern-St. Paul": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "unweagles.com"
+  },
+  "University of Notre Dame": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "fightingirish.com/"
+  },
+  "University of Oklahoma": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "soonersports.com"
+  },
+  "University of Oregon": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "goducks.com"
+  },
+  "University of Pennsylvania": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "pennathletics.com"
+  },
+  "University of Pittsburgh": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "pittsburghpanthers.com"
+  },
+  "University of Pittsburgh, Bradford": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "athletics.pittbradford.org/landing/index"
+  },
+  "University of Pittsburgh, Greensburg": {
+   "conference": "Allegheny Mountain Collegiate Conference",
+   "division": "III",
+   "domain": "pittgreensburgathletics.com/"
+  },
+  "University of Pittsburgh, Johnstown": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "pittjohnstownathletics.com/"
+  },
+  "University of Portland": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "portlandpilots.com"
+  },
+  "University of Puerto Rico, Bayamon": {
+   "conference": "Independent",
+   "division": "II",
+   "domain": "uprb.edu"
+  },
+  "University of Puerto Rico, Mayaguez": {
+   "conference": "Independent",
+   "division": "II",
+   "domain": "uprm.edu/actividadesatleticas"
+  },
+  "University of Puerto Rico, Rio Piedras": {
+   "conference": "Independent",
+   "division": "II",
+   "domain": "https://estudiantes.uprrp.edu/desarollo-estudiantil/departamento-atletico/"
+  },
+  "University of Puget Sound": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "loggerathletics.com"
+  },
+  "University of Redlands": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "goredlands.com"
+  },
+  "University of Rhode Island": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "gorhody.com"
+  },
+  "University of Richmond": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "richmondspiders.com/"
+  },
+  "University of Rochester": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "rochester.edu/athletics"
+  },
+  "University of Saint Joseph (Connecticut)": {
+   "conference": "Great Northeast Athletic Conference",
+   "division": "III",
+   "domain": "usjbluejays.com"
+  },
+  "University of San Diego": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "usdtoreros.com"
+  },
+  "University of San Francisco": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "usfdons.com/index.aspx"
+  },
+  "University of Scranton": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "athletics.scranton.edu"
+  },
+  "University of Sioux Falls": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "usfcougars.com"
+  },
+  "University of South Alabama": {
+   "conference": "Sun Belt Conference",
+   "division": "I",
+   "domain": "usajaguars.com"
+  },
+  "University of South Carolina Aiken": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "pacersports.com"
+  },
+  "University of South Carolina Beaufort": {
+   "conference": "Peach Belt Conference",
+   "division": "II",
+   "domain": "uscbathletics.com"
+  },
+  "University of South Carolina Upstate": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "upstatespartans.com"
+  },
+  "University of South Carolina, Columbia": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "gamecocksonline.com"
+  },
+  "University of South Dakota": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "goyotes.com"
+  },
+  "University of South Florida": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "gousfbulls.com/"
+  },
+  "University of Southern California": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "usctrojans.com"
+  },
+  "University of Southern Indiana": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "usiscreamingeagles.com/"
+  },
+  "University of Southern Maine": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "southernmainehuskies.com"
+  },
+  "University of St. Thomas (Minnesota)": {
+   "conference": "The Summit League",
+   "division": "I",
+   "domain": "Tommiesports.com"
+  },
+  "University of St. Thomas (Texas)": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "ustcelts.com"
+  },
+  "University of Tampa": {
+   "conference": "Sunshine State Conference",
+   "division": "II",
+   "domain": "tampaspartans.com/landing/index"
+  },
+  "University of Tennessee at Chattanooga": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "gomocs.com"
+  },
+  "University of Tennessee at Martin": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "utmsports.com"
+  },
+  "University of Tennessee, Knoxville": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "utsports.com"
+  },
+  "University of Texas at Arlington": {
+   "conference": "United Athletic Conference",
+   "division": "I",
+   "domain": "utamavs.com"
+  },
+  "University of Texas at Austin": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "TexasLonghorns.com"
+  },
+  "University of Texas at Dallas": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "utdcomets.com"
+  },
+  "University of Texas at El Paso": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "utepminers.com"
+  },
+  "University of Texas at San Antonio": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "goutsa.com"
+  },
+  "University of Toledo": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "utrockets.com"
+  },
+  "University of Utah": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "utahutes.com/"
+  },
+  "University of Vermont": {
+   "conference": "America East Conference",
+   "division": "I",
+   "domain": "uvmathletics.com"
+  },
+  "University of Virginia": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "virginiasports.com"
+  },
+  "University of Washington": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "gohuskies.com"
+  },
+  "University of West Alabama": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "uwaathletics.com"
+  },
+  "University of West Florida": {
+   "conference": "Atlantic Sun Conference",
+   "division": "II",
+   "domain": "goargos.com"
+  },
+  "University of West Georgia": {
+   "conference": "United Athletic Conference",
+   "division": "II",
+   "domain": "uwgathletics.com"
+  },
+  "University of Wisconsin-Eau Claire": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "blugolds.com"
+  },
+  "University of Wisconsin-Green Bay": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "greenbayphoenix.com"
+  },
+  "University of Wisconsin-La Crosse": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "uwlathletics.com"
+  },
+  "University of Wisconsin-Madison": {
+   "conference": "Big Ten Conference",
+   "division": "I",
+   "domain": "uwbadgers.com"
+  },
+  "University of Wisconsin-Milwaukee": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "mkepanthers.com"
+  },
+  "University of Wisconsin-Oshkosh": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "https://uwoshkoshtitans.com/"
+  },
+  "University of Wisconsin-Parkside": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "parksiderangers.com"
+  },
+  "University of Wisconsin-Platteville": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "letsgopioneers.com"
+  },
+  "University of Wisconsin-River Falls": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "uwrfsports.com"
+  },
+  "University of Wisconsin-Stevens Point": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "athletics.uwsp.edu"
+  },
+  "University of Wisconsin-Stout Polytechnic": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "stoutbluedevils.com"
+  },
+  "University of Wisconsin-Superior": {
+   "conference": "Upper Midwest Athletic Conference",
+   "division": "III",
+   "domain": "uwsyellowjackets.com"
+  },
+  "University of Wisconsin-Whitewater": {
+   "conference": "Wisconsin Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "uwwsports.com"
+  },
+  "University of Wyoming": {
+   "conference": "Mountain West Conference",
+   "division": "I",
+   "domain": "gowyo.com"
+  },
+  "University of the District of Columbia": {
+   "conference": "East Coast Conference",
+   "division": "II",
+   "domain": "udcfirebirds.com"
+  },
+  "University of the Incarnate Word": {
+   "conference": "Southland Conference",
+   "division": "I",
+   "domain": "uiwcardinals.com"
+  },
+  "University of the Ozarks (Arkansas)": {
+   "conference": "Southern Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "uofoathletics.com/landing/index"
+  },
+  "University of the Pacific": {
+   "conference": "West Coast Conference",
+   "division": "I",
+   "domain": "pacifictigers.com"
+  },
+  "University of the South": {
+   "conference": "Southern Athletic Association",
+   "division": "III",
+   "domain": "sewaneetigers.com/"
+  },
+  "Upper Iowa University": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "uiupeacocks.com/"
+  },
+  "Ursinus College": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "ursinusathletics.com"
+  },
+  "Ursuline College": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "ursulinearrows.com"
+  },
+  "Utah State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "utahstateaggies.com"
+  },
+  "Utah Tech University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "utahtechtrailblazers.com/"
+  },
+  "Utah Valley University": {
+   "conference": "Big West Conference",
+   "division": "I",
+   "domain": "gouvu.com"
+  },
+  "Utica University": {
+   "conference": "Empire 8",
+   "division": "III",
+   "domain": "uticapioneers.com"
+  },
+  "Valdosta State University": {
+   "conference": "Gulf South Conference",
+   "division": "II",
+   "domain": "vstateblazers.com"
+  },
+  "Valparaiso University": {
+   "conference": "Missouri Valley Conference",
+   "division": "I",
+   "domain": "valpoathletics.com"
+  },
+  "Vanderbilt University": {
+   "conference": "Southeastern Conference",
+   "division": "I",
+   "domain": "vucommodores.com"
+  },
+  "Vanguard University": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "vanguardlions.com"
+  },
+  "Vassar College": {
+   "conference": "Liberty League",
+   "division": "III",
+   "domain": "vassarathletics.com/"
+  },
+  "Vermont State University Castleton": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "castletonsports.com/landing/index"
+  },
+  "Vermont State University Lyndon": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "lyndonhornets.com"
+  },
+  "Vermont State University-Johnson": {
+   "conference": "North Atlantic Conference",
+   "division": "III",
+   "domain": "nvubadgers.com/landing/index"
+  },
+  "Villanova University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "villanova.com"
+  },
+  "Virginia Commonwealth University": {
+   "conference": "Atlantic 10 Conference",
+   "division": "I",
+   "domain": "vcuathletics.com"
+  },
+  "Virginia Military Institute": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "vmikeydets.com"
+  },
+  "Virginia Polytechnic Institute and State University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "hokiesports.com"
+  },
+  "Virginia State University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "govsutrojans.com"
+  },
+  "Virginia Union University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "vuusports.com/"
+  },
+  "Wabash College": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "sports.wabash.edu"
+  },
+  "Wagner College": {
+   "conference": "Northeast Conference",
+   "division": "I",
+   "domain": "wagnerathletics.com"
+  },
+  "Wake Forest University": {
+   "conference": "Atlantic Coast Conference",
+   "division": "I",
+   "domain": "godeacs.com"
+  },
+  "Walsh University": {
+   "conference": "Great Midwest Athletic Conference",
+   "division": "II",
+   "domain": "athletics.walsh.edu/landing/index"
+  },
+  "Warren Wilson College": {
+   "conference": "Coast-To-Coast Athletic Conference",
+   "division": "III",
+   "domain": "warrenwilsonowls.com/landing/index"
+  },
+  "Wartburg College": {
+   "conference": "American Rivers Conference",
+   "division": "III",
+   "domain": "go-knights.net"
+  },
+  "Washburn University": {
+   "conference": "Mid-America Intercollegiate Athletics Association",
+   "division": "II",
+   "domain": "wusports.com"
+  },
+  "Washington College (Maryland)": {
+   "conference": "Centennial Conference",
+   "division": "III",
+   "domain": "WashingtonCollegeSports.com"
+  },
+  "Washington State University": {
+   "conference": "Pac-12 Conference",
+   "division": "I",
+   "domain": "wsucougars.com"
+  },
+  "Washington University in St. Louis": {
+   "conference": "University Athletic Association",
+   "division": "III",
+   "domain": "washubears.com"
+  },
+  "Washington and Jefferson College": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "gopresidents.com"
+  },
+  "Washington and Lee University": {
+   "conference": "Old Dominion Athletic Conf.",
+   "division": "III",
+   "domain": "generalssports.com"
+  },
+  "Wayne State College (Nebraska)": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "wscwildcats.com/"
+  },
+  "Wayne State University (Michigan)": {
+   "conference": "Great Lakes Intercollegiate Athletic Conference",
+   "division": "II",
+   "domain": "wsuathletics.com"
+  },
+  "Waynesburg University": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "waynesburgsports.com"
+  },
+  "Weber State University": {
+   "conference": "Big Sky Conference",
+   "division": "I",
+   "domain": "weberstatesports.com/"
+  },
+  "Webster University": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "websterathletics.com"
+  },
+  "Wellesley College": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "wellesleyblue.com"
+  },
+  "Wentworth Institute of Technology": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "wentworthathletics.com"
+  },
+  "Wesleyan University (Connecticut)": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "wesleyan.edu/athletics"
+  },
+  "West Chester University of Pennsylvania": {
+   "conference": "Pennsylvania State Athletic Conference",
+   "division": "II",
+   "domain": "wcupagoldenrams.com"
+  },
+  "West Liberty University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "hilltoppersports.com"
+  },
+  "West Texas A&M University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "gobuffsgo.com"
+  },
+  "West Virginia State University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "wvsuyellowjackets.com"
+  },
+  "West Virginia University": {
+   "conference": "Big 12 Conference",
+   "division": "I",
+   "domain": "wvusports.com"
+  },
+  "West Virginia Wesleyan College": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "wesleyanbobcats.com"
+  },
+  "Western Carolina University": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "catamountsports.com"
+  },
+  "Western Colorado University": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "gomountaineers.com"
+  },
+  "Western Connecticut State University": {
+   "conference": "Little East Conference",
+   "division": "III",
+   "domain": "westconnathletics.com"
+  },
+  "Western Illinois University": {
+   "conference": "Ohio Valley Conference",
+   "division": "I",
+   "domain": "goleathernecks.com"
+  },
+  "Western Kentucky University": {
+   "conference": "Conference USA",
+   "division": "I",
+   "domain": "wkusports.com"
+  },
+  "Western Michigan University": {
+   "conference": "Mid-American Conference",
+   "division": "I",
+   "domain": "wmubroncos.com"
+  },
+  "Western New England University": {
+   "conference": "Conference of New England",
+   "division": "III",
+   "domain": "wnegoldenbears.com"
+  },
+  "Western New Mexico University": {
+   "conference": "Lone Star Conference",
+   "division": "II",
+   "domain": "wnmumustangs.com"
+  },
+  "Western Oregon University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "wouwolves.com"
+  },
+  "Western Washington University": {
+   "conference": "Great Northwest Athletic Conference",
+   "division": "II",
+   "domain": "wwuvikings.com"
+  },
+  "Westfield State University": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "WestfieldStateOwls.com"
+  },
+  "Westminster College (Missouri)": {
+   "conference": "St. Louis Intercollegiate Athletic Conference",
+   "division": "III",
+   "domain": "wcbluejays.com/landing/index"
+  },
+  "Westminster College (Pennsylvania)": {
+   "conference": "Presidents' Athletic Conference",
+   "division": "III",
+   "domain": "westminster.edu/athletics/"
+  },
+  "Westminster University (Utah)": {
+   "conference": "Rocky Mountain Athletic Conference",
+   "division": "II",
+   "domain": "westminstergriffins.com"
+  },
+  "Westmont College": {
+   "conference": "Pacific West Conference",
+   "division": "II",
+   "domain": "athletics.westmont.edu"
+  },
+  "Wheaton College (Illinois)": {
+   "conference": "College Conference of Illinois & Wisconsin",
+   "division": "III",
+   "domain": "athletics.wheaton.edu"
+  },
+  "Wheaton College (Massachusetts)": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "https://wheatoncollegelyons.com/"
+  },
+  "Wheeling University": {
+   "conference": "Mountain East Conference",
+   "division": "II",
+   "domain": "wucardinals.com/"
+  },
+  "Whitman College": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "https://whitman.edu/athletics"
+  },
+  "Whittier College": {
+   "conference": "Southern California Intercollegiate Athletic Conf.",
+   "division": "III",
+   "domain": "wcpoets.com"
+  },
+  "Whitworth University": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "whitworthpirates.com"
+  },
+  "Wichita State University": {
+   "conference": "American Conference",
+   "division": "I",
+   "domain": "goshockers.com"
+  },
+  "Widener University": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "widenerpride.com"
+  },
+  "Wilkes University": {
+   "conference": "Landmark Conference",
+   "division": "III",
+   "domain": "gowilkesu.com"
+  },
+  "Willamette University": {
+   "conference": "Northwest Conference",
+   "division": "III",
+   "domain": "willamette.prestosports.com/landing/index"
+  },
+  "William & Mary": {
+   "conference": "Coastal Athletic Association",
+   "division": "I",
+   "domain": "tribeathletics.com"
+  },
+  "William Jewell College": {
+   "conference": "Great Lakes Valley Conference",
+   "division": "II",
+   "domain": "jewellcardinals.com"
+  },
+  "William Paterson University of New Jersey": {
+   "conference": "New Jersey Athletic Conference",
+   "division": "III",
+   "domain": "wpupioneers.com"
+  },
+  "William Peace University": {
+   "conference": "USA South Athletic Conference",
+   "division": "III",
+   "domain": "gopeacepacers.com"
+  },
+  "Williams College": {
+   "conference": "New England Small College Athletic Conference",
+   "division": "III",
+   "domain": "ephsports.williams.edu/"
+  },
+  "Wilmington College (Ohio)": {
+   "conference": "Ohio Athletic Conference",
+   "division": "III",
+   "domain": "wilmington.edu/athletics"
+  },
+  "Wilmington University (Delaware)": {
+   "conference": "Central Atlantic Collegiate Conference",
+   "division": "II",
+   "domain": "athletics.wilmu.edu/landing/index"
+  },
+  "Wilson College": {
+   "conference": "United East Conference",
+   "division": "III",
+   "domain": "wilsonphoenix.com"
+  },
+  "Wingate University": {
+   "conference": "South Atlantic Conference",
+   "division": "II",
+   "domain": "wingatebulldogs.com"
+  },
+  "Winona State University": {
+   "conference": "Northern Sun Intercollegiate Conference",
+   "division": "II",
+   "domain": "winonastatewarriors.com"
+  },
+  "Winston-Salem State University": {
+   "conference": "Central Intercollegiate Athletic Association",
+   "division": "II",
+   "domain": "wssurams.com"
+  },
+  "Winthrop University": {
+   "conference": "Big South Conference",
+   "division": "I",
+   "domain": "winthropeagles.com"
+  },
+  "Wisconsin Lutheran College": {
+   "conference": "Northern Athletics Collegiate Conference",
+   "division": "III",
+   "domain": "wlcsports.com/landing/index"
+  },
+  "Wittenberg University": {
+   "conference": "North Coast Athletic Conference",
+   "division": "III",
+   "domain": "wittenbergtigers.com"
+  },
+  "Wofford College": {
+   "conference": "Southern Conference",
+   "division": "I",
+   "domain": "wofford.edu/athletics"
+  },
+  "Worcester Polytechnic Institute": {
+   "conference": "New England Women's and Men's Athletic Conference",
+   "division": "III",
+   "domain": "athletics.wpi.edu"
+  },
+  "Worcester State University": {
+   "conference": "Massachusetts State Collegiate Athletic Conference",
+   "division": "III",
+   "domain": "wsulancers.com"
+  },
+  "Wright State University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "wsuraiders.com"
+  },
+  "Xavier University": {
+   "conference": "BIG EAST Conference",
+   "division": "I",
+   "domain": "goxavier.com"
+  },
+  "Yale University": {
+   "conference": "The Ivy League",
+   "division": "I",
+   "domain": "yalebulldogs.com"
+  },
+  "Yeshiva University": {
+   "conference": "Skyline Conference",
+   "division": "III",
+   "domain": "yumacs.com"
+  },
+  "York College (New York)": {
+   "conference": "City University of New York Athletic Conference",
+   "division": "III",
+   "domain": "yorkathletics.com"
+  },
+  "York College (Pennsylvania)": {
+   "conference": "Middle Atlantic Conferences",
+   "division": "III",
+   "domain": "ycpspartans.com"
+  },
+  "Young Harris College": {
+   "conference": "Conference Carolinas",
+   "division": "II",
+   "domain": "yhcathletics.com"
+  },
+  "Youngstown State University": {
+   "conference": "Horizon League",
+   "division": "I",
+   "domain": "ysusports.com"
+  }
+ }
+}
