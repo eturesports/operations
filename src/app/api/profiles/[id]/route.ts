@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
-import { ncaaDivisionFor, syncPlayerFromProfiles } from "@/lib/divisions";
+import { ncaaDivisionFor, playerMoney, syncPlayerFromProfiles } from "@/lib/divisions";
 
 export async function PATCH(
   req: Request,
@@ -79,7 +79,8 @@ export async function PATCH(
     });
   }
 
-  return NextResponse.json({ profile });
+  // So the player form above can show the corrected amount at once.
+  return NextResponse.json({ profile, player: await playerMoney(existing.playerId) });
 }
 
 export async function DELETE(
@@ -113,5 +114,5 @@ export async function DELETE(
     summary: `Removed ${existing.player.name}'s profile at ${existing.university}`,
   });
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, player: await playerMoney(existing.playerId) });
 }

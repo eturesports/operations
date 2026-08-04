@@ -402,14 +402,29 @@ export function PlayersClient({
   }
 
   async function handleSave(form: PlayerForm) {
+    // Division, the amount and the full ride belong to the college profile.
+    // On an existing player the form only *shows* them — there is no control
+    // to change them here — so sending them back can do one thing only:
+    // overwrite what the profile just set with the copy this form loaded when
+    // it opened. That is what put Mario Vazquez's scholarship back to
+    // $3,200,000 fifteen seconds after it was corrected to $320,000.
+    //
+    // A new player has no profile yet, so there they are typed here and the
+    // profile created underneath carries them from the start.
+    const owned = editing
+      ? {}
+      : {
+          division: form.division,
+          scholarship: form.scholarship,
+          fullRide: form.fullRide,
+        };
+
     const payload = {
       sportId: form.sportId,
       name: form.name,
       university: form.university,
       season: form.season,
-      division: form.division,
       program: form.program,
-      scholarship: form.scholarship,
       notes: form.notes,
       profileImageUrl: form.profileImageUrl,
       actionImageUrl: form.actionImageUrl,
@@ -423,11 +438,11 @@ export function PlayersClient({
       graduated: form.graduated,
       graduationYear: form.graduationYear,
       nationalChampion: form.nationalChampion,
-      fullRide: form.fullRide,
       mlsDraftYear: form.mlsDraftYear,
       mlsDraftClub: form.mlsDraftClub,
       mlsDraftRound: form.mlsDraftRound,
       mlsDraftPick: form.mlsDraftPick,
+      ...owned,
     };
     const res = editing
       ? await fetch(`/api/players/${editing.id}`, {

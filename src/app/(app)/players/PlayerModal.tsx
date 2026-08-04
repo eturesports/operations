@@ -651,6 +651,12 @@ export function PlayerModal({
               seasonOptions={seasonOptions}
               editable
               playerNcaaUrl={form.ncaaUrl || initial.ncaaUrl}
+              // The amount is shown above but owned down here, so a change
+              // made in a profile has to reach the field that displays it.
+              onMoneyChange={({ scholarship, fullRide }) => {
+                set("scholarship", scholarship == null ? "" : String(scholarship));
+                set("fullRide", fullRide);
+              }}
               defaults={{
                 university: form.university || initial.university,
                 season: form.season || initial.season,

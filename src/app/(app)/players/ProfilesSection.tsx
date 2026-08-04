@@ -133,12 +133,17 @@ export function ProfilesSection({
   editable,
   defaults,
   playerNcaaUrl,
+  onMoneyChange,
 }: {
   playerId: string;
   seasonOptions: string[];
   editable: boolean;
   /** the single place the NCAA link lives — shown here, edited on the player */
   playerNcaaUrl?: string | null;
+  /** The player form above shows the amount but does not own it. Without
+   *  this it keeps showing what it loaded, so a correction made here looks
+   *  like it did not take. */
+  onMoneyChange?: (money: { scholarship: number | null; fullRide: boolean }) => void;
   // seeded from the player record so "mark as playing" is one click, not a form
   defaults?: { university?: string | null; season?: string | null; division?: string | null };
 }) {
@@ -247,6 +252,7 @@ export function ProfilesSection({
       });
       const j = await res.json();
       if (!res.ok) throw new Error(j.error ?? "Could not update");
+      if (j.player) onMoneyChange?.(j.player);
       setProfiles((prev) =>
         prev.map((x) => ({ ...x, current: x.id === p.id }))
       );
@@ -296,6 +302,9 @@ export function ProfilesSection({
       const j = await res.json();
       if (!res.ok) throw new Error(j.error ?? "Could not save profile");
       const saved = j.profile as Profile;
+      // The server has already re-derived what the player record mirrors.
+      // Pass that up rather than working the same rule out again here.
+      if (j.player) onMoneyChange?.(j.player);
       setProfiles((prev) => {
         const next = draft.id
           ? prev.map((p) => (p.id === saved.id ? saved : p))
@@ -316,6 +325,10 @@ export function ProfilesSection({
     if (!confirm(`Remove ${p.university} profile?`)) return;
     const res = await fetch(`/api/profiles/${p.id}`, { method: "DELETE" });
     if (res.ok) {
+      const j = (await res.json().catch(() => ({}))) as {
+        player?: { scholarship: number | null; fullRide: boolean };
+      };
+      if (j.player) onMoneyChange?.(j.player);
       setProfiles((prev) => prev.filter((x) => x.id !== p.id));
       router.refresh();
     }

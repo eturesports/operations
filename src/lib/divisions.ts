@@ -101,5 +101,20 @@ export async function syncPlayerFromProfiles(playerId: string): Promise<void> {
   });
 }
 
+/**
+ * What the player record now mirrors, after a sync. The screens that edit a
+ * college profile show the amount on the player above it, and re-deriving the
+ * rule in the browser would be a second copy of it waiting to disagree.
+ */
+export async function playerMoney(
+  playerId: string
+): Promise<{ scholarship: number | null; fullRide: boolean }> {
+  const p = await prisma.player.findUnique({
+    where: { id: playerId },
+    select: { scholarship: true, fullRide: true },
+  });
+  return { scholarship: p?.scholarship ?? null, fullRide: p?.fullRide ?? false };
+}
+
 /** @deprecated kept so older call sites keep compiling */
 export const syncPlayerDivision = syncPlayerFromProfiles;

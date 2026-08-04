@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
-import { ncaaDivisionFor, syncPlayerFromProfiles } from "@/lib/divisions";
+import { ncaaDivisionFor, playerMoney, syncPlayerFromProfiles } from "@/lib/divisions";
 
 export async function GET(
   _req: Request,
@@ -126,6 +126,7 @@ export async function POST(
 
   return NextResponse.json({
     profile,
+    player: await playerMoney(target.id),
     // The screen needs to know a new operation appeared, not just a profile.
     newOperation: target.id === player.id ? null : { id: target.id, name: target.name },
   });
