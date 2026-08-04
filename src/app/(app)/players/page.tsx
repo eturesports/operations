@@ -76,6 +76,11 @@ export default async function PlayersPage() {
     return [...seen.values()];
   };
   const seasons = distinctCI(players.map((p) => p.season));
+  // Sorted, because this one is long: 296 spellings, not the half-dozen a
+  // season or a programme comes in.
+  const universities = distinctCI(players.map((p) => p.university)).sort((a, b) =>
+    a.localeCompare(b)
+  );
   const divisions = distinctCI(players.map((p) => p.division));
   const programs = distinctCI(players.map((p) => p.program));
 
@@ -116,7 +121,7 @@ export default async function PlayersPage() {
         position: p.position,
         previousClub: p.previousClub,
       }))}
-      facets={{ seasons, divisions, programs }}
+      facets={{ seasons, divisions, programs, universities }}
     />
   );
 }

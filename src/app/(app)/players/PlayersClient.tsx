@@ -4,6 +4,7 @@ import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePagedList } from "@/components/usePagedList";
 import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
+import { uniKey } from "@/lib/universities";
 import { DIVISIONS, PROGRAMS } from "@/lib/permissions";
 import { PlayerModal, type PlayerForm } from "./PlayerModal";
 import { ImportModal } from "./ImportModal";
@@ -77,7 +78,12 @@ export function PlayersClient({
   isAdmin: boolean;
   sports: SportOpt[];
   initialPlayers: PlayerRow[];
-  facets: { seasons: string[]; divisions: string[]; programs: string[] };
+  facets: {
+    seasons: string[];
+    divisions: string[];
+    programs: string[];
+    universities: string[];
+  };
 }) {
   const router = useRouter();
   const [players, setPlayers] = useState<PlayerRow[]>(initialPlayers);
@@ -89,6 +95,7 @@ export function PlayersClient({
   const [fSeason, setFSeason] = useState<string[]>([]);
   const [fDivision, setFDivision] = useState<string[]>([]);
   const [fProgram, setFProgram] = useState<string[]>([]);
+  const [fUniversity, setFUniversity] = useState<string[]>([]);
   const [fActiveOnly, setFActiveOnly] = useState(false);
   const [fFullRide, setFFullRide] = useState(false);
   // Inline editing: which cell is open, and the value being typed.
@@ -155,6 +162,18 @@ export function PlayersClient({
     () => [...new Set([...PROGRAMS, ...facets.programs])],
     [facets.programs]
   );
+  // Only the universities the database actually holds. Offering all 1,321 in
+  // the directory would mean scrolling past schools nobody has ever been to.
+  const universityOptions = facets.universities;
+
+  // Matched on the key, not the string. The same school is typed several ways
+  // — "PROVIDENCE COLLEGE", "Providence College" — and the option list has
+  // already folded those together, so comparing the raw text would quietly
+  // drop the rows spelled the other way.
+  const uniSet = useMemo(
+    () => new Set(fUniversity.map((u) => uniKey(u))),
+    [fUniversity]
+  );
 
   // The field keeps up with the typing; the list is allowed to arrive a beat
   // later. Without this, every character re-filters and re-sorts the whole
@@ -169,6 +188,7 @@ export function PlayersClient({
       if (fSeason.length && !fSeason.includes(p.season ?? "")) return false;
       if (fDivision.length && !fDivision.includes(p.division ?? "")) return false;
       if (fProgram.length && !fProgram.includes(p.program ?? "")) return false;
+      if (fUniversity.length && !uniSet.has(uniKey(p.university ?? ""))) return false;
       if (fActiveOnly && !p.activeProfile) return false;
       if (fFullRide && !p.fullRide) return false;
       if (fGraduated === "yes" && !p.graduated) return false;
@@ -206,7 +226,7 @@ export function PlayersClient({
       return cmp * dir;
     });
   }, [
-    players, deferredQ, fSport, fSeason, fDivision, fProgram, fActiveOnly, fFullRide, fGraduated,
+    players, deferredQ, fSport, fSeason, fDivision, fProgram, uniSet, fActiveOnly, fFullRide, fGraduated,
     fStatus, sortKey, sortAsc,
   ]);
 
@@ -221,6 +241,7 @@ export function PlayersClient({
     fSeason.length ||
     fDivision.length ||
     fProgram.length ||
+    fUniversity.length ||
     fActiveOnly ||
     fFullRide ||
     fGraduated ||
@@ -844,6 +865,13 @@ export function PlayersClient({
             placeholder={fProgram.length ? "Programs" : "All programs"}
             ariaLabel="Filter by program"
           />
+          <MultiSelect
+            values={fUniversity}
+            options={universityOptions}
+            onChange={setFUniversity}
+            placeholder={fUniversity.length ? "Universities" : "All universities"}
+            ariaLabel="Filter by university"
+          />
           <Select
             value={fGraduated === "yes" ? "Graduated" : fGraduated === "no" ? "Not graduated" : "Graduated: all"}
             options={["Graduated: all", "Graduated", "Not graduated"]}
@@ -895,6 +923,7 @@ export function PlayersClient({
                 setFSeason([]);
                 setFDivision([]);
                 setFProgram([]);
+                setFUniversity([]);
                 setFActiveOnly(false);
                 setFFullRide(false);
                 setFGraduated("");
