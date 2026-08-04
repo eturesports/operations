@@ -13,6 +13,7 @@ export type BulkPatch = {
   graduated?: boolean;
   graduationYear?: number | null;
   nationalChampion?: boolean;
+  fullRide?: boolean;
 };
 
 // Tri-state selects: "" leaves the field untouched.
@@ -35,6 +36,12 @@ const CHAMP_LABEL: Record<TriState, string> = {
 };
 const LABEL_CHAMP: Record<string, TriState> = {
   "Keep unchanged": "", "National champion": "yes", "Not a champion": "no",
+};
+const RIDE_LABEL: Record<TriState, string> = {
+  "": "Keep unchanged", yes: "Full ride", no: "Not a full ride",
+};
+const LABEL_RIDE: Record<string, TriState> = {
+  "Keep unchanged": "", "Full ride": "yes", "Not a full ride": "no",
 };
 const GRAD_LABEL: Record<TriState, string> = {
   "": "Keep unchanged", yes: "Graduated", no: "Not graduated",
@@ -63,6 +70,7 @@ export function BulkEditModal({
   const [playing, setPlaying] = useState<TriState>("");
   const [graduated, setGraduated] = useState<TriState>("");
   const [champion, setChampion] = useState<TriState>("");
+  const [fullRide, setFullRide] = useState<TriState>("");
   const [graduationYear, setGraduationYear] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -76,6 +84,7 @@ export function BulkEditModal({
     if (playing) patch.playingNow = playing === "yes";
     if (graduated) patch.graduated = graduated === "yes";
     if (champion) patch.nationalChampion = champion === "yes";
+    if (fullRide) patch.fullRide = fullRide === "yes";
     if (graduationYear.trim()) {
       const y = parseInt(graduationYear.replace(/[^\d]/g, ""), 10);
       if (Number.isNaN(y) || y < 1950 || y > 2100) {
@@ -182,6 +191,18 @@ export function BulkEditModal({
               options={["Keep unchanged", "National champion", "Not a champion"]}
               onChange={(v) => setChampion(LABEL_CHAMP[v] ?? "")}
               ariaLabel="National champion"
+            />
+          </div>
+
+          {/* Marking a set of scholarships as full rides at once — the point
+              of selecting them in the first place. */}
+          <div>
+            <label className="label">Full ride</label>
+            <Select
+              value={RIDE_LABEL[fullRide]}
+              options={["Keep unchanged", "Full ride", "Not a full ride"]}
+              onChange={(v) => setFullRide(LABEL_RIDE[v] ?? "")}
+              ariaLabel="Full ride"
             />
           </div>
 

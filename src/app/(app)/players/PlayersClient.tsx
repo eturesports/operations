@@ -90,6 +90,7 @@ export function PlayersClient({
   const [fDivision, setFDivision] = useState<string[]>([]);
   const [fProgram, setFProgram] = useState<string[]>([]);
   const [fActiveOnly, setFActiveOnly] = useState(false);
+  const [fFullRide, setFFullRide] = useState(false);
   // Inline editing: which cell is open, and the value being typed.
   type CellField = "name" | "university" | "season" | "division" | "program" | "scholarship";
   const [editingCell, setEditingCell] = useState<
@@ -167,6 +168,7 @@ export function PlayersClient({
       if (fDivision.length && !fDivision.includes(p.division ?? "")) return false;
       if (fProgram.length && !fProgram.includes(p.program ?? "")) return false;
       if (fActiveOnly && !p.activeProfile) return false;
+      if (fFullRide && !p.fullRide) return false;
       if (fGraduated === "yes" && !p.graduated) return false;
       if (fGraduated === "no" && p.graduated) return false;
       if (fStatus === "active" && !p.active) return false;
@@ -202,7 +204,7 @@ export function PlayersClient({
       return cmp * dir;
     });
   }, [
-    players, deferredQ, fSport, fSeason, fDivision, fProgram, fActiveOnly, fGraduated,
+    players, deferredQ, fSport, fSeason, fDivision, fProgram, fActiveOnly, fFullRide, fGraduated,
     fStatus, sortKey, sortAsc,
   ]);
 
@@ -218,9 +220,11 @@ export function PlayersClient({
     fDivision.length ||
     fProgram.length ||
     fActiveOnly ||
+    fFullRide ||
     fGraduated ||
     fStatus ||
     q;
+  const fullRideCount = useMemo(() => players.filter((p) => p.fullRide).length, [players]);
   const activeNcaaCount = useMemo(
     () => players.filter((p) => p.activeProfile).length,
     [players]
@@ -820,6 +824,19 @@ export function PlayersClient({
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Playing now ({activeNcaaCount})
           </button>
+          {/* Which scholarships were full rides — the ones worth pulling out
+              on their own, and the set you would then act on together. */}
+          <button
+            onClick={() => setFFullRide((v) => !v)}
+            aria-pressed={fFullRide}
+            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+              fFullRide
+                ? "border-accent/60 bg-accent/15 text-accent"
+                : "border-ink-600 text-muted hover:text-fg"
+            }`}
+          >
+            Full ride ({fullRideCount})
+          </button>
           {activeFilters && (
             <button
               onClick={() => {
@@ -829,6 +846,7 @@ export function PlayersClient({
                 setFDivision([]);
                 setFProgram([]);
                 setFActiveOnly(false);
+                setFFullRide(false);
                 setFGraduated("");
                 setFStatus("");
               }}
