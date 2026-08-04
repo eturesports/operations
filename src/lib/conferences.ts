@@ -49,7 +49,9 @@ export function conferenceFor(university: string | null | undefined): string | n
 export function divisionFor(university: string | null | undefined): string | null {
   if (!university) return null;
   const d = byKey.get(uniKey(university))?.division;
-  return d ? `Division ${d}` : null;
+  if (!d) return null;
+  // NAIA is a division in its own right, not a Roman numeral after the word.
+  return d === "NAIA" ? "NAIA" : `Division ${d}`;
 }
 
 /** The directory's own spelling, for showing what a typed name resolved to. */

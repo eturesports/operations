@@ -1,6 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+// Shared by every dialog on the page, so the page is released once.
+let openModals = 0;
+let restoreOverflow = "";
 
 /**
  * What every dialog in the app owes the person using it: Escape closes it,
@@ -12,23 +16,38 @@ import { useEffect } from "react";
  * left scrolled under the address bar with no way back.
  */
 export function useModal(onClose: () => void) {
+  // Escape is re-read through a ref so the lock below never depends on it.
+  const close = useRef(onClose);
+  close.current = onClose;
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") close.current();
     }
     document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
-    // Held rather than assumed: another dialog may already have locked the
-    // page, and restoring a guess would scroll the page on close.
+  // The lock is counted, not remembered.
+  //
+  // Remembering it was the bug: this effect used to depend on `onClose`,
+  // which callers pass as an inline arrow and is therefore a new function on
+  // every render. The effect re-ran, captured `overflow` while the page was
+  // *already* locked, and on close restored that — leaving `hidden` behind
+  // and the players list unable to scroll until a reload. Counting depth
+  // also makes a dialog opened from a dialog behave: the page is released
+  // when the last one goes, not when the first does.
+  useEffect(() => {
     const { body } = document;
-    const previous = body.style.overflow;
+    if (openModals === 0) restoreOverflow = body.style.overflow;
+    openModals += 1;
     body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener("keydown", onKey);
-      body.style.overflow = previous;
+      openModals -= 1;
+      if (openModals === 0) body.style.overflow = restoreOverflow;
     };
-  }, [onClose]);
+  }, []);
 }
 
 /** The shell every dialog shares: a sheet rising from the bottom edge on a

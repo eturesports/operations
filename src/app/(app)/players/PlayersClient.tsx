@@ -1112,6 +1112,26 @@ export function PlayersClient({
                         </span>
                       </button>
                       )}
+                      {/* Straight to their Instagram, without opening the
+                          record first. Its own link, so the click does not
+                          also open the profile behind it. */}
+                      {p.instagramUrl && (
+                        <a
+                          href={p.instagramUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          title={`Open ${p.name}'s Instagram`}
+                          aria-label={`Open ${p.name}'s Instagram`}
+                          className="ml-2 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-ink-700/60 hover:text-fg"
+                        >
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+                          </svg>
+                        </a>
+                      )}
                     </td>
                     {cell(p, "university", "text-fg")}
                     {cell(p, "season", "text-muted", { list: "cell-season-list" })}
