@@ -9,7 +9,7 @@ import { AchievementsSection } from "./AchievementsSection";
 import { MultiSelect } from "@/components/MultiSelect";
 import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
 import { COUNTRIES, flagOf, parseNationalities } from "@/lib/countries";
-import { NCAA_UNIVERSITIES, conferenceFor } from "@/lib/conferences";
+import { NCAA_UNIVERSITIES, conferenceFor, divisionFor } from "@/lib/conferences";
 
 export type PlayerForm = {
   sportId: string;
@@ -261,14 +261,23 @@ export function PlayerModal({
               <Select
                 value={form.university}
                 options={NCAA_UNIVERSITIES}
-                onChange={(v) => set("university", v)}
+                onChange={(v) => {
+                  set("university", v);
+                  // The division comes with the university rather than being
+                  // typed again — and it reaches the college profile that is
+                  // opened alongside this record on save.
+                  const d = divisionFor(v);
+                  if (d) set("division", d);
+                }}
                 placeholder="Search a university, or type one"
                 allowCustom
                 ariaLabel="University"
               />
               {conferenceFor(form.university) && (
                 <p className="mt-1 text-[11px] text-muted">
-                  {conferenceFor(form.university)}
+                  {[divisionFor(form.university), conferenceFor(form.university)]
+                    .filter(Boolean)
+                    .join(" · ")}
                 </p>
               )}
             </div>
@@ -339,7 +348,11 @@ export function PlayerModal({
               <div className="input flex items-center justify-between gap-2 text-muted">
                 <span>{form.division || "—"}</span>
                 <span className="text-[10px] uppercase tracking-wide">
-                  {initial ? "From college profile" : "Set on the profile after saving"}
+                  {initial
+                    ? "From college profile"
+                    : divisionFor(form.university)
+                      ? "From the university"
+                      : "Set on the profile after saving"}
                 </span>
               </div>
             </div>

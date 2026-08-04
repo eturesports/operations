@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Select } from "@/components/Select";
-import { NCAA_UNIVERSITIES, conferenceFor } from "@/lib/conferences";
+import { NCAA_UNIVERSITIES, conferenceFor, divisionFor } from "@/lib/conferences";
 
 export type Profile = {
   id: string;
@@ -633,18 +633,40 @@ function ProfileForm({
           <Select
             value={draft.university}
             options={NCAA_UNIVERSITIES}
-            onChange={(v) => onChange("university", v)}
+            onChange={(v) => {
+              onChange("university", v);
+              // The division belongs to the university, so choosing one
+              // brings it along instead of being typed a second time. Only
+              // when the directory knows the school: JUCO and NAIA are not
+              // members, and their divisions stay hand-set.
+              const d = divisionFor(v);
+              if (d) onChange("division", d);
+            }}
             placeholder="Search a university, or type one"
             allowCustom
             ariaLabel="University"
           />
+          {(divisionFor(draft.university) || conferenceFor(draft.university)) && (
+            <p className="mt-1 text-[11px] text-muted">
+              {[divisionFor(draft.university), conferenceFor(draft.university)]
+                .filter(Boolean)
+                .join(" · ")}
+            </p>
+          )}
         </div>
         <div>
-          <label className="label">Division</label>
+          <label className="label">
+            Division
+            {divisionFor(draft.university) && (
+              <span className="ml-1 text-[9px] uppercase tracking-wide text-muted">
+                &middot; from the university
+              </span>
+            )}
+          </label>
           <input
             className="input"
             list="profile-division-list"
-            placeholder="Division I"
+            placeholder={divisionFor(draft.university) ?? "Division I"}
             value={draft.division}
             onChange={(e) => onChange("division", e.target.value)}
           />

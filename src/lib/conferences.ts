@@ -40,6 +40,18 @@ export function conferenceFor(university: string | null | undefined): string | n
   return byKey.get(uniKey(university))?.conference ?? null;
 }
 
+/**
+ * The division a university competes in, written the way the database writes
+ * it. Null for anyone the NCAA directory does not list — JUCO and NAIA
+ * schools are not members, and neither is a misspelling, so those keep being
+ * set by hand.
+ */
+export function divisionFor(university: string | null | undefined): string | null {
+  if (!university) return null;
+  const d = byKey.get(uniKey(university))?.division;
+  return d ? `Division ${d}` : null;
+}
+
 /** The directory's own spelling, for showing what a typed name resolved to. */
 export function officialNameFor(university: string | null | undefined): string | null {
   if (!university) return null;
