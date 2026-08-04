@@ -39,6 +39,8 @@ export function PlayerDetail({
   seasonOptions = [],
   related = [],
   onOpenRelated,
+  onSplit,
+  splitting,
   onClose,
   onEdit,
 }: {
@@ -48,6 +50,10 @@ export function PlayerDetail({
   /** the same person's other operations — a transfer is a separate record */
   related?: PlayerRow[];
   onOpenRelated?: (p: PlayerRow) => void;
+  /** give one of them a person of its own: two people, one name */
+  onSplit?: (p: PlayerRow) => void;
+  /** id of the record currently being separated */
+  splitting?: string | null;
   onClose: () => void;
   onEdit: () => void;
 }) {
@@ -159,35 +165,56 @@ export function PlayerDetail({
             </p>
             <div className="space-y-1.5">
               {related.map((r) => (
-                <button
+                <div
                   key={r.id}
-                  type="button"
-                  onClick={() => onOpenRelated?.(r)}
-                  className="flex w-full items-center justify-between gap-3 rounded-lg border border-ink-600 bg-ink-800/40 px-3 py-2 text-left transition-colors hover:border-brand/40"
+                  className="rounded-lg border border-ink-600 bg-ink-800/40 transition-colors hover:border-brand/40"
                 >
-                  <span className="min-w-0">
-                    <span className="block truncate text-sm text-fg">
-                      {r.university ?? "—"}
+                  <button
+                    type="button"
+                    onClick={() => onOpenRelated?.(r)}
+                    className="flex w-full items-center justify-between gap-3 px-3 py-2 text-left"
+                  >
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm text-fg">
+                        {r.university ?? "—"}
+                      </span>
+                      <span className="block text-[11px] text-muted">
+                        {[r.season, r.division, r.program].filter(Boolean).join(" · ")}
+                      </span>
                     </span>
-                    <span className="block text-[11px] text-muted">
-                      {[r.season, r.division, r.program].filter(Boolean).join(" · ")}
+                    <span className="shrink-0 text-right">
+                      <span
+                        className={`badge ${
+                          uniKey(r.university ?? "") === uniKey(player.university ?? "")
+                            ? "bg-ink-700 text-muted"
+                            : "bg-accent/20 text-accent"
+                        }`}
+                      >
+                        {uniKey(r.university ?? "") === uniKey(player.university ?? "")
+                          ? "Same college"
+                          : "Transfer"}
+                      </span>
+                      <span className="mt-0.5 block text-[11px] text-brand">Open →</span>
                     </span>
-                  </span>
-                  <span className="shrink-0 text-right">
-                    <span
-                      className={`badge ${
-                        uniKey(r.university ?? "") === uniKey(player.university ?? "")
-                          ? "bg-ink-700 text-muted"
-                          : "bg-accent/20 text-accent"
-                      }`}
-                    >
-                      {uniKey(r.university ?? "") === uniKey(player.university ?? "")
-                        ? "Same college"
-                        : "Transfer"}
-                    </span>
-                    <span className="mt-0.5 block text-[11px] text-brand">Open →</span>
-                  </span>
-                </button>
+                  </button>
+
+                  {/* Two people can share a name, and the career was built from
+                      names. Saying so here is the only place it can be seen. */}
+                  {editable && onSplit && (
+                    <div className="border-t border-ink-700/70 px-3 py-1.5">
+                      <button
+                        type="button"
+                        disabled={splitting === r.id}
+                        onClick={() => onSplit(r)}
+                        className="text-[11px] text-muted underline-offset-2 hover:text-accent hover:underline disabled:opacity-50"
+                      >
+                        {splitting === r.id
+                          ? "Separating…"
+                          : "Not the same person — separate this record"}
+                      </button>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>

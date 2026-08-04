@@ -127,6 +127,8 @@ export function PlayersClient({
     note: string | null;
   }>({ busy: false, done: 0, total: 0, ok: 0, note: null });
   const [detail, setDetail] = useState<PlayerRow | null>(null);
+  // which record is being unpicked from a shared person, if any
+  const [splitting, setSplitting] = useState<string | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
   const [view, setView] = useState<"table" | "gallery">("table");
@@ -519,6 +521,39 @@ export function PlayersClient({
       return n;
     });
     router.refresh();
+  }
+
+  // Two people can share a name, and the career path was built from names —
+  // so it sometimes joins strangers. This unpicks one record from the rest.
+  async function handleSplitPerson(p: PlayerRow) {
+    const ok = confirm(
+      `Separate this record?\n\n${p.name} — ${p.university ?? "no university"}${
+        p.season ? ` (${p.season})` : ""
+      }\n\nIt becomes its own person, so it no longer shares a career or the ` +
+        `fields that follow a person (nationality, position, Instagram, graduation, MLS draft).`
+    );
+    if (!ok) return;
+
+    setSplitting(p.id);
+    try {
+      const res = await fetch(`/api/players/${p.id}/person`, { method: "POST" });
+      const data = (await res.json().catch(() => ({}))) as {
+        personId?: string;
+        error?: string;
+      };
+      if (!res.ok || !data.personId) {
+        alert(data.error ?? "Could not separate this record.");
+        return;
+      }
+      // Only this record moves; every other record keeps the person it had.
+      setPlayers((prev) =>
+        prev.map((x) => (x.id === p.id ? { ...x, personId: data.personId! } : x))
+      );
+      setDetail((d) => (d && d.id === p.id ? { ...d, personId: data.personId! } : d));
+      router.refresh();
+    } finally {
+      setSplitting(null);
+    }
   }
 
   // Pulls each selected player's figures from their college roster page. The
@@ -1277,6 +1312,8 @@ export function PlayersClient({
                   x.name.trim().toLowerCase() === detail.name.trim().toLowerCase()
           )}
           onOpenRelated={(p) => setDetail(p)}
+          onSplit={handleSplitPerson}
+          splitting={splitting}
           onClose={() => setDetail(null)}
           onEdit={() => {
             const p = detail;
