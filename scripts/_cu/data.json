@@ -1,0 +1,249 @@
+{
+ "86dzkfxqg": {
+  "name": "Rodrigo Salamanca",
+  "program": 0,
+  "division": "Division 2",
+  "conference": null,
+  "first": "Saint Michaels",
+  "second": "St.Thomas",
+  "link": "https://tommiesports.com/sports/msoc",
+  "tipo": 1,
+  "season": 6
+ },
+ "86e0gt8ne": {
+  "name": "Alen Kapetanovic",
+  "program": 1,
+  "division": "Division I",
+  "conference": "Northeast Conference (NEC)",
+  "first": "Central Connecticut State University",
+  "second": null,
+  "link": null,
+  "tipo": 0,
+  "season": 6
+ },
+ "86e0gt8x8": {
+  "name": "Diego Ruiz",
+  "program": 1,
+  "division": null,
+  "conference": null,
+  "first": "Lipscomb University",
+  "second": null,
+  "link": null,
+  "tipo": 1,
+  "season": 6
+ },
+ "86e2qcyb1": {
+  "name": "Mario Albert",
+  "program": 0,
+  "division": null,
+  "conference": null,
+  "first": "CREIGHTON UNIVERSITY",
+  "second": null,
+  "link": null,
+  "tipo": null,
+  "season": 6
+ },
+ "86e2kya6q": {
+  "name": "Unai Bernal",
+  "program": 0,
+  "division": null,
+  "conference": null,
+  "first": "ANDERSON UNIVERSITY",
+  "second": null,
+  "link": null,
+  "tipo": null,
+  "season": null
+ },
+ "86e2rf48t": {
+  "name": "Jaime Casado",
+  "program": 0,
+  "division": null,
+  "conference": null,
+  "first": "University of Texas Tyler",
+  "second": null,
+  "link": null,
+  "tipo": null,
+  "season": null
+ },
+ "86e281fat": {
+  "name": "Mario Nordstom",
+  "program": 0,
+  "first": "UC Irvine",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e290p6g": {
+  "name": "Álvaro Rodriguez",
+  "program": 0,
+  "first": "Saint Johns University",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2b066x": {
+  "name": "Héctor Criado",
+  "program": 0,
+  "first": null,
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2erv2b": {
+  "name": "Kris Kennedy",
+  "program": 1,
+  "first": "FELICIAN UNVERSITY",
+  "second": null,
+  "division": "2",
+  "conference": null,
+  "link": null
+ },
+ "86e2nvnht": {
+  "name": "Finot Pie",
+  "program": 0,
+  "first": "UCLA",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2qcyac": {
+  "name": "Nacho Canales",
+  "program": 0,
+  "first": "UNIVERSITY OF ST. THOMAS",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2qcyav": {
+  "name": "Alfonso Borbón",
+  "program": 0,
+  "first": "NEW JERSEY INSTITUTE OF TECHNOLOGY",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2qcyb4": {
+  "name": "Víctor Sala",
+  "program": 0,
+  "first": "BRYANT UNIVERSITY",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2qcyb9": {
+  "name": "Aimar Peñalver",
+  "program": 0,
+  "first": "BRYANT UNIVERSITY",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf40k": {
+  "name": "Jorge García",
+  "program": 0,
+  "first": "Emory and Henry",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf41b": {
+  "name": "Jorge Escobar",
+  "program": 0,
+  "first": "Barry University",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf42e": {
+  "name": "Juan Soto",
+  "program": 0,
+  "first": "Florida Tech University",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf43n": {
+  "name": "Sergio López Martínez",
+  "program": 0,
+  "first": "SNHU",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf466": {
+  "name": "Sergio López Matellán",
+  "program": 0,
+  "first": "Emory and Henry",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf46v": {
+  "name": "Adell Kessas",
+  "program": 0,
+  "first": "Emory and Henry",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf49j": {
+  "name": "Pablo Ossorio",
+  "program": 0,
+  "first": "Christian Brothers",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf4a6": {
+  "name": "Juan Ramón",
+  "program": 0,
+  "first": "USAO",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null,
+  "note": "revisar si falta apellido"
+ },
+ "86e2rf4au": {
+  "name": "Pol Núñez",
+  "program": 0,
+  "first": "Emory and Henry",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf4bd": {
+  "name": "Jorge Rodríguez",
+  "program": 0,
+  "first": "Bethel University",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ },
+ "86e2rf4cx": {
+  "name": "Marco Cabrera",
+  "program": 0,
+  "first": "American International",
+  "second": null,
+  "division": null,
+  "conference": null,
+  "link": null
+ }
+}
