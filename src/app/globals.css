@@ -48,6 +48,15 @@
   --div-i: #C42B2B;
   --div-ii: #C9A227;
   --div-iii: #3B72C4;
+  /* Outside the NCAA divisions. A neutral ramp rather than more hues, and
+     not for lack of trying: five categorical colours cannot survive
+     deuteranopia here — a green next to the Division I red collapses to
+     ΔE 3.0, far under the floor. Stepping them by lightness instead keeps
+     them apart for everyone, and says the thing the colour should say:
+     coloured is an NCAA division, grey is not. */
+  --out-naia: #6B7280;
+  --out-juco: #9CA3AF;
+  --out-other: #D1D5DB;
 }
 
 /* Dark — opt-in via the toggle. Higher specificity than bare :root. */
@@ -71,6 +80,9 @@
      L 0.728, outside the 0.48–0.67 band dark asks for, so Division II gets
      its own step. Red and blue pass in both and stay put. */
   --div-ii: #AD861C;
+  --out-naia: #9CA3AF;
+  --out-juco: #6B7280;
+  --out-other: #4B5563;
 }
 
 html,

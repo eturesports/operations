@@ -10,11 +10,16 @@ import { formatNumber } from "@/lib/format";
  * Its own panel, because it answers a different question from the one next
  * to it: that one is about reach and money, this one is only about level.
  *
- * The three divisions do not add up to the selection and the panel says so.
- * The database holds NAIA, JUCO and MLS NEXT PRO records too, plus a few with
- * no division recorded — 112 of 780 as this was written. Three percentages
- * that quietly summed to 86% would read as an error every time someone
- * checked them, so the remainder is named and counted.
+ * Every level gets a box and the six add to 100%. Three percentages that
+ * quietly summed to 86% would read as an error every time someone checked
+ * them — the database holds NAIA and JUCO records too, and a few with no
+ * division recorded.
+ *
+ * Only the three NCAA divisions carry a colour. Five categorical hues cannot
+ * survive deuteranopia against this surface — a green beside the Division I
+ * red comes out at ΔE 3.0, nowhere near the floor — so the three outside it
+ * are stepped by lightness instead. That reads as what it is: coloured is an
+ * NCAA division, grey is not.
  */
 
 type Slot = { key: string; label: string; count: number; color: string };
@@ -43,22 +48,26 @@ export function DivisionSplit({ filtered }: { filtered: PlayerRow[] }) {
 
     // Fixed order, never sorted by size: a filter that changes the counts
     // must not move Division II to where Division I was a moment ago.
-    const divisions: Slot[] = [
+    const slots: Slot[] = [
       { key: "i", label: "Division I", count: get("i"), color: "var(--div-i)" },
       { key: "ii", label: "Division II", count: get("ii"), color: "var(--div-ii)" },
       { key: "iii", label: "Division III", count: get("iii"), color: "var(--div-iii)" },
+      { key: "naia", label: "NAIA", count: get("naia"), color: "var(--out-naia)" },
+      { key: "juco", label: "NJCAA (JUCO)", count: get("juco"), color: "var(--out-juco)" },
+      // Everything else in one box: MLS NEXT PRO, and anything still without a
+      // division. Naming it keeps the six adding to 100%.
+      {
+        key: "other",
+        label: "Other",
+        count: get("other") + get("unknown"),
+        color: "var(--out-other)",
+      },
     ];
-    const rest = [
-      { key: "naia", label: "NAIA", count: get("naia") },
-      { key: "juco", label: "JUCO", count: get("juco") },
-      { key: "other", label: "Other", count: get("other") },
-      { key: "unknown", label: "Not recorded", count: get("unknown") },
-    ].filter((r) => r.count > 0);
 
-    const restCount = rest.reduce((a, r) => a + r.count, 0);
+    const unknown = get("unknown");
     const pct = (c: number) => (total ? Math.round((c / total) * 1000) / 10 : 0);
 
-    return { total, divisions, rest, restCount, pct };
+    return { total, slots, unknown, pct };
   }, [filtered]);
 
   if (s.total === 0) return null;
@@ -77,13 +86,9 @@ export function DivisionSplit({ filtered }: { filtered: PlayerRow[] }) {
       <div
         className="flex h-2.5 w-full gap-[2px] overflow-hidden rounded-full bg-ink-700"
         role="img"
-        aria-label={
-          s.divisions
-            .map((d) => `${d.label} ${s.pct(d.count)}%`)
-            .join(", ") + `, other ${s.pct(s.restCount)}%`
-        }
+        aria-label={s.slots.map((d) => `${d.label} ${s.pct(d.count)}%`).join(", ")}
       >
-        {s.divisions.map((d) =>
+        {s.slots.map((d) =>
           d.count === 0 ? null : (
             <span
               key={d.key}
@@ -92,17 +97,11 @@ export function DivisionSplit({ filtered }: { filtered: PlayerRow[] }) {
             />
           )
         )}
-        {s.restCount > 0 && (
-          <span
-            className="h-full rounded-full bg-ink-600"
-            style={{ width: `${s.pct(s.restCount)}%` }}
-          />
-        )}
       </div>
 
-      {/* The numbers carry the identity; the swatch only repeats it. */}
-      <div className="mt-4 grid grid-cols-3 gap-2">
-        {s.divisions.map((d) => (
+      {/* The name and the number carry the identity; the swatch repeats it. */}
+      <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+        {s.slots.map((d) => (
           <div key={d.key} className="rounded-xl border border-ink-600 bg-ink-900/40 px-3 py-2.5">
             <div className="flex items-center gap-1.5">
               <span
@@ -124,23 +123,17 @@ export function DivisionSplit({ filtered }: { filtered: PlayerRow[] }) {
         ))}
       </div>
 
-      {s.restCount > 0 && (
-        <p className="mt-3 text-[11px] leading-relaxed text-muted">
-          The remaining{" "}
-          <b className="text-fg">
-            {s.pct(s.restCount)}% ({formatNumber(s.restCount)})
-          </b>{" "}
-          competes outside the three NCAA divisions:{" "}
-          {s.rest.map((r, i) => (
-            <span key={r.key}>
-              {i > 0 && " · "}
-              {r.label} {formatNumber(r.count)}
-            </span>
-          ))}
-          . Percentages are of the {formatNumber(s.total)} operations selected, so
-          all four add to 100%.
-        </p>
-      )}
+      <p className="mt-3 text-[11px] leading-relaxed text-muted">
+        Percentages are of the {formatNumber(s.total)} operation
+        {s.total === 1 ? "" : "s"} selected, so the six add to 100%.
+        {s.unknown > 0 && (
+          <>
+            {" "}
+            <b className="text-fg">Other</b> includes {formatNumber(s.unknown)} with
+            no division recorded.
+          </>
+        )}
+      </p>
     </section>
   );
 }
