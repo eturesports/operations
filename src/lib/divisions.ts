@@ -12,6 +12,7 @@
 // cost a rewrite and buy nothing.
 
 import { prisma } from "@/lib/prisma";
+import { divisionFor } from "@/lib/conferences";
 import { seasonSortKey } from "@/lib/format";
 
 /** The NCAA's own shorthand, for the stats lookups. Derived, never typed. */
@@ -22,16 +23,16 @@ export function ncaaDivisionFor(division: string | null | undefined): string {
   return "d1";
 }
 
-type Speaking = {
+/** All the ranking needs to know: who is current, and which came last. */
+type Ranked = { current: boolean; season: string | null; createdAt: Date };
+
+type Speaking = Ranked & {
   division: string | null;
-  season: string | null;
-  current: boolean;
   scholarship: number | null;
   fullRide: boolean;
   rosterUrl: string | null;
   profileImageUrl: string | null;
   actionImageUrl: string | null;
-  createdAt: Date;
 };
 
 /**
@@ -39,7 +40,7 @@ type Speaking = {
  * the most recent season, else the one added last. That last tiebreak matters
  * — a profile added without a season is usually the one just created.
  */
-function speaksFor(profiles: Speaking[]): Speaking | null {
+function speaksFor<T extends Ranked>(profiles: T[]): T | null {
   if (profiles.length === 0) return null;
   return (
     profiles.find((p) => p.current) ??
@@ -98,6 +99,59 @@ export async function syncPlayerFromProfiles(playerId: string): Promise<void> {
         ? { actionImageUrl: best.actionImageUrl ?? withAction?.actionImageUrl }
         : {}),
     },
+  });
+}
+
+/**
+ * Move an operation to another university, carrying the division with it.
+ *
+ * The university is edited on the player form, but it is the college profile
+ * that owns it — along with the division, the money and the roster link. So
+ * changing it there has to reach the profile, or the form shows one thing and
+ * the record keeps another.
+ *
+ * The division is not asked for: every NCAA institution is in the directory
+ * with the division it competes in, so choosing the university settles it.
+ * A school the directory does not list — JUCO, NAIA, a misspelling — leaves
+ * the division alone rather than blanking it, since something typed by hand
+ * is better than nothing derived.
+ */
+export async function moveUniversity(
+  playerId: string,
+  university: string | null
+): Promise<void> {
+  if (!university) return;
+  const division = divisionFor(university);
+
+  const profiles = await prisma.playerProfile.findMany({
+    where: { playerId },
+    select: { id: true, current: true, season: true, createdAt: true },
+  });
+
+  if (profiles.length === 0) {
+    const player = await prisma.player.findUnique({
+      where: { id: playerId },
+      select: { season: true, division: true },
+    });
+    await prisma.playerProfile.create({
+      data: {
+        playerId,
+        university,
+        season: player?.season ?? null,
+        division: division ?? player?.division ?? null,
+        current: false,
+      },
+    });
+    return;
+  }
+
+  // Only the profile that speaks for the player moves. The others are other
+  // universities in the same career and have nothing to do with this edit.
+  const best = speaksFor(profiles);
+  if (!best) return;
+  await prisma.playerProfile.update({
+    where: { id: best.id },
+    data: { university, ...(division ? { division } : {}) },
   });
 }
 

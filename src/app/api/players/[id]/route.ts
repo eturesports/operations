@@ -6,6 +6,7 @@ import { parsePlayerInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
 import { syncPersonFields } from "@/lib/person";
 import { setPlayingNow } from "@/lib/profiles";
+import { moveUniversity, syncPlayerFromProfiles } from "@/lib/divisions";
 
 export async function GET(
   _req: Request,
@@ -48,11 +49,26 @@ export async function PATCH(
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const player = await prisma.player.update({
+  let player = await prisma.player.update({
     where: { id: params.id },
     data: { ...data, updatedById: session.user.id },
     include: { sport: { select: { code: true, name: true } } },
   });
+
+  // Changing the university here has to reach the college profile, which is
+  // what actually owns it — and the division comes with it, from the NCAA
+  // directory rather than from a second field to keep in step. The form shows
+  // the division read-only for exactly this reason: choosing Providence is
+  // choosing Division I, and there is nothing left to decide.
+  if ("university" in data && data.university !== exists.university) {
+    await moveUniversity(params.id, (data.university as string | null) ?? null);
+    await syncPlayerFromProfiles(params.id);
+    // Re-read: the mirror was re-derived after the update above returned.
+    player = await prisma.player.findUniqueOrThrow({
+      where: { id: params.id },
+      include: { sport: { select: { code: true, name: true } } },
+    });
+  }
 
   // Nationality, position and the rest of what describes the human being are
   // the same at every university, so an edit here reaches their other

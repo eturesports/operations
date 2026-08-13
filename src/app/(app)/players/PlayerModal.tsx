@@ -342,16 +342,20 @@ export function PlayerModal({
 
             <div>
               <label className="label">Division</label>
-              {/* Read-only on purpose: the division belongs to the college the
-                  player went to, so it is set on their college profile below
-                  and mirrored here. One fact, one place to change it. */}
+              {/* Read-only on purpose, and not a field anyone is missing:
+                  every NCAA institution competes in exactly one division, so
+                  choosing the university has already decided it. Changing the
+                  university above changes this, and saving carries it to the
+                  college profile that owns it. A school the directory does
+                  not list — JUCO, NAIA — keeps whatever it has, and is edited
+                  on the profile itself. */}
               <div className="input flex items-center justify-between gap-2 text-muted">
                 <span>{form.division || "—"}</span>
                 <span className="text-[10px] uppercase tracking-wide">
-                  {initial
-                    ? "From college profile"
-                    : divisionFor(form.university)
-                      ? "From the university"
+                  {divisionFor(form.university)
+                    ? "From the university"
+                    : initial
+                      ? "From college profile"
                       : "Set on the profile after saving"}
                 </span>
               </div>

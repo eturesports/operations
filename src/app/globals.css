@@ -40,6 +40,14 @@
   --glass-hi: 0.6;
   --page-grad-1: rgba(196, 43, 43, 0.05);
   --page-grad-2: rgba(120, 130, 150, 0.05);
+  /* The three NCAA divisions, as a categorical set. Checked with the palette
+     validator against this surface: lightness band, chroma floor, adjacent
+     separation under deuteranopia, protanopia and tritanopia, and contrast.
+     Division II sits below 3:1 here, which is why every segment is labelled
+     with its name and its number rather than relying on the colour. */
+  --div-i: #C42B2B;
+  --div-ii: #C9A227;
+  --div-iii: #3B72C4;
 }
 
 /* Dark — opt-in via the toggle. Higher specificity than bare :root. */
@@ -59,6 +67,10 @@
   --glass-hi: 0.08;
   --page-grad-1: rgba(196, 43, 43, 0.1);
   --page-grad-2: rgba(120, 130, 150, 0.06);
+  /* Chosen for this surface rather than flipped: the light gold sits at
+     L 0.728, outside the 0.48–0.67 band dark asks for, so Division II gets
+     its own step. Red and blue pass in both and stay put. */
+  --div-ii: #AD861C;
 }
 
 html,

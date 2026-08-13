@@ -14,6 +14,7 @@ import { Select } from "@/components/Select";
 import { MultiSelect } from "@/components/MultiSelect";
 import { PlayerCard } from "./PlayerCard";
 import { FilterStats } from "./FilterStats";
+import { DivisionSplit } from "./DivisionSplit";
 
 export type PlayerRow = {
   id: string;
@@ -980,6 +981,9 @@ export function PlayersClient({
       )}
 
       <FilterStats rows={players} filtered={filtered} />
+
+      {/* Its own panel: level, separate from reach and money. */}
+      <DivisionSplit filtered={filtered} />
 
       {/* Suggestions shared by every inline cell editor */}
       <datalist id="cell-season-list">
