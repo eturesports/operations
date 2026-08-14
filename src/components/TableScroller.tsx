@@ -6,22 +6,24 @@ import { useEffect, useRef } from "react";
  * The box a wide table scrolls sideways in — and the reason the page still
  * scrolls when the mouse is over it.
  *
- * `overflow-x: auto` cannot be asked for on its own: the moment it is set,
- * `overflow-y` computes to `auto` too, and the box becomes a scroll container
- * in both directions. The browser then hands the whole wheel gesture to it,
- * including a straight-down scroll it has no room to absorb, and the gesture
- * dies there. On the players list that reads as: the page moves everywhere
- * except over the players.
+ * The cause is in `.scroll-x` (globals.css): asking for `overflow-x: auto`
+ * silently makes the box a scroll container vertically as well, and a
+ * downward wheel over it is then swallowed by a box with nowhere to go.
+ * `overflow-y: clip` is the value that takes that away, and with it gone the
+ * browser scrolls the page itself, with its own smoothing.
  *
- * The listener sits on this element rather than on the document. An earlier
- * version walked up from the event target looking for a box like this one,
- * which meant a chain of guesses about which ancestor owned the gesture — it
- * worked in a test page and not on the real screen. Here there is nothing to
- * work out: this is the box, it never scrolls vertically, so a vertical wheel
- * over it belongs to the page.
+ * The handler below is what happens where `clip` is not understood — Safari
+ * before 16, Chrome before 90. There it does by hand what the CSS does
+ * everywhere else: takes a vertical wheel that the box cannot use and gives
+ * it to the page. It costs one `CSS.supports` call to find out, and on every
+ * current browser it attaches nothing at all.
  *
- * It only takes over when there is something to take over from — a table that
- * fits needs no help, and native scrolling should keep its own smoothing.
+ * An earlier version ran this handler unconditionally, and before that, one
+ * that walked up from the event target guessing which ancestor owned the
+ * gesture. Imitating a scroll is the part to avoid: it is right in a test
+ * page and wrong on a real screen, in ways that depend on the browser, the
+ * mouse and the moment. Removing the reason the browser withheld the scroll
+ * is not.
  */
 export function TableScroller({
   children,
@@ -35,6 +37,9 @@ export function TableScroller({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Where the CSS above holds, there is no vertical scroll container left
+    // to rescue the gesture from.
+    if (typeof CSS !== "undefined" && CSS.supports?.("overflow-y", "clip")) return;
 
     function onWheel(e: WheelEvent) {
       const box = ref.current;
@@ -45,8 +50,6 @@ export function TableScroller({
       if (!e.deltaY || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
       if (e.shiftKey) return;
       if (e.defaultPrevented || e.ctrlKey) return; // ctrl+wheel is a zoom
-      // Nothing to scroll sideways means nothing swallowed the wheel.
-      if (box.scrollWidth <= box.clientWidth) return;
 
       // Deltas are not always pixels: Firefox reports lines, some setups pages.
       const px =
@@ -56,9 +59,8 @@ export function TableScroller({
             ? e.deltaY * window.innerHeight
             : e.deltaY;
 
-      const doc = document.scrollingElement ?? document.documentElement;
       e.preventDefault();
-      doc.scrollTop += px;
+      window.scrollBy(0, px);
     }
 
     // Not passive: taking the gesture over means being allowed to cancel it.
@@ -67,7 +69,7 @@ export function TableScroller({
   }, []);
 
   return (
-    <div ref={ref} className={`scroll-area overflow-x-auto ${className}`.trim()}>
+    <div ref={ref} className={`scroll-area scroll-x ${className}`.trim()}>
       {children}
     </div>
   );

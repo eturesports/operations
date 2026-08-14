@@ -34,7 +34,7 @@ export function BottomNav({ role }: { role: Role }) {
         // than an iPhone once the padding is counted. They are tightened to
         // fit; the scroll is the safety valve, so a narrower phone or a sixth
         // destination becomes a swipe rather than a bar hanging off the edge.
-        className="liquid-glass no-scrollbar pointer-events-auto flex max-w-full items-center gap-1 overflow-x-auto rounded-full px-2 py-2 shadow-glow"
+        className="liquid-glass no-scrollbar scroll-x pointer-events-auto flex max-w-full items-center gap-1 rounded-full px-2 py-2 shadow-glow"
       >
         {pill && (
           <span

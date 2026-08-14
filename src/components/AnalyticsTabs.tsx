@@ -37,7 +37,7 @@ export function AnalyticsTabs() {
     <div
       ref={container}
       onPointerMove={trackPointer}
-      className="liquid-glass no-scrollbar relative flex gap-1 overflow-x-auto rounded-full p-1"
+      className="liquid-glass no-scrollbar scroll-x relative flex gap-1 rounded-full p-1"
     >
       {pill && (
         <span

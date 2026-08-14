@@ -200,7 +200,7 @@ export function PlayerModal({
       <div
         role="dialog"
         aria-modal="true"
-        className={`${MODAL_PANEL} sm:max-w-lg`}
+        className={`${MODAL_PANEL} sm:max-w-lg !pb-0`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
@@ -675,7 +675,12 @@ export function PlayerModal({
             </div>
           )}
 
-          <div className="flex justify-end gap-2 pt-2">
+          {/* Held against the bottom of the panel rather than sitting at the
+              end of the form. This is a long form — media, links, college
+              profiles, achievements — and the button that ends it should not
+              be something you go looking for. It spans the panel's padding so
+              nothing scrolls through the gap beside it. */}
+          <div className="sticky bottom-0 -mx-5 flex justify-end gap-2 border-t border-ink-600 bg-ink-900 px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:-mx-6 sm:px-6 sm:pb-3">
             <button type="button" onClick={onClose} className="btn-ghost">
               Cancel
             </button>

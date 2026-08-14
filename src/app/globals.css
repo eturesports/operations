@@ -492,4 +492,23 @@ body::before {
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
+
+  /* A box that scrolls sideways and only sideways.
+     `overflow-x: auto` cannot be asked for on its own. Ask for it and
+     `overflow-y` computes to `auto` too, so the box becomes a scroll
+     container in both directions and the browser hands it the whole wheel
+     gesture — including a straight-down scroll it has no room to absorb.
+     The gesture dies there. On the players list that reads as: the page
+     moves everywhere except over the players.
+     `visible` is the value that would say "leave the other axis alone", and
+     it is precisely the one that is not allowed beside `auto`. `clip` is:
+     it clips without scrolling, so no vertical scroll container exists and
+     a downward wheel belongs to the page again — natively, with the
+     browser's own smoothing, rather than through a handler imitating it.
+     Nothing needs to escape these boxes downwards: each already sits inside
+     a card that clips. */
+  .scroll-x {
+    overflow-x: auto;
+    overflow-y: clip;
+  }
 }
