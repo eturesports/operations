@@ -809,10 +809,15 @@ export function PlayersClient({
                 : "Refresh college stats"}
             </button>
           )}
-          <button onClick={exportCSV} className="btn-ghost">
-            Export CSV
-          </button>
-          {canCreate && (
+          {/* Both directions are administrators only. An import writes
+              hundreds of records in one go, and an export takes the whole
+              database out of the building in a file that travels. */}
+          {isAdmin && (
+            <button onClick={exportCSV} className="btn-ghost">
+              Export CSV
+            </button>
+          )}
+          {isAdmin && (
             <button onClick={() => setImportOpen(true)} className="btn-ghost">
               Import CSV
             </button>

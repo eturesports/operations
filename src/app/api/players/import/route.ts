@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canEdit } from "@/lib/permissions";
+import { canManageUsers } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
 
@@ -31,7 +31,9 @@ export async function POST(req: Request) {
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (!canEdit(session.user.role)) {
+  // Importing is administrators only: one file can create hundreds of
+  // records, and the button that reaches this is hidden from everyone else.
+  if (!canManageUsers(session.user.role)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
