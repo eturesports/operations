@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { parseCSV, rowsToPlayers, type CsvPlayer } from "@/lib/csv";
-import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL, MODAL_HEADER, MODAL_BODY, MODAL_FOOTER } from "@/components/useModal";
 
 type SportOpt = { id: string; code: string; name: string };
 
@@ -90,15 +90,16 @@ export function ImportModal({
         className={`${MODAL_PANEL} sm:max-w-lg`}
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-4 flex items-center justify-between">
+        <div className={MODAL_HEADER}>
           <h2 className="text-lg font-bold text-fg">Import players (CSV)</h2>
-          <button onClick={onClose} className="text-muted hover:text-fg">
+          <button onClick={onClose} className="text-muted hover:text-fg" aria-label="Close">
             ✕
           </button>
         </div>
 
         {result ? (
-          <div className="space-y-4">
+          <>
+          <div className={`${MODAL_BODY} space-y-4`}>
             <div className="rounded-lg border border-green-500/40 bg-green-500/10 px-4 py-3 text-sm text-green-200">
               Import complete: <b>{result.created}</b> created
               {result.skipped > 0 && (
@@ -122,17 +123,16 @@ export function ImportModal({
                 ))}
               </div>
             )}
-            <div className="flex justify-end">
-              <button
-                onClick={onDone}
-                className="btn-primary"
-              >
-                Close and refresh
-              </button>
-            </div>
           </div>
+          <div className={MODAL_FOOTER}>
+            <button onClick={onDone} className="btn-primary">
+              Close and refresh
+            </button>
+          </div>
+          </>
         ) : (
-          <div className="space-y-4">
+          <>
+          <div className={`${MODAL_BODY} space-y-4`}>
             <p className="text-sm text-muted">
               Upload a CSV with headers. Recognized columns: <b>Name</b> (required),
               University, Season, Division, Program, Scholarship, Sport and Notes. Same
@@ -196,19 +196,20 @@ export function ImportModal({
               </div>
             )}
 
-            <div className="flex justify-end gap-2 pt-2">
-              <button type="button" onClick={onClose} className="btn-ghost">
-                Cancel
-              </button>
-              <button
-                onClick={doImport}
-                disabled={busy || players.length === 0}
-                className="btn-primary"
-              >
-                {busy ? "Importing…" : `Import ${players.length || ""}`}
-              </button>
-            </div>
           </div>
+          <div className={MODAL_FOOTER}>
+            <button type="button" onClick={onClose} className="btn-ghost">
+              Cancel
+            </button>
+            <button
+              onClick={doImport}
+              disabled={busy || players.length === 0}
+              className="btn-primary"
+            >
+              {busy ? "Importing…" : `Import ${players.length || ""}`}
+            </button>
+          </div>
+          </>
         )}
       </div>
     </div>

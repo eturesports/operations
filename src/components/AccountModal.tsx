@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "./useModal";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL, MODAL_HEADER, MODAL_BODY, MODAL_FOOTER } from "./useModal";
 
 export function AccountModal({
   initialName,
@@ -77,20 +77,19 @@ export function AccountModal({
         className={`${MODAL_PANEL} sm:max-w-md`}
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-4 flex items-center justify-between">
+        <div className={MODAL_HEADER}>
           <h2 className="text-lg font-bold text-fg">Account settings</h2>
           <button onClick={onClose} className="text-muted hover:text-fg" aria-label="Close">
             ✕
           </button>
         </div>
 
-        {error && (
-          <div className="mb-4 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
-            {error}
-          </div>
-        )}
-
-        <div className="space-y-4">
+        <div className={`${MODAL_BODY} space-y-4`}>
+          {error && (
+            <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
+              {error}
+            </div>
+          )}
           <div className="flex items-center gap-4">
             <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-full border border-ink-600 bg-ink-900">
               {image ? (
@@ -162,7 +161,7 @@ export function AccountModal({
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-2">
+        <div className={MODAL_FOOTER}>
           <button onClick={onClose} className="btn-ghost">
             Cancel
           </button>

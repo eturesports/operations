@@ -50,13 +50,34 @@ export function useModal(onClose: () => void) {
   }, []);
 }
 
-/** The shell every dialog shares: a sheet rising from the bottom edge on a
- *  phone, a centred card on a desktop, never taller than the visible window.
+/**
+ * The shell every dialog shares: a sheet rising from the bottom edge on a
+ * phone, a centred card on a desktop, never taller than the visible window.
  *
- *  Real glass here, unlike the panels on the page: a dialog is the one place
- *  the blur has something to do, since the page it covers shows through. */
+ * It is built in three parts — a title that stays, a middle that scrolls, and
+ * the actions held at the bottom — rather than one scrolling box with things
+ * stuck to its edges. That was the earlier version, and the seam showed: the
+ * bar at the bottom had to be widened past the panel's own padding with
+ * negative margins to cover the full width, which made the panel scrollable
+ * sideways and left the bar hanging over the rounded corner, cut off beside
+ * the scrollbar. Here the panel does not scroll at all. Only the middle does,
+ * so the scrollbar starts below the title and ends above the actions, and
+ * nothing has to reach past anything.
+ *
+ * Opaque, too. Glass is for chrome that floats over content you are meant to
+ * keep seeing; a form is not that. Reading a long form through a table of
+ * other players' names is not a texture, it is noise.
+ */
 export const MODAL_BACKDROP =
-  "scrim-in fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-0 sm:items-center sm:p-4";
+  "scrim-in fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 sm:items-center sm:p-4";
 
 export const MODAL_PANEL =
-  "glass glass-rim sheet-in scroll-area max-h-[92dvh] w-full overflow-y-auto rounded-2xl rounded-b-none p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:max-h-[90dvh] sm:rounded-b-2xl sm:p-6 sm:pb-6";
+  "sheet sheet-in flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-2xl rounded-b-none sm:max-h-[90dvh] sm:rounded-b-2xl";
+
+export const MODAL_HEADER =
+  "flex shrink-0 items-start justify-between gap-3 border-b border-ink-600 px-5 py-3.5 sm:px-6";
+
+export const MODAL_BODY = "scroll-area min-h-0 flex-1 overflow-y-auto px-5 py-5 sm:px-6";
+
+export const MODAL_FOOTER =
+  "flex shrink-0 justify-end gap-2 border-t border-ink-600 px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:pb-3";

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Select } from "@/components/Select";
-import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL, MODAL_HEADER, MODAL_BODY, MODAL_FOOTER } from "@/components/useModal";
 
 export type BulkPatch = {
   season?: string;
@@ -119,24 +119,25 @@ export function BulkEditModal({
         className={`${MODAL_PANEL} sm:max-w-md`}
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-1 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-fg">Bulk edit</h2>
-          <button onClick={onClose} className="text-muted hover:text-fg">
+        <div className={MODAL_HEADER}>
+          <div>
+            <h2 className="text-lg font-bold text-fg">Bulk edit</h2>
+            <p className="mt-0.5 text-sm text-muted">
+              Applies to <b className="text-fg">{count}</b> selected player
+              {count === 1 ? "" : "s"}. Leave a field empty to keep it unchanged.
+            </p>
+          </div>
+          <button onClick={onClose} className="text-muted hover:text-fg" aria-label="Close">
             ✕
           </button>
         </div>
-        <p className="mb-4 text-sm text-muted">
-          Applies to <b className="text-fg">{count}</b> selected player
-          {count === 1 ? "" : "s"}. Leave a field empty to keep it unchanged.
-        </p>
 
-        {error && (
-          <div className="mb-4 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
-            {error}
-          </div>
-        )}
-
-        <div className="space-y-4">
+        <div className={`${MODAL_BODY} space-y-4`}>
+          {error && (
+            <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
+              {error}
+            </div>
+          )}
           <div>
             <label className="label">Season</label>
             <input className="input" placeholder="24/25" value={season} onChange={(e) => setSeason(e.target.value)} />
@@ -229,7 +230,7 @@ export function BulkEditModal({
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-2">
+        <div className={MODAL_FOOTER}>
           <button onClick={onClose} className="btn-ghost">
             Cancel
           </button>

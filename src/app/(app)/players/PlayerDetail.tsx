@@ -6,7 +6,7 @@ import { ProfilesSection } from "./ProfilesSection";
 import { AchievementsSection } from "./AchievementsSection";
 import { ShareLinkPanel } from "./ShareLinkPanel";
 import { uniKey } from "@/lib/universities";
-import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL, MODAL_HEADER, MODAL_BODY, MODAL_FOOTER } from "@/components/useModal";
 
 function Photo({ url, label }: { url: string | null; label: string }) {
   return (
@@ -70,7 +70,7 @@ export function PlayerDetail({
         className={`${MODAL_PANEL} sm:max-w-lg`}
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-4 flex items-start justify-between gap-3">
+        <div className={MODAL_HEADER}>
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <h2 className="text-xl font-bold text-fg">{player.name}</h2>
@@ -92,11 +92,12 @@ export function PlayerDetail({
               {player.season ? ` · ${player.season}` : ""}
             </p>
           </div>
-          <button onClick={onClose} className="text-muted hover:text-fg">
+          <button onClick={onClose} className="text-muted hover:text-fg" aria-label="Close">
             ✕
           </button>
         </div>
 
+        <div className={MODAL_BODY}>
         <div className="grid grid-cols-2 gap-3">
           <Photo url={player.profileImageUrl} label="Profile" />
           <Photo url={player.actionImageUrl} label="Action" />
@@ -221,8 +222,9 @@ export function PlayerDetail({
         )}
 
         {editable && <ShareLinkPanel playerId={player.id} />}
+        </div>
 
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className={`${MODAL_FOOTER} flex-wrap justify-start`}>
           {player.ncaaUrl && (
             <a href={player.ncaaUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost px-3 py-1.5 text-xs">
               College profile ↗

@@ -7,7 +7,7 @@ import { Select } from "@/components/Select";
 import { ProfilesSection } from "./ProfilesSection";
 import { AchievementsSection } from "./AchievementsSection";
 import { MultiSelect } from "@/components/MultiSelect";
-import { useModal, MODAL_BACKDROP, MODAL_PANEL } from "@/components/useModal";
+import { useModal, MODAL_BACKDROP, MODAL_PANEL, MODAL_HEADER, MODAL_BODY, MODAL_FOOTER } from "@/components/useModal";
 import { COUNTRIES, flagOf, parseNationalities } from "@/lib/countries";
 import { NCAA_UNIVERSITIES, conferenceFor, divisionFor } from "@/lib/conferences";
 
@@ -200,25 +200,31 @@ export function PlayerModal({
       <div
         role="dialog"
         aria-modal="true"
-        className={`${MODAL_PANEL} sm:max-w-lg !pb-0`}
+        // Wider than the other dialogs because it is the only one laid out in
+        // two columns. At 32rem the pairs were being squeezed to about 14
+        // characters each — "Paste image URL, or upload →" arrived as "Paste
+        // image URL,". The room is what stops it reading as cramped.
+        className={`${MODAL_PANEL} sm:max-w-2xl`}
         onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="mb-4 flex items-center justify-between">
+        <div className={MODAL_HEADER}>
           <h2 className="text-lg font-bold text-fg">
             {initial ? "Edit player" : "New player"}
           </h2>
-          <button onClick={onClose} className="text-muted hover:text-fg">
+          <button onClick={onClose} className="text-muted hover:text-fg" aria-label="Close">
             ✕
           </button>
         </div>
 
-        {error && (
-          <div className="mb-4 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={submit} className="space-y-4">
+        {/* The form is the flex column from here down, so the button that
+            submits it and the fields it submits stay one element. */}
+        <form onSubmit={submit} className="flex min-h-0 flex-1 flex-col">
+          <div className={`${MODAL_BODY} space-y-4`}>
+            {error && (
+              <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
+                {error}
+              </div>
+            )}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label className="label">Name *</label>
@@ -384,7 +390,19 @@ export function PlayerModal({
           </div>
 
           {/* Segmentation */}
-          <div className="grid grid-cols-1 gap-4 border-t border-ink-600 pt-4 sm:grid-cols-3">
+          <div className="border-t border-ink-600 pt-4">
+            {/* The note belongs to the whole section. It used to be nested in
+                the Nationality cell with a `col-span-full` that cannot reach
+                out of it, so it rendered as a paragraph squeezed into the
+                middle column, pushing that field down out of line with the
+                other two. */}
+            <p className="mb-3 text-[11px] text-muted">
+              Fields marked <b className="font-semibold text-fg">shared</b> describe the
+              player, so editing them here updates their records at every university.
+              Everything else — university, season, money, photos — belongs to this
+              operation alone.
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
               <label className="label">
                 Position
@@ -407,12 +425,6 @@ export function PlayerModal({
               </datalist>
             </div>
             <div>
-              <p className="col-span-full -mb-1 text-[11px] text-muted">
-                Fields marked <b className="text-fg">shared</b> describe the player, so
-                editing them here updates their records at every university. Everything
-                else — university, season, money, photos — belongs to this operation
-                alone.
-              </p>
               <label className="label">
                 Nationality
                 <span className="ml-1 text-[9px] uppercase tracking-wide text-muted">
@@ -440,6 +452,7 @@ export function PlayerModal({
                 value={form.previousClub}
                 onChange={(e) => set("previousClub", e.target.value)}
               />
+            </div>
             </div>
           </div>
 
@@ -675,12 +688,13 @@ export function PlayerModal({
             </div>
           )}
 
-          {/* Held against the bottom of the panel rather than sitting at the
-              end of the form. This is a long form — media, links, college
-              profiles, achievements — and the button that ends it should not
-              be something you go looking for. It spans the panel's padding so
-              nothing scrolls through the gap beside it. */}
-          <div className="sticky bottom-0 -mx-5 flex justify-end gap-2 border-t border-ink-600 bg-ink-900 px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:-mx-6 sm:px-6 sm:pb-3">
+          </div>
+
+          {/* Outside the scrolling middle, not stuck to the end of it. This
+              is a long form — media, links, college profiles, achievements —
+              and the button that ends it should not be something you go
+              looking for. */}
+          <div className={MODAL_FOOTER}>
             <button type="button" onClick={onClose} className="btn-ghost">
               Cancel
             </button>

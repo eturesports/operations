@@ -208,6 +208,21 @@ body::before {
     @apply surface glass-rim rounded-2xl;
   }
 
+  /* A dialog. Opaque on purpose, and the one surface in the app that is.
+     Everything else here is translucent because what shows through is the
+     page you are still working in — a bar over a list, a nav over a page.
+     A dialog covers that work and asks for something else, and a long form
+     read through a table of other people's names is not a texture, it is
+     noise. So: a flat colour, one hairline, and a shadow deep enough to say
+     how far it is above the page. */
+  .sheet {
+    background: rgb(var(--ink-900));
+    border: 1px solid rgb(var(--ink-600));
+    box-shadow:
+      0 32px 64px -16px rgb(0 0 0 / 0.35),
+      0 8px 20px -8px rgb(0 0 0 / 0.18);
+  }
+
   /* The refracting edge. A gradient drawn only on the border box, brightest
      where light would land and thinning away from it — the detail that makes
      a translucent panel read as glass rather than as a blurred rectangle.
