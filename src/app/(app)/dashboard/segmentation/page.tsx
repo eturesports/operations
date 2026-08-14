@@ -1,4 +1,5 @@
 import { requireSession } from "@/lib/guards";
+import { TableScroller } from "@/components/TableScroller";
 import { getSegmentationData, type SegmentRow } from "@/lib/analytics";
 import { formatNumber, formatUSD } from "@/lib/format";
 import { AnalyticsTabs } from "@/components/AnalyticsTabs";
@@ -22,7 +23,7 @@ function SegTable({
         <h2 className="text-sm font-semibold text-fg">{title}</h2>
         <span className="text-xs text-muted">{coverage}% coverage</span>
       </div>
-      <div className="scroll-area overflow-x-auto">
+      <TableScroller>
         <table className="w-full text-left text-sm">
           <thead className="bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
             <tr>
@@ -54,7 +55,7 @@ function SegTable({
             )}
           </tbody>
         </table>
-      </div>
+      </TableScroller>
     </section>
   );
 }

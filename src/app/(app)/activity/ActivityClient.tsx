@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { TableScroller } from "@/components/TableScroller";
 import { useMemo, useState } from "react";
 
 export type LogRow = {
@@ -118,7 +119,7 @@ export function ActivityClient({ rows }: { rows: LogRow[] }) {
       </div>
 
       <div className="card overflow-hidden">
-        <div className="scroll-area overflow-x-auto">
+        <TableScroller>
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
@@ -161,7 +162,7 @@ export function ActivityClient({ rows }: { rows: LogRow[] }) {
               )}
             </tbody>
           </table>
-        </div>
+        </TableScroller>
       </div>
       <p className="text-xs text-muted">
         Showing the {rows.length} most recent entries. The full history is stored and exportable.

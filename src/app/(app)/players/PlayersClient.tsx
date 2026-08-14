@@ -1,6 +1,7 @@
 "use client";
 
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { TableScroller } from "@/components/TableScroller";
 import { useRouter } from "next/navigation";
 import { usePagedList } from "@/components/usePagedList";
 import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
@@ -1062,7 +1063,7 @@ export function PlayersClient({
       ) : (
       /* Table */
       <div className="card overflow-hidden">
-        <div className="scroll-area overflow-x-auto">
+        <TableScroller>
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
@@ -1307,7 +1308,7 @@ export function PlayersClient({
               )}
             </tbody>
           </table>
-        </div>
+        </TableScroller>
         {!allShown && <div ref={sentinel} className="h-px" aria-hidden />}
       </div>
       )}

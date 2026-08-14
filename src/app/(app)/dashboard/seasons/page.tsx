@@ -1,4 +1,5 @@
 import { requireSession } from "@/lib/guards";
+import { TableScroller } from "@/components/TableScroller";
 import { getSeasonBreakdown, type SeasonStat } from "@/lib/analytics";
 import { formatNumber, formatUSD, formatUSDCompact } from "@/lib/format";
 import { StatCard } from "@/components/StatCard";
@@ -81,7 +82,7 @@ export default async function SeasonsPage() {
       </div>
 
       <section className="card overflow-hidden">
-        <div className="scroll-area overflow-x-auto">
+        <TableScroller>
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
@@ -159,7 +160,7 @@ export default async function SeasonsPage() {
               </tr>
             </tfoot>
           </table>
-        </div>
+        </TableScroller>
       </section>
 
       <p className="text-xs leading-relaxed text-muted">

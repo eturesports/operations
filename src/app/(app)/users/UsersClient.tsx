@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { TableScroller } from "@/components/TableScroller";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Role } from "@prisma/client";
@@ -136,7 +137,7 @@ export function UsersClient({
 
       {/* Members */}
       <div className="card overflow-hidden">
-        <div className="scroll-area overflow-x-auto">
+        <TableScroller>
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
@@ -198,7 +199,7 @@ export function UsersClient({
               ))}
             </tbody>
           </table>
-        </div>
+        </TableScroller>
       </div>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">

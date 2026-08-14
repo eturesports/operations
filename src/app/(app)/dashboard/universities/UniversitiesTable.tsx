@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { TableScroller } from "@/components/TableScroller";
 import { MultiSelect } from "@/components/MultiSelect";
 import { canonicalizeUniversity, preferDisplay, uniKey } from "@/lib/universities";
 import { formatNumber, formatUSD, seasonSortKey } from "@/lib/format";
@@ -341,7 +342,7 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
       </div>
 
       <div className="card overflow-hidden">
-        <div className="scroll-area overflow-x-auto">
+        <TableScroller>
           <table className="w-full text-left text-sm">
             <thead className="border-b border-ink-600 bg-ink-900/60 text-xs uppercase tracking-wide text-muted">
               <tr>
@@ -402,7 +403,7 @@ export function UniversitiesTable({ rows }: { rows: OperationRow[] }) {
               )}
             </tbody>
           </table>
-        </div>
+        </TableScroller>
       </div>
 
       {sorted.length > PAGE && (

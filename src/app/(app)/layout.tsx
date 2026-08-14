@@ -2,7 +2,6 @@ import { signOut } from "@/auth";
 import { requireSession } from "@/lib/guards";
 import { TopBar } from "@/components/TopBar";
 import { BottomNav } from "@/components/BottomNav";
-import { WheelToPage } from "@/components/WheelToPage";
 
 export default async function AppLayout({
   children,
@@ -18,8 +17,6 @@ export default async function AppLayout({
 
   return (
     <div className="min-h-[100dvh]">
-      {/* Every screen here has a table on it somewhere. */}
-      <WheelToPage />
       {/* Held clear of the notch in landscape, now that the page is allowed
           to reach the edges of the screen. */}
       <div className="mx-auto max-w-6xl px-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:px-4">
