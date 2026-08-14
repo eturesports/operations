@@ -1,19 +1,23 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canEdit } from "@/lib/permissions";
+import { canContribute, canEdit } from "@/lib/permissions";
 import { logAudit } from "@/lib/audit";
 
-async function editor() {
+/** Editing an achievement changes what is there; removing one takes it away,
+ *  which is the line a contributor does not cross. */
+async function gateFor(kind: "edit" | "remove") {
   const session = await auth();
   if (!session?.user) return { error: "Not authenticated", status: 401 } as const;
-  if (!canEdit(session.user.role)) return { error: "No permission", status: 403 } as const;
+  const allowed =
+    kind === "edit" ? canContribute(session.user.role) : canEdit(session.user.role);
+  if (!allowed) return { error: "No permission", status: 403 } as const;
   return { user: session.user } as const;
 }
 
 // PATCH /api/achievements/[id]
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
-  const gate = await editor();
+  const gate = await gateFor("edit");
   if ("error" in gate) return NextResponse.json({ error: gate.error }, { status: gate.status });
 
   const body = await req.json().catch(() => null);
@@ -52,7 +56,7 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
 // DELETE /api/achievements/[id]
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
-  const gate = await editor();
+  const gate = await gateFor("remove");
   if ("error" in gate) return NextResponse.json({ error: gate.error }, { status: gate.status });
 
   const existing = await prisma.achievement.findUnique({

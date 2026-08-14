@@ -2,6 +2,7 @@
 
 import type { PlayerRow } from "./PlayersClient";
 import { formatUSD } from "@/lib/format";
+import { PlayerLinks } from "./PlayerLinks";
 
 // Deterministic accent per player so the no-photo state still looks composed
 // rather than empty — the same player always gets the same tint.
@@ -79,26 +80,12 @@ export function PlayerCard({
         </label>
       )}
 
-      {/* Their Instagram, straight from the card. Above the open-profile
-          button rather than inside it, since a link nested in a button is
-          neither one thing nor the other. */}
-      {player.instagramUrl && (
-        <a
-          href={player.instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          title={`Open ${player.name}'s Instagram`}
-          aria-label={`Open ${player.name}'s Instagram`}
-          className="absolute right-2 top-2 z-20 inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur transition-colors hover:bg-black/70"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
-          </svg>
-        </a>
-      )}
+      {/* Their college roster page and their Instagram, above the
+          open-profile button rather than inside it — a link nested in a
+          button is neither one thing nor the other. */}
+      <div className="absolute right-2 top-2 z-20">
+        <PlayerLinks player={player} variant="card" />
+      </div>
 
       <button onClick={onOpen} className="block w-full text-left" title="Open profile">
         {/* Visual */}

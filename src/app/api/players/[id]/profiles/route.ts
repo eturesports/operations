@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canEdit } from "@/lib/permissions";
+import { canContribute } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
 import { ncaaDivisionFor, playerMoney, syncPlayerFromProfiles } from "@/lib/divisions";
@@ -29,7 +29,7 @@ export async function POST(
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (!canEdit(session.user.role)) {
+  if (!canContribute(session.user.role)) {
     return NextResponse.json({ error: "No permission" }, { status: 403 });
   }
 

@@ -5,7 +5,7 @@ import { canManageUsers } from "@/lib/permissions";
 import { logAudit } from "@/lib/audit";
 import type { Role } from "@prisma/client";
 
-const VALID_ROLES: Role[] = ["ADMIN", "EDITOR", "VIEWER"];
+const VALID_ROLES: Role[] = ["ADMIN", "EDITOR", "COLLABORATOR", "VIEWER"];
 
 // PATCH /api/users/:id  { role?, active? }
 export async function PATCH(
@@ -37,7 +37,8 @@ export async function PATCH(
   if (body.approved !== undefined) data.approved = Boolean(body.approved);
 
   // Evita que un admin se quite a sí mismo el último acceso admin.
-  if (params.id === session.user.id && (data.role === "VIEWER" || data.role === "EDITOR")) {
+  // Any move off ADMIN counts, whichever role it lands on.
+  if (params.id === session.user.id && data.role !== undefined && data.role !== "ADMIN") {
     const admins = await prisma.user.count({ where: { role: "ADMIN", active: true } });
     if (admins <= 1) {
       return NextResponse.json(

@@ -14,6 +14,7 @@ import { Select } from "@/components/Select";
 import { MultiSelect } from "@/components/MultiSelect";
 import { PlayerCard } from "./PlayerCard";
 import { FilterStats } from "./FilterStats";
+import { PlayerLinks } from "./PlayerLinks";
 import { DivisionSplit } from "./DivisionSplit";
 
 export type PlayerRow = {
@@ -70,12 +71,16 @@ type SportOpt = { id: string; code: string; name: string };
 
 export function PlayersClient({
   editable,
+  canCreate,
   isAdmin,
   sports,
   initialPlayers,
   facets,
 }: {
+  /** may change what is already there — a contributor and above */
   editable: boolean;
+  /** may add a player or remove one — an editor and above */
+  canCreate: boolean;
   isAdmin: boolean;
   sports: SportOpt[];
   initialPlayers: PlayerRow[];
@@ -807,7 +812,7 @@ export function PlayersClient({
           <button onClick={exportCSV} className="btn-ghost">
             Export CSV
           </button>
-          {editable && (
+          {canCreate && (
             <button onClick={() => setImportOpen(true)} className="btn-ghost">
               Import CSV
             </button>
@@ -817,7 +822,7 @@ export function PlayersClient({
               Delete all
             </button>
           )}
-          {editable && (
+          {canCreate && (
             <button onClick={openCreate} className="btn-primary">
               + Add player
             </button>
@@ -963,13 +968,15 @@ export function PlayersClient({
             >
               Bulk edit
             </button>
-            <button
-              onClick={bulkDelete}
-              disabled={busy}
-              className="btn-danger px-3 py-2.5 text-xs sm:py-1.5"
-            >
-              Delete selected
-            </button>
+            {canCreate && (
+              <button
+                onClick={bulkDelete}
+                disabled={busy}
+                className="btn-danger px-3 py-2.5 text-xs sm:py-1.5"
+              >
+                Delete selected
+              </button>
+            )}
             <button
               onClick={clearSelection}
               className="btn-ghost px-3 py-2.5 text-xs sm:py-1.5"
@@ -1108,6 +1115,7 @@ export function PlayersClient({
                         setEditingCell({ id: p.id, field: "name", value: p.name })
                       }
                     >
+                      <div className="flex items-center gap-1">
                       {editingCell?.id === p.id && editingCell.field === "name" ? (
                         <input
                           autoFocus
@@ -1195,26 +1203,10 @@ export function PlayersClient({
                         </span>
                       </button>
                       )}
-                      {/* Straight to their Instagram, without opening the
-                          record first. Its own link, so the click does not
-                          also open the profile behind it. */}
-                      {p.instagramUrl && (
-                        <a
-                          href={p.instagramUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          title={`Open ${p.name}'s Instagram`}
-                          aria-label={`Open ${p.name}'s Instagram`}
-                          className="ml-2 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-ink-700/60 hover:text-fg"
-                        >
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <rect x="2" y="2" width="20" height="20" rx="5" />
-                            <circle cx="12" cy="12" r="4" />
-                            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
-                          </svg>
-                        </a>
-                      )}
+                      {/* Their college roster page and their Instagram,
+                          without opening the record first. */}
+                      <PlayerLinks player={p} variant="row" />
+                      </div>
                     </td>
                     {cell(p, "university", "text-fg")}
                     {cell(p, "season", "text-muted", { list: "cell-season-list" })}
@@ -1290,9 +1282,11 @@ export function PlayersClient({
                           <button onClick={() => openEdit(p)} className="text-xs text-fg hover:text-brand">
                             Edit
                           </button>
-                          <button onClick={() => handleDelete(p)} className="text-xs text-red-400 hover:text-red-300">
-                            Delete
-                          </button>
+                          {canCreate && (
+                            <button onClick={() => handleDelete(p)} className="text-xs text-red-400 hover:text-red-300">
+                              Delete
+                            </button>
+                          )}
                         </div>
                       </td>
                     )}

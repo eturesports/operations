@@ -19,6 +19,11 @@ type UserRow = {
 const ROLES: { value: Role; label: string; desc: string }[] = [
   { value: "ADMIN", label: "Admin", desc: "Manages users and all data" },
   { value: "EDITOR", label: "Editor", desc: "Creates, edits and deletes players" },
+  {
+    value: "COLLABORATOR",
+    label: "Collaborator",
+    desc: "Edits players and their college profiles — cannot add or delete",
+  },
   { value: "VIEWER", label: "Viewer", desc: "Read-only access" },
 ];
 

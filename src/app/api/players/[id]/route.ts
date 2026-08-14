@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canEdit } from "@/lib/permissions";
+import { canContribute, canEdit } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit, diffFields } from "@/lib/audit";
 import { syncPersonFields } from "@/lib/person";
@@ -34,7 +34,7 @@ export async function PATCH(
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (!canEdit(session.user.role)) {
+  if (!canContribute(session.user.role)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 

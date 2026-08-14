@@ -15,6 +15,7 @@ export function BottomNav({ role }: { role: Role }) {
     { href: "/players", label: "Players", icon: <UsersIcon /> },
     { href: "/showcase", label: "Showcase", icon: <TrophyIcon /> },
   ];
+  // Share links go outside the company, so they stay with editors.
   if (role === "ADMIN" || role === "EDITOR")
     items.splice(2, 0, { href: "/links", label: "Links", icon: <LinkIcon /> });
   if (role === "ADMIN")

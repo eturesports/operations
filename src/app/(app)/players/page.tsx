@@ -1,13 +1,16 @@
 import { requireSession } from "@/lib/guards";
 import { prisma } from "@/lib/prisma";
-import { canEdit, canManageUsers } from "@/lib/permissions";
+import { canContribute, canEdit, canManageUsers } from "@/lib/permissions";
 import { PlayersClient } from "./PlayersClient";
 
 export const dynamic = "force-dynamic";
 
 export default async function PlayersPage() {
   const session = await requireSession();
-  const editable = canEdit(session.user.role);
+  // A contributor may change what is here — roster links, details, the college
+  // profiles — but adding a player or removing one stays with editors.
+  const editable = canContribute(session.user.role);
+  const canCreate = canEdit(session.user.role);
   const isAdmin = canManageUsers(session.user.role);
 
   const [sports, players] = await Promise.all([
@@ -87,6 +90,7 @@ export default async function PlayersPage() {
   return (
     <PlayersClient
       editable={editable}
+      canCreate={canCreate}
       isAdmin={isAdmin}
       sports={sports.map((s) => ({ id: s.id, code: s.code, name: s.name }))}
       initialPlayers={players.map((p) => ({

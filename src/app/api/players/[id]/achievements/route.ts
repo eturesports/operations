@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canEdit } from "@/lib/permissions";
+import { canContribute } from "@/lib/permissions";
 import { logAudit } from "@/lib/audit";
 
 // GET /api/players/[id]/achievements — everything recorded for this player.
@@ -23,7 +23,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (!canEdit(session.user.role)) {
+  if (!canContribute(session.user.role)) {
     return NextResponse.json({ error: "No permission" }, { status: 403 });
   }
 

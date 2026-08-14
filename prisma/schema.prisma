@@ -18,6 +18,7 @@ datasource db {
 enum Role {
   ADMIN // gestiona usuarios y permisos, y todo lo demás
   EDITOR // puede crear/editar/borrar jugadores
+  COLLABORATOR // puede modificar lo que ya existe, pero no crear ni borrar jugadores
   VIEWER // solo lectura
 }
 

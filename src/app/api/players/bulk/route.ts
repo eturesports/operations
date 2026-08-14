@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canEdit, canManageUsers } from "@/lib/permissions";
+import { canContribute, canEdit, canManageUsers } from "@/lib/permissions";
 import { parsePlayerInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
 import { setPlayingNow } from "@/lib/profiles";
@@ -15,9 +15,7 @@ export async function POST(req: Request) {
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (!canEdit(session.user.role)) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-  }
+  // The gate depends on the action, so it is checked once the body is read.
 
   const body = (await req.json().catch(() => null)) as {
     action?: "delete" | "update";
@@ -29,6 +27,14 @@ export async function POST(req: Request) {
 
   if (!body || !body.action) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
+
+  // Changing a selection is something a contributor does all day; removing
+  // one is not, and neither is deleting the lot.
+  const allowed =
+    body.action === "update" ? canContribute(session.user.role) : canEdit(session.user.role);
+  if (!allowed) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   // ---- Delete ----

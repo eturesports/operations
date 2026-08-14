@@ -9,6 +9,7 @@ import { AccountModal } from "./AccountModal";
 const ROLE_LABEL: Record<Role, string> = {
   ADMIN: "Admin",
   EDITOR: "Editor",
+  COLLABORATOR: "Collaborator",
   VIEWER: "Viewer",
 };
 
