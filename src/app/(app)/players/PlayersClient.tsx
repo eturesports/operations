@@ -17,6 +17,8 @@ import { PlayerCard } from "./PlayerCard";
 import { FilterStats } from "./FilterStats";
 import { PlayerLinks } from "./PlayerLinks";
 import { DivisionSplit } from "./DivisionSplit";
+import { ColumnPicker, usePlayerColumns, type ColumnKey } from "./PlayerColumns";
+import { PlayingToggle } from "./PlayingToggle";
 
 export type PlayerRow = {
   id: string;
@@ -113,6 +115,25 @@ export function PlayersClient({
   const [savingCell, setSavingCell] = useState(false);
   const [fGraduated, setFGraduated] = useState<"" | "yes" | "no">("");
   const [fStatus, setFStatus] = useState<"" | "active" | "inactive">("");
+
+  // Which columns this person wants. Remembered between visits.
+  const columns = usePlayerColumns();
+  const availableColumns: ColumnKey[] = [
+    "university",
+    "season",
+    "division",
+    "program",
+    "scholarship",
+    "playing",
+    // One sport in the database means the column says the same thing on every
+    // row, which is not information.
+    ...(sports.length > 1 ? (["sport"] as ColumnKey[]) : []),
+    "position",
+    "nationality",
+    "previousClub",
+    "graduation",
+  ];
+  const col = (k: ColumnKey) => availableColumns.includes(k) && columns.isOn(k);
 
   // Column sorting. Season sorts chronologically, scholarship numerically,
   // everything else alphabetically; blanks always sink to the bottom.
@@ -343,6 +364,59 @@ export function PlayersClient({
       alert(e instanceof Error ? e.message : "Could not save");
     } finally {
       setSavingCell(false);
+    }
+  }
+
+  /**
+   * Mark a player as on a roster now, or not, straight from the list.
+   *
+   * "Playing now" is not a column on the player — it is a college profile
+   * marked as current — so the row's `activeProfile` is what has to move, and
+   * a player with no university has nothing to mark. The server says so
+   * rather than inventing a profile, and the answer is passed back to the
+   * switch so it can return to where it was.
+   */
+  async function setPlaying(p: PlayerRow, next: boolean): Promise<boolean> {
+    try {
+      const res = await fetch(`/api/players/${p.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ playingNow: next }),
+      });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(j.error ?? "Could not save");
+      if (j.warning) {
+        alert(j.warning);
+        return false;
+      }
+      setPlayers((prev) =>
+        prev.map((row) =>
+          row.id === p.id
+            ? {
+                ...row,
+                // A profile is a profile of somewhere. The server refuses
+                // without a university and we returned above, so this branch
+                // only runs when there is one.
+                activeProfile: next
+                  ? (row.activeProfile ?? {
+                      university: row.university ?? "",
+                      season: row.season,
+                      goals: null,
+                      assists: null,
+                      matchesPlayed: null,
+                      minutes: null,
+                      saves: null,
+                    })
+                  : null,
+              }
+            : row
+        )
+      );
+      router.refresh();
+      return true;
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Could not save");
+      return false;
     }
   }
 
@@ -779,7 +853,11 @@ export function PlayersClient({
     URL.revokeObjectURL(url);
   }
 
-  const colCount = 6 + (sports.length > 1 ? 1 : 0) + (editable ? 2 : 0);
+  // Name, plus whichever columns are switched on, plus the checkbox and the
+  // actions when there is anything to act with. Counted rather than written
+  // down: the empty row has to span exactly the table it sits in.
+  const colCount =
+    1 + availableColumns.filter((k) => columns.isOn(k)).length + (editable ? 2 : 0);
 
   return (
     <div className="space-y-5">
@@ -1022,6 +1100,15 @@ export function PlayersClient({
             ? `${filtered.length} player${filtered.length === 1 ? "" : "s"}`
             : `${shownCount} of ${filtered.length} shown`}
         </span>
+        <div className="flex items-center gap-2">
+        {view === "table" && (
+          <ColumnPicker
+            isOn={columns.isOn}
+            toggle={columns.toggle}
+            reset={columns.reset}
+            available={availableColumns}
+          />
+        )}
         <div className="flex gap-1 rounded-full border border-ink-600 p-1">
           {([
             ["table", "Table"],
@@ -1038,6 +1125,7 @@ export function PlayersClient({
               {label}
             </button>
           ))}
+        </div>
         </div>
       </div>
 
@@ -1084,12 +1172,17 @@ export function PlayersClient({
                   </th>
                 )}
                 {sortableTh("name", "Name")}
-                {sortableTh("university", "University")}
-                {sortableTh("season", "Season")}
-                {sortableTh("division", "Division")}
-                {sortableTh("program", "Program")}
-                {sortableTh("scholarship", "Scholarship", true)}
-                {sports.length > 1 && <th className="px-4 py-3 font-medium">Sport</th>}
+                {col("university") && sortableTh("university", "University")}
+                {col("season") && sortableTh("season", "Season")}
+                {col("division") && sortableTh("division", "Division")}
+                {col("program") && sortableTh("program", "Program")}
+                {col("scholarship") && sortableTh("scholarship", "Scholarship", true)}
+                {col("playing") && <th className="px-4 py-3 font-medium">Playing</th>}
+                {col("sport") && <th className="px-4 py-3 font-medium">Sport</th>}
+                {col("position") && <th className="px-4 py-3 font-medium">Position</th>}
+                {col("nationality") && <th className="px-4 py-3 font-medium">Nationality</th>}
+                {col("previousClub") && <th className="px-4 py-3 font-medium">Previous club</th>}
+                {col("graduation") && <th className="px-4 py-3 font-medium">Graduation</th>}
                 {editable && <th className="px-4 py-3" />}
               </tr>
             </thead>
@@ -1166,7 +1259,9 @@ export function PlayersClient({
                         </span>
                         <span>
                           {p.name}
-                          {p.activeProfile && (
+                          {/* The dot and the Playing column say the same
+                              thing, so only one of them says it. */}
+                          {p.activeProfile && !col("playing") && (
                             <span
                               className="ml-1.5 inline-block h-2 w-2 rounded-full bg-emerald-400 align-middle"
                               title={`Playing now at ${p.activeProfile.university}`}
@@ -1214,18 +1309,23 @@ export function PlayersClient({
                       <PlayerLinks player={p} variant="row" />
                       </div>
                     </td>
-                    {cell(p, "university", "text-fg")}
-                    {cell(p, "season", "text-muted", { list: "cell-season-list" })}
+                    {col("university") && cell(p, "university", "text-fg")}
+                    {col("season") &&
+                      cell(p, "season", "text-muted", { list: "cell-season-list" })}
                     {/* Not editable here: the division comes from the player's
                         college profile, which is the one place it is set. */}
-                    <td className="px-4 py-3">
-                      {p.division ? (
-                        <span className="badge bg-ink-700 text-fg">{p.division}</span>
-                      ) : (
-                        "—"
-                      )}
-                    </td>
-                    {cell(p, "program", "text-muted", { list: "cell-program-list" })}
+                    {col("division") && (
+                      <td className="px-4 py-3">
+                        {p.division ? (
+                          <span className="badge bg-ink-700 text-fg">{p.division}</span>
+                        ) : (
+                          "—"
+                        )}
+                      </td>
+                    )}
+                    {col("program") &&
+                      cell(p, "program", "text-muted", { list: "cell-program-list" })}
+                    {col("scholarship") && (
                     <td
                       className={`px-4 py-3 text-right tabular-nums text-accent ${
                         editable ? "cursor-pointer" : ""
@@ -1277,9 +1377,41 @@ export function PlayersClient({
                         <span className={editable ? "text-muted" : ""}>—</span>
                       )}
                     </td>
-                    {sports.length > 1 && (
+                    )}
+                    {col("playing") && (
+                      <td className="px-4 py-3">
+                        {editable ? (
+                          <PlayingToggle
+                            name={p.name}
+                            playing={p.activeProfile != null}
+                            onChange={(next) => setPlaying(p, next)}
+                          />
+                        ) : p.activeProfile ? (
+                          <span className="badge bg-emerald-500/15 text-emerald-400">Yes</span>
+                        ) : (
+                          <span className="text-muted">—</span>
+                        )}
+                      </td>
+                    )}
+                    {col("sport") && (
                       <td className="px-4 py-3">
                         <span className="badge bg-ink-700 text-fg">{p.sportCode}</span>
+                      </td>
+                    )}
+                    {col("position") && (
+                      <td className="px-4 py-3 text-muted">{p.position ?? "—"}</td>
+                    )}
+                    {col("nationality") && (
+                      <td className="px-4 py-3 text-muted">{p.nationality ?? "—"}</td>
+                    )}
+                    {col("previousClub") && (
+                      <td className="px-4 py-3 text-muted">{p.previousClub ?? "—"}</td>
+                    )}
+                    {col("graduation") && (
+                      <td className="px-4 py-3 text-muted">
+                        {p.graduated
+                          ? `🎓 ${p.graduationYear ?? ""}`.trim()
+                          : (p.graduationYear ?? "—")}
                       </td>
                     )}
                     {editable && (
