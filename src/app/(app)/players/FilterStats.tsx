@@ -43,11 +43,18 @@ export function FilterStats({
   filtered: PlayerRow[]; // what the filters left
 }) {
   const s = useMemo(() => {
-    const ops = filtered.length;
-    const players = new Set(filtered.map((p) => p.name.trim().toLowerCase())).size;
+    // Every figure on this panel except "playing now" is a claim about what
+    // Eture did, so a stint the player arranged for himself is left out of it.
+    // The row stays on the list below — it is part of his career — but adding
+    // it here would credit us with a move we did not make.
+    const ours = filtered.filter((p) => p.byEture);
+    const external = filtered.length - ours.length;
+
+    const ops = ours.length;
+    const players = new Set(ours.map((p) => p.name.trim().toLowerCase())).size;
 
     const unis = new Set<string>();
-    for (const p of filtered)
+    for (const p of ours)
       for (const u of canonicalizeUniversity(p.university)) unis.add(uniKey(u));
 
     // How much of Division I Eture has actually reached. Distinct universities,
@@ -56,22 +63,26 @@ export function FilterStats({
     // own operations, so it answers "where could we be" rather than "where are
     // we busiest".
     const diUnis = new Set<string>();
-    for (const p of filtered) {
+    for (const p of ours) {
       if (!isDivisionOne(p.division)) continue;
       for (const u of canonicalizeUniversity(p.university)) diUnis.add(uniKey(u));
     }
 
-    const champions = filtered.filter((p) => p.nationalChampion).length;
-    const graduated = filtered.filter((p) => p.graduated).length;
+    const champions = ours.filter((p) => p.nationalChampion).length;
+    const graduated = ours.filter((p) => p.graduated).length;
+    // The exception, and deliberately over every row: where our players are
+    // right now is true of them whoever arranged the move. A player who
+    // transferred himself is only ever "playing now" on that record, so
+    // counting our own rows here would lose him entirely.
     const playing = filtered.filter((p) => p.activeProfile).length;
 
-    const withMoney = filtered.filter((p) => p.scholarship != null);
-    const fullRides = filtered.filter((p) => p.fullRide).length;
+    const withMoney = ours.filter((p) => p.scholarship != null);
+    const fullRides = ours.filter((p) => p.fullRide).length;
     const scholarship = withMoney.reduce((a, p) => a + (p.scholarship ?? 0), 0);
 
     // Every college profile counts, not just the one flagged as playing now:
     // most of these players have finished, and their minutes are still theirs.
-    const withStats = filtered.filter((p) => p.career);
+    const withStats = ours.filter((p) => p.career);
     const minutes = withStats.reduce((a, p) => a + (p.career?.minutes ?? 0), 0);
     const goals = withStats.reduce((a, p) => a + (p.career?.goals ?? 0), 0);
     const assists = withStats.reduce((a, p) => a + (p.career?.assists ?? 0), 0);
@@ -80,6 +91,7 @@ export function FilterStats({
 
     return {
       ops,
+      external,
       players,
       universities: unis.size,
       diUniversities: diUnis.size,
@@ -101,12 +113,13 @@ export function FilterStats({
   }, [filtered]);
 
   const narrowed = filtered.length !== rows.length;
+  // Both sides of the share are operations of ours, so the tile compares like
+  // with like — the numerator already excludes self-arranged transfers.
+  const allOps = useMemo(() => rows.filter((p) => p.byEture).length, [rows]);
   // With several divisions picked at once, the question is usually "how much
   // of everything is this?" — and every percentage inside the panel is
   // measured against the selection, not against the database.
-  const shareOfAll = rows.length
-    ? Math.round((filtered.length / rows.length) * 1000) / 10
-    : 0;
+  const shareOfAll = allOps ? Math.round((s.ops / allOps) * 1000) / 10 : 0;
 
   return (
     <section className="card p-4">
@@ -116,10 +129,20 @@ export function FilterStats({
         </h2>
         {narrowed && (
           <span className="text-[11px] text-muted">
-            {formatNumber(s.ops)} of {formatNumber(rows.length)} operations
+            {formatNumber(s.ops)} of {formatNumber(allOps)} operations
           </span>
         )}
       </div>
+
+      {/* Say what was left out rather than quietly shrinking the numbers: a
+          panel that drops rows without a word reads as if it counted them. */}
+      {s.external > 0 && (
+        <p className="mb-3 text-[11px] text-muted">
+          Not counted here: {formatNumber(s.external)} transfer
+          {s.external === 1 ? "" : "s"} arranged without Eture. Still on the
+          list below, and still counted under “Playing now”.
+        </p>
+      )}
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
         <Tile
@@ -139,7 +162,7 @@ export function FilterStats({
         <Tile
           label="Share of database"
           value={`${shareOfAll}%`}
-          sub={`${formatNumber(s.ops)} of all ${formatNumber(rows.length)}`}
+          sub={`${formatNumber(s.ops)} of all ${formatNumber(allOps)}`}
         />
         {/* Reach, not volume: the share of Division I programmes that have had
             an Eture player, for whatever the filters are showing. */}
@@ -199,9 +222,11 @@ export function FilterStats({
         366 Division I institutions, most of which field no men&rsquo;s soccer
         team.{" "}
         <b className="text-fg">Share of database</b> is this selection over all{" "}
-        {formatNumber(rows.length)} operations; the other percentages are measured
-        against the {formatNumber(s.ops)} in this selection. Scholarship
-        totals cover only the
+        {formatNumber(allOps)} operations; the other percentages are measured
+        against the {formatNumber(s.ops)} in this selection. Every figure here
+        counts operations Eture arranged: a college a player transferred to on
+        his own stays on his record and on the Active players dashboard, but
+        none of these numbers include it. Scholarship totals cover only the
         operations with a recorded amount ({s.coveragePct}%). Minutes, goals and assists are
         career totals across every college profile we have pulled, for the{" "}
         {formatNumber(s.withStats)} operation{s.withStats === 1 ? "" : "s"} with stats —

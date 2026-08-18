@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { ETURE_OPERATION } from "@/lib/operations";
 import { seasonSortKey } from "@/lib/format";
 import { canonicalizeUniversity, uniKey, preferDisplay } from "@/lib/universities";
 
@@ -68,7 +69,7 @@ function segment(rows: Row[], pick: (r: Row) => string | null | undefined): Segm
 
 export async function getSegmentationData(): Promise<SegmentationData> {
   const rows = (await prisma.player.findMany({
-    where: { active: true },
+    where: ETURE_OPERATION,
     select: {
       name: true, university: true, season: true, division: true, program: true,
       scholarship: true, nationality: true, position: true,
@@ -115,7 +116,7 @@ export type SeasonBreakdown = {
 
 export async function getSeasonBreakdown(): Promise<SeasonBreakdown> {
   const rows = (await prisma.player.findMany({
-    where: { active: true },
+    where: ETURE_OPERATION,
     select: {
       name: true, university: true, season: true, division: true,
       program: true, scholarship: true,
@@ -328,7 +329,7 @@ export type ProgramStat = {
 
 export async function getProgramStats(): Promise<ProgramStat[]> {
   const rows = (await prisma.player.findMany({
-    where: { active: true },
+    where: ETURE_OPERATION,
     select: { name: true, university: true, season: true, division: true, program: true, scholarship: true },
   })) as Row[];
 
@@ -394,7 +395,7 @@ export type UniversityNetwork = {
 
 export async function getUniversityNetwork(): Promise<UniversityNetwork> {
   const rows = (await prisma.player.findMany({
-    where: { active: true },
+    where: ETURE_OPERATION,
     select: { name: true, university: true, season: true, division: true, program: true, scholarship: true },
   })) as Row[];
 

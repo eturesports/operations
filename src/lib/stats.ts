@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { ETURE_OPERATION } from "@/lib/operations";
 import { seasonSortKey } from "@/lib/format";
 
 export type Bucket = { key: string; players: number; scholarship: number };
@@ -54,7 +55,7 @@ export async function getDashboardData(sportCode?: string): Promise<DashboardDat
     if (sportCode && sport.code !== sportCode) continue;
 
     const players = await prisma.player.findMany({
-      where: { sportId: sport.id, active: true },
+      where: { sportId: sport.id, ...ETURE_OPERATION },
       select: {
         season: true,
         division: true,

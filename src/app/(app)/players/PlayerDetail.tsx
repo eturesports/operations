@@ -183,16 +183,23 @@ export function PlayerDetail({
                       </span>
                     </span>
                     <span className="shrink-0 text-right">
+                      {/* A transfer we made and one the player made for himself
+                          are both part of the career, but only one of them is
+                          work of ours — so they do not share a badge. */}
                       <span
                         className={`badge ${
                           uniKey(r.university ?? "") === uniKey(player.university ?? "")
                             ? "bg-ink-700 text-muted"
-                            : "bg-accent/20 text-accent"
+                            : r.byEture
+                              ? "bg-accent/20 text-accent"
+                              : "bg-ink-700 text-muted"
                         }`}
                       >
                         {uniKey(r.university ?? "") === uniKey(player.university ?? "")
                           ? "Same college"
-                          : "Transfer"}
+                          : r.byEture
+                            ? "Transfer"
+                            : "Transfer · own"}
                       </span>
                       <span className="mt-0.5 block text-[11px] text-brand">Open →</span>
                     </span>

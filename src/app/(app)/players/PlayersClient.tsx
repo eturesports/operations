@@ -47,6 +47,9 @@ export type PlayerRow = {
   graduationYear: number | null;
   nationalChampion: boolean;
   fullRide: boolean;
+  /** false when the player arranged this move himself — his career, not our
+   *  operation, so the stats panel leaves it out of the counts */
+  byEture: boolean;
   /** drafted once, at the end of the college years — a fact about the person */
   mlsDraftYear: number | null;
   mlsDraftClub: string | null;
@@ -507,6 +510,9 @@ export function PlayersClient({
       graduationYear: player.graduationYear,
       nationalChampion: player.nationalChampion,
       fullRide: player.fullRide,
+      // Owned by the college profile and mirrored here by the server, so this
+      // takes what came back rather than assuming a new row is ours.
+      byEture: player.byEture ?? true,
       mlsDraftYear: player.mlsDraftYear,
       mlsDraftClub: player.mlsDraftClub,
       mlsDraftRound: player.mlsDraftRound,

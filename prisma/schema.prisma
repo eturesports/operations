@@ -172,6 +172,14 @@ model Player {
   // A scholarship covering the full cost of attendance, not a part of it
   fullRide Boolean @default(false)
 
+  // Whether Eture actually brokered this move. A player we placed in the
+  // United States can later transfer on his own, or through somebody else —
+  // the stint is real and worth keeping, but it is not our operation and must
+  // not be counted as one. Mirrored from the college profile that speaks for
+  // this record, because every count, filter, export and public endpoint
+  // reads Player rather than joining through profiles.
+  byEture Boolean @default(true)
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   createdById String?
@@ -187,6 +195,7 @@ model Player {
   @@index([season])
   @@index([division])
   @@index([program])
+  @@index([byEture])
 }
 
 // A player's stint at a university (a player may have several — transfers).
@@ -232,6 +241,12 @@ model PlayerProfile {
   // mirrors whichever stint is current.
   scholarship Int?
   fullRide    Boolean @default(false)
+
+  // Who arranged this stint. Typed here, on the stint itself, because that is
+  // the only place that knows: a career can mix moves we made with moves the
+  // player made for himself. Defaults to true — everything recorded before
+  // this existed was an operation of ours.
+  byEture Boolean @default(true)
 
   // Won with this team, in this season. The conference name is kept rather
   // than derived: a school's soccer conference can differ from its primary

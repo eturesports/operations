@@ -1,5 +1,6 @@
 import { requireSession } from "@/lib/guards";
 import { prisma } from "@/lib/prisma";
+import { ETURE_OPERATION } from "@/lib/operations";
 import { AnalyticsTabs } from "@/components/AnalyticsTabs";
 import { UniversitiesTable, type OperationRow } from "./UniversitiesTable";
 
@@ -11,7 +12,7 @@ export default async function UniversitiesPage() {
   // The ranking is built in the browser so the filters answer instantly;
   // this is the raw material for it, and it is only a few hundred rows.
   const players = await prisma.player.findMany({
-    where: { active: true },
+    where: ETURE_OPERATION,
     select: {
       name: true,
       university: true,

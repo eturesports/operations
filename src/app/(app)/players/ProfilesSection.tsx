@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Select } from "@/components/Select";
 import { NCAA_UNIVERSITIES, conferenceFor, divisionFor } from "@/lib/conferences";
@@ -14,6 +14,7 @@ export type Profile = {
   jersey: string | null;
   scholarship: number | null;
   fullRide: boolean;
+  byEture: boolean;
   conferenceChampion: boolean;
   conferenceName: string | null;
   profileImageUrl: string | null;
@@ -40,6 +41,7 @@ type Draft = {
   jersey: string;
   scholarship: string;
   fullRide: boolean;
+  byEture: boolean;
   conferenceChampion: boolean;
   conferenceName: string;
   profileImageUrl: string;
@@ -63,6 +65,7 @@ const empty: Draft = {
   jersey: "",
   scholarship: "",
   fullRide: false,
+  byEture: true,
   conferenceChampion: false,
   conferenceName: "",
   profileImageUrl: "",
@@ -89,6 +92,7 @@ function toDraft(p: Profile): Draft {
     jersey: p.jersey ?? "",
     scholarship: p.scholarship != null ? String(p.scholarship) : "",
     fullRide: p.fullRide ?? false,
+    byEture: p.byEture ?? true,
     conferenceChampion: p.conferenceChampion ?? false,
     conferenceName: p.conferenceName ?? "",
     profileImageUrl: p.profileImageUrl ?? "",
@@ -134,6 +138,8 @@ export function ProfilesSection({
   defaults,
   playerNcaaUrl,
   onMoneyChange,
+  onPlayingChange,
+  requestedPlaying,
 }: {
   playerId: string;
   seasonOptions: string[];
@@ -144,6 +150,17 @@ export function ProfilesSection({
    *  this it keeps showing what it loaded, so a correction made here looks
    *  like it did not take. */
   onMoneyChange?: (money: { scholarship: number | null; fullRide: boolean }) => void;
+  /** Whether any stint is now marked as the roster they are on.
+   *
+   *  The player form above carries the same yes/no, read once when it opened.
+   *  Without this it keeps the answer it started with, and saving the form
+   *  writes that stale answer back — clearing the very profile that was just
+   *  set as current here. */
+  onPlayingChange?: (playing: boolean) => void;
+  /** The same yes/no as it currently stands on the form above. Flipping it
+   *  there acts on the stints here straight away, so the card and the control
+   *  never sit on screen disagreeing with each other. */
+  requestedPlaying?: boolean;
   // seeded from the player record so "mark as playing" is one click, not a form
   defaults?: { university?: string | null; season?: string | null; division?: string | null };
 }) {
@@ -171,6 +188,40 @@ export function ProfilesSection({
       cancelled = true;
     };
   }, [playerId]);
+
+  // One place to answer "is any stint current?", rather than remembering to
+  // tell the form at each of the five spots that can change it — promoting a
+  // profile, saving one, deleting one, refreshing stats, or the first load.
+  //
+  // The ref is what makes it safe to depend on `profiles`: the callback comes
+  // in as an inline closure, so a new one arrives every render, and firing on
+  // every render would set state in a loop.
+  const reported = useRef<boolean | null>(null);
+  const playing = profiles.some((p) => p.current);
+  useEffect(() => {
+    if (loading) return;
+    if (reported.current === playing) return;
+    reported.current = playing;
+    onPlayingChange?.(playing);
+  }, [playing, loading, onPlayingChange]);
+
+  // ...and the same link read the other way. The first value seen is only
+  // adopted, never acted on: it is what the form loaded with, not a decision
+  // anybody made, and acting on it would rewrite the stints on open.
+  const applied = useRef<boolean | null>(null);
+  useEffect(() => {
+    if (loading || requestedPlaying === undefined) return;
+    if (applied.current === null) {
+      applied.current = requestedPlaying;
+      return;
+    }
+    if (applied.current === requestedPlaying) return;
+    applied.current = requestedPlaying;
+    if (requestedPlaying !== playing) void applyPlaying(requestedPlaying);
+    // `playing` is read, not depended on: this must run when the form changes
+    // its mind, not every time the stints settle — that is the other effect.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestedPlaying, loading]);
 
   function set<K extends keyof Draft>(k: K, v: Draft[K]) {
     setDraft((d) => (d ? { ...d, [k]: v } : d));
@@ -262,6 +313,39 @@ export function ProfilesSection({
     }
   }
 
+  /**
+   * The form's toggle, applied to the stints.
+   *
+   * Turning it on promotes the stint that already reads as theirs — the
+   * current one if there is one, otherwise the top of the list, which the
+   * server sorted by season for exactly this. With no stints at all there is
+   * nothing to promote and saving the form will build the first one from the
+   * player's own university, so this steps aside.
+   */
+  async function applyPlaying(next: boolean) {
+    const target = profiles.find((p) => p.current) ?? profiles[0];
+    if (!target) return;
+    if (next) {
+      await setCurrent(target);
+      return;
+    }
+    setError(null);
+    try {
+      const res = await fetch(`/api/profiles/${target.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ current: false }),
+      });
+      const j = await res.json();
+      if (!res.ok) throw new Error(j.error ?? "Could not update");
+      if (j.player) onMoneyChange?.(j.player);
+      setProfiles((prev) => prev.map((x) => ({ ...x, current: false })));
+      router.refresh();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not update");
+    }
+  }
+
   async function save() {
     if (!draft) return;
     if (!draft.university.trim()) {
@@ -278,6 +362,12 @@ export function ProfilesSection({
       jersey: draft.jersey.trim() || null,
       scholarship: draft.scholarship.trim() === "" ? null : Number(draft.scholarship),
       fullRide: draft.fullRide,
+      byEture: draft.byEture,
+      // Sent at last: the form has always had the checkbox, but the payload
+      // never carried these two, so every title ticked here was dropped on
+      // save without a word.
+      conferenceChampion: draft.conferenceChampion,
+      conferenceName: draft.conferenceName.trim() || null,
       profileImageUrl: draft.profileImageUrl.trim() || null,
       ncaaSport: draft.ncaaSport,
       ncaaDivision: draft.ncaaDivision,
@@ -516,6 +606,15 @@ export function ProfilesSection({
                       .filter(Boolean)
                       .join(" · ") || "—"}
                   </div>
+                  {/* Only the exception is marked. Badging every stint "Eture"
+                      would put a label on almost every row and make the one
+                      that matters harder to spot, not easier. */}
+                  {!p.byEture && (
+                    <div className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-ink-600 bg-ink-900/60 px-2 py-0.5 text-[10px] text-muted">
+                      <span aria-hidden>↷</span>
+                      Transfer arranged by the player — not an Eture operation
+                    </div>
+                  )}
                 </div>
                 {editable && (
                   <div className="flex shrink-0 items-center gap-1.5">
@@ -789,6 +888,27 @@ function ProfileForm({
               </span>
             </span>
           </label>
+        </div>
+
+        {/* Who arranged this move. It is asked here, on the stint, because a
+            career can mix the two: we take a player to the United States and
+            he transfers on his own two years later. Untick it and the stint
+            stays on his record but stops counting as an operation of ours. */}
+        <div className="col-span-2 rounded-lg border border-ink-600 bg-ink-900/40 px-3 py-2">
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-fg">
+            <input
+              type="checkbox"
+              className="h-4 w-4 accent-brand"
+              checked={draft.byEture}
+              onChange={(e) => onChange("byEture", e.target.checked)}
+            />
+            <span>Eture arranged this move</span>
+          </label>
+          <p className="mt-1 text-[11px] text-muted">
+            {draft.byEture
+              ? "Counts as an Eture operation: totals, scholarships and the division split."
+              : "The player arranged this transfer himself. It stays in his career and on the Active players dashboard, but no count of our operations includes it."}
+          </p>
         </div>
         <div>
           <label className="label">NCAA sport</label>

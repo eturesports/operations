@@ -114,6 +114,7 @@ export default async function PlayersPage() {
         mlsDraftRound: p.mlsDraftRound,
         mlsDraftPick: p.mlsDraftPick,
         fullRide: p.fullRide,
+        byEture: p.byEture,
         personId: p.personId,
         activeProfile: p.profiles.find((x) => x.current) ?? null,
         career: careerOf(p.profiles),

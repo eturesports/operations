@@ -67,11 +67,18 @@ export async function POST(
     );
   }
 
-  // A second college is a second operation. Rather than hiding it inside the
-  // first record — where no count would ever see it — the profile is attached
-  // to a new record for the same person, dated to the season it was assigned.
+  // A second college is a second record. Rather than hiding it inside the
+  // first one — where no count would ever see it — the profile is attached to
+  // a new record for the same person, dated to the season it was assigned.
   // The money is never carried across: each university agrees its own.
+  //
+  // Whether that record is a second *operation* is a different question, and
+  // `byEture` answers it. A player we took to the United States can transfer
+  // afterwards on his own; the stint is real and belongs in his career, but
+  // it is not something we did, so the record carries the flag from the
+  // profile and every count of operations leaves it out.
   const existing = await prisma.playerProfile.count({ where: { playerId: params.id } });
+  const byEture = data.byEture ?? true;
   const target =
     existing === 0
       ? player
@@ -83,6 +90,7 @@ export async function POST(
             university: data.university!,
             season: (data.season as string | null) ?? player.season,
             division: (data.division as string | null) ?? player.division,
+            byEture,
             program: player.program,
             nationality: player.nationality,
             position: player.position,

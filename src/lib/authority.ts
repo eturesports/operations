@@ -1,10 +1,15 @@
 import { prisma } from "@/lib/prisma";
+import { ETURE_OPERATION } from "@/lib/operations";
 import { seasonSortKey } from "@/lib/format";
 import { canonicalizeUniversity, uniKey } from "@/lib/universities";
 
 // Authority metrics following the Eture Data Intelligence framework (Phase 1):
 // clear definitions, denominators and coverage — a row is an OPERATION, not
 // necessarily a unique player.
+//
+// The denominator is operations *we* made: stints a player arranged himself
+// after we placed him are excluded (see lib/operations.ts). The one exception
+// is `playingNow`, which asks a different question and says so at its query.
 
 const NCAA_DIVS = new Set(["division i", "division ii", "division iii"]);
 const norm = (s: string | null | undefined) => (s ?? "").trim().toLowerCase();
@@ -97,10 +102,13 @@ function bucketize(
 export async function getAuthorityData(): Promise<AuthorityData> {
   const [rows, playing] = await Promise.all([
     prisma.player.findMany({
-      where: { active: true },
+      where: ETURE_OPERATION,
       select: { name: true, university: true, season: true, division: true, program: true, scholarship: true,
                mlsDraftYear: true, mlsDraftClub: true, mlsDraftRound: true, mlsDraftPick: true },
     }),
+    // Deliberately unfiltered by `byEture`, unlike every figure above it.
+    // This one answers "where are our players right now", and a player who
+    // arranged his own transfer is still one of ours playing college soccer.
     prisma.playerProfile.findMany({
       where: { current: true, player: { active: true } },
       select: { university: true },

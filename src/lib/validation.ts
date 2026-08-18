@@ -130,6 +130,7 @@ export type ProfileInput = {
   goalsAgainst?: number | null;
   scholarship?: number | null;
   fullRide?: boolean;
+  byEture?: boolean;
   conferenceChampion?: boolean;
   conferenceName?: string | null;
   profileImageUrl?: string | null;
@@ -167,6 +168,10 @@ export function parseProfileInput(
   if ("rosterUrl" in body) data.rosterUrl = str(body.rosterUrl);
   if ("scholarship" in body) data.scholarship = intOrNull(body.scholarship);
   if ("fullRide" in body) data.fullRide = boolish(body.fullRide);
+  if ("byEture" in body) data.byEture = boolish(body.byEture);
+  if ("conferenceChampion" in body)
+    data.conferenceChampion = boolish(body.conferenceChampion);
+  if ("conferenceName" in body) data.conferenceName = str(body.conferenceName);
   if ("profileImageUrl" in body) data.profileImageUrl = str(body.profileImageUrl);
   if ("actionImageUrl" in body) data.actionImageUrl = str(body.actionImageUrl);
   for (const f of NUMERIC_PROFILE_FIELDS) {

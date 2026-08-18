@@ -30,6 +30,7 @@ type Speaking = Ranked & {
   division: string | null;
   scholarship: number | null;
   fullRide: boolean;
+  byEture: boolean;
   rosterUrl: string | null;
   profileImageUrl: string | null;
   actionImageUrl: string | null;
@@ -66,6 +67,7 @@ export async function syncPlayerFromProfiles(playerId: string): Promise<void> {
       current: true,
       scholarship: true,
       fullRide: true,
+      byEture: true,
       rosterUrl: true,
       profileImageUrl: true,
       actionImageUrl: true,
@@ -89,6 +91,11 @@ export async function syncPlayerFromProfiles(playerId: string): Promise<void> {
       ...(best.division ? { division: best.division } : {}),
       scholarship: best.scholarship ?? withMoney?.scholarship ?? null,
       fullRide: best.fullRide || profiles.some((p) => p.fullRide),
+      // Whose operation this record is, straight from the stint it describes.
+      // No falling back to another profile the way the amount does: a record
+      // is ours only if the stint it stands for was ours, and inheriting a
+      // "yes" from an earlier college is exactly the mistake to avoid.
+      byEture: best.byEture,
       ...(best.rosterUrl || withLink?.rosterUrl
         ? { ncaaUrl: best.rosterUrl ?? withLink?.rosterUrl }
         : {}),

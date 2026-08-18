@@ -471,7 +471,8 @@ export function PlayerModal({
               </div>
               <p className="mt-1 text-xs text-muted">
                 Counts them in the Active players dashboard and pulls their NCAA season stats.
-                Uses the university above unless they already have a profile.
+                Tied to the college profiles below: this follows whichever one is
+                marked as playing, and uses the university above if there are none yet.
               </p>
             </div>
 
@@ -661,6 +662,15 @@ export function PlayerModal({
                 set("scholarship", scholarship == null ? "" : String(scholarship));
                 set("fullRide", fullRide);
               }}
+              // "Playing now" is one fact with two controls. The toggle above
+              // used to keep whatever it loaded with, so setting a roster down
+              // here and then saving wrote the stale answer back and cleared
+              // it again. Returning the same object when nothing changed is
+              // what stops the two from bouncing off each other.
+              onPlayingChange={(playing) =>
+                setForm((f) => (f.playingNow === playing ? f : { ...f, playingNow: playing }))
+              }
+              requestedPlaying={form.playingNow}
               defaults={{
                 university: form.university || initial.university,
                 season: form.season || initial.season,

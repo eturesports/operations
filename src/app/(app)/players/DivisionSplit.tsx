@@ -38,12 +38,15 @@ function bucketOf(division: string | null | undefined): string {
 
 export function DivisionSplit({ filtered }: { filtered: PlayerRow[] }) {
   const s = useMemo(() => {
+    // The level we placed players at, so a college a player moved to on his
+    // own is not in the split — it would say we put him there.
+    const ours = filtered.filter((p) => p.byEture);
     const n = new Map<string, number>();
-    for (const p of filtered) {
+    for (const p of ours) {
       const k = bucketOf(p.division);
       n.set(k, (n.get(k) ?? 0) + 1);
     }
-    const total = filtered.length;
+    const total = ours.length;
     const get = (k: string) => n.get(k) ?? 0;
 
     // Fixed order, never sorted by size: a filter that changes the counts
