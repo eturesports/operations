@@ -1,0 +1,655 @@
+/* ==========================================================================
+   Eture Sports — design tokens and materials
+   Taken verbatim from eturesports/operations (src/app/globals.css), with the
+   Tailwind `@apply` shorthands expanded to plain CSS so this file stands on
+   its own. Drop it in, link it, and every class below works.
+
+   If the project does use Tailwind, prefer the original globals.css plus the
+   tailwind.config.ts beside this file — you get the alpha modifiers
+   (bg-ink-900/60) that the RGB-triplet tokens exist to support.
+   ========================================================================== */
+
+/* ---- 1. Fonts ----------------------------------------------------------- */
+
+/* The display face. Host this file yourself — the URL below is a git repo,
+   not a CDN, and it will be slow and occasionally unavailable. */
+@font-face {
+  font-family: "NeuePower";
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://raw.githubusercontent.com/eturesports/gapyear-msoc-assets/main/assets/fonts/NeuePower-Black.otf")
+    format("opentype");
+}
+
+/* Poppins 300–800 is the body face. Load it however the project loads fonts
+   (next/font, @font-face, or a Google Fonts link) and expose it as
+   --font-sans. */
+
+/* ---- 2. Tokens ---------------------------------------------------------- */
+
+/* Theme-independent */
+:root {
+  --font-display: "NeuePower", "Poppins", sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+
+  /* Brand marks. Fixed in both themes — a brand colour that changes with the
+     theme is not a brand colour. */
+  --brand: #c42b2b;
+  --brand-light: #e0433f;
+  --brand-dark: #9b1a1a;
+  --brand-hover: #b31e1e;
+  --accent: #c9a227;
+  --paper: #ede8e1;
+}
+
+/* Light is the default and sits on bare :root, so the page renders in its
+   final colours before any JavaScript runs — no dark flash on load.
+   Surfaces are RGB triplets, not hexes, so an alpha can be applied to any of
+   them: rgb(var(--ink-900) / 0.6). */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ink-950: 244 244 246; /* the page                       #F4F4F6 */
+  --ink-900: 255 255 255; /* raised solid                   #FFFFFF */
+  --ink-800: 250 250 252; /* subtle fill                    #FAFAFC */
+  --ink-700: 242 242 245; /* hover fill, chips              #F2F2F5 */
+  --ink-600: 224 224 228; /* hairlines, scrollbar thumb     #E0E0E4 */
+  --fg: 24 24 27; /*        text                    #18181B */
+  --muted: 113 113 122; /*  secondary text                #71717A */
+
+  --glass-bg: 255 255 255;
+  --glass-alpha: 0.7;
+  --glass-border: 0 0 0;
+  --glass-border-alpha: 0.06;
+  --glass-hi: 0.6;
+
+  --page-grad-1: rgba(196, 43, 43, 0.05);
+  --page-grad-2: rgba(120, 130, 150, 0.05);
+
+  /* Categorical set. Three hues, then a neutral ramp — five categorical
+     colours cannot survive deuteranopia against this red. Label every
+     series regardless of colour; the gold sits under 3:1 here. */
+  --cat-1: #c42b2b;
+  --cat-2: #c9a227;
+  --cat-3: #3b72c4;
+  --cat-out-1: #6b7280;
+  --cat-out-2: #9ca3af;
+  --cat-out-3: #d1d5db;
+}
+
+/* Dark is opt-in. Higher specificity than bare :root. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink-950: 14 14 16; /*   #0E0E10 */
+  --ink-900: 22 22 25; /*   #161619 */
+  --ink-800: 28 28 32; /*   #1C1C20 */
+  --ink-700: 38 38 43; /*   #26262B */
+  --ink-600: 60 60 66; /*   #3C3C42 */
+  --fg: 245 245 247; /*     #F5F5F7 */
+  --muted: 160 160 168; /*  #A0A0A8 */
+
+  --glass-bg: 30 30 34;
+  --glass-alpha: 0.5;
+  --glass-border: 255 255 255;
+  --glass-border-alpha: 0.1;
+  /* The sheen drops hard: white reads as light on a white surface and as a
+     smear on a black one. */
+  --glass-hi: 0.08;
+
+  --page-grad-1: rgba(196, 43, 43, 0.1);
+  --page-grad-2: rgba(120, 130, 150, 0.06);
+
+  /* Chosen for this surface rather than flipped: the light gold sits at
+     L 0.728, outside the 0.48–0.67 band dark asks for. Red and blue pass in
+     both and stay put. */
+  --cat-2: #ad861c;
+  --cat-out-1: #9ca3af;
+  --cat-out-2: #6b7280;
+  --cat-out-3: #4b5563;
+}
+
+/* ---- 3. Page ------------------------------------------------------------ */
+
+html,
+body {
+  background-color: rgb(var(--ink-950));
+  color: rgb(var(--fg));
+}
+
+html {
+  /* iPhones enlarge text in landscape unless told not to. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The calm wash. On its own fixed layer rather than as a fixed background:
+   `background-attachment: fixed` makes Safari re-rasterise the gradient on
+   every scroll frame, felt on a phone as the whole page stuttering. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+      1200px 620px at 92% -18%,
+      var(--page-grad-1),
+      transparent 62%
+    ),
+    radial-gradient(900px 520px at -12% 116%, var(--page-grad-2), transparent 62%);
+}
+
+/* Safari zooms the page when a field smaller than 16px takes focus, and never
+   zooms back out. Keep this rule unlayered: unlayered rules outrank layered
+   ones, so it holds even where a utility class has sized a field down. */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea,
+  .input {
+    font-size: 16px;
+  }
+}
+
+/* Discreet scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--ink-600)) transparent;
+}
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--ink-600));
+  border-radius: 999px;
+}
+
+/* ---- 4. Type ------------------------------------------------------------ */
+
+/* Tracking is size-specific, never one value. Letters read further apart as
+   they grow, so large text tightens and small text is left alone. Leading
+   moves the opposite way: tight on headings, comfortable on body. */
+h1 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+h3 {
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: rgb(var(--muted));
+  font-optical-sizing: auto;
+}
+
+.kicker {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--brand);
+  font-optical-sizing: auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  font-optical-sizing: auto;
+}
+
+/* ---- 5. Materials ------------------------------------------------------- */
+
+/* The look without the blur: translucent fill, hairline, layered shadow.
+   Everything a panel sitting on the page needs. */
+.surface {
+  background: rgb(var(--glass-bg) / var(--glass-alpha));
+  border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 32px -14px rgb(0 0 0 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
+}
+
+/* The surface plus a real backdrop blur. Reserved for chrome that floats over
+   moving content — the bar, the nav, dropdowns — because that is the only
+   place the blur has anything to show. Each one is a compositing layer whose
+   backdrop is re-sampled as things move underneath: a gallery of cards using
+   it meant hundreds of those layers over a flat page, which is what made
+   scrolling stutter on a phone for an effect nobody could see. */
+.glass {
+  background: rgb(var(--glass-bg) / var(--glass-alpha));
+  border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 32px -14px rgb(0 0 0 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  backdrop-filter: blur(24px) saturate(135%);
+}
+
+/* The default panel. */
+.card {
+  background: rgb(var(--glass-bg) / var(--glass-alpha));
+  border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 32px -14px rgb(0 0 0 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
+  border-radius: 1rem;
+  position: relative; /* for .glass-rim::before */
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgb(255 255 255 / calc(var(--glass-hi) * 1.1)) 0%,
+    rgb(255 255 255 / 0) 38%,
+    rgb(255 255 255 / 0) 62%,
+    rgb(255 255 255 / calc(var(--glass-hi) * 0.55)) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
+/* A dialog. Opaque on purpose, and the one surface in the app that is.
+   Everything else is translucent because what shows through is the page you
+   are still working in. A dialog covers that work and asks for something
+   else, and a long form read through a table of other people's names is not
+   a texture, it is noise. */
+.sheet {
+  background: rgb(var(--ink-900));
+  border: 1px solid rgb(var(--ink-600));
+  box-shadow:
+    0 32px 64px -16px rgb(0 0 0 / 0.35),
+    0 8px 20px -8px rgb(0 0 0 / 0.18);
+}
+
+/* The refracting edge, standalone. A gradient drawn only on the border box,
+   brightest where light would land — the detail that makes a translucent
+   panel read as glass rather than as a blurred rectangle. Safe on any
+   surface: nothing is clipped and no child rules apply. */
+.glass-rim {
+  position: relative;
+}
+.glass-rim::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgb(255 255 255 / calc(var(--glass-hi) * 1.1)) 0%,
+    rgb(255 255 255 / 0) 38%,
+    rgb(255 255 255 / 0) 62%,
+    rgb(255 255 255 / calc(var(--glass-hi) * 0.55)) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
+/* The rim plus a specular highlight that tracks the pointer. Reserved for
+   surfaces whose children are ours — the sheen sits under the content, which
+   means positioning the children. Set --mx/--my from a pointermove handler. */
+.liquid-glass {
+  position: relative;
+  background: rgb(var(--glass-bg) / var(--glass-alpha));
+  border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 32px -14px rgb(0 0 0 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / var(--glass-hi));
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  backdrop-filter: blur(24px) saturate(135%);
+}
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgb(255 255 255 / calc(var(--glass-hi) * 1.1)) 0%,
+    rgb(255 255 255 / 0) 38%,
+    rgb(255 255 255 / 0) 62%,
+    rgb(255 255 255 / calc(var(--glass-hi) * 0.55)) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    120px circle at var(--mx, 30%) var(--my, 0%),
+    rgb(255 255 255 / calc(var(--glass-hi) * 0.45)),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  z-index: 0;
+}
+.liquid-glass:hover::after {
+  opacity: 1;
+}
+.liquid-glass > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Vibrancy. Flat grey text on a blurred surface loses contrast as whatever is
+   behind it moves, so on translucent chrome the secondary text is carried by
+   weight and a touch of tracking rather than by colour alone. Only on the
+   chrome — body copy on a solid panel is fine as is. */
+.liquid-glass .text-muted {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ---- 6. Controls -------------------------------------------------------- */
+
+/* The press is the feedback and it has to be immediate: the transform answers
+   in 100ms while colour is free to take its time. A single `all 150ms` put a
+   visible delay on the one property the hand is watching. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  transition:
+    transform 100ms ease-out,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    opacity 150ms ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--brand);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.12),
+    inset 0 1px 0 rgb(255 255 255 / 0.16);
+}
+.btn-primary:hover {
+  background: var(--brand-hover);
+}
+
+.btn-ghost {
+  color: rgb(var(--fg));
+  background: rgb(var(--glass-bg) / 0.5);
+  border: 1px solid rgb(var(--glass-border) / 0.1);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  backdrop-filter: blur(16px) saturate(135%);
+}
+.btn-ghost:hover {
+  background: rgb(var(--glass-bg) / 0.72);
+}
+
+.btn-danger {
+  color: var(--brand);
+  border: 1px solid rgb(196 43 43 / 0.35);
+}
+.btn-danger:hover {
+  background: rgb(196 43 43 / 0.1);
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(var(--fg));
+  outline: none;
+  background: rgb(var(--glass-bg) / 0.55);
+  border: 1px solid rgb(var(--glass-border) / 0.12);
+  transition: all 150ms ease;
+}
+.input::placeholder {
+  color: rgb(var(--muted) / 0.7);
+}
+.input:focus {
+  border-color: rgb(196 43 43 / 0.5);
+  box-shadow: 0 0 0 3px rgb(196 43 43 / 0.12);
+}
+
+/* The travelling pill behind the active navigation item. Movement is the
+   point: one surface that flows to where you are, rather than a colour
+   switching off in one place and on in another. Anchored to the container's
+   corner and moved by the measured offset of the active item — left to
+   itself an absolutely positioned flex child starts at the content box and
+   the padding gets counted twice. */
+.nav-pill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9999px;
+  background: var(--brand);
+  box-shadow:
+    0 2px 12px rgb(196 43 43 / 0.45),
+    inset 0 1px 0 rgb(255 255 255 / 0.22);
+  transition:
+    transform 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
+    width 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
+    height 420ms cubic-bezier(0.32, 1.35, 0.5, 1),
+    opacity 200ms ease;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* ---- 7. Motion ---------------------------------------------------------- */
+
+/* A surface arriving, rather than a rectangle fading in: blur, scale and
+   opacity move together, so it reads as a real material coming into focus.
+   It leaves along the path it came by. */
+.sheet-in {
+  animation: sheet-in 320ms cubic-bezier(0.32, 1.12, 0.5, 1) both;
+}
+.scrim-in {
+  animation: scrim-in 240ms ease-out both;
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+    -webkit-backdrop-filter: blur(0) saturate(100%);
+    backdrop-filter: blur(0) saturate(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes scrim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* A menu belongs to the control that opened it, so it grows out of that
+   control's edge rather than appearing at its own centre. */
+.popover-in {
+  transform-origin: top center;
+  animation: popover-in 160ms cubic-bezier(0.32, 1.12, 0.5, 1) both;
+}
+@keyframes popover-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* On a phone the panel is a sheet against the bottom edge, so it comes up
+   from that edge — the direction it will leave by. */
+@media (max-width: 639px) {
+  @keyframes sheet-in {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ---- 8. Preferences ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill {
+    transition: opacity 120ms ease;
+  }
+  .liquid-glass::after {
+    transition: none;
+  }
+  /* Reduced motion is not no feedback: the surface still arrives, it just
+     does it by fading rather than travelling. */
+  .sheet-in {
+    animation: scrim-in 180ms ease-out both;
+  }
+  .popover-in {
+    animation: scrim-in 120ms ease-out both;
+  }
+}
+
+/* Translucency is a preference, not a given. Asked to reduce it, the
+   materials become frosted solids and the blur goes — cheaper to render and
+   far easier to read. */
+@media (prefers-reduced-transparency: reduce) {
+  .glass,
+  .surface,
+  .card,
+  .liquid-glass {
+    background: rgb(var(--ink-900));
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .glass,
+  .surface,
+  .card,
+  .liquid-glass {
+    background: rgb(var(--ink-900));
+    border-color: rgb(var(--fg) / 0.35);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .glass-rim::before,
+  .card::before,
+  .liquid-glass::before,
+  .liquid-glass::after {
+    display: none;
+  }
+}
+
+/* ---- 9. Scrolling ------------------------------------------------------- */
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Anything that scrolls inside something else: momentum on iOS, and the page
+   underneath stays put when you reach the end. */
+.scroll-area {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* A box that scrolls sideways and only sideways.
+   `overflow-x: auto` cannot be asked for on its own: `overflow-y` computes to
+   `auto` beside it and the box becomes a scroll container in both directions,
+   so a straight-down wheel it has no room to absorb dies there. `visible` is
+   the value that would say "leave the other axis alone" and is precisely the
+   one not allowed next to `auto`. `clip` is.
+   Necessary but not sufficient — see the note on wheel latching in SKILL.md
+   §7 before shipping a wide table. */
+.scroll-x {
+  overflow-x: auto;
+  overflow-y: clip;
+}
