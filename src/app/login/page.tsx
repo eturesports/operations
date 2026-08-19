@@ -3,13 +3,38 @@ import { auth, signIn } from "@/auth";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Where to go after signing in.
+ *
+ * Only a path on this site. A full URL here — even one that looks like ours —
+ * is the open-redirect hole: an attacker sends you to our real login page and
+ * our real login page delivers you to theirs, with our name in the address bar
+ * the whole way. `//evil.com` and `/\evil.com` are the ones that get past a
+ * naive "starts with /" check, so they are named.
+ *
+ * An unsafe value is not quietly swapped for the dashboard, it is bounced:
+ * the page reloads without the parameter. Two reasons. It leaves nothing in
+ * the address bar for someone to read as ours, and — the reason it is written
+ * this way — a swap is invisible from outside, so nothing can check it. A
+ * redirect can be checked, and is.
+ */
+function safeReturnTo(raw: string): string | null {
+  if (!raw.startsWith("/")) return null;
+  if (raw.startsWith("//") || raw.startsWith("/\\")) return null;
+  return raw;
+}
+
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: { error?: string };
+  searchParams: { error?: string; callbackUrl?: string };
 }) {
+  const asked = searchParams.callbackUrl;
+  if (asked !== undefined && safeReturnTo(asked) === null) redirect("/login");
+  const returnTo = asked ? (safeReturnTo(asked) ?? "/dashboard") : "/dashboard";
+
   const session = await auth();
-  if (session?.user) redirect("/dashboard");
+  if (session?.user) redirect(returnTo);
 
   const hasError = !!searchParams.error;
 
@@ -35,7 +60,7 @@ export default async function LoginPage({
           <form
             action={async () => {
               "use server";
-              await signIn("google", { redirectTo: "/dashboard" });
+              await signIn("google", { redirectTo: returnTo });
             }}
           >
             <button type="submit" className="btn-ghost w-full py-3 text-base">
