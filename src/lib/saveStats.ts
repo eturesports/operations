@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import type { SeasonFigures } from "@/lib/sidearm";
 import type { RefreshOutcome } from "@/lib/statsRefresh";
+import { isMissingSeasonTable } from "@/lib/seasonStats";
 
 /**
  * Writing a refresh down: the career totals on the profile, and one row per
@@ -61,6 +62,25 @@ export async function saveSeasonRows(
   const seasons: SeasonFigures[] = outcome.seasons ?? [];
   if (seasons.length === 0) return { seasonsWritten: 0 };
 
+  // The table is created by a migration that is run by hand, so until then
+  // there is nowhere to put these. The career totals were already written by
+  // the caller, which is the behaviour this feature was added on top of — so
+  // a refresh still refreshes, it just does not split. Reads degrade the same
+  // way, in src/lib/seasonStats.ts.
+  try {
+    return await writeSeasons(profileId, seasons, outcome.source, now);
+  } catch (e) {
+    if (isMissingSeasonTable(e)) return { seasonsWritten: 0 };
+    throw e;
+  }
+}
+
+async function writeSeasons(
+  profileId: string,
+  seasons: SeasonFigures[],
+  source: string,
+  now: Date
+): Promise<{ seasonsWritten: number }> {
   // Replace rather than accumulate. A season is re-read every week while it
   // is being played, and the feed reports the season to date — so the row has
   // to be overwritten, never added to.
@@ -75,7 +95,7 @@ export async function saveSeasonRows(
       points: s.points ?? null,
       saves: s.saves ?? null,
       goalsAgainst: s.goalsAgainst ?? null,
-      source: outcome.source,
+      source,
       statsUpdatedAt: now,
     };
     await prisma.profileSeasonStat.upsert({
