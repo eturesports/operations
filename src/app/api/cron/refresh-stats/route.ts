@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canEdit } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
+import { saveProfileStats } from "@/lib/saveStats";
 import { adoptRosterPhoto } from "@/lib/playerPhoto";
 import { logAudit } from "@/lib/audit";
 
@@ -41,7 +42,7 @@ export async function GET(req: Request) {
     },
   });
 
-  const results = { checked: 0, updated: 0, unmatched: 0, failed: 0, photos: 0 };
+  const results = { checked: 0, updated: 0, unmatched: 0, failed: 0, photos: 0, seasonRows: 0 };
   const updatedNames: string[] = [];
 
   for (const p of profiles) {
@@ -64,15 +65,9 @@ export async function GET(req: Request) {
         results.unmatched += 1;
         continue;
       }
-      await prisma.playerProfile.update({
-        where: { id: p.id },
-        data: {
-          ...r.patch,
-          statsSource: r.source,
-          statsUpdatedAt: new Date(),
-        },
-      });
+      const { seasonsWritten } = await saveProfileStats(p.id, r);
       results.updated += 1;
+      results.seasonRows += seasonsWritten;
       updatedNames.push(p.player.name);
     } catch (err) {
       console.error(`weekly refresh failed for ${p.player.name}`, err);
@@ -84,7 +79,7 @@ export async function GET(req: Request) {
     await logAudit(null, {
       entity: "PlayerProfile",
       action: "stats_refresh_weekly",
-      summary: `Weekly NCAA refresh: ${results.updated} updated, ${results.unmatched} unmatched, ${results.failed} failed, ${results.photos} photo${results.photos === 1 ? "" : "s"} added (of ${results.checked} active)`,
+      summary: `Weekly NCAA refresh: ${results.updated} updated across ${results.seasonRows} season rows, ${results.unmatched} unmatched, ${results.failed} failed, ${results.photos} photo${results.photos === 1 ? "" : "s"} added (of ${results.checked} active)`,
       changes: { ...results, updatedNames },
     });
   }

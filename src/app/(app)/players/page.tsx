@@ -1,6 +1,7 @@
 import { requireSession } from "@/lib/guards";
 import { prisma } from "@/lib/prisma";
 import { canContribute, canEdit, canManageUsers } from "@/lib/permissions";
+import { currentSeasonYear, seasonLabel } from "@/lib/saveStats";
 import { PlayersClient } from "./PlayersClient";
 
 export const dynamic = "force-dynamic";
@@ -32,6 +33,13 @@ export default async function PlayersPage() {
             matchesPlayed: true,
             minutes: true,
             saves: true,
+            // Only the season under way. The figures above are the whole
+            // stint at that university — the right answer to a different
+            // question, and the one that was being given to this one.
+            seasonStats: {
+              where: { year: currentSeasonYear() },
+              select: { minutes: true, goals: true, assists: true, matchesPlayed: true },
+            },
           },
           orderBy: [{ current: "desc" }, { createdAt: "desc" }],
         },
@@ -63,6 +71,29 @@ export default async function PlayersPage() {
       assists: sum((x) => x.assists),
       matchesPlayed: sum((x) => x.matchesPlayed),
       colleges: profiles.length,
+    };
+  };
+
+  /** The same player, this season only. Null when they have not played one. */
+  const thisSeasonOf = (
+    profiles: {
+      seasonStats: {
+        minutes: number | null;
+        goals: number | null;
+        assists: number | null;
+        matchesPlayed: number | null;
+      }[];
+    }[]
+  ) => {
+    const rows = profiles.flatMap((p) => p.seasonStats);
+    if (rows.length === 0) return null;
+    const sum = (pick: (x: (typeof rows)[number]) => number | null) =>
+      rows.reduce((a, x) => a + (pick(x) ?? 0), 0);
+    return {
+      minutes: sum((x) => x.minutes),
+      goals: sum((x) => x.goals),
+      assists: sum((x) => x.assists),
+      matchesPlayed: sum((x) => x.matchesPlayed),
     };
   };
 
@@ -121,6 +152,7 @@ export default async function PlayersPage() {
         personId: p.personId,
         activeProfile: p.profiles.find((x) => x.current) ?? null,
         career: careerOf(p.profiles),
+        thisSeason: thisSeasonOf(p.profiles),
         nationality: p.nationality,
         position: p.position,
         previousClub: p.previousClub,

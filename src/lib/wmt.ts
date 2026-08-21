@@ -65,13 +65,25 @@ export async function lookupWmtStats(rosterUrl: string): Promise<WmtLookup> {
     };
   }
 
+  type StatLine = { statistic?: Record<string, number | null> }[];
   let payload: {
     data?: {
       full_name?: string;
       player_career_statistic?: {
         gamesPlayed?: number;
         gamesStarted?: number;
-        statistic?: { statistic?: Record<string, number | null> }[];
+        statistic?: StatLine;
+      }[];
+      /**
+       * One row per season, which the career array above does not carry.
+       * This was in the payload all along and went unread.
+       */
+      player_season_statistic?: {
+        academicYear?: number;
+        nameTabular?: string;
+        gamesPlayed?: number;
+        gamesStarted?: number;
+        statistic?: StatLine;
       }[];
     };
   };
@@ -94,22 +106,50 @@ export async function lookupWmtStats(rosterUrl: string): Promise<WmtLookup> {
   }
 
   // sMinutes is reported in SECONDS (≈75,097 for a 17-game starter).
-  const seconds = line?.sMinutes;
-  const minutes =
-    seconds != null && Number.isFinite(Number(seconds))
-      ? Math.round(Number(seconds) / 60)
-      : undefined;
+  const toMinutes = (v: unknown): number | undefined =>
+    v != null && Number.isFinite(Number(v)) ? Math.round(Number(v) / 60) : undefined;
+
+  /**
+   * WMT files a season under the academic year it ends in — `2026` is the
+   * autumn-2025 season. Sidearm files the same season under `2025`. One of
+   * them has to give, and it is this one, so a season means the same thing
+   * whichever platform a university happens to run.
+   */
+  const seasons = (payload.data?.player_season_statistic ?? [])
+    .map((s) => {
+      const l = s.statistic?.[0]?.statistic;
+      const year = s.academicYear != null ? s.academicYear - 1 : undefined;
+      if (year == null) return null;
+      return {
+        year,
+        matchesPlayed: int(s.gamesPlayed) ?? int(l?.sGames),
+        matchesStarted: int(s.gamesStarted),
+        minutes: toMinutes(l?.sMinutes),
+        goals: int(l?.sGoals),
+        assists: int(l?.sAssists),
+        points: int(l?.sPoints),
+        saves: int(l?.sSaves),
+        goalsAgainst: int(l?.sGoalsAgainst),
+      };
+    })
+    .filter((s): s is NonNullable<typeof s> => s !== null)
+    // A season the player has not started yet arrives with zeroes and no
+    // minutes. Recording it would put an empty row in front of a real one.
+    .filter((s) => (s.matchesPlayed ?? 0) > 0 || (s.minutes ?? 0) > 0)
+    .sort((a, b) => b.year - a.year);
 
   const stats: RosterStats = {
     teamName: origin,
     matchesPlayed: int(career?.gamesPlayed) ?? int(line?.sGames),
     matchesStarted: int(career?.gamesStarted),
-    minutes,
+    minutes: toMinutes(line?.sMinutes),
     goals: int(line?.sGoals),
     assists: int(line?.sAssists),
     points: int(line?.sPoints),
     saves: int(line?.sSaves),
     goalsAgainst: int(line?.sGoalsAgainst),
+    seasonsCounted: seasons.length || undefined,
+    seasons,
   };
   return { ok: true, stats };
 }

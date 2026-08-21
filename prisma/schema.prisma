@@ -260,8 +260,54 @@ model PlayerProfile {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  seasonStats ProfileSeasonStat[]
+
   @@index([playerId])
   @@index([current])
+}
+
+/// One season of one player at one university.
+///
+/// The roster feeds report a season at a time — and always did; the refresh
+/// walked back year by year and added them up, keeping only the total and a
+/// count of how many seasons it covered. So "how many minutes this season"
+/// was being fetched and thrown away on every run. This is where each season
+/// lands before anything is added up.
+///
+/// The columns on PlayerProfile stay as they are and keep meaning the same
+/// thing: the career total at that university. They are now the sum of these
+/// rows rather than a separate reading, so nothing that already reads them
+/// has to change.
+model ProfileSeasonStat {
+  id        String        @id @default(cuid())
+  profileId String
+  profile   PlayerProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  /// The calendar year the feed files the season under. NCAA soccer is an
+  /// autumn sport, so 2025 is the season that runs into 2026 — the one the
+  /// rest of the app calls "25/26".
+  year Int
+  /// That same season in the app's own words, for reading rather than joining.
+  season String?
+
+  matchesPlayed  Int?
+  matchesStarted Int?
+  minutes        Int?
+  goals          Int?
+  assists        Int?
+  points         Int?
+  saves          Int?
+  goalsAgainst   Int?
+
+  source         String? // "roster-site" | "ncaa-leaderboards"
+  statsUpdatedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// One row per profile per season: a refresh replaces, never accumulates.
+  @@unique([profileId, year])
+  @@index([year])
 }
 
 // A revocable, expiring link that lets someone without an account edit one

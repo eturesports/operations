@@ -29,6 +29,20 @@ export type Profile = {
   goalsAgainst: number | null;
   statsSource: string | null;
   statsUpdatedAt: string | null;
+  /** the same numbers before they were added up, newest season first */
+  seasonStats?: {
+    id: string;
+    year: number;
+    season: string | null;
+    matchesPlayed: number | null;
+    matchesStarted: number | null;
+    minutes: number | null;
+    goals: number | null;
+    assists: number | null;
+    points: number | null;
+    saves: number | null;
+    goalsAgainst: number | null;
+  }[];
 };
 
 type Draft = {
@@ -561,13 +575,54 @@ export function ProfilesSection({
                 p.points != null ||
                 p.minutes != null ||
                 p.saves != null) && (
-                <div className="mt-3 grid grid-cols-3 gap-1.5 sm:grid-cols-6">
-                  <Stat label="GP" value={p.matchesPlayed} />
-                  <Stat label="Min" value={p.minutes} />
-                  <Stat label="G" value={p.goals} />
-                  <Stat label="A" value={p.assists} />
-                  <Stat label="Pts" value={p.points} />
-                  <Stat label="Saves" value={p.saves} />
+                <div className="mt-3">
+                  <div className="mb-1 flex items-baseline justify-between">
+                    <span className="text-[10px] uppercase tracking-wide text-muted">
+                      {(p.seasonStats?.length ?? 0) > 1
+                        ? `Career here · ${p.seasonStats!.length} seasons`
+                        : "Career here"}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
+                    <Stat label="GP" value={p.matchesPlayed} />
+                    <Stat label="Min" value={p.minutes} />
+                    <Stat label="G" value={p.goals} />
+                    <Stat label="A" value={p.assists} />
+                    <Stat label="Pts" value={p.points} />
+                    <Stat label="Saves" value={p.saves} />
+                  </div>
+                </div>
+              )}
+
+              {/* The seasons behind that total. Shown whenever there is more
+                  than one, because with a single season the two rows would be
+                  the same numbers twice. */}
+              {(p.seasonStats?.length ?? 0) > 1 && (
+                <div className="mt-3 overflow-hidden rounded-xl border border-ink-600">
+                  <table className="w-full text-left text-[11px]">
+                    <thead className="border-b border-ink-600 bg-ink-800/50 uppercase tracking-wide text-muted">
+                      <tr>
+                        <th className="px-2.5 py-1.5 font-medium">Season</th>
+                        <th className="px-2 py-1.5 text-right font-medium">GP</th>
+                        <th className="px-2 py-1.5 text-right font-medium">Min</th>
+                        <th className="px-2 py-1.5 text-right font-medium">G</th>
+                        <th className="px-2 py-1.5 text-right font-medium">A</th>
+                        <th className="px-2 py-1.5 text-right font-medium">Pts</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {p.seasonStats!.map((s) => (
+                        <tr key={s.id} className="border-b border-ink-700/50 last:border-0">
+                          <td className="px-2.5 py-1.5 text-fg">{s.season ?? s.year}</td>
+                          <td className="px-2 py-1.5 text-right tabular-nums text-muted">{s.matchesPlayed ?? "—"}</td>
+                          <td className="px-2 py-1.5 text-right tabular-nums text-muted">{s.minutes ?? "—"}</td>
+                          <td className="px-2 py-1.5 text-right tabular-nums text-muted">{s.goals ?? "—"}</td>
+                          <td className="px-2 py-1.5 text-right tabular-nums text-muted">{s.assists ?? "—"}</td>
+                          <td className="px-2 py-1.5 text-right tabular-nums text-muted">{s.points ?? "—"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               )}
 

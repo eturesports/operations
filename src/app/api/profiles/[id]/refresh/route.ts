@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canContribute } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
+import { saveProfileStats } from "@/lib/saveStats";
 import { adoptRosterPhoto, NO_STORAGE } from "@/lib/playerPhoto";
 import { logAudit } from "@/lib/audit";
 
@@ -85,24 +86,20 @@ export async function POST(
     );
   }
 
-  const updated = await prisma.playerProfile.update({
-    where: { id: params.id },
-    data: {
-      ...result.patch,
-      statsSource: result.source,
-      statsUpdatedAt: new Date(),
-    },
-  });
+  const { seasonsWritten } = await saveProfileStats(params.id, result);
+  const updated = await prisma.playerProfile.findUniqueOrThrow({ where: { id: params.id } });
 
   await logAudit(session.user, {
     entity: "PlayerProfile",
     entityId: updated.id,
     entityName: `${profile.player.name} — ${updated.university}`,
     action: "stats_refresh",
-    summary: `Refreshed ${profile.player.name}'s stats from ${
-      result.source === "roster-site" ? "their university roster page" : "the NCAA leaderboards"
-    } (${result.matchedLabel})`,
-    changes: result.patch,
+    summary:
+      `Refreshed ${profile.player.name}'s stats from ${
+        result.source === "roster-site" ? "their university roster page" : "the NCAA leaderboards"
+      } (${result.matchedLabel})` +
+      (seasonsWritten ? `, split across ${seasonsWritten} season${seasonsWritten === 1 ? "" : "s"}` : ""),
+    changes: { ...result.patch, seasons: result.seasons },
   });
 
   return NextResponse.json({
@@ -110,6 +107,7 @@ export async function POST(
     profile: updated,
     source: result.source,
     seasonsCounted: result.seasonsCounted,
+    seasonsWritten,
     photoAdded: photo.added,
     photoUrl: photo.added ? photo.url : undefined,
     photoBlocked: !photo.added && photo.reason === NO_STORAGE,

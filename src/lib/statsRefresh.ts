@@ -1,5 +1,5 @@
 import { lookupPlayerStats } from "@/lib/ncaa";
-import { lookupRosterStats } from "@/lib/sidearm";
+import { lookupRosterStats, type SeasonFigures } from "@/lib/sidearm";
 import { lookupWmtStats } from "@/lib/wmt";
 
 // One place that decides where a profile's stats come from:
@@ -27,6 +27,14 @@ export type RefreshOutcome =
       teamName: string; // used to name a profile when the player has none yet
       seasonsCounted?: number; // how many seasons the totals cover
       patch: ProfileStatPatch;
+      /**
+       * The same totals before they were added up, newest first.
+       *
+       * Absent from the national leaderboards, which report only the season
+       * being played. One season is not a split, and filing it as one would
+       * say this year's numbers are the player's whole career.
+       */
+      seasons?: SeasonFigures[];
     }
   | { matched: false; reason: string; candidates: { name: string; team: string }[] };
 
@@ -67,6 +75,7 @@ export async function fetchProfileStats(opts: {
         matchedLabel: `${opts.playerName} (${s.teamName})`,
         teamName: s.teamName,
         seasonsCounted: s.seasonsCounted,
+        seasons: s.seasons,
         patch: {
           matchesPlayed: s.matchesPlayed ?? null,
           matchesStarted: s.matchesStarted ?? null,

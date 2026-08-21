@@ -17,6 +17,8 @@ export async function GET(
   const profiles = await prisma.playerProfile.findMany({
     where: { playerId: params.id },
     orderBy: [{ current: "desc" }, { season: "desc" }, { createdAt: "desc" }],
+    // Newest season first — the one being played is the one being asked about.
+    include: { seasonStats: { orderBy: { year: "desc" } } },
   });
   return NextResponse.json({ profiles });
 }

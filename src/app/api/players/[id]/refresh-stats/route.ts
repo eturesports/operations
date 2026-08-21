@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canContribute } from "@/lib/permissions";
 import { fetchProfileStats } from "@/lib/statsRefresh";
+import { saveSeasonRows } from "@/lib/saveStats";
 import { adoptRosterPhoto, NO_STORAGE } from "@/lib/playerPhoto";
 import { syncPlayerFromProfiles } from "@/lib/divisions";
 import { logAudit } from "@/lib/audit";
@@ -122,15 +123,23 @@ export async function POST(
         },
       });
 
+  // The profile row is written above — it may have had to be created first,
+  // so only the per-season rows are left to attach to it.
+  const { seasonsWritten } = await saveSeasonRows(profile.id, result);
+
   await logAudit(session.user, {
     entity: "PlayerProfile",
     entityId: profile.id,
     entityName: `${player.name} — ${profile.university}`,
     action: existing ? "stats_refresh" : "stats_refresh_created_profile",
-    summary: `Refreshed ${player.name}'s stats from ${
-      result.source === "roster-site" ? "their NCAA profile page" : "the NCAA leaderboards"
-    }${existing ? "" : " and created their university profile"}`,
-    changes: result.patch,
+    summary:
+      `Refreshed ${player.name}'s stats from ${
+        result.source === "roster-site" ? "their NCAA profile page" : "the NCAA leaderboards"
+      }${existing ? "" : " and created their university profile"}` +
+      (seasonsWritten
+        ? `, split across ${seasonsWritten} season${seasonsWritten === 1 ? "" : "s"}`
+        : ""),
+    changes: { ...result.patch, seasons: result.seasons },
   });
 
   // The link, the money and the photo now live on the profile, so the record

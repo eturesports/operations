@@ -74,6 +74,7 @@ The access token lasts an hour and refreshes silently for a month.
 | `database_stats` | counts and totals over any filtered selection: operations vs people, division split, scholarship totals, breakdowns by season, programme and university |
 | `list_universities` | every university with its player count, division and how many are playing now |
 | `list_seasons` | the season, division and programme values actually in use, with counts |
+| `season_stats` | what a selection actually did on the pitch in **one season** — minutes, matches, goals, assists — defaulting to the season under way. This is the tool for "how many minutes have we played this season" |
 | `recent_changes` | the audit trail — who changed what, when |
 | `search` / `fetch` | the same thing in the shape ChatGPT's connectors expect |
 
@@ -85,6 +86,10 @@ misread this database:
   returns both counts for exactly this reason.
 - **Archived records are excluded by default**, matching every dashboard in
   the app. `includeArchived: true` brings them back.
+- **The numbers on a player record are their career at that university**, not
+  one season. A fourth-year's 4,000 minutes say nothing about whether they
+  have been on the pitch since August — `season_stats` is the one that
+  answers that.
 
 ---
 

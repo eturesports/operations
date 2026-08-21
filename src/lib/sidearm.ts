@@ -7,8 +7,8 @@
 // and {origin}/services/cumestats.ashx?global_sport_shortname={msoc|wsoc}
 // returns the whole team's cumulative stats keyed by that roster id.
 
-export type RosterStats = {
-  teamName: string;
+/** The numbers themselves, for one season or for a whole career. */
+export type StatFigures = {
   matchesPlayed?: number;
   matchesStarted?: number;
   minutes?: number;
@@ -17,8 +17,26 @@ export type RosterStats = {
   points?: number;
   saves?: number;
   goalsAgainst?: number;
+};
+
+/** One season, as the feed reported it. */
+export type SeasonFigures = StatFigures & {
+  /** the calendar year the feed files it under — 2025 is the 25/26 season */
+  year: number;
+};
+
+export type RosterStats = StatFigures & {
+  teamName: string;
   /** how many seasons these totals cover (career at this university) */
   seasonsCounted?: number;
+  /**
+   * The same numbers before they were added up, newest first.
+   *
+   * The walk below always had these — it fetches one season at a time and
+   * sums them as it goes. Keeping them is what makes "this season" a question
+   * the database can answer.
+   */
+  seasons: SeasonFigures[];
 };
 
 export type RosterLookup =
@@ -164,7 +182,7 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
   }
 
   const thisYear = new Date().getFullYear();
-  const stats: RosterStats = { teamName: parsed.origin, seasonsCounted: 0 };
+  const stats: RosterStats = { teamName: parsed.origin, seasonsCounted: 0, seasons: [] };
 
   // How far back to look. The player record's season is the season the
   // placement was agreed, not when they competed — Adrian Crespo is filed
@@ -184,7 +202,12 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
     );
     let hitsInBatch = 0;
 
-    for (const json of results) {
+    // Zipped with the batch rather than iterated bare: which year a result
+    // came from is the whole point now, and `for (const json of results)`
+    // threw it away.
+    for (let k = 0; k < results.length; k++) {
+      const json = results[k];
+      const year = batch[k];
       if (!json) continue;
       if (json.our_team_name) stats.teamName = json.our_team_name;
 
@@ -219,23 +242,40 @@ export async function lookupRosterStats(rosterUrl: string): Promise<RosterLookup
     hitsInBatch += 1;
     stats.seasonsCounted = (stats.seasonsCounted ?? 0) + 1;
 
+    // This one season on its own, then folded into the career total. Built
+    // first so the two can never disagree: the totals are the sum of exactly
+    // what was recorded, not a second reading of the same feed.
+    const season: SeasonFigures = { year };
     if (offense) {
-      stats.matchesPlayed = add(stats.matchesPlayed, sumOf(offenseRows, "games_played"));
-      stats.matchesStarted = add(stats.matchesStarted, sumOf(offenseRows, "games_started"));
-      stats.minutes = add(stats.minutes, sumOf(offenseRows, "minutes_played", true));
-      stats.goals = add(stats.goals, sumOf(offenseRows, "goals"));
-      stats.assists = add(stats.assists, sumOf(offenseRows, "assists"));
-      stats.points = add(stats.points, sumOf(offenseRows, "points"));
+      season.matchesPlayed = sumOf(offenseRows, "games_played");
+      season.matchesStarted = sumOf(offenseRows, "games_started");
+      season.minutes = sumOf(offenseRows, "minutes_played", true);
+      season.goals = sumOf(offenseRows, "goals");
+      season.assists = sumOf(offenseRows, "assists");
+      season.points = sumOf(offenseRows, "points");
     }
     if (goalie) {
-      stats.saves = add(stats.saves, sumOf(goalieRows, "saves"));
-      stats.goalsAgainst = add(stats.goalsAgainst, sumOf(goalieRows, "goals_allowed"));
+      season.saves = sumOf(goalieRows, "saves");
+      season.goalsAgainst = sumOf(goalieRows, "goals_allowed");
+      // A goalkeeper's appearances are on the goalie rows, not the outfield
+      // ones — but an outfield player who kept goal for ten minutes has both,
+      // and taking the goalie count there would undercount their season.
       if (!offense) {
-        stats.matchesPlayed = add(stats.matchesPlayed, sumOf(goalieRows, "games_played"));
-        stats.matchesStarted = add(stats.matchesStarted, sumOf(goalieRows, "games_started"));
-        stats.minutes = add(stats.minutes, sumOf(goalieRows, "minutes_played", true));
+        season.matchesPlayed = sumOf(goalieRows, "games_played");
+        season.matchesStarted = sumOf(goalieRows, "games_started");
+        season.minutes = sumOf(goalieRows, "minutes_played", true);
       }
     }
+    stats.seasons.push(season);
+
+    stats.matchesPlayed = add(stats.matchesPlayed, season.matchesPlayed);
+    stats.matchesStarted = add(stats.matchesStarted, season.matchesStarted);
+    stats.minutes = add(stats.minutes, season.minutes);
+    stats.goals = add(stats.goals, season.goals);
+    stats.assists = add(stats.assists, season.assists);
+    stats.points = add(stats.points, season.points);
+    stats.saves = add(stats.saves, season.saves);
+    stats.goalsAgainst = add(stats.goalsAgainst, season.goalsAgainst);
     }
 
     // Once the player has been found, a whole batch with nothing means we've

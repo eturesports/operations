@@ -5,6 +5,11 @@ import type { PlayerRow } from "./PlayersClient";
 import { formatNumber, formatUSD, formatUSDCompact } from "@/lib/format";
 import { canonicalizeUniversity, uniKey } from "@/lib/universities";
 import { NCAA_DI_MENS_SOCCER_PROGRAMS, isDivisionOne } from "@/lib/ncaaPrograms";
+import { currentSeasonYear, seasonLabel } from "@/lib/saveStats";
+
+// Computed once per render of the module rather than per tile. The season
+// only turns over in August, so the page does not need to keep asking.
+const SEASON_LABEL = seasonLabel(currentSeasonYear());
 
 // Everything here is computed from the rows currently on screen, so applying a
 // filter re-reads the whole picture for that selection rather than the database.
@@ -76,9 +81,21 @@ export function FilterStats({
     const goals = withStats.reduce((a, p) => a + (p.career?.goals ?? 0), 0);
     const assists = withStats.reduce((a, p) => a + (p.career?.assists ?? 0), 0);
 
+    // The season being played, which the career totals above cannot answer:
+    // a fourth-year's 4,000 minutes say nothing about whether they have been
+    // on the pitch since August.
+    const inSeason = filtered.filter((p) => p.thisSeason);
+    const seasonSum = (pick: (t: NonNullable<PlayerRow["thisSeason"]>) => number) =>
+      inSeason.reduce((a, p) => a + (p.thisSeason ? pick(p.thisSeason) : 0), 0);
+
     const pct = (n: number) => (ops ? Math.round((n / ops) * 1000) / 10 : 0);
 
     return {
+      seasonPlayers: inSeason.length,
+      seasonMinutes: seasonSum((t) => t.minutes),
+      seasonGoals: seasonSum((t) => t.goals),
+      seasonAssists: seasonSum((t) => t.assists),
+      seasonMatches: seasonSum((t) => t.matchesPlayed),
       ops,
       players,
       universities: unis.size,
@@ -191,6 +208,23 @@ export function FilterStats({
         <Tile label="Goals" value={formatNumber(s.goals)} sub="Career totals" />
         <Tile label="Assists" value={formatNumber(s.assists)} sub="Career totals" />
       </div>
+
+      {/* This season on its own. Hidden until there is a season to report:
+          in July there is nothing yet, and a row of zeroes reads as a squad
+          that has not played rather than as a season that has not started. */}
+      {s.seasonPlayers > 0 && (
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <Tile
+            label={`${SEASON_LABEL} · minutes`}
+            value={formatNumber(s.seasonMinutes)}
+            sub={`${formatNumber(s.seasonPlayers)} player${s.seasonPlayers === 1 ? "" : "s"}`}
+            accent="green"
+          />
+          <Tile label={`${SEASON_LABEL} · matches`} value={formatNumber(s.seasonMatches)} sub="Appearances" />
+          <Tile label={`${SEASON_LABEL} · goals`} value={formatNumber(s.seasonGoals)} sub="This season" />
+          <Tile label={`${SEASON_LABEL} · assists`} value={formatNumber(s.seasonAssists)} sub="This season" />
+        </div>
+      )}
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted">
         <b className="text-fg">Division I presence</b> is how many different

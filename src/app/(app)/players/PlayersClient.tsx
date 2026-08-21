@@ -42,6 +42,17 @@ export type PlayerRow = {
     matchesPlayed: number;
     colleges: number;
   } | null;
+  /**
+   * The same numbers for the season being played, which the career total
+   * cannot answer: a fourth-year's 4,000 minutes say nothing about whether
+   * they have been on the pitch since August.
+   */
+  thisSeason?: {
+    minutes: number;
+    goals: number;
+    assists: number;
+    matchesPlayed: number;
+  } | null;
   instagramUrl: string | null;
   nationality: string | null;
   position: string | null;

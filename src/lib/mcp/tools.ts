@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import type { Prisma } from "@prisma/client";
 import type { McpUser } from "./oauth";
+import { currentSeasonYear, seasonLabel } from "@/lib/saveStats";
 
 /**
  * What an assistant can ask this database.
@@ -190,7 +191,12 @@ export const TOOLS: ToolDef[] = [
           : { name: { contains: name!, mode: "insensitive" } },
         include: {
           sport: { select: { code: true, name: true } },
-          profiles: { orderBy: [{ current: "desc" }, { season: "desc" }] },
+          profiles: {
+            orderBy: [{ current: "desc" }, { season: "desc" }],
+            // The per-season split as well as the career total, so "how was
+            // last year" does not need a second call.
+            include: { seasonStats: { orderBy: { year: "desc" } } },
+          },
           achievements: { orderBy: { season: "desc" } },
         },
       });
@@ -354,6 +360,109 @@ export const TOOLS: ToolDef[] = [
         seasons: tally((r) => r.season),
         divisions: tally((r) => r.division),
         programs: tally((r) => r.program),
+      };
+    },
+  },
+
+  {
+    name: "season_stats",
+    title: "Minutes, goals and games in one season",
+    description:
+      "What a filtered selection actually did on the pitch in one season: total minutes, matches, goals, assists and " +
+      "saves, with the per-player rows behind them. Defaults to the season being played now. Use this for \"how many " +
+      "minutes have we played this season\" — the totals on a player record are their whole career at that university, " +
+      "not one season.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        season: {
+          type: "string",
+          description:
+            "\"25/26\", or the year it started (\"2025\"). Defaults to the season under way — from August that is the new one.",
+        },
+        university: { type: "string" },
+        division: { type: "string" },
+        program: { type: "string" },
+        limit: { type: "integer", description: "How many player rows to return. Up to 200, default 50.", default: 50 },
+      },
+    },
+    annotations: READ_ONLY,
+    run: async (a) => {
+      const asked = str(a.season);
+      let year = currentSeasonYear();
+      if (asked) {
+        const plain = /^\d{4}$/.exec(asked);
+        // "25/26" is the season that starts in 2025.
+        const split = /^(\d{2})\/(\d{2})$/.exec(asked);
+        if (plain) year = parseInt(plain[0], 10);
+        else if (split) year = 2000 + parseInt(split[1], 10);
+        else return { error: `Could not read "${asked}" as a season. Use "25/26" or "2025".` };
+      }
+
+      const rows = await prisma.profileSeasonStat.findMany({
+        where: {
+          year,
+          profile: {
+            player: { active: true },
+            ...(str(a.university)
+              ? { university: { contains: str(a.university), mode: "insensitive" } }
+              : {}),
+            ...(str(a.division)
+              ? { division: { contains: str(a.division), mode: "insensitive" } }
+              : {}),
+            ...(str(a.program)
+              ? { player: { active: true, program: { contains: str(a.program), mode: "insensitive" } } }
+              : {}),
+          },
+        },
+        include: {
+          profile: {
+            select: {
+              university: true,
+              division: true,
+              player: { select: { id: true, name: true, position: true, program: true } },
+            },
+          },
+        },
+        orderBy: { minutes: "desc" },
+      });
+
+      const sum = (pick: (r: (typeof rows)[number]) => number | null) =>
+        rows.reduce((s, r) => s + (pick(r) ?? 0), 0);
+
+      const limit = int(a.limit, 50, 200);
+      return {
+        season: seasonLabel(year),
+        year,
+        note:
+          "One row per player per university. A player who transferred mid-career has a row under each, and both are " +
+          "counted here.",
+        players: rows.length,
+        totals: {
+          minutes: sum((r) => r.minutes),
+          matchesPlayed: sum((r) => r.matchesPlayed),
+          matchesStarted: sum((r) => r.matchesStarted),
+          goals: sum((r) => r.goals),
+          assists: sum((r) => r.assists),
+          points: sum((r) => r.points),
+          saves: sum((r) => r.saves),
+        },
+        withMinutes: rows.filter((r) => (r.minutes ?? 0) > 0).length,
+        returned: Math.min(rows.length, limit),
+        rows: rows.slice(0, limit).map((r) => ({
+          playerId: r.profile.player.id,
+          name: r.profile.player.name,
+          university: r.profile.university,
+          division: r.profile.division,
+          position: r.profile.player.position,
+          matchesPlayed: r.matchesPlayed,
+          matchesStarted: r.matchesStarted,
+          minutes: r.minutes,
+          goals: r.goals,
+          assists: r.assists,
+          points: r.points,
+          saves: r.saves,
+        })),
       };
     },
   },
