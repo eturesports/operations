@@ -2,6 +2,7 @@ import { requireSession } from "@/lib/guards";
 import { prisma } from "@/lib/prisma";
 import { canContribute, canEdit, canManageUsers } from "@/lib/permissions";
 import { currentSeasonYear, seasonLabel } from "@/lib/saveStats";
+import { tolerateMissingSeasons } from "@/lib/seasonStats";
 import { PlayersClient } from "./PlayersClient";
 
 export const dynamic = "force-dynamic";
@@ -14,38 +15,55 @@ export default async function PlayersPage() {
   const canCreate = canEdit(session.user.role);
   const isAdmin = canManageUsers(session.user.role);
 
-  const [sports, players] = await Promise.all([
-    prisma.sport.findMany({ orderBy: { order: "asc" } }),
+  // Every college profile: the current one drives the Active badge, and all of
+  // them together are the player's career, which is what the stats panel
+  // counts. Pulling stats no longer marks anyone as playing now, so "current
+  // only" would report almost nothing.
+  const PROFILE_FIELDS = {
+    current: true,
+    university: true,
+    season: true,
+    goals: true,
+    assists: true,
+    matchesPlayed: true,
+    minutes: true,
+    saves: true,
+  } as const;
+
+  const loadPlayers = (seasons: boolean) =>
     prisma.player.findMany({
       include: {
         sport: { select: { code: true, name: true } },
-        // Every college profile: the current one drives the Active badge, and
-        // all of them together are the player's career, which is what the
-        // stats panel counts. Pulling stats no longer marks anyone as playing
-        // now, so "current only" would report almost nothing.
         profiles: {
           select: {
-            current: true,
-            university: true,
-            season: true,
-            goals: true,
-            assists: true,
-            matchesPlayed: true,
-            minutes: true,
-            saves: true,
+            ...PROFILE_FIELDS,
             // Only the season under way. The figures above are the whole
             // stint at that university — the right answer to a different
             // question, and the one that was being given to this one.
-            seasonStats: {
-              where: { year: currentSeasonYear() },
-              select: { minutes: true, goals: true, assists: true, matchesPlayed: true },
-            },
+            ...(seasons
+              ? {
+                  seasonStats: {
+                    where: { year: currentSeasonYear() },
+                    select: { minutes: true, goals: true, assists: true, matchesPlayed: true },
+                  },
+                }
+              : {}),
           },
           orderBy: [{ current: "desc" }, { createdAt: "desc" }],
         },
       },
       orderBy: [{ season: "desc" }, { name: "asc" }],
-    }),
+    });
+
+  const [sports, players] = await Promise.all([
+    prisma.sport.findMany({ orderBy: { order: "asc" } }),
+    // The season table is created by a migration that is run by hand. Until
+    // it exists this page must still be a page: no season figures, everything
+    // else as before.
+    tolerateMissingSeasons(
+      () => loadPlayers(true),
+      () => loadPlayers(false)
+    ),
   ]);
 
   // A player's totals across every college they have played for. Each
@@ -74,10 +92,14 @@ export default async function PlayersPage() {
     };
   };
 
-  /** The same player, this season only. Null when they have not played one. */
+  /**
+   * The same player, this season only. Null when they have not played one —
+   * and null too when the season table is not there yet, which is why
+   * `seasonStats` is optional here rather than assumed.
+   */
   const thisSeasonOf = (
     profiles: {
-      seasonStats: {
+      seasonStats?: {
         minutes: number | null;
         goals: number | null;
         assists: number | null;
@@ -85,7 +107,7 @@ export default async function PlayersPage() {
       }[];
     }[]
   ) => {
-    const rows = profiles.flatMap((p) => p.seasonStats);
+    const rows = profiles.flatMap((p) => p.seasonStats ?? []);
     if (rows.length === 0) return null;
     const sum = (pick: (x: (typeof rows)[number]) => number | null) =>
       rows.reduce((a, x) => a + (pick(x) ?? 0), 0);

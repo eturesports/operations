@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { canContribute } from "@/lib/permissions";
 import { parseProfileInput } from "@/lib/validation";
 import { logAudit } from "@/lib/audit";
+import { tolerateMissingSeasons } from "@/lib/seasonStats";
 import { ncaaDivisionFor, playerMoney, syncPlayerFromProfiles } from "@/lib/divisions";
 
 export async function GET(
@@ -14,12 +15,20 @@ export async function GET(
   if (!session?.user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  const profiles = await prisma.playerProfile.findMany({
-    where: { playerId: params.id },
-    orderBy: [{ current: "desc" }, { season: "desc" }, { createdAt: "desc" }],
-    // Newest season first — the one being played is the one being asked about.
-    include: { seasonStats: { orderBy: { year: "desc" } } },
-  });
+  const load = (seasons: boolean) =>
+    prisma.playerProfile.findMany({
+      where: { playerId: params.id },
+      orderBy: [{ current: "desc" }, { season: "desc" }, { createdAt: "desc" }],
+      // Newest season first — the one being played is the one being asked about.
+      ...(seasons ? { include: { seasonStats: { orderBy: { year: "desc" } } } } : {}),
+    });
+
+  // Before the migration is run there is no season table, and a profile with
+  // no breakdown is still a profile.
+  const profiles = await tolerateMissingSeasons(
+    () => load(true),
+    () => load(false)
+  );
   return NextResponse.json({ profiles });
 }
 

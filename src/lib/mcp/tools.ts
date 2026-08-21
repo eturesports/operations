@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import type { Prisma } from "@prisma/client";
 import type { McpUser } from "./oauth";
 import { currentSeasonYear, seasonLabel } from "@/lib/saveStats";
+import { isMissingSeasonTable, tolerateMissingSeasons } from "@/lib/seasonStats";
 
 /**
  * What an assistant can ask this database.
@@ -185,21 +186,22 @@ export const TOOLS: ToolDef[] = [
       const name = str(a.name);
       if (!id && !name) return { error: "Give an id or a name." };
 
-      const player = await prisma.player.findFirst({
-        where: id
-          ? { id }
-          : { name: { contains: name!, mode: "insensitive" } },
-        include: {
-          sport: { select: { code: true, name: true } },
-          profiles: {
-            orderBy: [{ current: "desc" }, { season: "desc" }],
-            // The per-season split as well as the career total, so "how was
-            // last year" does not need a second call.
-            include: { seasonStats: { orderBy: { year: "desc" } } },
+      const where = id ? { id } : { name: { contains: name!, mode: "insensitive" as const } };
+      const load = (seasons: boolean) =>
+        prisma.player.findFirst({
+          where,
+          include: {
+            sport: { select: { code: true, name: true } },
+            profiles: {
+              orderBy: [{ current: "desc" }, { season: "desc" }],
+              // The per-season split as well as the career total, so "how was
+              // last year" does not need a second call.
+              ...(seasons ? { include: { seasonStats: { orderBy: { year: "desc" as const } } } } : {}),
+            },
+            achievements: { orderBy: { season: "desc" } },
           },
-          achievements: { orderBy: { season: "desc" } },
-        },
-      });
+        });
+      const player = await tolerateMissingSeasons(() => load(true), () => load(false));
       if (!player) return { error: `No player found for ${id ?? name}.` };
 
       // The rest of the career: the same human, at other universities.
@@ -399,7 +401,9 @@ export const TOOLS: ToolDef[] = [
         else return { error: `Could not read "${asked}" as a season. Use "25/26" or "2025".` };
       }
 
-      const rows = await prisma.profileSeasonStat.findMany({
+      let rows: Awaited<ReturnType<typeof loadSeasonRows>>;
+      const loadSeasonRows = () =>
+        prisma.profileSeasonStat.findMany({
         where: {
           year,
           profile: {
@@ -424,8 +428,20 @@ export const TOOLS: ToolDef[] = [
             },
           },
         },
-        orderBy: { minutes: "desc" },
-      });
+          orderBy: { minutes: "desc" },
+        });
+      try {
+        rows = await loadSeasonRows();
+      } catch (e) {
+        if (isMissingSeasonTable(e)) {
+          return {
+            error:
+              "The season-by-season table has not been created yet — the migration is written but has not been run. " +
+              "Career totals per university are still available through get_player.",
+          };
+        }
+        throw e;
+      }
 
       const sum = (pick: (r: (typeof rows)[number]) => number | null) =>
         rows.reduce((s, r) => s + (pick(r) ?? 0), 0);
