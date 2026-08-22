@@ -8,6 +8,7 @@ import { trackPointer, useTravellingPill } from "./useTravellingPill";
 const TABS = [
   { href: "/dashboard", label: "Authority" },
   { href: "/dashboard/active", label: "Active players" },
+  { href: "/dashboard/pitch", label: "On the pitch" },
   { href: "/dashboard/seasons", label: "Seasons" },
   { href: "/dashboard/programs", label: "Programs" },
   { href: "/dashboard/universities", label: "Universities" },
@@ -20,7 +21,7 @@ export function AnalyticsTabs() {
   const activeIndex = TABS.findIndex((t) => t.href === pathname);
   const { container, items, pill, settled } = useTravellingPill<HTMLDivElement>(activeIndex);
 
-  // Seven tabs do not fit a phone, so the one you are on has to be brought
+  // Eight tabs do not fit a phone, so the one you are on has to be brought
   // into view — otherwise the bar looks like it starts at "Authority" no
   // matter which page you opened.
   useEffect(() => {

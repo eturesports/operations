@@ -302,6 +302,22 @@ model ProfileSeasonStat {
   source         String? // "roster-site" | "ncaa-leaderboards"
   statsUpdatedAt DateTime?
 
+  /// What this row said the last time it actually changed.
+  ///
+  /// The feeds report a season to date, never a list of goals with dates —
+  /// so "who scored this week" cannot be read, only *noticed*, by comparing
+  /// a refresh against the one before it. Keeping the previous figures on the
+  /// row is enough for that and costs no history table.
+  ///
+  /// They only move when a figure moves. A refresh that finds nothing new
+  /// leaves them alone, so a goal scored on Saturday is still visible as new
+  /// after Sunday's run.
+  prevGoals   Int?
+  prevAssists Int?
+  prevMinutes Int?
+  prevMatches Int?
+  prevAt      DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

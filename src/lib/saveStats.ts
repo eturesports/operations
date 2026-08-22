@@ -98,10 +98,46 @@ async function writeSeasons(
       source,
       statsUpdatedAt: now,
     };
+
+    const before = await prisma.profileSeasonStat.findUnique({
+      where: { profileId_year: { profileId, year: s.year } },
+      select: {
+        goals: true,
+        assists: true,
+        minutes: true,
+        matchesPlayed: true,
+        statsUpdatedAt: true,
+      },
+    });
+
+    // The previous figures only move when a figure moves. A refresh that
+    // finds nothing new must leave them exactly where they were, or a goal
+    // scored on Saturday would stop being new after Sunday's run — and with a
+    // weekly cron, that is most of them.
+    const moved =
+      before != null &&
+      (before.goals !== figures.goals ||
+        before.assists !== figures.assists ||
+        before.minutes !== figures.minutes ||
+        before.matchesPlayed !== figures.matchesPlayed);
+
+    const shift = moved
+      ? {
+          prevGoals: before.goals,
+          prevAssists: before.assists,
+          prevMinutes: before.minutes,
+          prevMatches: before.matchesPlayed,
+          prevAt: before.statsUpdatedAt ?? now,
+        }
+      : {};
+
     await prisma.profileSeasonStat.upsert({
       where: { profileId_year: { profileId, year: s.year } },
+      // A row seen for the first time has no "before", so nothing is new
+      // about it. Leaving the previous figures null is what keeps the very
+      // first import from reporting the whole database as having just scored.
       create: { profileId, year: s.year, ...figures },
-      update: figures,
+      update: { ...figures, ...shift },
     });
   }
 
