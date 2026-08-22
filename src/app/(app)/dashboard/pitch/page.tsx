@@ -7,12 +7,24 @@ import { AnalyticsTabs } from "@/components/AnalyticsTabs";
 import { TableScroller } from "@/components/TableScroller";
 import { currentSeasonYear, seasonLabel } from "@/lib/saveStats";
 import { isMissingSeasonTable } from "@/lib/seasonStats";
+import { isDivisionOne } from "@/lib/ncaaPrograms";
 
 /**
  * What our players have actually done on the pitch in one season.
  *
  * Everything else in this dashboard counts placements — how many players,
- * where, for how much. This counts football: minutes, appearances, goals.
+ * where, for how much. This counts football: goals, minutes, appearances.
+ *
+ * Two deliberate limits, and the page states both rather than quietly
+ * applying them:
+ *
+ *  - **Division I only.** That is where the tracking is wanted, and it is
+ *    also where it works best: the roster feeds are most complete there.
+ *  - **Players on a roster right now.** A season's figures for someone who
+ *    has left are history, not a season being played.
+ *
+ * Anything the limits exclude is counted and said out loud, so a player who
+ * is missing from the list is missing for a reason you can read.
  *
  * The season is the NCAA's, keyed on the calendar year it starts in, which is
  * what both roster platforms use. The app writes that as 26/27 and the NCAA
@@ -76,11 +88,16 @@ export default async function PitchPage({
   let rows: Row[] = [];
   let years: number[] = [];
   let tableMissing = false;
+  let excludedNotDivisionOne = 0;
 
   try {
     const [found, seasons] = await Promise.all([
       prisma.profileSeasonStat.findMany({
-        where: { year, profile: { player: { active: true } } },
+        // On a roster right now, on a player still in the database. Division I
+        // is settled below: the column is free text and "Division I" is a
+        // prefix of "Division II", so it cannot be matched in SQL without
+        // quietly dragging in the other two.
+        where: { year, profile: { current: true, player: { active: true } } },
         select: {
           matchesPlayed: true,
           matchesStarted: true,
@@ -98,7 +115,15 @@ export default async function PitchPage({
               division: true,
               profileImageUrl: true,
               player: {
-                select: { id: true, name: true, position: true, profileImageUrl: true },
+                select: {
+                  id: true,
+                  name: true,
+                  position: true,
+                  profileImageUrl: true,
+                  // The fallback when the profile itself has no division:
+                  // the player record mirrors whichever stint is current.
+                  division: true,
+                },
               },
             },
           },
@@ -106,11 +131,19 @@ export default async function PitchPage({
       }),
       prisma.profileSeasonStat.groupBy({ by: ["year"], _count: true }),
     ]);
-    rows = found.map((r) => ({
+    // Division I, tested against the several ways the database spells it.
+    // Exact comparison, so "Division II" and "Division III" cannot slip in on
+    // a prefix — which is the whole reason this is not a SQL filter.
+    const divisionOf = (r: (typeof found)[number]) =>
+      r.profile.division ?? r.profile.player.division;
+    const inDivisionOne = found.filter((r) => isDivisionOne(divisionOf(r)));
+    excludedNotDivisionOne = found.length - inDivisionOne.length;
+
+    rows = inDivisionOne.map((r) => ({
       playerId: r.profile.player.id,
       name: r.profile.player.name,
       university: r.profile.university,
-      division: r.profile.division,
+      division: divisionOf(r),
       position: r.profile.player.position,
       profileImageUrl: r.profile.profileImageUrl ?? r.profile.player.profileImageUrl,
       matchesPlayed: r.matchesPlayed,
@@ -153,7 +186,8 @@ export default async function PitchPage({
         <div>
           <h1 className="text-3xl leading-none text-fg">On the pitch</h1>
           <p className="mt-1 text-sm text-muted">
-            NCAA {year} season — what the app calls {seasonLabel(year)}.
+            NCAA {year} season — what the app calls {seasonLabel(year)}.{" "}
+            <b className="text-fg">Division I</b>, players on a roster now.
           </p>
         </div>
         <div className="flex flex-wrap gap-1 rounded-full border border-ink-600 p-1">
@@ -190,6 +224,13 @@ export default async function PitchPage({
             have been pulled yet. A refresh reads each player&rsquo;s roster page and files what it
             finds, one row per season.
           </p>
+          {excludedNotDivisionOne > 0 && (
+            <p className="mt-2 max-w-2xl text-sm text-muted">
+              {formatNumber(excludedNotDivisionOne)} player
+              {excludedNotDivisionOne === 1 ? " has" : "s have"} figures for this season outside
+              Division I, which this page does not cover.
+            </p>
+          )}
         </div>
       ) : (
         <>
@@ -215,6 +256,15 @@ export default async function PitchPage({
               sub={`${formatNumber(sum((r) => r.saves))} saves`}
             />
           </div>
+
+          {excludedNotDivisionOne > 0 && (
+            <p className="text-[11px] text-muted">
+              {formatNumber(excludedNotDivisionOne)} player
+              {excludedNotDivisionOne === 1 ? "" : "s"} with figures this season{" "}
+              {excludedNotDivisionOne === 1 ? "is" : "are"} outside Division I and not counted
+              here.
+            </p>
+          )}
 
           {/* Goals we noticed, newest first. */}
           <section className="card p-4">
@@ -259,6 +309,33 @@ export default async function PitchPage({
             )}
           </section>
 
+          {scorers.length > 0 && (
+            <section className="card p-4">
+              <h2 className="mb-3 text-sm font-semibold text-fg">
+                Scorers in {seasonLabel(year)}
+              </h2>
+              <ol className="space-y-1.5">
+                {scorers.map((r, i) => (
+                  <li
+                    key={`${r.playerId}-${r.university}`}
+                    className="flex items-center gap-3 rounded-xl border border-ink-600 px-3 py-2"
+                  >
+                    <span className="w-5 shrink-0 text-right text-[11px] tabular-nums text-muted">
+                      {i + 1}
+                    </span>
+                    <Avatar url={r.profileImageUrl} name={r.name} />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm text-fg">{r.name}</span>
+                      <span className="block truncate text-[11px] text-muted">{r.university}</span>
+                    </span>
+                    <span className="shrink-0 font-display text-xl leading-none text-accent">
+                      {r.goals}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
           <section className="card overflow-hidden">
             <div className="border-b border-ink-600 p-4">
               <h2 className="text-sm font-semibold text-fg">Minutes in {seasonLabel(year)}</h2>
@@ -326,33 +403,6 @@ export default async function PitchPage({
             </TableScroller>
           </section>
 
-          {scorers.length > 0 && (
-            <section className="card p-4">
-              <h2 className="mb-3 text-sm font-semibold text-fg">
-                Scorers in {seasonLabel(year)}
-              </h2>
-              <ol className="space-y-1.5">
-                {scorers.map((r, i) => (
-                  <li
-                    key={`${r.playerId}-${r.university}`}
-                    className="flex items-center gap-3 rounded-xl border border-ink-600 px-3 py-2"
-                  >
-                    <span className="w-5 shrink-0 text-right text-[11px] tabular-nums text-muted">
-                      {i + 1}
-                    </span>
-                    <Avatar url={r.profileImageUrl} name={r.name} />
-                    <span className="min-w-0 flex-1">
-                      <span className="block truncate text-sm text-fg">{r.name}</span>
-                      <span className="block truncate text-[11px] text-muted">{r.university}</span>
-                    </span>
-                    <span className="shrink-0 font-display text-xl leading-none text-accent">
-                      {r.goals}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </section>
-          )}
         </>
       )}
     </div>
